@@ -15,3 +15,7 @@ vim.keymap.set("n", "=", '<cmd>vertical resize +5<cr>')
 vim.keymap.set("n", "-", '<cmd>vertical resize -5<cr>')
 vim.keymap.set("n", "+", '<cmd>horizontal resize +2<cr>')
 vim.keymap.set("n", "_", '<cmd>horizontal resize -2<cr>')
+
+-- Rebind used '=' to g=
+vim.keymap.set("n", "g=", '=')
+
