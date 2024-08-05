@@ -8,5 +8,10 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>')
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>')
 
 -- Disable default behavior of Space in normal mode
-vim.api.nvim_set_keymap('n', '<Space>', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Space>', '<Nop>')
 
+-- Window resize
+vim.keymap.set("n", "=", '<cmd>vertical resize +5<cr>')
+vim.keymap.set("n", "-", '<cmd>vertical resize -5<cr>')
+vim.keymap.set("n", "+", '<cmd>horizontal resize +2<cr>')
+vim.keymap.set("n", "_", '<cmd>horizontal resize -2<cr>')
