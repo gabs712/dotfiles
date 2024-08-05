@@ -45,3 +45,13 @@ vim.opt.shiftwidth = 2
 -- Use status bar globally
 vim.opt.laststatus = 3
 
+-- Highlight when yanking
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
+-- Extend timeout to use custom keybinds - Default is 1000
+vim.o.timeoutlen = 2000

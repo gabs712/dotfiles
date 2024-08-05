@@ -1,6 +1,3 @@
-vim.opt.relativenumber = true
-vim.opt.number = true
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -18,16 +15,15 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
--- Must be set before plugins are loaded
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+require('options')
+require('remaps')
 
 require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  -- colorscheme that will be used when installing plugins.
+  -- Colorscheme that will be used when installing plugins.
   install = { colorscheme = { "catppuccin" } },
-  -- automatically check for plugin updates
+  -- Automatically check for plugin updates
   checker = { enabled = true },
 })
