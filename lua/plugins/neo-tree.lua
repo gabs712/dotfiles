@@ -8,11 +8,14 @@ return {
       "MunifTanjim/nui.nvim",
     },
     config = function()
-      vim.cmd('Neotree reveal show left')
-
       require('neo-tree').setup({
         close_if_last_window = true,
+        window = {
+          width = 30,
+        },
       })
+
+      vim.cmd('Neotree reveal show left')
 
       vim.keymap.set('n', '<leader>E', '<cmd>Neotree toggle reveal show left<CR>')
       vim.keymap.set('n', '<leader>e', function()
