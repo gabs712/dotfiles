@@ -54,4 +54,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Extend timeout to use custom keybinds - Default is 1000
-vim.o.timeoutlen = 2000
+vim.o.timeoutlen = 4000
+
+-- Use OS clipbloard - Defer to prevent increase in startup-time
+vim.schedule(function()
+  vim.opt.clipboard = 'unnamedplus'
+end)
+
