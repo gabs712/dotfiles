@@ -15,31 +15,11 @@ return {
         },
       })
 
+      -- Doesn't focus curosr
       vim.cmd('Neotree reveal show left')
 
-      vim.keymap.set('n', '<leader>E', '<cmd>Neotree toggle reveal show left<CR>')
-      vim.keymap.set('n', '<leader>e', function()
-        -- If a tree is being foucused, go to previous window
-        if vim.bo.filetype:match('^neo%-tree') then
-          vim.cmd('wincmd p')
-          return
-        end
-
-        -- If there is a tree, focus it
-        for _, win in ipairs(vim.api.nvim_list_wins()) do
-          local buf = vim.api.nvim_win_get_buf(win)
-          local bufname = vim.api.nvim_buf_get_name(buf)
-          local filetype = vim.api.nvim_buf_get_option(buf, 'filetype')
-
-          if filetype == 'neo-tree' then
-            vim.api.nvim_set_current_win(win)
-            return
-          end
-        end
-
-        -- If there is not a tree, create a new one
-        vim.cmd('Neotree reveal focus left')
-      end)
+      -- Toggle window, highlight current file, move cursor
+      vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle reveal focus left<CR>')
     end
   }
 }
