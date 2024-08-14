@@ -11,12 +11,9 @@ return {
       require('neo-tree').setup({
         close_if_last_window = true,
         window = {
-          width = 27,
+          width = 25,
         },
       })
-
-      -- Doesn't focus curosr
-      vim.cmd('Neotree reveal show left')
 
       -- Toggle window, highlight current file, move cursor
       vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle reveal focus left<CR>')
