@@ -4,20 +4,20 @@ return {
   config = function()
 
     local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = 'Find Files' })
-    vim.keymap.set('n', '<leader>fa', builtin.live_grep, {desc = 'Find All' })
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = 'Find Buffers' })
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = 'Find Help' })
-    vim.keymap.set('n', '<leader>fg', builtin.git_files, {desc = 'Find Git' })
-    vim.keymap.set('n', '<leader>fr', builtin.oldfiles, {desc = 'Find Recent' })
-    vim.keymap.set('n', '<leader>ft', builtin.colorscheme, {desc = 'Find Theme' })
-    vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, {desc = 'Search' })
+    vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = 'Find files' })
+    vim.keymap.set('n', '<leader>fa', builtin.live_grep, {desc = 'Find all terms' })
+    vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = 'Find buffers' })
+    vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = 'Find help' })
+    vim.keymap.set('n', '<leader>fg', builtin.git_files, {desc = 'Find git files' })
+    vim.keymap.set('n', '<leader>fr', builtin.oldfiles, {desc = 'Find recent' })
+    vim.keymap.set('n', '<leader>ft', builtin.colorscheme, {desc = 'Find theme (colorscheme)' })
+    vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, {desc = 'Search in buffer' })
     vim.keymap.set('n', '<leader>fc', function()
       builtin.find_files {
         cwd = vim.fn.stdpath 'config',
         prompt_title = 'Neovim Files'
       }
-    end, { desc = 'Find Config' })
+    end, { desc = 'Find config' })
     vim.keymap.set('n', '<leader>fk', builtin.keymaps, {desc = 'Find keymaps' })
   end
 }
