@@ -3,10 +3,11 @@ return {
   build = ":TSUpdate",
   config = function () 
     require("nvim-treesitter.configs").setup({
-      ensure_installed = { 'lua', 'html', 'javascript', 'css', 'bash', 'c', 'markdown', 'markdown_inline', 'csv', 'json', 'python', 'scss', 'typescript' },
+      auto_install = true,
       sync_install = false,
       highlight = { enable = true },
       indent = { enable = true },
     })
   end
 }
+
