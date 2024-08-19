@@ -1,4 +1,4 @@
 require('options')
-require('remaps')
+require('keymaps')
 require('lazy-nvim')
 
