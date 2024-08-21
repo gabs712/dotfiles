@@ -56,3 +56,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Extend timeout to use custom keybinds - Default is 1000
 vim.o.timeoutlen = 4000
 
+-- Turn off swapfile
+vim.opt.swapfile = false
+
