@@ -22,3 +22,6 @@ vim.keymap.set('x', "a'", "2i'")
 vim.keymap.set('x', 'a"', "2i\"")
 vim.keymap.set('x', 'a`', "2i`")
 
+-- Move through wrap 
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
