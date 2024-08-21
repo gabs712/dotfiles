@@ -14,14 +14,12 @@ vim.keymap.set("n", "<C-Down>", '<cmd>vertical resize -5<cr>', { desc = 'Window 
 vim.keymap.set("n", "<C-Right>", '<cmd>horizontal resize +2<cr>', { desc = 'Window horizontal increase' })
 vim.keymap.set("n", "<C-Left>", '<cmd>horizontal resize -2<cr>', { desc = 'Window horizontal decrease' })
 
--- With strings, when using "a" on operator-pending or visual mode, not include extra whitespace
-vim.keymap.set('o', "a'", "2i'")
-vim.keymap.set('o', 'a"', "2i\"")
-vim.keymap.set('o', 'a`', "2i`")
-vim.keymap.set('x', "a'", "2i'")
-vim.keymap.set('x', 'a"', "2i\"")
-vim.keymap.set('x', 'a`', "2i`")
+-- With strings, when using "a" on operator-pending mode or visual modes, not include extra whitespace
+vim.keymap.set({'o', 'x'}, "a'", "2i'")
+vim.keymap.set({'o', 'x'}, 'a"', "2i\"")
+vim.keymap.set({'o', 'x'}, 'a`', "2i`")
 
 -- Move through wrap 
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
+
