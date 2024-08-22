@@ -11,7 +11,7 @@ return {
     vim.keymap.set('n', '<leader>fg', builtin.git_files, {desc = 'Find git files' })
     vim.keymap.set('n', '<leader>fr', builtin.oldfiles, {desc = 'Find recent' })
     vim.keymap.set('n', '<leader>ft', builtin.colorscheme, {desc = 'Find theme (colorscheme)' })
-    vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, {desc = 'Search in buffer' })
+    vim.keymap.set('n', '<C-/>', builtin.current_buffer_fuzzy_find, {desc = 'Search in buffer' })
     vim.keymap.set('n', '<leader>fc', function()
       builtin.find_files {
         cwd = vim.fn.stdpath 'config',

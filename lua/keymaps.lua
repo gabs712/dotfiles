@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Hide highlight' })
+vim.keymap.set('n', '<Esc>', '<cmd>stopinsert<CR><cmd>nohlsearch<CR>', { desc = 'Clean notifications and highlights' })
 
 -- Window navigation
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Window left' })
