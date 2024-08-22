@@ -32,11 +32,8 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- Visual feedback when using :s
 vim.opt.inccommand = 'split'
 
--- Highlight selected line
-vim.opt.cursorline = true
-
 -- How many lines keep around cursor when moving vertically
-vim.opt.scrolloff = 15
+vim.opt.scrolloff = 99
 
 -- Convert tabs to spaces
 vim.opt.expandtab = true
@@ -58,4 +55,7 @@ vim.o.timeoutlen = 4000
 
 -- Turn off swapfile
 vim.opt.swapfile = false
+
+-- Don't show the mode, since it's already in the status line
+vim.opt.showmode = false
 
