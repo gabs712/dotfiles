@@ -20,14 +20,28 @@ return {
   {
     -- Adds highlight based on current position
     'echasnovski/mini.indentscope',
-    enabled = true,
     version = '*',
     config = function()
       require('mini.indentscope').setup({
         symbol = '▏',
         draw = {
-          animation = require('mini.indentscope').gen_animation.none()
-        }
+          animation = require('mini.indentscope').gen_animation.none(),
+        },
+        options = {
+          -- Highlight selected parent children
+          try_as_border = true,
+          -- Highlight at cursor column
+          indent_at_cursor = false,
+        },
+        mappings = {
+          -- Textobjects
+          object_scope = 'ii',
+          object_scope_with_border = 'ai',
+
+          -- Motions (jump to respective border line)
+          goto_top = '[i',
+          goto_bottom = ']i',
+        },
       })
     end
   }
