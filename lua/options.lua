@@ -5,6 +5,9 @@ vim.g.maplocalleader = " "
 vim.opt.relativenumber = true
 vim.opt.number = true
 
+-- Highlight selected line
+-- vim.opt.cursorline = true
+
 -- Follow identation on wrap
 vim.opt.breakindent = true
 
