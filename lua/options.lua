@@ -47,7 +47,6 @@ vim.opt.laststatus = 3
 
 -- Highlight when yanking
 vim.api.nvim_create_autocmd('TextYankPost', {
-  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
@@ -61,4 +60,11 @@ vim.opt.swapfile = false
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
+
+-- Disable comment insertion when pressing 'o' or '<CR>' next to it
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function()
+    vim.opt.formatoptions:remove({ 'c', 'r', 'o' })
+  end,
+})
 
