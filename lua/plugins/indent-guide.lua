@@ -1,29 +1,64 @@
+local ignore_filetypes = {
+  '\'\'',
+  'aerial',
+  'better_term',
+  'checkhealth',
+  'dashboard',
+  'gitcommit',
+  'help',
+  'lazy',
+  'leetcode.nvim',
+  'lspinfo',
+  'man',
+  'markdown',
+  'mason',
+  'neo-tree',
+  'neogitstatus',
+  'notify',
+  'NvimTree',
+  'packer',
+  'startify',
+  'TelescopePrompt',
+  'TelescopeResults',
+  'toggleterm',
+  'trouble',
+  'Trouble',
+  'text',
+}
+
+local is_enabled = true
+local char = '▏'
+
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
     dependencies = "nvim-treesitter/nvim-treesitter",
+    enabled = is_enabled,
     main = "ibl",
     config = function()
       require("ibl").setup({
         indent = {
-          char = "▏",
+          char = char,
         },
         scope = {
-          -- Set to true to use hightlight based on scope
           enabled = false,
-          show_start = false,
-          show_end = false,
+        },
+      })
+
+      require("ibl").overwrite({
+        exclude = {
+          filetypes = ignore_filetypes
         }
       })
     end
   },
   {
-    -- Adds highlight based on current position
     'echasnovski/mini.indentscope',
+    enabled = is_enabled,
     version = '*',
     config = function()
       require('mini.indentscope').setup({
-        symbol = '▏',
+        symbol = char,
         draw = {
           animation = require('mini.indentscope').gen_animation.none(),
         },
@@ -43,6 +78,14 @@ return {
           goto_bottom = ']i',
         },
       })
+
+      vim.api.nvim_create_autocmd("FileType", {
+      desc = "Disable indentscope for certain filetypes",
+      pattern = ignore_filetypes,
+      callback = function()
+        vim.b.miniindentscope_disable = true
+      end,
+    })
     end
   }
 }
