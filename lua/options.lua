@@ -30,7 +30,7 @@ vim.opt.splitbelow = true
 
 -- Show empty chars
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '  ', trail = '·', nbsp = ' ' }
 
 -- Visual feedback when using :s
 vim.opt.inccommand = 'split'
