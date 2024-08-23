@@ -26,19 +26,16 @@ local ignore_filetypes = {
   'text',
 }
 
-local is_enabled = true
-local char = '▏'
-
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
     dependencies = "nvim-treesitter/nvim-treesitter",
-    enabled = is_enabled,
+    enabled = true,
     main = "ibl",
     config = function()
       require("ibl").setup({
         indent = {
-          char = char,
+          char = '▏',
         },
         scope = {
           enabled = false,
@@ -54,11 +51,11 @@ return {
   },
   {
     'echasnovski/mini.indentscope',
-    enabled = is_enabled,
+    enabled = true,
     version = '*',
     config = function()
       require('mini.indentscope').setup({
-        symbol = char,
+        symbol = '▏',
         draw = {
           animation = require('mini.indentscope').gen_animation.none(),
         },
