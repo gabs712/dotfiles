@@ -50,8 +50,8 @@ return {
     end
   },
   {
+    -- IMPORTANT: To change highlight while keeping keymaps, toggle between autocmd and miniindentscope_disable
     'echasnovski/mini.indentscope',
-    enabled = true,
     version = '*',
     config = function()
       require('mini.indentscope').setup({
@@ -76,12 +76,15 @@ return {
         },
       })
 
+      --
       vim.api.nvim_create_autocmd("FileType", {
       desc = "Disable indentscope for certain filetypes",
       pattern = ignore_filetypes,
       callback = function()
         vim.b.miniindentscope_disable = true
       end,
+
+      -- vim.g.miniindentscope_disable = true
     })
     end
   }
