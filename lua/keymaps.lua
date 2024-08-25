@@ -30,3 +30,5 @@ vim.keymap.set({'n', 'x'}, 'gP', '"+P', {desc = 'Paste from OS before'})
 vim.keymap.set({'n', 'x'}, 'gy', '"+y', {desc = 'Yank to OS'})
 vim.keymap.set({'n', 'x'}, 'gY', '"+y$', {desc = 'Yank remaining line to OS'})
 
+vim.keymap.set('n', '<C-\'>', '<cmd>buffer #<CR>', {desc = 'Go to most recent buffer'})
+

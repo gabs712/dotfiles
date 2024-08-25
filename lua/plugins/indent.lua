@@ -5,6 +5,7 @@ local ignore_filetypes = {
   'checkhealth',
   'dashboard',
   'gitcommit',
+  'harpoon',
   'help',
   'lazy',
   'leetcode.nvim',
