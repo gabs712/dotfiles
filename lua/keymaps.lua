@@ -23,3 +23,10 @@ vim.keymap.set({'o', 'x'}, 'a`', "2i`")
 vim.keymap.set({'n', 'x'}, 'j', 'gj')
 vim.keymap.set({'n', 'x'}, 'k', 'gk')
 
+-- Clipboard
+vim.keymap.set({'n', 'x'}, 'gp', '"+p', {desc = 'Paste from OS after'})
+vim.keymap.set({'n', 'x'}, 'gP', '"+P', {desc = 'Paste from OS before'})
+
+vim.keymap.set({'n', 'x'}, 'gy', '"+y', {desc = 'Yank to OS'})
+vim.keymap.set({'n', 'x'}, 'gY', '"+y$', {desc = 'Yank remaining line to OS'})
+
