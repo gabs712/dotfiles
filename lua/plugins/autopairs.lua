@@ -6,7 +6,8 @@ return {
       disable_filetype = {
         "TelescopePrompt", 
         "spectre_panel",
-      }
+      },
+      disable_in_macro = false,
     })
   end
 }
