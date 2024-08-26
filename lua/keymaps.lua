@@ -20,11 +20,14 @@ vim.keymap.set({'o', 'x'}, 'a"', "2i\"")
 vim.keymap.set({'o', 'x'}, 'a`', "2i`")
 
 -- Make underscore behavior consistent
-vim.keymap.set('o', '_', '^')
+vim.keymap.set({'n', 'o', 'x'}, '_', '^')
+vim.keymap.set({'n', 'o', 'x'}, 'g_', 'g^')
 
 -- Move through wrap 
 vim.keymap.set({'n', 'x'}, 'j', 'gj')
 vim.keymap.set({'n', 'x'}, 'k', 'gk')
+vim.keymap.set({'n', 'x'}, 'gj', 'j')
+vim.keymap.set({'n', 'x'}, 'gk', 'k')
 
 -- Clipboard
 vim.keymap.set({'n', 'x'}, 'gp', '"+p', {desc = 'Paste from OS after'})
