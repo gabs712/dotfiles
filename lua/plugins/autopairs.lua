@@ -4,8 +4,9 @@ return {
   config = function()
     require('nvim-autopairs').setup({
       disable_filetype = {
-        "TelescopePrompt", 
-        "spectre_panel",
+        'TelescopePrompt', 
+        'spectre_panel',
+        'harpoon',
       },
       disable_in_macro = false,
     })
