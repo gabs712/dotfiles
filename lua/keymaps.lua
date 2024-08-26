@@ -39,8 +39,8 @@ vim.keymap.set({'n', 'x'}, 'gY', '"+y$', {desc = 'Yank remaining line to OS'})
 vim.keymap.set('n', '<C-\'>', '<cmd>buffer #<CR>', {desc = 'Go to most recent buffer'})
 
 -- Faster keymaps to ge
-vim.keymap.set('n', '<c-e>', 'ge')
-vim.keymap.set('n', '<c-b>', 'gE')
+vim.keymap.set({'n', 'o', 'x'}, '<c-e>', 'ge')
+vim.keymap.set({'n', 'o', 'x'}, '<c-b>', 'gE')
 
 -- Weird tab bug. When mapping something to tab, <c-i> is also mapped to it.
 -- To fix it, <c-i> is mapped to tab (it doesn't really make any sense).
