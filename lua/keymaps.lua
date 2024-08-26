@@ -46,3 +46,8 @@ vim.keymap.set('n', '<c-b>', 'gE')
 -- To fix it, <c-i> is mapped to tab (it doesn't really make any sense).
 vim.keymap.set('n', '<c-i>', '<tab>', { desc = 'To fix bug. Has no effect.' })
 
+-- vim.keymap doesn't seem to work for cedilla
+vim.cmd('nmap ç gc')
+vim.cmd('nmap çç gcc')
+vim.cmd('xmap ç gc')
+
