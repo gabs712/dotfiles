@@ -38,3 +38,7 @@ vim.keymap.set({'n', 'x'}, 'gY', '"+y$', {desc = 'Yank remaining line to OS'})
 
 vim.keymap.set('n', '<C-\'>', '<cmd>buffer #<CR>', {desc = 'Go to most recent buffer'})
 
+-- Faster keymaps to ge
+vim.keymap.set('n', '<c-e>', 'ge')
+vim.keymap.set('n', '<c-b>', 'gE')
+
