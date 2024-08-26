@@ -42,3 +42,7 @@ vim.keymap.set('n', '<C-\'>', '<cmd>buffer #<CR>', {desc = 'Go to most recent bu
 vim.keymap.set('n', '<c-e>', 'ge')
 vim.keymap.set('n', '<c-b>', 'gE')
 
+-- Weird tab bug. When mapping something to tab, <c-i> is also mapped to it.
+-- To fix it, <c-i> is mapped to tab (it doesn't really make any sense).
+vim.keymap.set('n', '<c-i>', '<tab>', { desc = 'To fix bug. Has no effect.' })
+
