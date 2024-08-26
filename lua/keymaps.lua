@@ -8,12 +8,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Window right' })
 
 vim.keymap.set('n', '<Space>', '<Nop>')
 
--- Window resize
-vim.keymap.set("n", "<C-Up>", '<cmd>vertical resize +5<cr>', { desc = 'Window vertical increase' })
-vim.keymap.set("n", "<C-Down>", '<cmd>vertical resize -5<cr>', { desc = 'Window vertical decrease' })
-vim.keymap.set("n", "<C-Right>", '<cmd>horizontal resize +2<cr>', { desc = 'Window horizontal increase' })
-vim.keymap.set("n", "<C-Left>", '<cmd>horizontal resize -2<cr>', { desc = 'Window horizontal decrease' })
-
 -- With strings, when using "a" on operator-pending mode or visual modes, not include extra whitespace
 vim.keymap.set({'o', 'x'}, "a'", "2i'")
 vim.keymap.set({'o', 'x'}, 'a"', "2i\"")
@@ -54,4 +48,22 @@ vim.cmd('xmap ç gc')
 -- Improve indentation agility
 vim.keymap.set('x', '<', '<gv')
 vim.keymap.set('x', '>', '>gv')
+
+-- Improve repetitive window movements
+vim.keymap.set('n', '<C-w><C-w>', '<Nop>')
+
+vim.cmd('nmap <c-w>h <c-w>h<c-w>')
+vim.cmd('nmap <c-w>j <c-w>j<c-w>')
+vim.cmd('nmap <c-w>k <c-w>k<c-w>')
+vim.cmd('nmap <c-w>l <c-w>l<c-w>')
+
+vim.cmd('nmap <c-w>H <c-w>H<c-w>')
+vim.cmd('nmap <c-w>J <c-w>J<c-w>')
+vim.cmd('nmap <c-w>K <c-w>K<c-w>')
+vim.cmd('nmap <c-w>L <c-w>L<c-w>')
+
+vim.cmd('nmap <C-w>. <cmd>vertical resize +5<cr><C-w>')
+vim.cmd('nmap <C-w>, <cmd>vertical resize -5<cr><C-w>')
+vim.cmd('nmap <C-w>> <cmd>horizontal resize +5<cr><C-w>')
+vim.cmd('nmap <C-w>< <cmd>horizontal resize -5<cr><C-w>')
 
