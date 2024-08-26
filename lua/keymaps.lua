@@ -19,6 +19,9 @@ vim.keymap.set({'o', 'x'}, "a'", "2i'")
 vim.keymap.set({'o', 'x'}, 'a"', "2i\"")
 vim.keymap.set({'o', 'x'}, 'a`', "2i`")
 
+-- Make underscore behavior consistent
+vim.keymap.set('o', '_', '^')
+
 -- Move through wrap 
 vim.keymap.set({'n', 'x'}, 'j', 'gj')
 vim.keymap.set({'n', 'x'}, 'k', 'gk')
