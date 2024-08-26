@@ -51,3 +51,7 @@ vim.cmd('nmap ç gc')
 vim.cmd('nmap çç gcc')
 vim.cmd('xmap ç gc')
 
+-- Improve indentation agility
+vim.keymap.set('x', '<', '<gv')
+vim.keymap.set('x', '>', '>gv')
+
