@@ -21,7 +21,7 @@ return {
     vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = 'Find buffers' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = 'Find help' })
     vim.keymap.set('n', '<leader>fg', builtin.git_files, {desc = 'Find git files' })
-    vim.keymap.set('n', '<leader>fr', builtin.oldfiles, {desc = 'Find recent' })
+    vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {desc = 'Find old files' })
     vim.keymap.set('n', '<leader>fc', builtin.colorscheme, {desc = 'Find colorschemes' })
     vim.keymap.set('n', '<C-/>', builtin.current_buffer_fuzzy_find, {desc = 'Search in buffer' })
     vim.keymap.set('n', '<leader>fk', builtin.keymaps, {desc = 'Find keymaps' })
