@@ -40,10 +40,17 @@ vim.keymap.set({'n', 'o', 'x'}, '<c-b>', 'gE')
 -- To fix it, <c-i> is mapped to tab (it doesn't really make any sense).
 vim.keymap.set('n', '<c-i>', '<tab>', { desc = 'To fix bug. Has no effect.' })
 
--- vim.keymap doesn't seem to work for cedilla
+-- Some keymaps doesn't seem to work with vim.keymap
+-- Enable comment the rest of line
+vim.cmd('nmap gcC gc$')
+vim.cmd('xmap gcC gc$')
+
+-- Map cedilla to comment
 vim.cmd('nmap ç gc')
-vim.cmd('xmap ç gc')
 vim.cmd('nmap çç gcc')
+vim.cmd('nmap Ç gc$')
+vim.cmd('xmap ç gc')
+vim.cmd('xmap Ç gc$')
 
 -- Improve indentation agility
 vim.keymap.set('x', '<', '<gv')
