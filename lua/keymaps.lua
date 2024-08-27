@@ -40,6 +40,9 @@ vim.keymap.set({'n', 'o', 'x'}, '<c-b>', 'gE')
 -- To fix it, <c-i> is mapped to tab (it doesn't really make any sense).
 vim.keymap.set('n', '<c-i>', '<tab>', { desc = 'To fix bug. Has no effect.' })
 
+-- The same happens with <CR>
+vim.keymap.set('n', '<CR>', '<C-m>', { desc = 'To fix bug. Has no effect.' })
+
 -- Improve repetitive window movements
 vim.keymap.set({'n', 'x'}, '<C-w><C-w>', '<Nop>')
 

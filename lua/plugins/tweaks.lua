@@ -13,6 +13,7 @@ return {
   },
   {
     -- Whenever indent (<, >, =) is used, the cursor doesn't move to start
+    -- Doesn't yet support dot repeat and undos 
     "gbprod/stay-in-place.nvim",
     config = function()
       require("stay-in-place").setup({
