@@ -67,3 +67,6 @@ vim.cmd('nmap <C-w>, <cmd>vertical resize -5<cr><C-w>')
 vim.cmd('nmap <C-w>> <cmd>horizontal resize +5<cr><C-w>')
 vim.cmd('nmap <C-w>< <cmd>horizontal resize -5<cr><C-w>')
 
+-- Jump to character instead of line when using marks
+vim.keymap.set('n', '\'', '`')
+
