@@ -5,10 +5,23 @@ return {
     "svban/YankAssassin.nvim",
     config = function()
       require("YankAssassin").setup {
+        -- Enabled modes
         auto_normal = true, 
         auto_visual = true,
       }
     end,
+  },
+  {
+    -- Whenever indent (<, >, =) is used, the cursor doesn't move to start
+    "gbprod/stay-in-place.nvim",
+    config = function()
+      require("stay-in-place").setup({
+        {
+          set_keymaps = true, -- Keymaps are automatically settled
+          preserve_visual_selection = true, -- Keep selection when indenting
+        }
+      })
+    end
   },
   {
     'declancm/maximize.nvim',
