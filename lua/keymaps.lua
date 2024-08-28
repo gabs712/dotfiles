@@ -76,3 +76,6 @@ vim.cmd('xmap <C-w>< <cmd>horizontal resize -5<cr><C-w>')
 -- Jump to character instead of line when using marks
 vim.keymap.set({'n', 'x'}, '\'', '`')
 
+-- Free space for J keymap
+vim.keymap.set({'n', 'x'}, 'gj', 'J')
+
