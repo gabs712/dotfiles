@@ -63,10 +63,10 @@ return {
           animation = require('mini.indentscope').gen_animation.none(),
         },
         options = {
-          -- Highlight selected parent children
+          -- Focus selected parent children
           try_as_border = true,
-          -- Highlight at cursor column
-          indent_at_cursor = true,
+          -- Focus at cursor column
+          indent_at_cursor = false,
         },
         mappings = {
           -- Textobjects
