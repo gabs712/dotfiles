@@ -32,7 +32,6 @@ local ignore_filetypes = {
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
     enabled = true,
     main = "ibl",
     config = function()
