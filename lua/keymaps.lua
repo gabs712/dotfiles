@@ -83,13 +83,14 @@ vim.cmd('xmap <C-w>> <cmd>horizontal resize +5<cr><C-w>')
 vim.cmd('nmap <C-w>< <cmd>horizontal resize -5<cr><C-w>')
 vim.cmd('xmap <C-w>< <cmd>horizontal resize -5<cr><C-w>')
 
--- Jump to character instead of line when using marks
-vim.keymap.set({'n', 'x'}, '\'', '`')
-
 -- Free space for s
 vim.keymap.set({'n', 'x'}, 'R', 's')
 vim.keymap.set({'n', 'x'}, 'gr', 'R')
 
 -- Free space for J keymap
 vim.keymap.set({'n', 'x'}, 'gj', 'J')
+
+-- Add relative jumps to jump list
+vim.cmd("nnoremap <expr> j v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'j' : 'gj'")
+vim.cmd("nnoremap <expr> k v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'k' : 'gk'")
 
