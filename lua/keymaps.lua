@@ -1,4 +1,14 @@
-vim.keymap.set('n', '<Esc>', '<cmd>stopinsert<CR><cmd>nohlsearch<CR>', { desc = 'Clean notifications and highlights' })
+-- Clear screen (use on_key to avoid conflicts with replace_termcodes when identifying esc)
+vim.on_key(function(key)
+  local esc = vim.api.nvim_replace_termcodes('<Esc>', true, true, true) -- Convert esc adequately
+  if key == esc then
+    local mode = vim.api.nvim_get_mode().mode
+    if mode == 'n' then
+      vim.cmd('nohlsearch') -- Clear '/' search
+      vim.cmd('stopinsert') -- Clear command bar
+    end
+  end
+end)
 
 -- Window navigation
 vim.keymap.set({'n', 'x'}, '<A-h>', '<C-w><C-h>', { desc = 'Window left' })

@@ -28,26 +28,11 @@ return {
           highlight = {
             backdrop = false, -- Fade out text
           },
-          -- Adds labels to f and t searches
-          autohide = true,
-          jump_labels = false, 
-          jump = {
-            -- ToDO plugin pra desligar comentarios, todo highlihgt
-            autojump = true,
-            register = true, -- see what this does
-            nohlsearch = true,
-          },
-        }
+        },
       },
-      jump = {
-        register = true, -- see what this does
-        nohlsearch = true,
-
-      }
     })
 
     vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash" })
-    vim.keymap.set("c", "<c-s>", function() require("flash").toggle() end, { desc = "Toggle Flash Search" })
   end
 }
 
