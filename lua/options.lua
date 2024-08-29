@@ -2,6 +2,13 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1 -- Disable aditional netrw features
+
+-- True colors suport
+vim.opt.termguicolors = true
+
 vim.opt.relativenumber = true
 vim.opt.number = true
 
