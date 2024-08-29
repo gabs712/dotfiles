@@ -61,7 +61,7 @@ vim.opt.swapfile = false
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
--- Disable comment insertion when pressing 'o' or '<CR>' next to it
+-- Disable comment insertion when pressing 'o'
 vim.api.nvim_create_autocmd('BufEnter', {
   callback = function()
     vim.opt.formatoptions:remove({'o'})
