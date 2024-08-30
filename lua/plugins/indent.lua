@@ -67,7 +67,7 @@ return {
           -- Focus selected parent children
           try_as_border = true,
           -- Focus at cursor column
-          indent_at_cursor = false,
+          indent_at_cursor = true,
         },
         mappings = {
           -- Textobjects
