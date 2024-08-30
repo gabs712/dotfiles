@@ -36,7 +36,7 @@ return {
             symbols = {
               -- Icons:  
               modified = '',
-              readonly = '',
+              readonly = '',
               unnamed = '-',
               newfile = '',
             }
