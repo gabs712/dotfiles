@@ -18,7 +18,7 @@ return {
       sections = {
         lualine_a = {},
         lualine_b = {
-          'mode',
+          'branch', 
           {
             'diff',
             symbols = {
@@ -53,7 +53,7 @@ return {
             }
           },
         },
-        lualine_y = {'branch', 'progress'},
+        lualine_y = {'progress'},
         lualine_z = {},
       },
     })
