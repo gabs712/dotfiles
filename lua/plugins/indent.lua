@@ -29,6 +29,9 @@ local ignore_filetypes = {
   'text',
 }
 
+-- Toggle highlight while keeping keymaps
+local highlight_indent = false
+
 return {
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -52,7 +55,6 @@ return {
     end
   },
   {
-    -- IMPORTANT: To change highlight while keeping keymaps, toggle between autocmd and miniindentscope_disable
     'echasnovski/mini.indentscope',
     version = '*',
     config = function()
@@ -78,17 +80,17 @@ return {
         },
       })
 
-      --
-
-      -- vim.api.nvim_create_autocmd("FileType", {
-      --   desc = "Disable indentscope for certain filetypes",
-      --   pattern = ignore_filetypes,
-      --   callback = function()
-      --     vim.b.miniindentscope_disable = true
-      --   end,
-      -- })
-
-      vim.g.miniindentscope_disable = true
+      -- Disable indentscope for certain filetypes
+      if highlight_indent then
+        vim.api.nvim_create_autocmd("FileType", {
+          pattern = ignore_filetypes,
+          callback = function()
+            vim.b.miniindentscope_disable = true
+          end,
+        })
+      else 
+        vim.g.miniindentscope_disable = true
+      end
     end
   }
 }
