@@ -55,6 +55,7 @@ return {
           {
             'diff',
             padding = {left = 1, right = 1},
+            colored = true,
             symbols = {
               added = ' ',
               modified = ' ',
