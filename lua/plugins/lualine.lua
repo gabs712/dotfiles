@@ -9,15 +9,51 @@ return {
   config = function()
     require('lualine').setup({
       options = {
-        component_separators = {left = '', right = ''},
+        theme = 'auto',
+
+        -- Some icons:             
         section_separators = {left = '', right = ''},
+        component_separators = {left = '', right = ''},
       },
       sections = {
         lualine_a = {},
-        lualine_b = {'mode', 'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename'},
-        lualine_x = {'filetype'},
-        lualine_y = {maximize_icon, 'progress'},
+        lualine_b = {
+          'mode',
+          {
+            'diff',
+            symbols = {
+              added = '+',
+              modified = '~',
+              removed = '-'
+            },
+          },
+          'diagnostics'
+        },
+        lualine_c = {
+          {
+            'filename',
+            path = 4, -- Parent directory and file name
+            symbols = {
+              -- Icons:  
+              modified = '',
+              readonly = '',
+              unnamed = '-',
+              newfile = '',
+            }
+          },
+        },
+        lualine_x = {
+          'searchcount',
+          maximize_icon,
+          {
+            'filetype',
+            icon_only = false,
+            icon = {
+              align = 'left'
+            }
+          },
+        },
+        lualine_y = {'branch', 'progress'},
         lualine_z = {},
       },
     })
