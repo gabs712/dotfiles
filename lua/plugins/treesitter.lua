@@ -1,7 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
-  priority = 1000,
+  priority = 2000,
   build = ":TSUpdate",
   config = function () 
     require("nvim-treesitter.configs").setup({
