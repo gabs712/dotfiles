@@ -94,3 +94,9 @@ vim.keymap.set({'n', 'x'}, 'gj', 'J')
 vim.cmd("nnoremap <expr> j v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'j' : 'gj'")
 vim.cmd("nnoremap <expr> k v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'k' : 'gk'")
 
+-- Alternative to scroll
+vim.keymap.set({'n', 'x'}, '<Up>', '<C-y>')
+vim.keymap.set({'n', 'x'}, '<Down>', '<C-e>')
+vim.keymap.set({'n', 'x'}, '<Left>', '<C-u>')
+vim.keymap.set({'n', 'x'}, '<Right>', '<C-d>')
+
