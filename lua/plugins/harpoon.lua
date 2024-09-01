@@ -13,7 +13,7 @@ return {
     vim.keymap.set({'n', 'x'}, "<Tab>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, {desc = 'Harpoon marks'})
     vim.keymap.set({'n', 'x'}, "<C-m>", function() 
       harpoon:list():add()
-      print('Harpoon mark settled')
+      print('Harpoon mark settled ' .. os.date("%H:%M:%S"))
     end, {desc = 'Set harpoon mark'})
 
     vim.keymap.set({'n', 'x'}, "<C-l>", function() harpoon:list():select(1) end, {desc = 'Go to harpoon mark 1'})

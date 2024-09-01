@@ -5,10 +5,12 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-telescope/telescope.nvim",
+    "rcarriga/nvim-notify",
   },
   config = function()
     require('noice').setup({
       views = {
+        -- Notification fallback if notify not present
         mini = {
           timeout = 1500, -- 2000
           reverse = false, -- true
