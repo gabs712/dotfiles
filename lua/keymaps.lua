@@ -5,7 +5,7 @@ vim.on_key(function(key)
     local mode = vim.api.nvim_get_mode().mode
     if mode == 'n' then
       vim.cmd('nohlsearch') -- Clear '/' search
-      vim.cmd('stopinsert') -- Clear command bar
+      -- vim.cmd('stopinsert') -- Clear command bar (not needed with a notification plugin)
     end
   end
 end)
@@ -95,8 +95,8 @@ vim.cmd("nnoremap <expr> j v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'j'
 vim.cmd("nnoremap <expr> k v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'k' : 'gk'")
 
 -- Alternative to scroll
-vim.keymap.set({'n', 'x'}, '<Up>', '<C-y>')
-vim.keymap.set({'n', 'x'}, '<Down>', '<C-e>')
+vim.keymap.set({'n', 'x'}, '<Up>', 'k')
+vim.keymap.set({'n', 'x'}, '<Down>', 'j')
 vim.keymap.set({'n', 'x'}, '<Left>', '<C-u>')
 vim.keymap.set({'n', 'x'}, '<Right>', '<C-d>')
 
