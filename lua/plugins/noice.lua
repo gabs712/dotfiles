@@ -4,19 +4,21 @@ return {
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
-    "rcarriga/nvim-notify",
     "nvim-telescope/telescope.nvim",
   },
   config = function()
     require('noice').setup({
       cmdline = {
         view = "cmdline", -- cmdline, cmdline_popup
+
+        -- Basically ligatures for commands
         format = {
           -- cmdline = false,
           -- search_down = false,
 
           -- Change search icon
           search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" }, --  
+
           lua = false,
           help = false,
           filter = false, -- ! (bang)
