@@ -8,6 +8,16 @@ return {
   },
   config = function()
     require('noice').setup({
+      views = {
+        mini = {
+          timeout = 1500, -- 2000
+          reverse = false, -- true
+          position = {
+            row = 0 -- -1
+          },
+          -- size = 80
+        },
+      },
       cmdline = {
         view = "cmdline", -- cmdline, cmdline_popup
 
