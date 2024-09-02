@@ -17,7 +17,7 @@ return {
         },
       },
       highlight = {
-        backdrop = false, -- When searching, fade out text
+        backdrop = true, -- When searching, fade out text
         matches = true, -- Highlights text as you type
         groups = {
           current = 'FlashMatch', -- Does not show different color to first match
@@ -26,7 +26,7 @@ return {
       modes = {
         char = {
           highlight = {
-            backdrop = false, -- Fade out text
+            backdrop = false, -- Fade out text with f/t
           },
         },
       },
