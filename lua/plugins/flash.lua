@@ -4,7 +4,7 @@ return {
   config = function()
     require('flash').setup({
       search = {
-        multi_window = true,
+        multi_window = false,
         exclude = {
           "notify",
           "cmp_menu",
@@ -25,6 +25,7 @@ return {
       },
       modes = {
         char = {
+          enabled = false,
           highlight = {
             backdrop = false, -- Fade out text with f/t
           },
