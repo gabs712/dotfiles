@@ -32,10 +32,6 @@ vim.keymap.set({'n', 'x'}, 'gY', '"+y$', {desc = 'Yank remaining line to OS'})
 
 vim.keymap.set({'n', 'x'}, '<C-\'>', '<cmd>buffer #<CR>', {desc = 'Go to most recent buffer'})
 
--- Faster keymaps to ge
-vim.keymap.set({'n', 'o', 'x'}, '<c-e>', 'ge')
-vim.keymap.set({'n', 'o', 'x'}, '<c-b>', 'gE')
-
 -- Weird tab bug. When mapping something to tab, <c-i> is also mapped to it.
 -- To fix it, <c-i> is mapped to tab (it doesn't really make any sense).
 vim.keymap.set('n', '<c-i>', '<tab>', { desc = 'To fix bug. Has no effect.' })
@@ -82,8 +78,8 @@ vim.cmd("nnoremap <expr> j v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'j'
 vim.cmd("nnoremap <expr> k v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'k' : 'gk'")
 
 -- Alternative to scroll
-vim.keymap.set({'n', 'x'}, '<Up>', 'k')
-vim.keymap.set({'n', 'x'}, '<Down>', 'j')
+vim.keymap.set({'n', 'x'}, '<Up>', '<C-y>')
+vim.keymap.set({'n', 'x'}, '<Down>', '<C-e>')
 vim.keymap.set({'n', 'x'}, '<Left>', '<C-u>')
 vim.keymap.set({'n', 'x'}, '<Right>', '<C-d>')
 
