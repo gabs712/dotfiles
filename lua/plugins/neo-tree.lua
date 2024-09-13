@@ -41,7 +41,7 @@ return {
         },
         default_component_configs = {
           modified = {
-            symbol = ' ',
+            symbol = '',
             highlight = "NeoTreeModified",
           },
           indent = {
