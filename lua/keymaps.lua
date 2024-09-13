@@ -71,7 +71,7 @@ vim.cmd('xmap <C-w>< <cmd>horizontal resize -5<cr><C-w>')
 
 -- Free space for s
 vim.keymap.set({'n', 'x'}, 'R', 's')
-vim.keymap.set({'n', 'x'}, 'gr', 'R')
+vim.keymap.set({'n', 'x'}, 'gR', 'R')
 
 -- Add relative jumps to jump list
 vim.cmd("nnoremap <expr> j v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'j' : 'gj'")
@@ -82,4 +82,6 @@ vim.keymap.set({'n', 'x'}, '<Up>', '<C-y>')
 vim.keymap.set({'n', 'x'}, '<Down>', '<C-e>')
 vim.keymap.set({'n', 'x'}, '<Left>', '<C-u>')
 vim.keymap.set({'n', 'x'}, '<Right>', '<C-d>')
+
+vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
 

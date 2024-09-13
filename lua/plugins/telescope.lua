@@ -23,7 +23,7 @@ return {
     vim.keymap.set('n', '<leader>fg', builtin.git_files, {desc = 'Find git files' })
     vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {desc = 'Find old files' })
     vim.keymap.set('n', '<leader>fc', builtin.colorscheme, {desc = 'Find colorschemes' })
-    vim.keymap.set('n', '<C-/>', builtin.current_buffer_fuzzy_find, {desc = 'Search in buffer' })
+    vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, {desc = 'Search in buffer' })
     vim.keymap.set('n', '<leader>fk', builtin.keymaps, {desc = 'Find keymaps' })
     vim.keymap.set('n', '<leader>fn', function()
       builtin.find_files {
@@ -31,6 +31,9 @@ return {
         prompt_title = 'Neovim Files'
       }
     end, { desc = 'Find neovim config' })
+
+    --lsp
+    vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {desc = 'Find references'})
   end
 }
 
