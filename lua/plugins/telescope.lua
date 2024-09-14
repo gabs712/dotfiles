@@ -2,7 +2,6 @@ return {
   'nvim-telescope/telescope.nvim', tag = '0.1.8',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope-ui-select.nvim'
   },
   config = function()
     local builtin = require('telescope.builtin')
@@ -16,14 +15,7 @@ return {
           },
         },
       },
-      extensions = {
-        ['ui-select'] = {
-          require("telescope.themes").get_dropdown() -- Change prompt style
-        }
-      }
     })
-
-    require("telescope").load_extension("ui-select")
 
     vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = 'Find files' })
     vim.keymap.set({'n', 'x'}, '<C-f>', builtin.find_files, {desc = 'Find files' })
