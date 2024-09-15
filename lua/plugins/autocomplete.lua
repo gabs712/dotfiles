@@ -1,15 +1,19 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
+    'hrsh7th/cmp-nvim-lsp', -- Source for lsp
     "hrsh7th/cmp-buffer", -- Source for text written in buffer
     "hrsh7th/cmp-path", -- Source for paths
-    "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip", -- for autocompletion
-    "rafamadriz/friendly-snippets", -- useful snippets
-    "onsails/lspkind.nvim", -- vs-code like pictograms
+    'hrsh7th/cmp-cmdline', -- Source for cmdline
+
+    "L3MON4D3/LuaSnip", -- Engine responsable for snippets
+    "saadparwaiz1/cmp_luasnip", -- Source for snippets
+    "rafamadriz/friendly-snippets", -- Extra snippets
+
+    "onsails/lspkind.nvim", -- Icons
   },
   config = function()
-    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
+    -- Loads snippets from friendly-snippets
     require("luasnip.loaders.from_vscode").lazy_load()
 
     local cmp = require("cmp")
@@ -25,21 +29,22 @@ return {
         { name = "path" },
       }),
 
+      snippet = {
+        -- Engine to use when expanding snippets
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
+
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
 
-      -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
+        -- Adds icons
         format = lspkind.cmp_format({
           maxwidth = 50,
         }),
-      },
-
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
       },
 
       mapping = cmp.mapping.preset.insert({
@@ -49,9 +54,13 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-c>"] = cmp.mapping.abort(),
 
-        -- Selects first option when confirming when select equals true
+        -- Selects first option when confirming if select equals true
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<C-j>"] = cmp.mapping.confirm({ select = true }),
+
+        -- Fix delay in insertion for the following keymaps
+        ['<C-y>'] = cmp.config.disable,
+        ['<C-e>'] = cmp.config.disable,
 
         ['<Tab>'] = cmp.mapping(function(fallback)
           if luasnip.expand_or_jumpable() then
@@ -69,6 +78,22 @@ return {
           end
         end, { 'i', 's' }),
       }),
+    })
+
+    -- cmp.setup.cmdline(':', {
+    --   mapping = cmp.mapping.preset.cmdline(),
+    --   sources = cmp.config.sources({
+    --     { name = 'path' },
+    --     { name = 'cmdline' }
+    --   }),
+    --   matching = { disallow_symbol_nonprefix_matching = false }
+    -- })
+
+    cmp.setup.cmdline({ '/', '?' }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' }
+      }
     })
   end
 }
