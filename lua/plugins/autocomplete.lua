@@ -56,26 +56,18 @@ return {
 
         -- Selects first option when confirming if select equals true
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        ["<C-j>"] = cmp.mapping.confirm({ select = true }),
+        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
 
         -- Fix delay in insertion for the following keymaps
         ['<C-y>'] = cmp.config.disable,
         ['<C-e>'] = cmp.config.disable,
 
-        ['<Tab>'] = cmp.mapping(function(fallback)
-          if luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
+        ['<C-;>'] = cmp.mapping(function()
+          luasnip.expand_or_jump()
         end, { 'i', 's' }), -- TODO: what this does?
 
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-          if luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
+        ['<C-,>'] = cmp.mapping(function()
+          luasnip.jump(-1)
         end, { 'i', 's' }),
       }),
     })
