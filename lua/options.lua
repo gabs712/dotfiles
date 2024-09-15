@@ -45,9 +45,10 @@ vim.opt.inccommand = 'split'
 -- How many lines keep around cursor when moving vertically
 vim.opt.scrolloff = 13
 
--- Convert tabs to spaces
-vim.opt.expandtab = true
+-- Tabs
+vim.opt.expandtab = true -- Convert tabs to spaces
 vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 
 -- Use status bar globally
 vim.opt.laststatus = 3
