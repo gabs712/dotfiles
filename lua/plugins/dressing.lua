@@ -4,8 +4,12 @@ return {
     require('dressing').setup({
       input = {
         mappings = {
+          n = {
+            ['<C-c>'] = "Close",
+          },
           i = {
-            ['<C-j>'] = 'Confirm'
+            ['<C-j>'] = 'Confirm',
+            ['<C-c>'] = "Close",
           }
         }
       }
