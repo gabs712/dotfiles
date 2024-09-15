@@ -56,7 +56,7 @@ return {
 
         -- Selects first option when confirming if select equals true
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-j>"] = cmp.mapping.confirm({ select = true }),
 
         -- Fix delay in insertion for the following keymaps
         ['<C-y>'] = cmp.config.disable,
@@ -72,14 +72,14 @@ return {
       }),
     })
 
-    -- cmp.setup.cmdline(':', {
-    --   mapping = cmp.mapping.preset.cmdline(),
-    --   sources = cmp.config.sources({
-    --     { name = 'path' },
-    --     { name = 'cmdline' }
-    --   }),
-    --   matching = { disallow_symbol_nonprefix_matching = false }
-    -- })
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' },
+        { name = 'cmdline' }
+      }),
+      matching = { disallow_symbol_nonprefix_matching = false }
+    })
 
     cmp.setup.cmdline({ '/', '?' }, {
       mapping = cmp.mapping.preset.cmdline(),
