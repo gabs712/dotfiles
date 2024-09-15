@@ -4,26 +4,31 @@ return {
     {'williamboman/mason.nvim', config = true}, -- Just a package manager
     'williamboman/mason-lspconfig.nvim', -- API for mason lsp's
     'WhoIsSethDaniel/mason-tool-installer.nvim', -- API for mason formatters and linters
+    'hrsh7th/cmp-nvim-lsp', -- Provides capabilities for completion with lsp's
   },
   config = function()
     require("mason-lspconfig").setup({
       -- Ensures that mason installs those
       ensure_installed = {
         'lua_ls',
-        'tsserver',
+        'ts_ls',
       }
     })
 
     local lspconfig = require("lspconfig")
+    local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     -- Sets up mason installed servers
     require('mason-lspconfig').setup_handlers({
       function(server_name) -- Default
-        lspconfig[server_name].setup({})
+        lspconfig[server_name].setup({
+          capabilities = cmp_capabilities
+        })
       end,
 
       ['lua_ls'] = function()
         lspconfig['lua_ls'].setup({
+          capabilities = cmp_capabilities,
           settings = {
             Lua = {
               diagnostics = {
