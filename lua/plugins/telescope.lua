@@ -11,7 +11,8 @@ return {
       defaults = {
         mappings = {
           i = {
-            ["<esc>"] = actions.close
+            ["<esc>"] = actions.close,
+            ["<C-j>"] = actions.select_default,
           },
         },
       },
