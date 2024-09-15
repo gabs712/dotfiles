@@ -46,9 +46,10 @@ vim.opt.inccommand = 'split'
 vim.opt.scrolloff = 13
 
 -- Tabs
-vim.opt.expandtab = true -- Convert tabs to spaces
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
+local tab_size = 2
+vim.opt.shiftwidth = tab_size -- Tailing tabs
+vim.opt.tabstop = tab_size -- Leading tabs
+vim.opt.expandtab = true -- Spaces instead of tabs
 
 -- Use status bar globally
 vim.opt.laststatus = 3
