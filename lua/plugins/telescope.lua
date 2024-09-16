@@ -26,7 +26,7 @@ return {
     vim.keymap.set('n', '<leader>fg', builtin.git_files, {desc = 'Find git files' })
     vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {desc = 'Find old files' })
     vim.keymap.set('n', '<leader>fc', builtin.colorscheme, {desc = 'Find colorschemes' })
-    vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, {desc = 'Search in buffer' })
+    vim.keymap.set('n', '<leader>f/', builtin.current_buffer_fuzzy_find, {desc = 'Search in buffer' })
     vim.keymap.set('n', '<leader>fk', builtin.keymaps, {desc = 'Find keymaps' })
     vim.keymap.set('n', '<leader>fn', function()
       builtin.find_files {
