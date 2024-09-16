@@ -43,6 +43,9 @@ return {
       formatting = {
         -- Adds icons
         format = lspkind.cmp_format({
+          symbol_map = {
+            Variable = '' -- 󰀫
+          },
           maxwidth = 50,
         }),
       },
