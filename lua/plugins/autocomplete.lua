@@ -65,12 +65,12 @@ return {
         ['<C-e>'] = cmp.config.disable,
 
         -- Next snippet position
-        ['<C-;>'] = cmp.mapping(function()
+        ['<Tab>'] = cmp.mapping(function()
           luasnip.expand_or_jump()
-        end, { 'i', 's' }), -- TODO: what this does?
+        end, { 'i', 's' }),
 
         -- Previous snippet position
-        ['<C-,>'] = cmp.mapping(function()
+        ['<S-Tab>'] = cmp.mapping(function()
           luasnip.jump(-1)
         end, { 'i', 's' }),
       }),

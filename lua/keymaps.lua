@@ -59,13 +59,15 @@ vim.keymap.set({ 'n', 'x' }, '<C-w><', '<cmd>horizontal resize -5<cr><C-w>', {re
 
 -- Free space for s
 vim.keymap.set({'n', 'x'}, 'R', 's')
-vim.keymap.set({'n', 'x'}, 'gR', 'R')
+vim.keymap.set({'n', 'x'}, '<C-r>', 'R')
+
+vim.keymap.set({'n', 'x'}, 'U', '<C-r>')
 
 -- Add relative jumps to jump list
 vim.cmd("nnoremap <expr> j v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'j' : 'gj'")
 vim.cmd("nnoremap <expr> k v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'k' : 'gk'")
 
--- Alternative to scroll
+-- Alternatives to scroll
 vim.keymap.set({'n', 'x'}, '<Left>', '<C-y>')
 vim.keymap.set({'n', 'x'}, '<Right>', '<C-e>')
 vim.keymap.set({'n', 'x'}, '<Up>', '<C-u>')
@@ -75,4 +77,8 @@ vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
 
 vim.keymap.set('!', '<C-l>', '<CR>', {remap = true}) -- remap to still indent with autopairs
 vim.keymap.set('!', '<C-j>', '<Nop>')
+
+-- Alternative to ':'
+vim.keymap.set({ 'n', 'x' }, '<C-p>', ':', {desc = 'Command mode (pallete)'})
+vim.keymap.set({ 'n', 'x' }, '<C-c>', ':', {desc = 'Command mode'}) -- TODO: Remove one of those later
 
