@@ -4,11 +4,17 @@ return {
   config = function()
     require('nvim-autopairs').setup({
       disable_filetype = {
-        'TelescopePrompt', 
+        'TelescopePrompt',
         'spectre_panel',
         'harpoon',
       },
       disable_in_macro = false,
+      map_c_h = true,
+      map_c_w = true,
     })
+
+    -- Indent with C-l
+    vim.keymap.set('!', '<C-l>', '<C-m>', {remap = true})
   end
 }
+

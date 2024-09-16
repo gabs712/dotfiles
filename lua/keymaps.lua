@@ -83,8 +83,8 @@ vim.keymap.set({'n', 'x'}, '<Down>', '<C-e>')
 vim.keymap.set({'n', 'x'}, '<Left>', '<C-u>')
 vim.keymap.set({'n', 'x'}, '<Right>', '<C-d>')
 
+vim.keymap.set('!', '<C-j>', '<Nop>')
+
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>')
 
-vim.keymap.set('!', '<C-l>', '<CR>', {remap = true})
-vim.keymap.set('!', '<C-j>', '<Nop>')
 
