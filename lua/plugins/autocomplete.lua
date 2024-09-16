@@ -52,7 +52,7 @@ return {
 
       mapping = cmp.mapping.preset.insert({
         -- Selects first option when confirming if select equals true
-        ["<C-j>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
 
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-c>"] = cmp.mapping.abort(),
@@ -65,12 +65,12 @@ return {
         ['<C-e>'] = cmp.config.disable,
 
         -- Next snippet position
-        ['<Tab>'] = cmp.mapping(function()
+        ['<C-l>'] = cmp.mapping(function()
           luasnip.expand_or_jump()
         end, { 'i', 's' }),
 
         -- Previous snippet position
-        ['<S-Tab>'] = cmp.mapping(function()
+        ['<C-k>'] = cmp.mapping(function()
           luasnip.jump(-1)
         end, { 'i', 's' }),
       }),

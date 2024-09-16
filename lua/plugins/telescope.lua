@@ -12,7 +12,7 @@ return {
         mappings = {
           i = {
             ["<esc>"] = actions.close,
-            ["<C-l>"] = actions.select_default,
+            ["<C-j>"] = actions.select_default,
           },
         },
       },

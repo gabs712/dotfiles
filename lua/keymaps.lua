@@ -75,8 +75,8 @@ vim.keymap.set({'n', 'x'}, '<Down>', '<C-d>')
 
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
 
-vim.keymap.set('!', '<C-l>', '<CR>', {remap = true}) -- remap to still indent with autopairs
-vim.keymap.set('!', '<C-j>', '<Nop>')
+-- Fix indentation absence with autopairs when using C-j
+vim.keymap.set('i', '<C-j>', '<CR>', {remap = true})
 
 -- Alternative to ':'
 vim.keymap.set({ 'n', 'x' }, '<C-p>', ':', {desc = 'Command mode (pallete)'})
