@@ -11,9 +11,6 @@ return {
       map_c_h = true,
       map_c_w = true,
     })
-
-    -- Indent with C-l
-    vim.keymap.set('!', '<C-l>', '<C-m>', {remap = true})
   end
 }
 
