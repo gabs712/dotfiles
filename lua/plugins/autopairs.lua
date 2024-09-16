@@ -8,7 +8,6 @@ return {
         'spectre_panel',
         'harpoon',
       },
-      disable_in_macro = false,
       map_c_h = true,
       map_c_w = true,
     })
