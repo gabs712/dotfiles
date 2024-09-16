@@ -48,24 +48,25 @@ return {
       },
 
       mapping = cmp.mapping.preset.insert({
-        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-d>"] = cmp.mapping.scroll_docs(4),
+        -- Selects first option when confirming if select equals true
+        ["<C-j>"] = cmp.mapping.confirm({ select = true }),
 
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-c>"] = cmp.mapping.abort(),
 
-        -- Selects first option when confirming if select equals true
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        ["<C-j>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-d>"] = cmp.mapping.scroll_docs(4),
 
-        -- Fix delay in insertion for the following keymaps
+        -- Fix delay when pressing
         ['<C-y>'] = cmp.config.disable,
         ['<C-e>'] = cmp.config.disable,
 
+        -- Next snippet position
         ['<C-;>'] = cmp.mapping(function()
           luasnip.expand_or_jump()
         end, { 'i', 's' }), -- TODO: what this does?
 
+        -- Previous snippet position
         ['<C-,>'] = cmp.mapping(function()
           luasnip.jump(-1)
         end, { 'i', 's' }),
