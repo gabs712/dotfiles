@@ -59,7 +59,6 @@ vim.keymap.set({ 'n', 'x' }, '<C-w><', '<cmd>horizontal resize -5<cr><C-w>', {re
 
 -- Free space for s
 vim.keymap.set({'n', 'x'}, 'R', 's')
-vim.keymap.set({'n', 'x'}, '<C-r>', 'R')
 
 vim.keymap.set({'n', 'x'}, 'U', '<C-r>')
 
@@ -86,4 +85,7 @@ vim.keymap.set('n', '<F1>', 'K', { desc = 'Original manual entry, can jump throu
 -- Quick comments
 vim.keymap.set('n', '<C-c>', 'gcc', {remap = true})
 vim.keymap.set('x', '<C-c>', 'gc', {remap = true})
+
+-- Easier register access
+vim.keymap.set({ 'n', 'x' }, '<C-r>', '"')
 
