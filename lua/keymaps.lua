@@ -17,11 +17,18 @@ vim.keymap.set({'o', 'x'}, 'a`', "2i`")
 vim.keymap.set({'n', 'o', 'x'}, '_', '^')
 vim.keymap.set({'n', 'o', 'x'}, 'g_', 'g^')
 
--- Move through wrap 
-vim.keymap.set({'n', 'x'}, 'j', 'gj')
-vim.keymap.set({'n', 'x'}, 'k', 'gk')
-vim.keymap.set({'n', 'x'}, 'gj', 'j')
-vim.keymap.set({'n', 'x'}, 'gk', 'k')
+-- Sets undo breakpoints 
+vim.keymap.set("i", ",", ",<c-g>u")
+vim.keymap.set("i", ".", ".<c-g>u")
+vim.keymap.set("i", ";", ";<c-g>u")
+
+-- Move through wrap and use normal j/k when providing a counter
+vim.keymap.set({'n', 'x'}, "v:count == 0 ? 'gj' : 'j'", 'gj')
+vim.keymap.set({'n', 'x'}, "v:count == 0 ? 'gk' : 'k'", 'gk')
+
+-- Add relative jumps to jump list
+vim.cmd("nnoremap <expr> j v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'j' : 'gj'")
+vim.cmd("nnoremap <expr> k v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'k' : 'gk'")
 
 -- Clipboard
 vim.keymap.set({'n', 'x'}, 'gp', '"+p', {desc = 'Paste from OS after'})
@@ -64,10 +71,6 @@ vim.keymap.del('n', 'grn')
 
 -- Free space for s
 vim.keymap.set({'n', 'x'}, 'R', 's')
-
--- Add relative jumps to jump list
-vim.cmd("nnoremap <expr> j v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'j' : 'gj'")
-vim.cmd("nnoremap <expr> k v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'k' : 'gk'")
 
 -- Alternatives to scroll
 vim.keymap.set({'n', 'x'}, '<Left>', '<C-y>')
