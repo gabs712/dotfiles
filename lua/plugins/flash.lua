@@ -4,7 +4,7 @@ return {
   config = function()
     require('flash').setup({
       search = {
-        multi_window = false,
+        multi_window = true,
         exclude = {
           "notify",
           "cmp_menu",
