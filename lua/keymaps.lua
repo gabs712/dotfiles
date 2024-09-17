@@ -65,8 +65,6 @@ vim.keymap.del('n', 'grn')
 -- Free space for s
 vim.keymap.set({'n', 'x'}, 'R', 's')
 
-vim.keymap.set({'n', 'x'}, 'U', '<C-r>')
-
 -- Add relative jumps to jump list
 vim.cmd("nnoremap <expr> j v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'j' : 'gj'")
 vim.cmd("nnoremap <expr> k v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'k' : 'gk'")
@@ -90,7 +88,4 @@ vim.keymap.set('n', '<F1>', 'K', { desc = 'Original manual entry, can jump throu
 -- Quick comments
 vim.keymap.set('n', '<C-c>', 'gcc', {remap = true})
 vim.keymap.set('x', '<C-c>', 'gc', {remap = true})
-
--- Easier register access
-vim.keymap.set({ 'n', 'x' }, '<C-r>', '"')
 
