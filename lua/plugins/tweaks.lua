@@ -6,7 +6,7 @@ return {
     config = function()
       require("YankAssassin").setup {
         -- Enabled modes
-        auto_normal = true, 
+        auto_normal = true,
         auto_visual = true,
       }
     end,
@@ -22,6 +22,13 @@ return {
           preserve_visual_selection = true, -- Keep selection when indenting
         }
       })
+    end
+  },
+  {
+    -- When pressing tab at start of line, automatically indents
+    'vidocqh/auto-indent.nvim',
+    config = function ()
+      require('auto-indent').setup()
     end
   }
 }
