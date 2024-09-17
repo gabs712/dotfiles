@@ -44,12 +44,15 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(ev)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = ev.buf, desc = 'Go to definition' })
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = ev.buf, desc = 'Manual about symbol under cursor' })
         vim.keymap.set('n', '<leader>p', vim.lsp.buf.format, { buffer = ev.buf, desc = 'Format (make pretty)' })
         vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { buffer = ev.buf, desc = 'Rename symbol across project' })
         vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { buffer = ev.buf, desc = 'Code actions' })
       end
     })
+
+    -- Due to a bug, this keymap also sets CR when a buffer is specified, to avoid that, it will be defined
+    -- globally and not have a fallback if there's no lsp. Anyways, manual entries are not useful without lsp's.
+    vim.keymap.set('n', '<C-m>', vim.lsp.buf.hover, {desc = 'Manual about symbol under cursor' })
   end
 }
 

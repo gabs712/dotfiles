@@ -80,11 +80,10 @@ vim.keymap.set('i', '<C-j>', '<CR>', {remap = true})
 
 -- Alternative to ':'
 vim.keymap.set({ 'n', 'x' }, '<C-p>', ':', {desc = 'Command mode (pallete)'})
-vim.keymap.set({ 'n', 'x' }, '<C-c>', ':', {desc = 'Command mode'}) -- TODO: Remove one of those later
 
-vim.keymap.set('i', '<C-m>', '<Nop>')
+vim.keymap.set('n', '<F1>', 'K', { desc = 'Original manual entry, can jump through table of contents on help pages'} )
 
-vim.keymap.set('n', '<C-m>', 'K', {desc = 'Docs (manual)'})
-vim.keymap.set('n', 'gm', '<C-m>', {desc = 'Go to indentifier mark'})
+-- Quick comments
+vim.keymap.set('n', '<C-c>', 'gcc', {remap = true})
+vim.keymap.set('x', '<C-c>', 'gc', {remap = true})
 
--- TODO: c-r to acces register, c-c to comment
