@@ -77,3 +77,13 @@ vim.api.nvim_create_autocmd('BufEnter', {
   end,
 })
 
+-- Change some icons
+vim.opt.fillchars = {
+  eob = " ", -- End of buffer (normally '~')
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+}
+
