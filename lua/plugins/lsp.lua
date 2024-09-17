@@ -45,7 +45,7 @@ return {
       callback = function(ev)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = ev.buf, desc = 'Go to definition' })
         vim.keymap.set('n', '<leader>p', vim.lsp.buf.format, { buffer = ev.buf, desc = 'Format (make pretty)' })
-        vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { buffer = ev.buf, desc = 'Rename symbol across project' })
+        vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, { buffer = ev.buf, desc = 'Rename symbol across project' })
         vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { buffer = ev.buf, desc = 'Code actions' })
       end
     })
