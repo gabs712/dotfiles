@@ -20,6 +20,7 @@ return {
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
 
+    -- Global config
     cmp.setup({
       -- Sources from higher to lower priority
       sources = cmp.config.sources({
@@ -50,7 +51,7 @@ return {
       },
 
       completion = {
-        completeopt = "menu,menuone,preview,noselect",
+        completeopt = "menu,menuone,insert", -- menu,menuone,preview,noselect
       },
 
       formatting = {
@@ -68,8 +69,8 @@ return {
         -- Selects first option when confirming if select equals true
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
 
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-c>"] = cmp.mapping.abort(),
+        ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        ["<C-c>"] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c' }),
 
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
         ["<C-d>"] = cmp.mapping.scroll_docs(4),
@@ -99,30 +100,38 @@ return {
       }),
     })
 
-    -- TODO: trigger completion with c-space on cmd
+    -- TODO: 
     -- snippets changing live
     -- decrease height
     -- remove text description from cmd
-    -- arrows to history
-    -- select first item Automatically
+    -- tab instantely selects on cmd
 
+    -- Cmd mode config
     cmp.setup.cmdline(':', {
-      mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
         { name = 'path' },
         { name = 'cmdline' }
       }),
+
       completion = {
+        completeopt = "menu,menuone,preview,noselect",
         autocomplete = false,
       },
+
+      mapping = cmp.mapping.preset.cmdline(),
       matching = { disallow_symbol_nonprefix_matching = false }
     })
 
+    -- Search config
     cmp.setup.cmdline({ '/', '?' }, {
-      mapping = cmp.mapping.preset.cmdline(),
       sources = {
         { name = 'buffer' }
-      }
+      },
+
+      completion = {
+        completeopt = "menu,menuone,preview,noselect",
+      },
+      mapping = cmp.mapping.preset.cmdline(),
     })
   end
 }
