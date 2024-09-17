@@ -29,31 +29,20 @@ return {
         { name = "buffer" },
         { name = "path" },
       }),
-
       snippet = {
         -- Engine to use when expanding snippets
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
-
-      -- window.documentation.max_height~
-      window = {
-        -- Add borders
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
-      },
-
       view = {
         docs = {
           auto_open = false, -- Automatically show docs when highlighting
         }
       },
-
       completion = {
         completeopt = "menu,menuone,insert", -- menu,menuone,preview,noselect
       },
-
       formatting = {
         -- Adds icons
         format = lspkind.cmp_format({
@@ -63,8 +52,6 @@ return {
           maxwidth = 50,
         }),
       },
-
-      -- Todo: explicitely set c-n / c-p to render text
       mapping = cmp.mapping.preset.insert({
         -- Selects first option when confirming if select equals true
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -100,11 +87,17 @@ return {
       }),
     })
 
-    -- TODO: 
-    -- snippets changing live
-    -- decrease height
-    -- remove text description from cmd
-    -- tab instantely selects on cmd
+    -- When pressing tab, it instantely selects the first
+    local quicker_tab = function()
+      return cmp.mapping(function ()
+        if cmp.visible() then
+          cmp.select_next_item()
+        else
+          cmp.complete()
+          cmp.select_next_item()
+        end
+      end, {"c"})
+    end
 
     -- Cmd mode config
     cmp.setup.cmdline(':', {
@@ -112,14 +105,13 @@ return {
         { name = 'path' },
         { name = 'cmdline' }
       }),
-
       completion = {
         completeopt = "menu,menuone,preview,noselect",
         autocomplete = false,
       },
-
-      mapping = cmp.mapping.preset.cmdline(),
-      matching = { disallow_symbol_nonprefix_matching = false }
+      mapping = cmp.mapping.preset.cmdline({
+        ["<Tab>"] = quicker_tab(),
+      }),
     })
 
     -- Search config
@@ -127,11 +119,13 @@ return {
       sources = {
         { name = 'buffer' }
       },
-
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
-      mapping = cmp.mapping.preset.cmdline(),
+      mapping = cmp.mapping.preset.cmdline({
+        ["<Tab>"] = quicker_tab(),
+      }),
     })
   end
 }
+
