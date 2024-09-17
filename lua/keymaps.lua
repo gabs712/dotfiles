@@ -72,11 +72,11 @@ vim.keymap.del('n', 'grn')
 -- Free space for s
 vim.keymap.set({'n', 'x'}, 'R', 's')
 
--- Alternatives to scroll
-vim.keymap.set({'n', 'x'}, '<Left>', '<C-y>')
-vim.keymap.set({'n', 'x'}, '<Right>', '<C-e>')
-vim.keymap.set({'n', 'x'}, '<Up>', '<C-u>')
-vim.keymap.set({'n', 'x'}, '<Down>', '<C-d>')
+-- Alternatives to scroll also keeping cursor at center
+vim.keymap.set({'n', 'x'}, '<Left>', '<C-y>M')
+vim.keymap.set({'n', 'x'}, '<Right>', '<C-e>M')
+vim.keymap.set({'n', 'x'}, '<Up>', '<C-u>M')
+vim.keymap.set({'n', 'x'}, '<Down>', '<C-d>M')
 
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
 
