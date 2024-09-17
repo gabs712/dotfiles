@@ -36,6 +36,19 @@ return {
         end,
       },
 
+      -- window.documentation.max_height~
+      window = {
+        -- Add borders
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
+      },
+
+      view = {
+        docs = {
+          auto_open = false, -- Automatically show docs when highlighting
+        }
+      },
+
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
@@ -50,6 +63,7 @@ return {
         }),
       },
 
+      -- Todo: explicitely set c-n / c-p to render text
       mapping = cmp.mapping.preset.insert({
         -- Selects first option when confirming if select equals true
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -73,8 +87,24 @@ return {
         ['<C-k>'] = cmp.mapping(function()
           luasnip.jump(-1)
         end, { 'i', 's' }),
+
+        -- Show docs (manual)
+        ['<C-m>'] = function()
+          if cmp.visible_docs() then
+            cmp.close_docs()
+          else
+            cmp.open_docs()
+          end
+        end
       }),
     })
+
+    -- TODO: trigger completion with c-space on cmd
+    -- snippets changing live
+    -- decrease height
+    -- remove text description from cmd
+    -- arrows to history
+    -- select first item Automatically
 
     cmp.setup.cmdline(':', {
       mapping = cmp.mapping.preset.cmdline(),
@@ -82,6 +112,9 @@ return {
         { name = 'path' },
         { name = 'cmdline' }
       }),
+      completion = {
+        autocomplete = false,
+      },
       matching = { disallow_symbol_nonprefix_matching = false }
     })
 

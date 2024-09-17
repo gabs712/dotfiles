@@ -82,3 +82,9 @@ vim.keymap.set('i', '<C-j>', '<CR>', {remap = true})
 vim.keymap.set({ 'n', 'x' }, '<C-p>', ':', {desc = 'Command mode (pallete)'})
 vim.keymap.set({ 'n', 'x' }, '<C-c>', ':', {desc = 'Command mode'}) -- TODO: Remove one of those later
 
+vim.keymap.set('i', '<C-m>', '<Nop>')
+
+vim.keymap.set('n', '<C-m>', 'K', {desc = 'Docs (manual)'})
+vim.keymap.set('n', 'gm', '<C-m>', {desc = 'Go to indentifier mark'})
+
+-- TODO: c-r to acces register, c-c to comment
