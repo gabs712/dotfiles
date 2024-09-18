@@ -6,6 +6,9 @@ vim.g.maplocalleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1 -- Disable aditional netrw features
 
+-- Hide intro message when starting Neovim
+vim.opt.shortmess = 'I'
+
 -- True colors suport
 vim.opt.termguicolors = true
 
