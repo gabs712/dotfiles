@@ -73,6 +73,8 @@ vim.keymap.set({'n', 'x'}, '<Left>', '<C-y>M')
 vim.keymap.set({'n', 'x'}, '<Right>', '<C-e>M')
 vim.keymap.set({'n', 'x'}, '<Up>', '<C-u>M')
 vim.keymap.set({'n', 'x'}, '<Down>', '<C-d>M')
+vim.keymap.set({'n', 'x'}, '<ScrollWheelUp>', '<ScrollWheelUp>M')
+vim.keymap.set({'n', 'x'}, '<ScrollWheelDown>', '<ScrollWheelDown>M')
 
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
 
