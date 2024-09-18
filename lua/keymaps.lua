@@ -23,8 +23,8 @@ vim.keymap.set({'n', 'x'}, "v:count == 0 ? 'gj' : 'j'", 'gj')
 vim.keymap.set({'n', 'x'}, "v:count == 0 ? 'gk' : 'k'", 'gk')
 
 -- Add relative jumps to jump list
-vim.cmd("nnoremap <expr> j v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'j' : 'gj'")
-vim.cmd("nnoremap <expr> k v:count ? (v:count > 1 ? \"m'\" . v:count : '') . 'k' : 'gk'")
+vim.cmd("nnoremap <expr> j v:count ? (v:count > 0 ? \"m'\" . v:count : '') . 'j' : 'gj'")
+vim.cmd("nnoremap <expr> k v:count ? (v:count > 0 ? \"m'\" . v:count : '') . 'k' : 'gk'")
 
 -- Clipboard
 vim.keymap.set({'n', 'x'}, 'gp', '"+p', {desc = 'Paste from OS after'})
@@ -69,17 +69,17 @@ vim.keymap.del('n', 'grn')
 vim.keymap.set({'n', 'x'}, 'R', 's')
 
 -- Alternatives to scroll also keeping cursor at center
-vim.keymap.set({'n', 'x'}, '<Left>', '<C-y>M')
-vim.keymap.set({'n', 'x'}, '<Right>', '<C-e>M')
-vim.keymap.set({'n', 'x'}, '<Up>', '<C-u>M')
-vim.keymap.set({'n', 'x'}, '<Down>', '<C-d>M')
-vim.keymap.set({'n', 'x'}, '<ScrollWheelUp>', '<ScrollWheelUp>M')
-vim.keymap.set({'n', 'x'}, '<ScrollWheelDown>', '<ScrollWheelDown>M')
+vim.keymap.set({'n', 'x'}, '<Left>', '<C-y>0M')
+vim.keymap.set({'n', 'x'}, '<Right>', '<C-e>0M')
+vim.keymap.set({'n', 'x'}, '<Up>', '<C-u>0M')
+vim.keymap.set({'n', 'x'}, '<Down>', '<C-d>0M')
+vim.keymap.set({'n', 'x'}, '<ScrollWheelUp>', '<ScrollWheelUp>0M')
+vim.keymap.set({'n', 'x'}, '<ScrollWheelDown>', '<ScrollWheelDown>0M')
 
 vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
 
 -- Fix indentation absence with autopairs when using C-j
-vim.keymap.set('i', '<C-j>', '<CR>', {remap = true})
+vim.keymap.set({'i', 'o'}, '<C-j>', '<CR>', {remap = true})
 
 -- Alternative to ':'
 vim.keymap.set({ 'n', 'x' }, '<C-p>', ':', {desc = 'Command mode (pallete)'})
