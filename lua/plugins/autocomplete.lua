@@ -55,17 +55,13 @@ return {
       },
       mapping = cmp.mapping.preset.insert({
         -- Selects first option when confirming if select equals true
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- C-j is also being remaped to it
 
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ["<C-c>"] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c' }),
+        ["<C-e>"] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c' }),
 
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
         ["<C-d>"] = cmp.mapping.scroll_docs(4),
-
-        -- Fix delay when pressing
-        ['<C-y>'] = cmp.config.disable,
-        ['<C-e>'] = cmp.config.disable,
 
         -- Next snippet position
         ['<C-l>'] = cmp.mapping(function()
@@ -88,32 +84,30 @@ return {
       }),
     })
 
-    -- When pressing tab, it instantely selects the first
-    local quicker_tab = function()
-      return cmp.mapping(function ()
-        if cmp.visible() then
-          cmp.select_next_item()
-        else
-          cmp.complete()
-          cmp.select_next_item()
-        end
-      end, {"c"})
-    end
+    -- TODO: add for S-Tab on separate file
+    -- When pressing tab, instantely selects the first result
+    local quicker_tab = cmp.mapping(function ()
+      if not cmp.visible() then
+        cmp.complete()
+        cmp.select_next_item()
+      else
+        cmp.select_next_item()
+      end
+    end, {"c"})
 
-    -- Cmd mode config
-    cmp.setup.cmdline(':', {
-      sources = cmp.config.sources({
-        { name = 'path' },
-        { name = 'cmdline' }
-      }),
-      completion = {
-        completeopt = "menu,menuone,preview,noselect",
-        autocomplete = false,
-      },
-      mapping = cmp.mapping.preset.cmdline({
-        ["<Tab>"] = quicker_tab(),
-      }),
-    })
+    -- Do the same, but automatically accpets single results
+    local quicker_tab_confirm = cmp.mapping(function ()
+      if not cmp.visible() then
+        cmp.complete()
+        cmp.select_next_item()
+
+        if #cmp.get_entries() == 1 then
+          cmp.close()
+        end
+      else
+        cmp.select_next_item()
+      end
+    end, {"c"})
 
     -- Search config
     cmp.setup.cmdline({ '/', '?' }, {
@@ -124,7 +118,27 @@ return {
         completeopt = "menu,menuone,preview,noselect",
       },
       mapping = cmp.mapping.preset.cmdline({
-        ["<Tab>"] = quicker_tab(),
+        ["<Tab>"] = quicker_tab,
+      }),
+    })
+
+    -- Cmd mode config
+    cmp.setup.cmdline(':', {
+      sources = cmp.config.sources({
+        { name = 'path' },
+        {
+          name = 'cmdline',
+          option = {
+            treat_trailing_slash = false, -- Adds slash at the end of paths
+          }
+        },
+      }),
+      completion = {
+        completeopt = "menu,menuone,preview,noselect",
+        autocomplete = false,
+      },
+      mapping = cmp.mapping.preset.cmdline({
+        ["<Tab>"] = quicker_tab_confirm,
       }),
     })
   end

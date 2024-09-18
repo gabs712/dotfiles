@@ -5,11 +5,12 @@ return {
       input = {
         mappings = {
           n = {
-            ['<C-c>'] = "Close",
+            ['<C-e>'] = "Close",
           },
           i = {
+            ['<C-c>'] = false,
             ['<C-j>'] = 'Confirm',
-            ['<C-c>'] = "Close",
+            ['<C-e>'] = "Close",
           }
         }
       }
