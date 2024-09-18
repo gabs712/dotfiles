@@ -7,6 +7,7 @@ vim.keymap.set({'n', 'x'}, '<A-k>', '<C-w><C-k>', { desc = 'Window top' })
 vim.keymap.set({'n', 'x'}, '<A-l>', '<C-w><C-l>', { desc = 'Window right' })
 
 vim.keymap.set({'n', 'x'}, '<Space>', '<Nop>')
+vim.keymap.set('c', '<C-d>', '<Nop>') -- Can cause some weird behavior with plugins
 
 -- With strings, when using "a" on operator-pending mode or visual modes, not include extra whitespace
 vim.keymap.set({'o', 'x'}, "a'", "2i'")
@@ -16,11 +17,6 @@ vim.keymap.set({'o', 'x'}, 'a`', "2i`")
 -- Make underscore behavior consistent
 vim.keymap.set({'n', 'o', 'x'}, '_', '^')
 vim.keymap.set({'n', 'o', 'x'}, 'g_', 'g^')
-
--- Sets undo breakpoints 
-vim.keymap.set("i", ",", ",<c-g>u")
-vim.keymap.set("i", ".", ".<c-g>u")
-vim.keymap.set("i", ";", ";<c-g>u")
 
 -- Move through wrap and use normal j/k when providing a counter
 vim.keymap.set({'n', 'x'}, "v:count == 0 ? 'gj' : 'j'", 'gj')
