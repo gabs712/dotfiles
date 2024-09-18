@@ -54,13 +54,6 @@ vim.opt.expandtab = true -- Spaces instead of tabs
 -- Use status bar globally
 vim.opt.laststatus = 3
 
--- Highlight when yanking
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
 -- Extend timeout to use custom keybinds - Default is 1000
 vim.o.timeoutlen = 4000
 
@@ -69,13 +62,6 @@ vim.opt.swapfile = false
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
-
--- Disable comment insertion when pressing 'o'
-vim.api.nvim_create_autocmd('BufEnter', {
-  callback = function()
-    vim.opt.formatoptions:remove({'o'})
-  end,
-})
 
 -- Change some icons
 vim.opt.fillchars = {
