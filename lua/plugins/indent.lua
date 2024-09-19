@@ -67,7 +67,7 @@ return {
           -- Focus selected parent children
           try_as_border = true,
           -- Focus at cursor column
-          indent_at_cursor = true,
+          indent_at_cursor = false,
         },
         mappings = {
           -- Textobjects
@@ -88,7 +88,7 @@ return {
             vim.b.miniindentscope_disable = true
           end,
         })
-      else 
+      else
         vim.g.miniindentscope_disable = true
       end
     end
