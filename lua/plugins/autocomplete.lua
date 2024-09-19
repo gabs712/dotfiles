@@ -45,7 +45,7 @@ return {
       },
       window = {
         completion = {
-          col_offset = 0,
+          col_offset = 2,
         },
       },
       view = {
