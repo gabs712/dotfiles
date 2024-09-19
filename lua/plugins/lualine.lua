@@ -1,6 +1,6 @@
 -- Show icon when maximizing window (declancm/maximize.nvim)
 local function maximize_icon()
-  return vim.t.maximized and ' ' or '' 
+  return vim.t.maximized and ' ' or ''
 end
 
 return {
@@ -48,14 +48,15 @@ return {
               newfile = '',
             }
           },
-        },
-        lualine_x = {
           -- Show macros
           {
             require("noice").api.statusline.mode.get,
             cond = require("noice").api.statusline.mode.has,
             color = { fg = "#ff9e64" },
+            padding = {left = 2, right = 1},
           },
+        },
+        lualine_x = {
           {
             'searchcount',
             padding = {left = 1, right = 3}
