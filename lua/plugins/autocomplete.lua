@@ -22,7 +22,7 @@ return {
     local lspkind = require("lspkind")
 
     -- Max completion height
-    vim.opt.pumheight = 17
+    vim.opt.pumheight = 15
 
     -- Global config
     cmp.setup({
@@ -45,10 +45,13 @@ return {
       },
       window = {
         completion = {
-          col_offset = -2,
+          col_offset = 0,
         },
       },
       view = {
+        entries = {
+          follow_cursor = false
+        },
         docs = {
           auto_open = false, -- Automatically show docs when highlighting
         }
@@ -60,7 +63,7 @@ return {
         end,
       },
       completion = {
-        completeopt = "menu",
+        completeopt = "menu", -- ',noselect' prevents from selecting automatically
       },
       mapping = cmp.mapping.preset.insert({
         -- Selects first option when confirming if select equals true
@@ -114,6 +117,11 @@ return {
           col_offset = 0,
         },
       },
+      view = {
+        entries = {
+          follow_cursor = false,
+        },
+      },
       completion = {
         completeopt = "noselect",
       },
@@ -139,6 +147,11 @@ return {
       window = {
         completion = {
           col_offset = 0,
+        },
+      },
+      view = {
+        entries = {
+          follow_cursor = false,
         },
       },
       completion = {
