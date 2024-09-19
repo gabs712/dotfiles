@@ -22,7 +22,7 @@ return {
     local lspkind = require("lspkind")
 
     -- Max completion height
-    vim.opt.pumheight = 20
+    vim.opt.pumheight = 17
 
     -- Global config
     cmp.setup({
@@ -33,8 +33,15 @@ return {
         { name = "buffer" },
         { name = "path" },
       }),
-      completion = {
-        completeopt = "menu",
+      formatting = {
+        fields = { "kind", "abbr", "menu" }, -- kind, abbr, menu
+        format = lspkind.cmp_format({
+          mode = 'symbol', -- 'text', 'text_symbol', 'symbol_text', 'symbol'
+          symbol_map = {
+            Variable = '', -- 󰀫
+            Text = '󰉿', -- 
+          },
+        }),
       },
       window = {
         completion = {
@@ -46,22 +53,14 @@ return {
           auto_open = false, -- Automatically show docs when highlighting
         }
       },
-      formatting = {
-        fields = { "kind", "abbr", "menu" }, -- kind, abbr, menu
-        -- Adds icons
-        format = lspkind.cmp_format({
-          mode = 'symbol', -- 'text', 'text_symbol', 'symbol_text', 'symbol'
-          symbol_map = {
-            Variable = '', -- 󰀫
-            Text = '󰉿', -- 
-          },
-        }),
-      },
       snippet = {
         -- Engine to use when expanding snippets
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
+      },
+      completion = {
+        completeopt = "menu",
       },
       mapping = cmp.mapping.preset.insert({
         -- Selects first option when confirming if select equals true
