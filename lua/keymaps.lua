@@ -84,11 +84,7 @@ vim.keymap.set({'i', 'o'}, '<C-j>', '<CR>', {remap = true})
 -- Alternative to ':'
 vim.keymap.set({ 'n', 'x' }, '<C-p>', ':', {desc = 'Command mode (pallete)'})
 
-vim.keymap.set('n', '<F1>', 'K', { desc = 'Original manual entry, can jump through table of contents on help pages'} )
-
 -- Quick comments
 vim.keymap.set('n', '<C-c>', 'gcc', {remap = true})
 vim.keymap.set('x', '<C-c>', 'gc', {remap = true})
-
-vim.keymap.set('i', '<C-f>', '<C-x><C-l>', {desc = 'Complete line (find line completion)'})
 
