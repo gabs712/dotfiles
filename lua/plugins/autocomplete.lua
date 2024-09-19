@@ -30,19 +30,13 @@ return {
         { name = "buffer" },
         { name = "path" },
       }),
-      snippet = {
-        -- Engine to use when expanding snippets
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
+      completion = {
+        completeopt = "menu,menuone,insert", -- menu,menuone,preview,noselect
       },
       view = {
         docs = {
           auto_open = false, -- Automatically show docs when highlighting
         }
-      },
-      completion = {
-        completeopt = "menu,menuone,insert", -- menu,menuone,preview,noselect
       },
       formatting = {
         -- Adds icons
@@ -52,6 +46,12 @@ return {
           },
           maxwidth = 50,
         }),
+      },
+      snippet = {
+        -- Engine to use when expanding snippets
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
       },
       mapping = cmp.mapping.preset.insert({
         -- Selects first option when confirming if select equals true
@@ -84,31 +84,6 @@ return {
       }),
     })
 
-    -- TODO: add for S-Tab on separate file
-    -- When pressing tab, instantely selects the first result
-    local quicker_tab = cmp.mapping(function ()
-      if not cmp.visible() then
-        cmp.complete()
-        cmp.select_next_item()
-      else
-        cmp.select_next_item()
-      end
-    end, {"c"})
-
-    -- Do the same, but automatically accpets single results
-    local quicker_tab_confirm = cmp.mapping(function ()
-      if not cmp.visible() then
-        cmp.complete()
-        cmp.select_next_item()
-
-        if #cmp.get_entries() == 1 then
-          cmp.close()
-        end
-      else
-        cmp.select_next_item()
-      end
-    end, {"c"})
-
     -- Search config
     cmp.setup.cmdline({ '/', '?' }, {
       sources = {
@@ -118,7 +93,7 @@ return {
         completeopt = "menu,menuone,preview,noselect",
       },
       mapping = cmp.mapping.preset.cmdline({
-        ["<Tab>"] = quicker_tab,
+        ["<Tab>"] = require('custom.tab-completion').tab,
       }),
     })
 
@@ -138,7 +113,7 @@ return {
         autocomplete = false,
       },
       mapping = cmp.mapping.preset.cmdline({
-        ["<Tab>"] = quicker_tab_confirm,
+        ["<Tab>"] = require('custom.tab-completion').tab_confirm,
       }),
     })
   end
