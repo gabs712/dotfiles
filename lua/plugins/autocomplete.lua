@@ -21,6 +21,9 @@ return {
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
 
+    -- Max completion height
+    vim.opt.pumheight = 20
+
     -- Global config
     cmp.setup({
       -- Sources from higher to lower priority
@@ -33,19 +36,25 @@ return {
       completion = {
         completeopt = "menu",
       },
+      window = {
+        completion = {
+          col_offset = -2,
+        },
+      },
       view = {
         docs = {
           auto_open = false, -- Automatically show docs when highlighting
         }
       },
       formatting = {
+        fields = { "kind", "abbr", "menu" }, -- kind, abbr, menu
         -- Adds icons
         format = lspkind.cmp_format({
-          mode = 'symbol_text', -- 'text', 'text_symbol', 'symbol_text', 'symbol'
+          mode = 'symbol', -- 'text', 'text_symbol', 'symbol_text', 'symbol'
           symbol_map = {
-            Variable = '' -- 󰀫
+            Variable = '', -- 󰀫
+            Text = '󰉿', -- 
           },
-          maxwidth = 50,
         }),
       },
       snippet = {
@@ -98,6 +107,14 @@ return {
       sources = {
         { name = 'buffer' }
       },
+      formatting = {
+        fields = { "abbr" },
+      },
+      window = {
+        completion = {
+          col_offset = 0,
+        },
+      },
       completion = {
         completeopt = "noselect",
       },
@@ -117,6 +134,14 @@ return {
           }
         },
       }),
+      formatting = {
+        fields = { "abbr" },
+      },
+      window = {
+        completion = {
+          col_offset = 0,
+        },
+      },
       completion = {
         completeopt = "noselect",
         autocomplete = false,
