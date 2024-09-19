@@ -31,7 +31,7 @@ return {
         { name = "path" },
       }),
       completion = {
-        completeopt = "menu,menuone,insert", -- menu,menuone,preview,noselect
+        completeopt = "menu,menuone,insert",
       },
       view = {
         docs = {
@@ -41,6 +41,7 @@ return {
       formatting = {
         -- Adds icons
         format = lspkind.cmp_format({
+          mode = 'symbol_text', -- 'text', 'text_symbol', 'symbol_text', 'symbol'
           symbol_map = {
             Variable = '' -- 󰀫
           },
@@ -58,19 +59,27 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- C-j is also being remaped to it
 
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ["<C-e>"] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c' }),
+        ["<C-c>"] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c' }),
 
-        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-d>"] = cmp.mapping.scroll_docs(4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+
+        -- Prevent from interfering with default behavior
+        ['<C-y>'] = cmp.config.disable,
+        ['<C-e>'] = cmp.config.disable,
 
         -- Next snippet position
         ['<C-l>'] = cmp.mapping(function()
-          luasnip.expand_or_jump()
+          if luasnip.expand_or_locally_jumpable() then
+            luasnip.expand_or_jump()
+          end
         end, { 'i', 's' }),
 
         -- Previous snippet position
         ['<C-k>'] = cmp.mapping(function()
-          luasnip.jump(-1)
+          if luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          end
         end, { 'i', 's' }),
 
         -- Show docs (manual)
@@ -114,6 +123,7 @@ return {
       },
       mapping = cmp.mapping.preset.cmdline({
         ["<Tab>"] = require('custom.tab-completion').tab_confirm,
+        ["<C-e>"] = cmp.config.disable,
       }),
     })
   end
