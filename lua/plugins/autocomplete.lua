@@ -31,7 +31,7 @@ return {
         { name = "path" },
       }),
       completion = {
-        completeopt = "menu,menuone,insert",
+        completeopt = "menu",
       },
       view = {
         docs = {
@@ -99,7 +99,7 @@ return {
         { name = 'buffer' }
       },
       completion = {
-        completeopt = "menu,menuone,preview,noselect",
+        completeopt = "noselect",
       },
       mapping = cmp.mapping.preset.cmdline({
         ["<Tab>"] = require('custom.tab-completion').tab,
@@ -118,7 +118,7 @@ return {
         },
       }),
       completion = {
-        completeopt = "menu,menuone,preview,noselect",
+        completeopt = "noselect",
         autocomplete = false,
       },
       mapping = cmp.mapping.preset.cmdline({
