@@ -8,7 +8,6 @@ vim.keymap.set({'n', 'x'}, '<A-l>', '<C-w><C-l>', { desc = 'Window right' })
 
 vim.keymap.set({'n', 'x'}, '<Space>', '<Nop>')
 vim.keymap.set('c', '<C-d>', '<Nop>') -- Can cause some weird behavior with plugins
-vim.keymap.set('c', '<C-m>', '<Nop>') -- Remove for conistency
 
 -- With strings, when using "a" on operator-pending mode or visual modes, not include extra whitespace
 vim.keymap.set({'o', 'x'}, "a'", "2i'")
