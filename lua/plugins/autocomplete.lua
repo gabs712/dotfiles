@@ -9,14 +9,10 @@ return {
 
     "L3MON4D3/LuaSnip", -- Engine responsable for snippets
     "saadparwaiz1/cmp_luasnip", -- Source for snippets
-    "rafamadriz/friendly-snippets", -- Extra snippets
 
     "onsails/lspkind.nvim", -- Icons
   },
   config = function()
-    -- Loads snippets from friendly-snippets
-    require("luasnip.loaders.from_vscode").lazy_load()
-
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
@@ -88,20 +84,6 @@ return {
         -- Prevent from interfering with default behavior
         ['<C-y>'] = cmp.config.disable,
         ['<C-e>'] = cmp.config.disable,
-
-        -- Next snippet position
-        ['<C-l>'] = cmp.mapping(function()
-          if luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
-          end
-        end, { 'i', 's' }),
-
-        -- Previous snippet position
-        ['<C-k>'] = cmp.mapping(function()
-          if luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          end
-        end, { 'i', 's' }),
 
         -- Show docs (manual)
         ['<C-m>'] = function()
