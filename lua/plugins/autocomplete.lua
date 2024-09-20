@@ -43,9 +43,9 @@ return {
         fields = { "kind", "abbr", "menu" }, -- kind, abbr, menu
         format = lspkind.cmp_format({
           mode = 'symbol', -- 'text', 'text_symbol', 'symbol_text', 'symbol'
+          -- ~/.local/state/nvim/lazy/readme/doc/lspkind.nvim.md:42
           symbol_map = {
-            Variable = '', -- 󰀫
-            Text = '󰉿', -- 
+            Variable = '',
           },
         }),
       },
