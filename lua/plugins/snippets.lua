@@ -11,7 +11,6 @@ return {
 
     ls.config.set_config({
       history = true, -- Jumps through snippet even after finishing it
-      updateevents = 'TextChanged,TextChangedI' -- Updates edited words live
     })
 
     vim.keymap.set({'i', 's'}, '<C-l>', function()
