@@ -85,3 +85,6 @@ vim.keymap.set({ 'n', 'x' }, '<C-p>', ':', {desc = 'Command mode (pallete)'})
 vim.keymap.set('n', '<C-c>', 'gcc', {remap = true})
 vim.keymap.set('x', '<C-c>', 'gc', {remap = true})
 
+-- Marks go to col
+vim.keymap.set('n', '\'', '`')
+
