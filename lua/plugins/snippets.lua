@@ -7,24 +7,34 @@ return {
     -- Loads snippets from friendly-snippets
     require("luasnip.loaders.from_vscode").lazy_load()
 
-    local luasnip = require("luasnip")
+    local ls = require("luasnip")
 
-    luasnip.config.set_config({
+    ls.config.set_config({
       history = true, -- Jumps through snippet even after finishing it
       updateevents = 'TextChanged,TextChangedI' -- Updates edited words live
     })
 
     vim.keymap.set({'i', 's'}, '<C-l>', function()
-      if luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump()
+      if ls.jumpable(1) then
+        ls.jump(1)
       end
     end, { desc = 'Jump to next snippet' })
 
     vim.keymap.set({'i', 's'}, '<C-k>', function()
-      if luasnip.jumpable(-1) then
-        luasnip.jump(-1)
+      if ls.jumpable(-1) then
+        ls.jump(-1)
       end
     end, { desc = 'Jump to previous snippet' })
+
+    local fmt = require('luasnip.extras.fmt').fmt -- '{{' inserts '{'
+    local s = ls.snippet -- New snippet
+
+    local rep = require('luasnip.extras').rep -- Repeats
+    local i = ls.insert_node -- Insert cursor
+
+    ls.add_snippets("lua", {
+      s('lr', fmt("local {} = require('{}')", { i(1, 'mod'), rep(1) })),
+    })
   end
 }
 
