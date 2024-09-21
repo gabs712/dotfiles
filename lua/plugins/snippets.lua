@@ -25,6 +25,7 @@ return {
       end
     end, { desc = 'Jump to previous snippet' })
 
+    -- Snippets
     local fmt = require('luasnip.extras.fmt').fmt -- '{{' inserts '{'
     local s = ls.snippet -- New snippet
 

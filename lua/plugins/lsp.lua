@@ -1,20 +1,10 @@
 return {
   'neovim/nvim-lspconfig', -- Actually wires lsp's
   dependencies = {
-    {'williamboman/mason.nvim', config = true}, -- Just a package manager
-    'williamboman/mason-lspconfig.nvim', -- API for mason lsp's
-    'WhoIsSethDaniel/mason-tool-installer.nvim', -- API for mason formatters and linters
+    'williamboman/mason.nvim', -- Installs packages
     'hrsh7th/cmp-nvim-lsp', -- Provides capabilities for completion with lsp's
   },
   config = function()
-    require("mason-lspconfig").setup({
-      -- Ensures that mason installs those
-      ensure_installed = {
-        'lua_ls',
-        'ts_ls',
-      }
-    })
-
     local lspconfig = require("lspconfig")
     local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
