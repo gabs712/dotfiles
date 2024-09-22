@@ -73,7 +73,7 @@ vim.keymap.set({'n', 'x'}, '<Down>', '<C-d>0M')
 vim.keymap.set({'n', 'x'}, '<ScrollWheelUp>', '<ScrollWheelUp>0M')
 vim.keymap.set({'n', 'x'}, '<ScrollWheelDown>', '<ScrollWheelDown>0M')
 
-vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
+vim.keymap.set({ 'n', 'i', 'x' }, '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
 
 -- Fix indentation absence with autopairs when using C-j
 vim.keymap.set({'i', 'o'}, '<C-j>', '<CR>', {remap = true})
