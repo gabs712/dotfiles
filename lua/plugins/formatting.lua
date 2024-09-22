@@ -19,14 +19,13 @@ return {
         liquid = { 'prettier' },
         lua = { 'stylua' },
       },
+      format_on_save = {
+        lsp_fallback = true,
+      },
     })
 
     vim.keymap.set('n', '<leader>p', function()
-      conform.format({
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      })
+      conform.format({ lsp_fallback = true })
     end, { desc = 'Format (Make pretty)' })
   end,
 }
