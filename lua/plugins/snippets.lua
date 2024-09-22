@@ -33,7 +33,7 @@ return {
     local i = ls.insert_node -- Insert cursor
 
     ls.add_snippets('lua', {
-      s('lr', fmt("local {} = require('{}')", { i(1, 'mod'), rep(1) })),
+      s('lr', fmt("local {} = require('{}')", { rep(1, 'module'), i(1, 'module') })),
     })
   end,
 }

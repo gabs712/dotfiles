@@ -13,6 +13,7 @@ return {
         -- Language servers
         'ts_ls',
         'lua_ls',
+        'tailwindcss',
 
         -- Formatters
         'prettier',
