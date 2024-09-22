@@ -1,18 +1,23 @@
 return {
-  'williamboman/mason.nvim',
+  'williamboman/mason.nvim', -- The package manager
   dependencies = {
-    'williamboman/mason-lspconfig.nvim', -- API for mason lsp's
-    'WhoIsSethDaniel/mason-tool-installer.nvim', -- API for mason formatters and linters
+    'williamboman/mason-lspconfig.nvim', -- Allow lspconfig server names
+    'WhoIsSethDaniel/mason-tool-installer.nvim', -- API to ensure that mason installs packages
   },
   config = function()
-    require("mason").setup()
+    require('mason').setup()
+    require('mason-lspconfig').setup() -- Must be setup after mason
 
-    require("mason-lspconfig").setup({
-      -- Ensures that mason installs those
+    require('mason-tool-installer').setup({
       ensure_installed = {
-        'lua_ls',
+        -- Language servers
         'ts_ls',
-      }
+        'lua_ls',
+
+        -- Formatters
+        'prettier',
+        'stylua',
+      },
     })
   end,
 }

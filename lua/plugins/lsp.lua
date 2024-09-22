@@ -1,7 +1,7 @@
 return {
-  'neovim/nvim-lspconfig', -- Actually wires lsp's
+  'neovim/nvim-lspconfig', -- Sets up lsp's
   dependencies = {
-    'williamboman/mason.nvim', -- Installs packages
+    'williamboman/mason.nvim', -- Provides mason-lspconfig to use handlers
     'hrsh7th/cmp-nvim-lsp', -- Provides capabilities for completion with lsp's
   },
   config = function()
