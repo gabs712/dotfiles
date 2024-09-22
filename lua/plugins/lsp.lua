@@ -30,16 +30,15 @@ return {
       end,
     })
 
-    -- ev.buf ensures that lsp keymaps are only settled when a language server is avaliable
+    -- Fallbacks to original if there's no lsp attached
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(ev)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = ev.buf, desc = 'Go to definition' })
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = ev.buf, desc = 'Manual about symbol under cursor' })
-        vim.keymap.set('n', '<leader>p', vim.lsp.buf.format, { buffer = ev.buf, desc = 'Format (make pretty)' })
-        vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, { buffer = ev.buf, desc = 'Rename symbol across project' })
-        vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { buffer = ev.buf, desc = 'Code actions' })
       end
     })
+    vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
+    vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
   end
 }
 

@@ -6,6 +6,7 @@ return {
       require("ibl").setup({
         indent = {
           char = '▏',
+          tab_char = '▏', -- Still show indent guides if indent is a tab
         },
         scope = {
           enabled = false,
