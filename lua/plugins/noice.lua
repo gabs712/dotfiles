@@ -1,11 +1,11 @@
 return {
   enabled = true,
-  "folke/noice.nvim",
-  event = "VeryLazy",
+  'folke/noice.nvim',
+  event = 'VeryLazy',
   dependencies = {
-    "MunifTanjim/nui.nvim",
-    "nvim-telescope/telescope.nvim",
-    "rcarriga/nvim-notify",
+    'MunifTanjim/nui.nvim',
+    'nvim-telescope/telescope.nvim',
+    'rcarriga/nvim-notify',
   },
   config = function()
     require('noice').setup({
@@ -15,13 +15,13 @@ return {
           timeout = 1500, -- 2000
           reverse = false, -- true
           position = {
-            row = 0 -- -1
+            row = 0, -- -1
           },
           -- size = 80
         },
       },
       cmdline = {
-        view = "cmdline", -- cmdline, cmdline_popup
+        view = 'cmdline', -- cmdline, cmdline_popup
 
         -- Basically ligatures for commands
         format = {
@@ -29,20 +29,19 @@ return {
           -- search_down = false,
 
           -- Change search icon
-          search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" }, --  
+          search_down = { kind = 'search', pattern = '^/', icon = ' ', lang = 'regex' }, --  
 
           lua = false,
           help = false,
           filter = false, -- ! (bang)
-        }
-      }, 
+        },
+      },
       messages = {
         view_search = false,
       },
     })
 
-    require("telescope").load_extension("noice")
-    vim.keymap.set('n', '<leader>n', '<cmd>Noice telescope<CR>', {desc = 'Notifications'})
-  end
+    require('telescope').load_extension('noice')
+    vim.keymap.set('n', '<leader>n', '<cmd>Noice telescope<CR>', { desc = 'Notifications' })
+  end,
 }
-

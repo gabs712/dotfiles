@@ -1,15 +1,15 @@
 return {
-  "folke/flash.nvim",
-  event = "VeryLazy",
+  'folke/flash.nvim',
+  event = 'VeryLazy',
   config = function()
     require('flash').setup({
       search = {
         multi_window = true,
         exclude = {
-          "notify",
-          "cmp_menu",
-          "noice",
-          "flash_prompt",
+          'notify',
+          'cmp_menu',
+          'noice',
+          'flash_prompt',
           function(win)
             -- exclude non-focusable windows
             return not vim.api.nvim_win_get_config(win).focusable
@@ -33,7 +33,8 @@ return {
       },
     })
 
-    vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash" })
-  end
+    vim.keymap.set({ 'n', 'x', 'o' }, 's', function()
+      require('flash').jump()
+    end, { desc = 'Flash' })
+  end,
 }
-

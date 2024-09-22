@@ -1,20 +1,20 @@
 -- Used by nvim-cmp
 local M = {}
 
-local cmp = require("cmp")
+local cmp = require('cmp')
 
 -- When pressing tab, instantely selects the first result
-M.tab = cmp.mapping(function ()
+M.tab = cmp.mapping(function()
   if not cmp.visible() then
     cmp.complete()
     cmp.select_next_item()
   else
     cmp.select_next_item()
   end
-end, {"c"})
+end, { 'c' })
 
 -- Do the same, but automatically accpets single results
-M.tab_confirm = cmp.mapping(function ()
+M.tab_confirm = cmp.mapping(function()
   if not cmp.visible() then
     cmp.complete()
     cmp.select_next_item()
@@ -25,6 +25,6 @@ M.tab_confirm = cmp.mapping(function ()
   else
     cmp.select_next_item()
   end
-end, {"c"})
+end, { 'c' })
 
 return M

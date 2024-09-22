@@ -1,9 +1,9 @@
 return {
   {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
     config = function()
-      require("ibl").setup({
+      require('ibl').setup({
         indent = {
           char = '▏',
           tab_char = '▏', -- Still show indent guides if indent is a tab
@@ -12,7 +12,6 @@ return {
           enabled = false,
         },
       })
-    end
+    end,
   },
 }
-

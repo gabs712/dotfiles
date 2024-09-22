@@ -19,9 +19,9 @@ return {
           -- Ignores for both \/
         },
 
-        -- Some icons:             
-        section_separators = {left = '', right = ''},
-        component_separators = {left = '', right = ''},
+        -- Some icons:            
+        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' },
       },
       sections = {
         lualine_a = {},
@@ -31,11 +31,11 @@ return {
         lualine_c = {
           {
             'filetype',
-            padding = {left = 1, right = 0},
+            padding = { left = 1, right = 0 },
             icon_only = true,
             icon = {
-              align = 'left'
-            }
+              align = 'left',
+            },
           },
           {
             'filename',
@@ -46,30 +46,30 @@ return {
               readonly = '',
               unnamed = 'Unnamed',
               newfile = '',
-            }
+            },
           },
           -- Show macros
           {
-            require("noice").api.statusline.mode.get,
-            cond = require("noice").api.statusline.mode.has,
-            color = { fg = "#ff9e64" },
-            padding = {left = 2, right = 1},
+            require('noice').api.statusline.mode.get,
+            cond = require('noice').api.statusline.mode.has,
+            color = { fg = '#ff9e64' },
+            padding = { left = 2, right = 1 },
           },
         },
         lualine_x = {
           {
             'searchcount',
-            padding = {left = 1, right = 3}
+            padding = { left = 1, right = 3 },
           },
           'diagnostics',
           {
             'diff',
-            padding = {left = 1, right = 1},
+            padding = { left = 1, right = 1 },
             colored = true,
             symbols = {
               added = ' ',
               modified = ' ',
-              removed = ' '
+              removed = ' ',
             },
             -- Where to get git info from
             source = function()
@@ -87,7 +87,7 @@ return {
         },
         lualine_y = {
           {
-            padding = {left = 1, right = 0},
+            padding = { left = 1, right = 0 },
             maximize_icon,
           },
           'progress',
@@ -95,5 +95,5 @@ return {
         lualine_z = {},
       },
     })
-  end
+  end,
 }

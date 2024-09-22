@@ -1,11 +1,11 @@
 return {
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
     },
     config = function()
       require('neo-tree').setup({
@@ -17,73 +17,72 @@ return {
             hide_by_name = {},
             hide_by_pattern = {}, -- Glob syntax
             always_show = {},
-          }
+          },
         },
         close_if_last_window = true,
         window = {
           width = 32,
           mappings = {
-            ["<space>"] = "none",
-            ["<C-f>"] = "none",
-            ["<C-e>"] = "none",
-            ["<bs>"] = 'none',
-            ["s"] = 'none',
-            ["S"] = 'none',
-            ["l"] = "open",
-            ["h"] = "close_node",
-            ["<C-s>"] = 'open_split',
-            ["<C-v>"] = 'open_vsplit',
-            ["<C-u>"] = { "scroll_preview", config = {direction = 10} },
-            ["<C-d>"] = { "scroll_preview", config = {direction = -10} },
-            ["<Left>"] = { "scroll_preview", config = {direction = 10} },
-            ["<Right>"] = { "scroll_preview", config = {direction = -10} },
+            ['<space>'] = 'none',
+            ['<C-f>'] = 'none',
+            ['<C-e>'] = 'none',
+            ['<bs>'] = 'none',
+            ['s'] = 'none',
+            ['S'] = 'none',
+            ['l'] = 'open',
+            ['h'] = 'close_node',
+            ['<C-s>'] = 'open_split',
+            ['<C-v>'] = 'open_vsplit',
+            ['<C-u>'] = { 'scroll_preview', config = { direction = 10 } },
+            ['<C-d>'] = { 'scroll_preview', config = { direction = -10 } },
+            ['<Left>'] = { 'scroll_preview', config = { direction = 10 } },
+            ['<Right>'] = { 'scroll_preview', config = { direction = -10 } },
           },
         },
         default_component_configs = {
           modified = {
             symbol = '',
-            highlight = "NeoTreeModified",
+            highlight = 'NeoTreeModified',
           },
           indent = {
             with_markers = true, -- Enable indentation
-            indent_marker = "│",
-            last_indent_marker = "└",
+            indent_marker = '│',
+            last_indent_marker = '└',
             indent_size = 2,
 
             with_expanders = false,
-            expander_collapsed = "",
-            expander_expanded = "",
+            expander_collapsed = '',
+            expander_expanded = '',
           },
           enable_git_status = true,
           git_status = {
             symbols = {
-            -- Change type
-            added     = "A", -- ✚
-            deleted   = "D", -- ✖
-            modified  = "M", -- 
-            renamed   = "R", -- 󰁕
-            -- Status type
-            untracked = "U", -- 
-            ignored   = "", -- 
-            unstaged  = "", -- 󰄱
-            staged    = "", -- 
-            conflict  = "", -- 
-            }
+              -- Change type
+              added = 'A', -- ✚
+              deleted = 'D', -- ✖
+              modified = 'M', -- 
+              renamed = 'R', -- 󰁕
+              -- Status type
+              untracked = 'U', -- 
+              ignored = '', -- 
+              unstaged = '', -- 󰄱
+              staged = '', -- 
+              conflict = '', -- 
+            },
           },
           diagnostics = {
             symbols = {
-              hint = "󰌵", -- 󰌵
-              info = " ", -- 
-              warn = " ", -- 
-              error = " ", -- 
+              hint = '󰌵', -- 󰌵
+              info = ' ', -- 
+              warn = ' ', -- 
+              error = ' ', -- 
             },
           },
         },
       })
 
       -- Toggle window, highlight current file, move cursor
-      vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle reveal focus left<CR>', {desc = 'Explore tree'})
-    end
-  }
+      vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle reveal focus left<CR>', { desc = 'Explore tree' })
+    end,
+  },
 }
-

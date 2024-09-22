@@ -1,15 +1,15 @@
 return {
   {
-    "catppuccin/nvim",
+    'catppuccin/nvim',
     priority = 1000,
-    name = "catppuccin",
+    name = 'catppuccin',
   },
   {
-    "folke/tokyonight.nvim",
+    'folke/tokyonight.nvim',
     priority = 1000,
   },
   {
-    "Mofiqul/dracula.nvim",
+    'Mofiqul/dracula.nvim',
     priority = 1000,
   },
 }

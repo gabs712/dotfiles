@@ -1,5 +1,5 @@
 return {
-  "rcarriga/nvim-notify",
+  'rcarriga/nvim-notify',
   config = {
     require('notify').setup({
       timeout = 3000,
@@ -13,6 +13,6 @@ return {
       max_width = function()
         return math.floor(vim.o.columns * 0.75)
       end,
-    })
-  }
+    }),
+  },
 }

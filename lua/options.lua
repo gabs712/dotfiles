@@ -1,6 +1,6 @@
 -- Must be set before plugins are loaded
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Disable netrw
 vim.g.loaded_netrw = 1
@@ -65,11 +65,10 @@ vim.opt.showmode = false
 
 -- Change some icons
 vim.opt.fillchars = {
-  eob = " ", -- End of buffer (normally '~')
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
+  eob = ' ', -- End of buffer (normally '~')
+  foldopen = '',
+  foldclose = '',
+  fold = ' ',
+  foldsep = ' ',
+  diff = '╱',
 }
-

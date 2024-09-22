@@ -1,25 +1,25 @@
 return {
-  "L3MON4D3/LuaSnip",
+  'L3MON4D3/LuaSnip',
   dependencies = {
-    "rafamadriz/friendly-snippets", -- Extra snippets
+    'rafamadriz/friendly-snippets', -- Extra snippets
   },
-  config = function ()
+  config = function()
     -- Loads snippets from friendly-snippets
-    require("luasnip.loaders.from_vscode").lazy_load()
+    require('luasnip.loaders.from_vscode').lazy_load()
 
-    local ls = require("luasnip")
+    local ls = require('luasnip')
 
     ls.config.set_config({
       history = true, -- Jumps through snippet even after finishing it
     })
 
-    vim.keymap.set({'i', 's'}, '<C-l>', function()
+    vim.keymap.set({ 'i', 's' }, '<C-l>', function()
       if ls.jumpable(1) then
         ls.jump(1)
       end
     end, { desc = 'Jump to next snippet' })
 
-    vim.keymap.set({'i', 's'}, '<C-k>', function()
+    vim.keymap.set({ 'i', 's' }, '<C-k>', function()
       if ls.jumpable(-1) then
         ls.jump(-1)
       end
@@ -32,9 +32,8 @@ return {
     local rep = require('luasnip.extras').rep -- Repeats
     local i = ls.insert_node -- Insert cursor
 
-    ls.add_snippets("lua", {
+    ls.add_snippets('lua', {
       s('lr', fmt("local {} = require('{}')", { i(1, 'mod'), rep(1) })),
     })
-  end
+  end,
 }
-

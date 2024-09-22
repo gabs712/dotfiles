@@ -1,6 +1,6 @@
 return {
   'windwp/nvim-autopairs',
-  event = "InsertEnter",
+  event = 'InsertEnter',
   config = function()
     require('nvim-autopairs').setup({
       disable_filetype = {
@@ -11,6 +11,5 @@ return {
       map_c_h = true,
       map_c_w = true,
     })
-  end
+  end,
 }
-

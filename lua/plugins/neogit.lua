@@ -1,13 +1,12 @@
 return {
-  "NeogitOrg/neogit",
+  'NeogitOrg/neogit',
   dependencies = {
-    "nvim-lua/plenary.nvim",
-    "sindrets/diffview.nvim",
-    "nvim-telescope/telescope.nvim",
+    'nvim-lua/plenary.nvim',
+    'sindrets/diffview.nvim',
+    'nvim-telescope/telescope.nvim',
   },
-  config = function() 
+  config = function()
     require('neogit').setup()
-    vim.keymap.set('n', '<leader>gg', '<cmd>Neogit<CR>', {desc = 'Open neogit'})
-  end
+    vim.keymap.set('n', '<leader>gg', '<cmd>Neogit<CR>', { desc = 'Open neogit' })
+  end,
 }
-

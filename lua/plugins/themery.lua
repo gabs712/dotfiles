@@ -3,7 +3,7 @@ return {
   'zaldih/themery.nvim',
   config = function()
     -- Minimal config
-    require("themery").setup({
+    require('themery').setup({
       themes = {
         'dracula',
         'dracula-soft',
@@ -16,6 +16,6 @@ return {
       livePreview = true,
     })
 
-    vim.keymap.set('n', '<leader>c','<cmd>Themery<cr>')
-  end
+    vim.keymap.set('n', '<leader>c', '<cmd>Themery<cr>')
+  end,
 }

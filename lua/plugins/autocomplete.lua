@@ -1,21 +1,21 @@
 return {
   enabled = true,
-  "hrsh7th/nvim-cmp",
+  'hrsh7th/nvim-cmp',
   dependencies = {
     'hrsh7th/cmp-nvim-lsp', -- Source for lsp
-    "hrsh7th/cmp-buffer", -- Source for text written in buffer
-    "hrsh7th/cmp-path", -- Source for paths
+    'hrsh7th/cmp-buffer', -- Source for text written in buffer
+    'hrsh7th/cmp-path', -- Source for paths
     'hrsh7th/cmp-cmdline', -- Source for cmdline
 
-    "L3MON4D3/LuaSnip", -- Engine responsable for snippets
-    "saadparwaiz1/cmp_luasnip", -- Source for snippets
+    'L3MON4D3/LuaSnip', -- Engine responsable for snippets
+    'saadparwaiz1/cmp_luasnip', -- Source for snippets
 
-    "onsails/lspkind.nvim", -- Icons
+    'onsails/lspkind.nvim', -- Icons
   },
   config = function()
-    local cmp = require("cmp")
-    local luasnip = require("luasnip")
-    local lspkind = require("lspkind")
+    local cmp = require('cmp')
+    local luasnip = require('luasnip')
+    local lspkind = require('lspkind')
 
     -- Max completion height
     vim.opt.pumheight = 15
@@ -25,22 +25,22 @@ return {
       -- Sources from higher to lower priority
       sources = cmp.config.sources({
         {
-          name = "nvim_lsp",
+          name = 'nvim_lsp',
           -- Filter snippets from lsp
-          entry_filter = function (entry)
+          entry_filter = function(entry)
             if entry:get_kind() == 15 then -- 15 represents snippets
               return false
             end
 
             return true
-          end
+          end,
         },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
+        { name = 'luasnip' },
+        { name = 'buffer' },
+        { name = 'path' },
       }),
       formatting = {
-        fields = { "kind", "abbr", "menu" }, -- kind, abbr, menu
+        fields = { 'kind', 'abbr', 'menu' }, -- kind, abbr, menu
         format = lspkind.cmp_format({
           mode = 'symbol', -- 'text', 'text_symbol', 'symbol_text', 'symbol'
           -- ~/.local/state/nvim/lazy/readme/doc/lspkind.nvim.md:42
@@ -56,11 +56,11 @@ return {
       },
       view = {
         entries = {
-          follow_cursor = false
+          follow_cursor = false,
         },
         docs = {
           auto_open = false, -- Automatically show docs when highlighting
-        }
+        },
       },
       snippet = {
         -- Engine to use when expanding snippets
@@ -69,17 +69,17 @@ return {
         end,
       },
       completion = {
-        completeopt = "menu", -- ',noselect' prevents from selecting automatically
+        completeopt = 'menu', -- ',noselect' prevents from selecting automatically
       },
       mapping = cmp.mapping.preset.insert({
         -- Selects first option when confirming if select equals true
-        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- C-j is also being remaped to it
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- C-j is also being remaped to it
 
-        ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        ["<C-c>"] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c' }),
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        ['<C-c>'] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c' }),
 
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
 
         -- Prevent from interfering with default behavior
         ['<C-y>'] = cmp.config.disable,
@@ -92,17 +92,17 @@ return {
           else
             cmp.open_docs()
           end
-        end
+        end,
       }),
     })
 
     -- Search config
     cmp.setup.cmdline({ '/', '?' }, {
       sources = {
-        { name = 'buffer' }
+        { name = 'buffer' },
       },
       formatting = {
-        fields = { "abbr" },
+        fields = { 'abbr' },
       },
       window = {
         completion = {
@@ -115,10 +115,10 @@ return {
         },
       },
       completion = {
-        completeopt = "noselect",
+        completeopt = 'noselect',
       },
       mapping = cmp.mapping.preset.cmdline({
-        ["<Tab>"] = require('custom.tab-completion').tab,
+        ['<Tab>'] = require('custom.tab-completion').tab,
       }),
     })
 
@@ -130,11 +130,11 @@ return {
           name = 'cmdline',
           option = {
             treat_trailing_slash = false, -- Adds slash at the end of paths
-          }
+          },
         },
       }),
       formatting = {
-        fields = { "abbr" },
+        fields = { 'abbr' },
       },
       window = {
         completion = {
@@ -147,14 +147,13 @@ return {
         },
       },
       completion = {
-        completeopt = "noselect",
+        completeopt = 'noselect',
         autocomplete = false,
       },
       mapping = cmp.mapping.preset.cmdline({
-        ["<Tab>"] = require('custom.tab-completion').tab_confirm,
-        ["<C-e>"] = cmp.config.disable,
+        ['<Tab>'] = require('custom.tab-completion').tab_confirm,
+        ['<C-e>'] = cmp.config.disable,
       }),
     })
-  end
+  end,
 }
-

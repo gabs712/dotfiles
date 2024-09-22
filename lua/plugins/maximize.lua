@@ -4,7 +4,6 @@ return {
   config = function()
     require('maximize').setup()
 
-    vim.keymap.set({'n', 'x'}, '<C-w>m', require('maximize').toggle, {desc = 'Toggle window maximize'})
-  end
+    vim.keymap.set({ 'n', 'x' }, '<C-w>m', require('maximize').toggle, { desc = 'Toggle window maximize' })
+  end,
 }
-

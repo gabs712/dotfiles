@@ -1,9 +1,9 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
+  'nvim-treesitter/nvim-treesitter',
   dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
-  build = ":TSUpdate",
-  config = function () 
-    require("nvim-treesitter.configs").setup({
+  build = ':TSUpdate',
+  config = function()
+    require('nvim-treesitter.configs').setup({
       ensure_installed = {
         'lua',
         'javascript',
@@ -27,13 +27,12 @@ return {
           lookahead = true, -- Jump to next ocurrence if not inside any
 
           keymaps = {
-            ["if"] = { query = "@function.inner", desc = "Select inside function" },
-            ["af"] = { query = "@function.outer", desc = "Select around function" },
-            ["ic"] = { query = "@class.inner", desc = "Select inside class" },
+            ['if'] = { query = '@function.inner', desc = 'Select inside function' },
+            ['af'] = { query = '@function.outer', desc = 'Select around function' },
+            ['ic'] = { query = '@class.inner', desc = 'Select inside class' },
           },
-        }
-      }
+        },
+      },
     })
-  end
+  end,
 }
-
