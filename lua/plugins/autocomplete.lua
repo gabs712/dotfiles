@@ -11,6 +11,7 @@ return {
     'saadparwaiz1/cmp_luasnip', -- Source for snippets
 
     'onsails/lspkind.nvim', -- Icons
+    { 'luckasRanarison/tailwind-tools.nvim', name = 'tailwind-tools' }, -- Tailwind icons
   },
   config = function()
     local cmp = require('cmp')
@@ -42,10 +43,13 @@ return {
       formatting = {
         fields = { 'kind', 'abbr', 'menu' }, -- kind, abbr, menu
         format = lspkind.cmp_format({
-          mode = 'symbol', -- 'text', 'text_symbol', 'symbol_text', 'symbol'
+          mode = 'symbol',
+          before = require('tailwind-tools.cmp').lspkind_format, -- Tailwind icons
           -- ~/.local/state/nvim/lazy/readme/doc/lspkind.nvim.md:42
           symbol_map = {
             Variable = '',
+            Color = '󰝤',
+            Constant = '',
           },
         }),
       },
