@@ -12,21 +12,27 @@ return {
 
     'onsails/lspkind.nvim', -- Icons
     { 'luckasRanarison/tailwind-tools.nvim', name = 'tailwind-tools' }, -- Tailwind icons
+
+    'windwp/nvim-autopairs', -- Pairs when selecting function
   },
   config = function()
     local cmp = require('cmp')
     local luasnip = require('luasnip')
     local lspkind = require('lspkind')
 
+    --  When selecting a function, adds parenthesis by default
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+    cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+
     -- Max completion height
     vim.opt.pumheight = 15
+
     -- Global config
     cmp.setup({
       -- Sources from higher to lower priority
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
-        { name = 'buffer' },
         { name = 'path' },
       }),
       formatting = {
