@@ -1,5 +1,3 @@
--- IMPORTANT: Seems to require node and neovim node client (npmjs.com/package/neovim). I just
--- have node and it works just fine, so i will leave it be unless there's an issue in the future.
 return {
   'luckasRanarison/tailwind-tools.nvim', -- Primarily provides sort, concealing and icons for tailwind
   name = 'tailwind-tools',

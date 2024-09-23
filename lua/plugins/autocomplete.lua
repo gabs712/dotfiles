@@ -20,7 +20,6 @@ return {
 
     -- Max completion height
     vim.opt.pumheight = 15
-    -- TODO: performance and class spaces
     -- Global config
     cmp.setup({
       -- Sources from higher to lower priority
@@ -64,6 +63,16 @@ return {
       },
       completion = {
         completeopt = 'menu', -- ',noselect' prevents from selecting automatically
+        -- Don't trigger completion after spaces, particullarly useful when writting tailwind classes
+        get_trigger_characters = function(chars)
+          local new_chars = {}
+          for _, char in ipairs(chars) do
+            if char ~= ' ' then
+              table.insert(new_chars, char)
+            end
+          end
+          return new_chars
+        end,
       },
       mapping = cmp.mapping.preset.insert({
         -- Selects first option when confirming if select equals true
