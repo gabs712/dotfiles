@@ -48,7 +48,7 @@ return {
           -- ~/.local/state/nvim/lazy/readme/doc/lspkind.nvim.md:42
           symbol_map = {
             Variable = '',
-            Color = '󰝤',
+            Color = '██',
             Constant = '',
           },
         }),
