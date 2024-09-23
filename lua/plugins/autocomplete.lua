@@ -20,7 +20,7 @@ return {
 
     -- Max completion height
     vim.opt.pumheight = 15
-
+    -- TODO: performance and class spaces
     -- Global config
     cmp.setup({
       -- Sources from higher to lower priority
