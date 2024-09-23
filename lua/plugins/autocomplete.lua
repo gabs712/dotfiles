@@ -25,17 +25,7 @@ return {
     cmp.setup({
       -- Sources from higher to lower priority
       sources = cmp.config.sources({
-        {
-          name = 'nvim_lsp',
-          -- Filter snippets from lsp
-          entry_filter = function(entry)
-            if entry:get_kind() == 15 then -- 15 represents snippets
-              return false
-            end
-
-            return true
-          end,
-        },
+        { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'buffer' },
         { name = 'path' },
