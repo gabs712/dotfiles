@@ -38,6 +38,6 @@ return {
 
     --lsp
     vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = 'Find references' })
-    vim.keymap.set('n', '<leader>r', '<cmd>Telescope registers<CR>', { desc = 'Find references' })
+    vim.keymap.set('n', "<leader>'", '<cmd>Telescope registers<CR>', { desc = 'Find references' })
   end,
 }

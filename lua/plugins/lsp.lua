@@ -37,7 +37,7 @@ return {
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = ev.buf, desc = 'Manual about symbol under cursor' })
       end,
     })
-    vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
+    vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
     vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
   end,
 }
