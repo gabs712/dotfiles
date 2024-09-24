@@ -11,9 +11,12 @@ return {
     require('mason-tool-installer').setup({
       ensure_installed = {
         -- Language servers
+        'html',
+        'cssls',
         'ts_ls',
-        'lua_ls',
         'tailwindcss',
+        'lua_ls',
+        -- 'pyright',
 
         -- Formatters
         'prettier',

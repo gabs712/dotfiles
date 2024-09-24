@@ -20,7 +20,7 @@ return {
     local luasnip = require('luasnip')
     local lspkind = require('lspkind')
 
-    --  When selecting a function, adds parenthesis by default
+    -- When selecting a function, adds parenthesis by default
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
@@ -162,6 +162,36 @@ return {
         ['<Tab>'] = require('custom.tab-completion').tab_confirm,
         ['<C-e>'] = cmp.config.disable,
       }),
+    })
+
+    local types = require('cmp.types')
+    cmp.setup.filetype({ 'html', 'css' }, {
+      -- Give low priority for snippets, even if the match is exact (i'm really aiming for emmet)
+      sorting = {
+        priority_weight = 2,
+        comparators = {
+          function(entry1, entry2)
+            if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then
+              return false
+            end
+            if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then
+              return true
+            end
+          end,
+
+          -- The rest of the comparators are pretty much the defaults
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.scopes,
+          cmp.config.compare.score,
+          cmp.config.compare.recently_used,
+          cmp.config.compare.locality,
+          cmp.config.compare.kind,
+          cmp.config.compare.sort_text,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
+        },
+      },
     })
   end,
 }
