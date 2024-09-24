@@ -11,6 +11,7 @@ return {
         'html',
         'css',
         'typescript',
+        'vim',
         'vimdoc',
         'bash',
         'regex',
