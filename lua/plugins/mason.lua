@@ -15,12 +15,15 @@ return {
         'cssls',
         'ts_ls',
         'tailwindcss',
+        'emmet_ls',
         'lua_ls',
-        -- 'pyright',
 
         -- Formatters
         'prettier',
         'stylua',
+
+        -- Linters
+        'eslint_d',
       },
     })
   end,
