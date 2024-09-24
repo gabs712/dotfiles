@@ -45,6 +45,7 @@ return {
             Variable = '',
             Color = '██',
             Constant = '',
+            Value = '',
           },
         }),
       },
