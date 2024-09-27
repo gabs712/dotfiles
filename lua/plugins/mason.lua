@@ -23,7 +23,7 @@ return {
         'stylua',
 
         -- Linters
-        'eslint',
+        'eslint_d',
       },
     })
   end,

@@ -9,6 +9,7 @@ return {
   },
   config = function()
     require('noice').setup({
+      lsp = { progress = { enabled = false }}, -- Disable lsp notifications
       views = {
         -- Notification fallback if notify not present
         mini = {
