@@ -28,6 +28,16 @@ return {
           },
         })
       end,
+
+      ['ts_ls'] = function()
+        lspconfig['ts_ls'].setup({
+          capabilities = cmp_capabilities,
+          settings = {
+            -- Ignores lint for unused vars
+            diagnostics = { ignoredCodes = { 6133 } },
+          },
+        })
+      end,
     })
 
     -- Fallbacks to original if there's no lsp attached
