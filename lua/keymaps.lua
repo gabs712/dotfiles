@@ -1,4 +1,13 @@
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlights' })
+-- Dismiss highlights and floating windows
+vim.keymap.set('n', '<Esc>', function()
+  vim.cmd('nohlsearch')
+
+  for _, win in pairs(vim.api.nvim_list_wins()) do
+    if vim.api.nvim_win_is_valid(win) and vim.api.nvim_win_get_config(win).relative ~= '' then
+      vim.api.nvim_win_close(win, false)
+    end
+  end
+end, { desc = 'Clear highlights and popups' })
 
 -- Window navigation
 vim.keymap.set({ 'n', 'x' }, '<A-h>', '<C-w><C-h>', { desc = 'Window left' })
