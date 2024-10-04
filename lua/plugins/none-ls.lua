@@ -19,13 +19,22 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>p', vim.lsp.buf.format, { desc = 'Format (make pretty)' })
+    -- Formats only using null_ls sources
+    local source_formatting = function()
+      local bufnr = vim.api.nvim_get_current_buf()
+      vim.lsp.buf.format({
+        filter = function(client)
+          return client.name == 'null-ls'
+        end,
+        bufnr = bufnr,
+      })
+    end
 
     -- Format on save
     vim.api.nvim_create_autocmd('BufWritePre', {
-      callback = function()
-        vim.lsp.buf.format()
-      end,
+      callback = source_formatting,
     })
+
+    vim.keymap.set('n', '<leader>p', source_formatting, { desc = 'Format (make pretty)' })
   end,
 }
