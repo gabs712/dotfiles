@@ -21,12 +21,10 @@ return {
 
     -- Formats only using null_ls sources
     local source_formatting = function()
-      local bufnr = vim.api.nvim_get_current_buf()
       vim.lsp.buf.format({
         filter = function(client)
           return client.name == 'null-ls'
         end,
-        bufnr = bufnr,
       })
     end
 
