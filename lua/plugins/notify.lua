@@ -1,6 +1,6 @@
 return {
   'rcarriga/nvim-notify',
-  config = {
+  config = function()
     require('notify').setup({
       timeout = 3000,
       stages = 'static', -- static, fade, fade_in_slide_out, slide
@@ -13,6 +13,6 @@ return {
       max_width = function()
         return math.floor(vim.o.columns * 0.75)
       end,
-    }),
-  },
+    })
+  end,
 }
