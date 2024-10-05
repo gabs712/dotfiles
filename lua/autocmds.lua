@@ -60,3 +60,15 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
   end,
 })
+
+-- Disables diagnostics on insert mode
+vim.api.nvim_create_autocmd('InsertEnter', {
+  callback = function()
+    vim.diagnostic.enable(false)
+  end,
+})
+vim.api.nvim_create_autocmd('InsertLeave', {
+  callback = function()
+    vim.diagnostic.enable(true)
+  end,
+})
