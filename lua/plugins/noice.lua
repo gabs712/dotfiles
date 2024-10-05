@@ -12,6 +12,9 @@ return {
       lsp = {
         progress = { enabled = false }, -- Disable lsp notifications
         hover = { silent = true }, -- Disable hover notification when not avaliable
+        signature = {
+          auto_open = { enabled = false },
+        },
       },
       views = {
         -- Notification fallback if notify not present
