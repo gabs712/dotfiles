@@ -10,6 +10,8 @@ return {
     'folke/noice.nvim',
   },
   config = function()
+    local icons = require('custom.icons')
+
     require('lualine').setup({
       options = {
         theme = 'auto',
@@ -61,7 +63,15 @@ return {
             'searchcount',
             padding = { left = 1, right = 3 },
           },
-          'diagnostics',
+          {
+            'diagnostics',
+            symbols = {
+              hint = icons.diagnostics.hint,
+              info = icons.diagnostics.info,
+              warn = icons.diagnostics.warn,
+              error = icons.diagnostics.error,
+            },
+          },
           {
             'diff',
             padding = { left = 1, right = 1 },

@@ -72,3 +72,17 @@ vim.opt.fillchars = {
   foldsep = ' ',
   diff = '╱',
 }
+
+local icons = require('custom.icons')
+vim.diagnostic.config({
+  virtual_text = false, -- Inline diagnostic
+  underline = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
+      [vim.diagnostic.severity.WARN] = icons.diagnostics.warn,
+      [vim.diagnostic.severity.INFO] = icons.diagnostics.info,
+      [vim.diagnostic.severity.HINT] = icons.diagnostics.hint,
+    },
+  },
+})

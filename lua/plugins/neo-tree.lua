@@ -8,6 +8,8 @@ return {
       'MunifTanjim/nui.nvim',
     },
     config = function()
+      local icons = require('custom.icons')
+
       require('neo-tree').setup({
         filesystem = {
           filtered_items = {
@@ -72,10 +74,10 @@ return {
           },
           diagnostics = {
             symbols = {
-              hint = '󰌵', -- 󰌵
-              info = ' ', -- 
-              warn = ' ', -- 
-              error = ' ', -- 
+              hint = icons.diagnostics.hint, -- 󰌵
+              info = icons.diagnostics.info, -- 
+              warn = icons.diagnostics.warn, -- 
+              error = icons.diagnostics.error, -- 
             },
           },
         },
