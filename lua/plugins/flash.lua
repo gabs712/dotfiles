@@ -35,6 +35,10 @@ return {
 
     vim.keymap.set({ 'n', 'x', 'o' }, 's', function()
       require('flash').jump()
-    end, { desc = 'Flash' })
+    end, { desc = 'Flash jump' })
+
+    vim.keymap.set('o', 'r', function()
+      require('flash').remote()
+    end, { desc = 'Flash realocate' })
   end,
 }
