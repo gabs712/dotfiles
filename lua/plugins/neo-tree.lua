@@ -65,7 +65,7 @@ return {
               modified = 'M', -- 
               renamed = 'R', -- 󰁕
               -- Status type
-              untracked = 'U', -- 
+              untracked = '??', -- 
               ignored = '', -- 
               unstaged = '', -- 󰄱
               staged = '', -- 
