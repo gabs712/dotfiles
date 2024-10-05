@@ -43,16 +43,5 @@ return {
         })
       end,
     })
-
-    -- Fallbacks to original if there's no lsp attached
-    vim.api.nvim_create_autocmd('LspAttach', {
-      callback = function(ev)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = ev.buf, desc = 'Go to definition' })
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = ev.buf, desc = 'Manual about symbol under cursor' })
-      end,
-    })
-    vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
-    vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
-    vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
   end,
 }
