@@ -37,6 +37,16 @@ return {
       require('flash').jump()
     end, { desc = 'Flash jump' })
 
+    vim.keymap.set({ 'n', 'x', 'o' }, 'S', function()
+      require('flash').treesitter_search({
+        label = {
+          rainbow = {
+            enabled = true,
+          },
+        },
+      })
+    end, { desc = 'Flash jump to range' })
+
     vim.keymap.set('o', 'r', function()
       require('flash').remote()
     end, { desc = 'Flash realocate' })
