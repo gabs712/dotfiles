@@ -17,6 +17,7 @@ return {
         'regex',
         'markdown',
         'markdown_inline',
+        'yaml',
       },
 
       auto_install = true,
