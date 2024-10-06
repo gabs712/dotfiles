@@ -2,7 +2,9 @@ return {
   'folke/flash.nvim',
   event = 'VeryLazy',
   config = function()
-    require('flash').setup({
+    local flash = require('flash')
+
+    flash.setup({
       search = {
         multi_window = true,
         exclude = {
@@ -30,25 +32,18 @@ return {
             backdrop = false, -- Fade out text with f/t
           },
         },
+        treesitter_search = {
+          label = {
+            rainbow = {
+              enabled = true,
+            },
+          },
+        },
       },
     })
 
-    vim.keymap.set({ 'n', 'x', 'o' }, 's', function()
-      require('flash').jump()
-    end, { desc = 'Flash jump' })
-
-    vim.keymap.set({ 'n', 'x', 'o' }, 'S', function()
-      require('flash').treesitter_search({
-        label = {
-          rainbow = {
-            enabled = true,
-          },
-        },
-      })
-    end, { desc = 'Flash jump to range' })
-
-    vim.keymap.set('o', 'r', function()
-      require('flash').remote()
-    end, { desc = 'Flash realocate' })
+    vim.keymap.set({ 'n', 'x', 'o' }, 's', flash.jump, { desc = 'Flash jump' })
+    vim.keymap.set({ 'n', 'x', 'o' }, 'S', flash.treesitter_search, { desc = 'Flash jump to range' })
+    vim.keymap.set('o', 'r', flash.remote, { desc = 'Flash realocate' })
   end,
 }
