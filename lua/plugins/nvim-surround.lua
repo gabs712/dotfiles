@@ -5,7 +5,7 @@ return {
   event = 'VeryLazy',
   config = function()
     require('nvim-surround').setup({
-      -- Prefixed with 'line' also indents
+      move_cursor = 'sticky',
       keymaps = {
         -- Autopairs
         insert = false,
