@@ -168,6 +168,11 @@ return {
 
     local types = require('cmp.types')
     cmp.setup.filetype({ 'html', 'css' }, {
+      sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'path' },
+      }),
       -- Give low priority for snippets, even if the match is exact (i'm really aiming for emmet)
       sorting = {
         priority_weight = 2,
