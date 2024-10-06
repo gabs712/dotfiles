@@ -5,7 +5,7 @@ return {
   config = function()
     require('nvim-treesitter.configs').setup({
       ensure_installed = {
-        'tsx', -- Dependencie for 'tailwind tools'
+        'tsx',
         'lua',
         'javascript',
         'html',
@@ -18,6 +18,7 @@ return {
         'markdown',
         'markdown_inline',
         'yaml',
+        'toml',
       },
 
       auto_install = true,
