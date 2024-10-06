@@ -5,8 +5,22 @@ return {
   event = 'VeryLazy',
   config = function()
     require('nvim-surround').setup({
+      -- Prefixed with 'line' also indents
       keymaps = {
-        normal = 'S',
+        -- Autopairs
+        insert = false,
+        insert_line = false,
+
+        -- Sufixed with 'line' also indents
+        normal = '\\',
+        normal_cur = '\\\\',
+        visual = '\\',
+        normal_line = '|',
+        normal_cur_line = '||',
+        visual_line = '|',
+        delete = 'd\\',
+        change = 'c\\',
+        change_line = 'c|',
       },
     })
   end,
