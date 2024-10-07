@@ -51,11 +51,6 @@ vim.keymap.set('n', '<CR>', '<C-m>', { desc = 'To fix bug. Has no effect.' })
 -- Improve repetitive window movements
 vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
 
-vim.keymap.set({ 'n', 'x' }, '<c-w>h', '<c-w>h<c-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<c-w>j', '<c-w>j<c-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<c-w>k', '<c-w>k<c-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<c-w>l', '<c-w>l<c-w>', { remap = true })
-
 vim.keymap.set({ 'n', 'x' }, '<c-w>H', '<c-w>H<c-w>', { remap = true })
 vim.keymap.set({ 'n', 'x' }, '<c-w>J', '<c-w>J<c-w>', { remap = true })
 vim.keymap.set({ 'n', 'x' }, '<c-w>K', '<c-w>K<c-w>', { remap = true })
