@@ -42,6 +42,29 @@ return {
           },
         })
       end,
+
+      ['cssls'] = function()
+        lspconfig['cssls'].setup({
+          capabilities = cmp_capabilities,
+          settings = {
+            css = {
+              lint = {
+                unknownAtRules = 'ignore',
+              },
+            },
+            scss = {
+              lint = {
+                unknownAtRules = 'ignore',
+              },
+            },
+            less = {
+              lint = {
+                unknownAtRules = 'ignore',
+              },
+            },
+          },
+        })
+      end,
     })
   end,
 }
