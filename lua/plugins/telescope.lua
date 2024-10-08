@@ -35,7 +35,8 @@ return {
         prompt_title = 'Neovim Files',
       })
     end, { desc = 'Find neovim config' })
-    vim.keymap.set('n', "<leader>'", '<cmd>Telescope registers<CR>', { desc = 'Find registers' })
+    vim.keymap.set('n', "<leader>'", builtin.registers, { desc = 'Find registers' })
+    vim.keymap.set('n', '<leader>m', builtin.marks, { desc = 'Find marks' })
 
     vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = 'Go to definition' })
     vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = 'Find references' })
