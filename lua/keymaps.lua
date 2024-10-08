@@ -92,6 +92,9 @@ vim.keymap.set('x', '<C-c>', 'gc', { remap = true })
 -- Marks go to col
 vim.keymap.set('n', "'", '`')
 
+vim.keymap.set('n', 'M', 'm', { desc = 'Mark' })
+
+-- Lsp
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
 vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
