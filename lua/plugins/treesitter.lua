@@ -2,7 +2,7 @@ return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
   build = ':TSUpdate',
-  config = function(sla, po, cu)
+  config = function()
     require('nvim-treesitter.configs').setup({
       ensure_installed = {
         'tsx',
@@ -93,6 +93,7 @@ return {
 
     local ts_repeat_move = require('nvim-treesitter.textobjects.repeatable_move')
 
+    -- TODO: lua vim.diagnostic.jump({count = -1}) and hunk
     -- Repeat textobject moves
     vim.keymap.set({ 'n', 'x', 'o' }, ';', ts_repeat_move.repeat_last_move)
     vim.keymap.set({ 'n', 'x', 'o' }, ',', ts_repeat_move.repeat_last_move_opposite)
