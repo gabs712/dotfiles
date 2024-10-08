@@ -103,5 +103,15 @@ return {
     vim.keymap.set({ 'n', 'x', 'o' }, 'F', ts_repeat_move.builtin_F_expr, { expr = true })
     vim.keymap.set({ 'n', 'x', 'o' }, 't', ts_repeat_move.builtin_t_expr, { expr = true })
     vim.keymap.set({ 'n', 'x', 'o' }, 'T', ts_repeat_move.builtin_T_expr, { expr = true })
+
+    -- Repeatable diagnostic move
+    local next_diagnostic, prev_diagnostic = ts_repeat_move.make_repeatable_move_pair(function()
+      vim.diagnostic.jump({ count = 1 })
+    end, function()
+      vim.diagnostic.jump({ count = -1 })
+    end)
+
+    vim.keymap.set('n', ']d', next_diagnostic, { desc = 'Next diagnostic' })
+    vim.keymap.set('n', '[d', prev_diagnostic, { desc = 'Previous diagnostic' })
   end,
 }
