@@ -6,7 +6,11 @@ return {
   config = function()
     local gitsigns = require('gitsigns')
     gitsigns.setup({
+      -- Untracked files don't need to be refreshed when committed to be attached
       attach_to_untracked = true,
+      signs = {
+        untracked = { text = '' },
+      },
     })
 
     local ts_repeat_move = require('nvim-treesitter.textobjects.repeatable_move')
