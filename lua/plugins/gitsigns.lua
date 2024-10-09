@@ -5,7 +5,9 @@ return {
   },
   config = function()
     local gitsigns = require('gitsigns')
-    gitsigns.setup()
+    gitsigns.setup({
+      attach_to_untracked = true,
+    })
 
     local ts_repeat_move = require('nvim-treesitter.textobjects.repeatable_move')
 
