@@ -48,14 +48,14 @@ return {
             ['ii'] = { query = '@conditional.inner', desc = 'Select inside conditional (if)' },
             ['ai'] = { query = '@conditional.outer', desc = 'Select around conditional (if)' },
 
-            ['ic'] = { query = '@class.inner', desc = 'Select inside class' },
-            ['ac'] = { query = '@class.outer', desc = 'Select around class' },
+            ['iC'] = { query = '@class.inner', desc = 'Select inside class' },
+            ['aC'] = { query = '@class.outer', desc = 'Select around class' },
 
             ['ia'] = { query = '@parameter.inner', desc = 'Select inside argument or parameter' },
             ['aa'] = { query = '@parameter.outer', desc = 'Select around argument or parameter' },
 
-            ['iC'] = { query = '@comment.inner', desc = 'Select inside comment' }, -- Not implemented for most languages
-            ['aC'] = { query = '@comment.outer', desc = 'Select around comment' },
+            ['ic'] = { query = '@comment.outer', desc = 'Select inside comment' }, -- @comment.inner not implemented for most languages
+            ['ac'] = { query = '@comment.outer', desc = 'Select around comment' },
           },
         },
         swap = {
@@ -65,18 +65,18 @@ return {
             ['Hf'] = { query = '@function.outer', desc = 'Swap function with previous' },
             ['Hl'] = { query = '@loop.outer', desc = 'Swap loop with previous' },
             ['Hi'] = { query = '@conditional.outer', desc = 'Swap conditional (if) with previous' },
-            ['Hc'] = { query = '@class.outer', desc = 'Swap class with previous' },
+            ['HC'] = { query = '@class.outer', desc = 'Swap class with previous' },
             ['Ha'] = { query = '@parameter.inner', desc = 'Swap argument with previous' },
-            ['HC'] = { query = '@comment.outer', desc = 'Swap comment with previous' },
+            ['Hc'] = { query = '@comment.outer', desc = 'Swap comment with previous' },
           },
           swap_next = {
             ['Lv'] = { query = '@assignment.outer', desc = 'Swap variable with next' },
             ['Lf'] = { query = '@function.outer', desc = 'Swap function with next' },
             ['Ll'] = { query = '@loop.outer', desc = 'Swap loop with next' },
             ['Li'] = { query = '@conditional.outer', desc = 'Swap conditional (if) with next' },
-            ['Lc'] = { query = '@class.outer', desc = 'Swap class with next' },
+            ['LC'] = { query = '@class.outer', desc = 'Swap class with next' },
             ['La'] = { query = '@parameter.inner', desc = 'Swap argument with next' },
-            ['LC'] = { query = '@comment.outer', desc = 'Swap comment with next' },
+            ['Lc'] = { query = '@comment.outer', desc = 'Swap comment with next' },
           },
         },
         move = {
@@ -89,9 +89,9 @@ return {
             [']m'] = { query = '@call.outer', desc = 'Next function call (method)' },
             [']l'] = { query = '@loop.outer', desc = 'Next loop' },
             [']i'] = { query = '@conditional.outer', desc = 'Next conditional (if)' },
-            [']c'] = { query = '@class.outer', desc = 'Next class' },
+            [']C'] = { query = '@class.outer', desc = 'Next class' },
             [']a'] = { query = '@parameter.inner', desc = 'Next argument or parameter' },
-            [']C'] = { query = '@comment.outer', desc = 'Next comment' },
+            [']c'] = { query = '@comment.outer', desc = 'Next comment' },
           },
           goto_previous_start = {
             ['[v'] = { query = '@assignment.outer', desc = 'Previous variable' },
@@ -99,9 +99,9 @@ return {
             ['[m'] = { query = '@call.outer', desc = 'Previous function call (method)' },
             ['[l'] = { query = '@loop.outer', desc = 'Previous loop' },
             ['[i'] = { query = '@conditional.outer', desc = 'Previous conditional (if)' },
-            ['[c'] = { query = '@class.outer', desc = 'Previous class' },
+            ['[C'] = { query = '@class.outer', desc = 'Previous class' },
             ['[a'] = { query = '@parameter.inner', desc = 'Previous argument or parameter' },
-            ['[C'] = { query = '@comment.outer', desc = 'Previous comment' },
+            ['[c'] = { query = '@comment.outer', desc = 'Previous comment' },
           },
         },
       },
