@@ -5,20 +5,22 @@ return {
   config = function()
     require('nvim-treesitter.configs').setup({
       ensure_installed = {
+        'vim',
+        'vimdoc',
+        'regex',
         'tsx',
         'lua',
         'javascript',
         'html',
         'css',
         'typescript',
-        'vim',
-        'vimdoc',
         'bash',
-        'regex',
         'markdown',
         'markdown_inline',
         'yaml',
         'toml',
+        'query',
+        'json',
       },
 
       auto_install = true,
