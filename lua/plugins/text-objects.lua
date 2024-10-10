@@ -42,6 +42,7 @@ return {
           swap_previous = {
             ['Hv'] = { query = '@assignment.outer', desc = 'Swap variable with previous' },
             ['Hf'] = { query = '@function.outer', desc = 'Swap function with previous' },
+            -- ['Hm'] = { query = '@call.outer', desc = 'Swap function call (method) with previous' }, -- Doesn't behave as expected
             ['Hl'] = { query = '@loop.outer', desc = 'Swap loop with previous' },
             ['Hi'] = { query = '@conditional.outer', desc = 'Swap conditional (if) with previous' },
             ['Ho'] = { query = '@class.outer', desc = 'Swap class (object) with previous' },
@@ -51,6 +52,7 @@ return {
           swap_next = {
             ['Lv'] = { query = '@assignment.outer', desc = 'Swap variable with next' },
             ['Lf'] = { query = '@function.outer', desc = 'Swap function with next' },
+            -- ['Lm'] = { query = '@call.outer', desc = 'Swap function call (method) with next' },
             ['Ll'] = { query = '@loop.outer', desc = 'Swap loop with next' },
             ['Li'] = { query = '@conditional.outer', desc = 'Swap conditional (if) with next' },
             ['Lo'] = { query = '@class.outer', desc = 'Swap class (object) with next' },
