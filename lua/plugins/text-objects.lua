@@ -11,8 +11,6 @@ return {
           keymaps = {
             ['iv'] = { query = '@assignment.inner', desc = 'Select inside variable' },
             ['av'] = { query = '@assignment.outer', desc = 'Select around variable' },
-            ['lv'] = { query = '@assignment.lhs', desc = 'Select left variable' },
-            ['rv'] = { query = '@assignment.rhs', desc = 'Select right variable' },
 
             ['if'] = { query = '@function.inner', desc = 'Select inside function' },
             ['af'] = { query = '@function.outer', desc = 'Select around function' },
