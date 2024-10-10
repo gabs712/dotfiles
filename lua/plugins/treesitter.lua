@@ -31,10 +31,28 @@ return {
           lookahead = true, -- Jump to next ocurrence if not inside any
 
           keymaps = {
-            ['ra'] = { query = '@assignment.rhs', desc = 'Select right hand side of an assignment' },
-            ['aa'] = { query = '@assignment.outer', desc = 'Select outer part of an assignment' },
-            ['ia'] = { query = '@assignment.inner', desc = 'Select inner part of an assignment' },
-            ['la'] = { query = '@assignment.lhs', desc = 'Select left hand side of an assignment' },
+            ['iv'] = { query = '@assignment.inner', desc = 'Select inside variable' },
+            ['av'] = { query = '@assignment.outer', desc = 'Select around variable' },
+            ['lv'] = { query = '@assignment.lhs', desc = 'Select left variable' },
+            ['rv'] = { query = '@assignment.rhs', desc = 'Select right variable' },
+
+            ['if'] = { query = '@function.inner', desc = 'Select inside function' },
+            ['af'] = { query = '@function.outer', desc = 'Select around function' },
+
+            ['im'] = { query = '@call.inner', desc = 'Select inside function call (method)' },
+            ['am'] = { query = '@call.outer', desc = 'Select around function call (method)' },
+
+            ['il'] = { query = '@loop.inner', desc = 'Select inside loop' },
+            ['al'] = { query = '@loop.outer', desc = 'Select around loop' },
+
+            ['ii'] = { query = '@conditional.inner', desc = 'Select inside conditional (if)' },
+            ['ai'] = { query = '@conditional.outer', desc = 'Select around conditional (if)' },
+
+            ['ic'] = { query = '@class.inner', desc = 'Select inside class' },
+            ['ac'] = { query = '@class.outer', desc = 'Select around class' },
+
+            ['ia'] = { query = '@parameter.inner', desc = 'Select inside argument or parameter' },
+            ['aa'] = { query = '@parameter.outer', desc = 'Select around argument or parameter' },
           },
         },
         swap = {
