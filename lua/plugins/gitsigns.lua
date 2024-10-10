@@ -23,9 +23,7 @@ return {
     end)
 
     vim.keymap.set('n', '<leader>h', gitsigns.preview_hunk, { desc = 'Git preview hunk' })
-    vim.keymap.set('n', '<leader>H', function()
-      gitsigns.diffthis(nil, { vertical = true, split = 'rightbelow' })
-    end, { desc = 'Git hunk diff' })
+    vim.keymap.set('n', '<leader>H', gitsigns.reset_hunk, { desc = 'Git reset hunk' })
 
     vim.keymap.set('n', '<leader>b', gitsigns.blame_line, { desc = 'Git preview blame' })
     vim.keymap.set('n', '<leader>B', gitsigns.blame, { desc = 'Git blame' })
