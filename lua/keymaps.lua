@@ -92,7 +92,8 @@ vim.keymap.set('x', '<C-c>', 'gc', { remap = true })
 -- Marks go to col
 vim.keymap.set('n', "'", '`')
 
-vim.keymap.set('n', 'M', 'm', { desc = 'Mark' })
+vim.keymap.set('n', 'H', '<Nop>')
+vim.keymap.set('n', 'L', '<Nop>')
 
 -- Lsp
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })

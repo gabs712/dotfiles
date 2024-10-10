@@ -57,15 +57,21 @@ return {
         },
         swap = {
           enable = true,
-          swap_next = {
-            ['mpn'] = { query = '@parameter.inner', desc = 'Move parameter next' },
-            ['mfn'] = '@function.outer',
-            ['mop'] = '@property.outer',
-          },
           swap_previous = {
-            ['mpp'] = '@parameter.inner',
-            ['<leader>pm'] = '@function.outer',
-            ['<leader>p:'] = '@property.outer',
+            ['Hv'] = { query = '@assignment.outer', desc = 'Swap variable with previous' },
+            ['Hf'] = { query = '@function.outer', desc = 'Swap function with previous' },
+            ['Hl'] = { query = '@loop.outer', desc = 'Swap loop with previous' },
+            ['Hi'] = { query = '@conditional.outer', desc = 'Swap conditional (if) with previous' },
+            ['Hc'] = { query = '@class.outer', desc = 'Swap class with previous' },
+            ['Ha'] = { query = '@parameter.inner', desc = 'Swap argument with previous' },
+          },
+          swap_next = {
+            ['Lv'] = { query = '@assignment.outer', desc = 'Swap variable with next' },
+            ['Lf'] = { query = '@function.outer', desc = 'Swap function with next' },
+            ['Ll'] = { query = '@loop.outer', desc = 'Swap loop with next' },
+            ['Li'] = { query = '@conditional.outer', desc = 'Swap conditional (if) with next' },
+            ['Lc'] = { query = '@class.outer', desc = 'Swap class with next' },
+            ['La'] = { query = '@parameter.inner', desc = 'Swap argument with next' },
           },
         },
         move = {
