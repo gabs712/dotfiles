@@ -1,6 +1,9 @@
 return {
   'nvim-treesitter/nvim-treesitter-textobjects',
-  dependecies = { 'nvim-treesitter/nvim-treesitter' },
+  dependencies = {
+    'nvim-treesitter/nvim-treesitter',
+    'chrisgrieser/nvim-various-textobjs', -- Extra text-objects
+  },
   config = function()
     require('nvim-treesitter.configs').setup({
       textobjects = {
@@ -82,6 +85,8 @@ return {
         },
       },
     })
+    vim.keymap.set({ 'x', 'o' }, 'id', require('various-textobjs').entireBuffer, { desc = 'Select entire document' })
+    vim.keymap.set({ 'x', 'o' }, 'ad', require('various-textobjs').entireBuffer, { desc = 'Select entire document' })
 
     local ts_repeat_move = require('nvim-treesitter.textobjects.repeatable_move')
 
