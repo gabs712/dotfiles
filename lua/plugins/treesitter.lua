@@ -32,6 +32,12 @@ return {
           lookahead = true, -- Jump to next ocurrence if not inside any
 
           keymaps = {
+            -- Works for js/ts files
+            ['io'] = { query = '@property.inner', desc = 'Select inside property (object)' },
+            ['ao'] = { query = '@property.outer', desc = 'Select around property (object)' },
+            ['lo'] = { query = '@property.lhs', desc = 'Select left property (object)' },
+            ['ro'] = { query = '@property.rhs', desc = 'Select right property (object)' },
+
             ['iv'] = { query = '@assignment.inner', desc = 'Select inside variable' },
             ['av'] = { query = '@assignment.outer', desc = 'Select around variable' },
             ['lv'] = { query = '@assignment.lhs', desc = 'Select left variable' },
