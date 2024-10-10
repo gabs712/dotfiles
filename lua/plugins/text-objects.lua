@@ -85,8 +85,8 @@ return {
         },
       },
     })
-    vim.keymap.set({ 'x', 'o' }, 'id', require('various-textobjs').entireBuffer, { desc = 'Select entire document' })
-    vim.keymap.set({ 'x', 'o' }, 'ad', require('various-textobjs').entireBuffer, { desc = 'Select entire document' })
+    vim.keymap.set({ 'x', 'o' }, 'ie', require('various-textobjs').entireBuffer, { desc = 'Select entire document' })
+    vim.keymap.set({ 'x', 'o' }, 'ae', require('various-textobjs').entireBuffer, { desc = 'Select entire document' })
 
     local ts_repeat_move = require('nvim-treesitter.textobjects.repeatable_move')
 
