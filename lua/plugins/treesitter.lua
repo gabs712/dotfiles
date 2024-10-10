@@ -4,6 +4,9 @@ return {
   build = ':TSUpdate',
   config = function()
     require('nvim-treesitter.configs').setup({
+      auto_install = true,
+      highlight = { enable = true },
+      indent = { enable = true },
       ensure_installed = {
         'vim',
         'vimdoc',
@@ -22,10 +25,6 @@ return {
         'query',
         'json',
       },
-
-      auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
 
       textobjects = {
         select = {
