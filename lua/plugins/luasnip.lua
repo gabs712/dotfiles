@@ -34,6 +34,7 @@ return {
 
     ls.add_snippets('lua', {
       s('lr', fmt("local {} = require('{}')", { rep(1, 'module'), i(1, 'module') })),
+      s('vk', fmt("vim.keymap.set({}, '{}', {})", { i(1), i(2), i(3) })),
     })
   end,
 }
