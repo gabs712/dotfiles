@@ -44,6 +44,6 @@ return {
 
     vim.keymap.set({ 'n', 'x', 'o' }, 's', flash.jump, { desc = 'Flash jump' })
     vim.keymap.set({ 'n', 'x', 'o' }, 'S', flash.treesitter_search, { desc = 'Flash jump to range' })
-    vim.keymap.set('o', 'r', flash.remote, { desc = 'Flash realocate' })
+    vim.keymap.set('o', 'r', flash.remote, { desc = 'Flash remote' })
   end,
 }
