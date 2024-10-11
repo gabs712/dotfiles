@@ -8,13 +8,11 @@ return {
   config = function()
     require('tailwind-tools').setup({
       server = {
-        -- Don't setup the tailwind language server, let own config handle that
+        -- Let own config handle tailwind language server
         override = false,
       },
       document_color = {
-        enabled = true,
-        kind = 'inline',
-        inline_symbol = require('custom.icons').inline_color,
+        enabled = false, -- Let other plugin handle color highlight
       },
       conceal = {
         enabled = false, -- Wheather or not to conceal by default
