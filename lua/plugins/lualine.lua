@@ -21,8 +21,8 @@ return {
           -- Ignores for both \/
         },
 
-        -- Some icons:            
-        section_separators = { left = '', right = '' },
+        -- Some icons:                    
+        section_separators = { left = '', right = '' },
         component_separators = { left = '', right = '' },
       },
       sections = {
