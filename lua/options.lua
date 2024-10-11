@@ -43,7 +43,7 @@ vim.opt.listchars = { tab = '  ', trail = '·', nbsp = ' ' }
 vim.opt.inccommand = 'split'
 
 -- How many lines keep around cursor when moving vertically
-vim.opt.scrolloff = 13
+vim.opt.scrolloff = 14
 
 -- Tabs
 local tab_size = 2
