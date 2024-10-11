@@ -12,7 +12,9 @@ return {
         override = false,
       },
       document_color = {
-        enabled = false, -- Let other plugin handle class colorization
+        enabled = true,
+        kind = 'inline',
+        inline_symbol = require('custom.icons').inline_color,
       },
       conceal = {
         enabled = false, -- Wheather or not to conceal by default
