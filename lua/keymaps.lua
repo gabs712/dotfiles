@@ -9,6 +9,10 @@ vim.keymap.set('n', '<Esc>', function()
   end
 end, { desc = 'Clear highlights and popups' })
 
+-- Undo
+vim.keymap.set('n', '<C-->', 'g-', { desc = 'Undo non-lineraly' })
+vim.keymap.set('n', '<C-=>', 'g+', { desc = 'Redo non-lineraly' })
+
 -- Window navigation
 vim.keymap.set({ 'n', 'x' }, '<A-h>', '<C-w><C-h>', { desc = 'Window left' })
 vim.keymap.set({ 'n', 'x' }, '<A-j>', '<C-w><C-j>', { desc = 'Window bottom' })
