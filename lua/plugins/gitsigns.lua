@@ -17,9 +17,9 @@ return {
 
     -- Repeatable hunk move
     local next_hunk, prev_hunk = ts_repeat_move.make_repeatable_move_pair(function()
-      gitsigns.nav_hunk('next')
+      gitsigns.nav_hunk('next', { target = 'all' })
     end, function()
-      gitsigns.nav_hunk('prev')
+      gitsigns.nav_hunk('prev', { target = 'all' })
     end)
 
     -- TODO: Git operations
