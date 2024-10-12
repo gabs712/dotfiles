@@ -23,19 +23,21 @@ return {
       builtin.find_files({ hidden = true, prompt_title = 'Find Hidden Files' })
     end, { desc = 'Find files including hidden' })
 
-    vim.keymap.set({ 'n', 'x' }, '<leader>fa', function()
-      builtin.find_files({ hidden = true, no_ignore = true, prompt_title = 'Find All Files' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>fe', function()
+      builtin.find_files({ hidden = true, no_ignore = true, prompt_title = 'Find Every File' })
     end, { desc = 'Find all files' })
 
     vim.keymap.set({ 'n', 'x' }, '<leader>ff', builtin.find_files, { desc = 'Find files' })
     vim.keymap.set({ 'n', 'x' }, '<C-f>', builtin.find_files, { desc = 'Find files (shortcut)' })
 
-    vim.keymap.set({ 'n', 'x' }, '<leader>fe', builtin.live_grep, { desc = 'Find every string (grep)' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>fa', builtin.live_grep, { desc = 'Find all strings (grep)' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fg', builtin.git_status, { desc = 'Find git status files' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fd', builtin.diagnostics, { desc = 'Find diagnostics' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fq', builtin.quickfix, { desc = 'Find quickfix' })
+
     vim.keymap.set({ 'n', 'x' }, '<leader>f/', builtin.search_history, { desc = 'Find search history' })
     vim.keymap.set({ 'n', 'x' }, '<leader>f:', builtin.command_history, { desc = 'Find command history' })
+
     vim.keymap.set({ 'n', 'x' }, '<leader>fo', builtin.oldfiles, { desc = 'Find old files' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fb', builtin.buffers, { desc = 'Find buffers' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fc', builtin.colorscheme, { desc = 'Find colorschemes' })
