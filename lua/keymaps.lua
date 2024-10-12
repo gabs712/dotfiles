@@ -9,6 +9,11 @@ vim.keymap.set('n', '<Esc>', function()
   end
 end, { desc = 'Clear highlights and popups' })
 
+-- Lsp
+vim.keymap.set({ 'n', 'x' }, '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
+vim.keymap.set({ 'n', 'x' }, '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
+vim.keymap.set({ 'n', 'x' }, '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
+
 -- Undo
 vim.keymap.set('n', '<C-->', 'g-', { desc = 'Undo non-lineraly' })
 vim.keymap.set('n', '<C-=>', 'g+', { desc = 'Redo non-lineraly' })
@@ -98,8 +103,3 @@ vim.keymap.set('n', "'", '`')
 
 vim.keymap.set('n', 'H', '<Nop>')
 vim.keymap.set('n', 'L', '<Nop>')
-
--- Lsp
-vim.keymap.set({ 'n', 'x' }, '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
-vim.keymap.set({ 'n', 'x' }, '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
-vim.keymap.set({ 'n', 'x' }, '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
