@@ -19,7 +19,6 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>=', '<cmd>TailwindSort<CR>', { desc = 'Sort tailwind classes' })
     vim.keymap.set('n', '<leader>-', '<cmd>TailwindConcealToggle<CR>', { desc = 'Toggle tailwind conceal' })
   end,
 }
