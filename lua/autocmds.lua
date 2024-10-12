@@ -5,10 +5,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Disable comment insertion when pressing 'o'
+-- Disable automatic comment insertion
 vim.api.nvim_create_autocmd('BufEnter', {
   callback = function()
-    vim.opt.formatoptions:remove({ 'o' })
+    vim.opt.formatoptions:remove({ 'c', 'r', 'o' })
   end,
 })
 
