@@ -5,5 +5,4 @@ return {
     warn = ' ',
     error = ' ',
   },
-  inline_color = '󰝤 ',
 }
