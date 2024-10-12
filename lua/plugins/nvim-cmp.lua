@@ -1,4 +1,3 @@
--- TODO: cmp on macros
 return {
   enabled = true,
   'hrsh7th/nvim-cmp',
