@@ -37,10 +37,13 @@ vim.keymap.set({ 'n', 'o', 'x' }, '_', '^')
 vim.keymap.set({ 'n', 'o', 'x' }, 'g_', 'g^')
 
 -- Move through wrap and use normal j/k when providing a counter
-vim.cmd("nnoremap <expr> k v:count == 0 ? 'gk' : 'k'")
-vim.cmd("nnoremap <expr> j v:count == 0 ? 'gj' : 'j'")
-vim.cmd("xnoremap <expr> k v:count == 0 ? 'gk' : 'k'")
-vim.cmd("xnoremap <expr> j v:count == 0 ? 'gj' : 'j'")
+vim.keymap.set({ 'n', 'x' }, 'k', function()
+  return vim.v.count == 0 and 'gk' or 'k'
+end, { expr = true })
+
+vim.keymap.set({ 'n', 'x' }, 'j', function()
+  return vim.v.count == 0 and 'gj' or 'j'
+end, { expr = true })
 
 -- Add relative jumps to jump list
 vim.cmd("nnoremap <expr> j v:count ? (v:count > 0 ? \"m'\" . v:count : '') . 'j' : 'gj'")
