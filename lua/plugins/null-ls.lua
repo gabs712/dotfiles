@@ -45,6 +45,6 @@ return {
     vim.api.nvim_create_autocmd('BufWritePre', {
       callback = null_format,
     })
-    vim.keymap.set('n', '<leader>p', tailwind_format, { desc = 'Format (make pretty)' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>p', tailwind_format, { desc = 'Format (make pretty)' })
   end,
 }

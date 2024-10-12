@@ -19,6 +19,7 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>-', '<cmd>TailwindConcealToggle<CR>', { desc = 'Toggle tailwind conceal' })
+    -- TODO: Print message
+    vim.keymap.set({ 'n', 'x' }, '<leader>-', '<cmd>TailwindConcealToggle<CR>', { desc = 'Toggle tailwind conceal' })
   end,
 }
