@@ -24,8 +24,11 @@ vim.keymap.set({ 'n', 'x' }, '<A-j>', '<C-w><C-j>', { desc = 'Window bottom' })
 vim.keymap.set({ 'n', 'x' }, '<A-k>', '<C-w><C-k>', { desc = 'Window top' })
 vim.keymap.set({ 'n', 'x' }, '<A-l>', '<C-w><C-l>', { desc = 'Window right' })
 
-vim.keymap.set({ 'n', 'x' }, '<Space>', '<Nop>')
 vim.keymap.set('c', '<C-d>', '<Nop>') -- Can cause some weird behavior with plugins
+vim.keymap.set({ 'n', 'x' }, '<Space>', '<Nop>')
+vim.keymap.set('n', 'H', '<Nop>')
+vim.keymap.set('n', 'L', '<Nop>')
+vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
 
 -- With strings, when using "a" on operator-pending mode or visual modes, not include extra whitespace
 vim.keymap.set({ 'o', 'x' }, "a'", "2i'")
@@ -63,8 +66,6 @@ vim.keymap.set('n', '<c-i>', '<tab>', { desc = 'To fix bug. Has no effect.' })
 vim.keymap.set('n', '<CR>', '<C-m>', { desc = 'To fix bug. Has no effect.' })
 
 -- Improve repetitive window movements
-vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
-
 vim.keymap.set({ 'n', 'x' }, '<c-w>H', '<c-w>H<c-w>', { remap = true })
 vim.keymap.set({ 'n', 'x' }, '<c-w>J', '<c-w>J<c-w>', { remap = true })
 vim.keymap.set({ 'n', 'x' }, '<c-w>K', '<c-w>K<c-w>', { remap = true })
@@ -105,6 +106,3 @@ vim.keymap.set('x', '<C-c>', 'gc', { remap = true })
 
 -- Marks go to col
 vim.keymap.set('n', "'", '`')
-
-vim.keymap.set('n', 'H', '<Nop>')
-vim.keymap.set('n', 'L', '<Nop>')
