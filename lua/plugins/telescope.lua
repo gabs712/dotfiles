@@ -27,7 +27,9 @@ return {
       builtin.find_files({ hidden = true, no_ignore = true, prompt_title = 'Find All Files' })
     end, { desc = 'Find all files' })
 
-    vim.keymap.set({ 'n', 'x' }, '<C-f>', builtin.find_files, { desc = 'Find files' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>ff', builtin.find_files, { desc = 'Find files' })
+    vim.keymap.set({ 'n', 'x' }, '<C-f>', builtin.find_files, { desc = 'Find files (shortcut)' })
+
     vim.keymap.set({ 'n', 'x' }, '<leader>fe', builtin.live_grep, { desc = 'Find every string (grep)' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fg', builtin.git_status, { desc = 'Find git status files' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fd', builtin.diagnostics, { desc = 'Find diagnostics' })
