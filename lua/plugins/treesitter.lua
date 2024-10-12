@@ -12,6 +12,7 @@ return {
         'vimdoc',
         'regex',
         'tsx',
+        'diff',
         'lua',
         'javascript',
         'html',
