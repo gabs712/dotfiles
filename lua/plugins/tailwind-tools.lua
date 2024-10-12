@@ -6,6 +6,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
   },
   config = function()
+    local default_conceal = false
     require('tailwind-tools').setup({
       server = {
         -- Let own config handle tailwind language server
@@ -15,11 +16,20 @@ return {
         enabled = false, -- Let other plugin handle color highlight
       },
       conceal = {
-        enabled = false, -- Wheather or not to conceal by default
+        enabled = default_conceal, -- Wheather or not to conceal by default
       },
     })
 
-    -- TODO: Print message
-    vim.keymap.set({ 'n', 'x' }, '<leader>-', '<cmd>TailwindConcealToggle<CR>', { desc = 'Toggle tailwind conceal' })
+    local is_enabled = default_conceal
+    vim.keymap.set({ 'n', 'x' }, '<leader>-', function()
+      vim.cmd('TailwindConcealToggle')
+      is_enabled = not is_enabled
+
+      if is_enabled then
+        print('Tailwind conceal enabled')
+      else
+        print('Tailwind conceal disabled')
+      end
+    end, { desc = 'Toggle tailwind conceal' })
   end,
 }
