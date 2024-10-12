@@ -12,6 +12,7 @@ return {
       highlight = {
         -- keyword = '',
         -- after = '',
+        multiline = false,
       },
     })
 
