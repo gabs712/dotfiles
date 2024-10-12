@@ -1,3 +1,4 @@
+-- TODO: Subsittue for quickfix, while also making it prettier
 return {
   'folke/trouble.nvim',
   config = function()
