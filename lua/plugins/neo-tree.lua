@@ -74,10 +74,10 @@ return {
           },
           diagnostics = {
             symbols = {
-              hint = icons.diagnostics.hint, -- 󰌵
-              info = icons.diagnostics.info, -- 
-              warn = icons.diagnostics.warn, -- 
-              error = icons.diagnostics.error, -- 
+              hint = icons.diagnostics.hint,
+              info = icons.diagnostics.info,
+              warn = icons.diagnostics.warn,
+              error = icons.diagnostics.error,
             },
           },
         },
