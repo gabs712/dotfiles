@@ -65,6 +65,16 @@ vim.opt.showmode = false
 
 -- Change some icons
 vim.opt.fillchars = {
+  vert = '▎',
+  vertleft = '▎',
+  vertright = '▎',
+  verthoriz = '▎',
+
+  -- ─  ▁
+  horiz = '─',
+  horizup = '─',
+  horizdown = '─',
+
   eob = ' ', -- End of buffer (normally '~')
   foldopen = '',
   foldclose = '',
