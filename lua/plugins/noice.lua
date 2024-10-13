@@ -27,6 +27,14 @@ return {
           },
           opts = { skip = true },
         },
+        {
+          filter = {
+            event = 'msg_show',
+            kind = '',
+            find = 'Already at oldest change',
+          },
+          opts = { skip = true },
+        },
       },
       lsp = {
         progress = { enabled = false }, -- Disable lsp notifications
