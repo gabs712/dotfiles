@@ -14,7 +14,6 @@ return {
         {
           filter = {
             event = 'msg_show',
-            kind = '',
             find = '(%d+)%s.-;%s.-%s#(%d+)%s%s',
           },
           opts = { skip = true },
@@ -22,7 +21,6 @@ return {
         {
           filter = {
             event = 'msg_show',
-            kind = '',
             find = 'Already at newest change',
           },
           opts = { skip = true },
@@ -30,7 +28,6 @@ return {
         {
           filter = {
             event = 'msg_show',
-            kind = '',
             find = 'Already at oldest change',
           },
           opts = { skip = true },
