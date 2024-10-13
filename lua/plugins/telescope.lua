@@ -19,7 +19,6 @@ return {
       },
     })
 
-    -- TODO: Include just hidden files
     vim.keymap.set({ 'n', 'x' }, '<leader>fh', function()
       builtin.find_files({ hidden = true, prompt_title = 'Find Hidden Files' })
     end, { desc = 'Find files including hidden' })
