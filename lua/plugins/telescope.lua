@@ -8,6 +8,8 @@ return {
     local builtin = require('telescope.builtin')
     local actions = require('telescope.actions')
 
+    local icons = require('custom.icons')
+
     require('telescope').setup({
       defaults = {
         mappings = {
@@ -30,8 +32,23 @@ return {
     vim.keymap.set({ 'n', 'x' }, '<leader>ff', builtin.find_files, { desc = 'Find files' })
     vim.keymap.set({ 'n', 'x' }, '<C-f>', builtin.find_files, { desc = 'Find files (shortcut)' })
 
+    vim.keymap.set({ 'n', 'x' }, '<leader>fg', function()
+      builtin.git_status({
+        git_icons = {
+          added = icons.git.added,
+          deleted = icons.git.deleted,
+          changed = icons.git.modified,
+          renamed = icons.git.renamed,
+          untracked = icons.git.untracked,
+
+          -- Defaults
+          copied = '>',
+          unmerged = '‡',
+        },
+      })
+    end, { desc = 'Find git status files' })
+
     vim.keymap.set({ 'n', 'x' }, '<leader>fa', builtin.live_grep, { desc = 'Find all strings (grep)' })
-    vim.keymap.set({ 'n', 'x' }, '<leader>fg', builtin.git_status, { desc = 'Find git status files' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fd', builtin.diagnostics, { desc = 'Find diagnostics' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fq', builtin.quickfix, { desc = 'Find quickfix' })
 
