@@ -9,6 +9,25 @@ return {
   },
   config = function()
     require('noice').setup({
+      routes = {
+        -- Disable popups for undos
+        {
+          filter = {
+            event = 'msg_show',
+            kind = '',
+            find = '(%d+)%s*.-;%s*.-#(%d+)',
+          },
+          opts = { skip = true },
+        },
+        {
+          filter = {
+            event = 'msg_show',
+            kind = '',
+            find = 'Already at newest change',
+          },
+          opts = { skip = true },
+        },
+      },
       lsp = {
         progress = { enabled = false }, -- Disable lsp notifications
         hover = { silent = true }, -- Disable hover notification when not avaliable
