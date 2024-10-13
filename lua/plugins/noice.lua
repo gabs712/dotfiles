@@ -15,7 +15,7 @@ return {
           filter = {
             event = 'msg_show',
             kind = '',
-            find = '(%d+)%s*.-;%s*.-#(%d+)',
+            find = '(%d+)%s.-;%s.-%s#(%d+)%s%s',
           },
           opts = { skip = true },
         },
