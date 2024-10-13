@@ -60,12 +60,12 @@ return {
           git_status = {
             symbols = {
               -- Change type
-              added = 'A', -- ✚
-              deleted = 'D', -- ✖
-              modified = 'M', -- 
-              renamed = 'R', -- 󰁕
+              added = icons.git.added,
+              deleted = icons.git.deleted,
+              modified = icons.git.modified,
+              renamed = icons.git.renamed,
               -- Status type
-              untracked = '??', -- 
+              untracked = icons.git.untracked,
               ignored = '', -- 
               unstaged = '', -- 󰄱
               staged = '', -- 
