@@ -79,7 +79,9 @@ vim.keymap.set({ 'n', 'x' }, '<C-w><', '<cmd>horizontal resize -5<cr><C-w>', { r
 -- Free gr keys
 vim.keymap.del('n', 'grr')
 vim.keymap.del('n', 'gra')
+vim.keymap.del('x', 'gra')
 vim.keymap.del('n', 'grn')
+vim.keymap.del('n', 'gri')
 
 -- Free space for s
 vim.keymap.set({ 'n', 'x' }, 'R', 's')
