@@ -1,4 +1,4 @@
--- Dismiss highlights and floating windows
+-- Dismiss highlights and floating windows (popups)
 vim.keymap.set('n', '<Esc>', function()
   vim.cmd('nohlsearch')
 
