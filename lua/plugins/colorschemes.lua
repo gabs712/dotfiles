@@ -1,15 +1,29 @@
 return {
   {
     'catppuccin/nvim',
-    priority = 1000,
     name = 'catppuccin',
   },
   {
     'folke/tokyonight.nvim',
-    priority = 1000,
   },
   {
     'Mofiqul/dracula.nvim',
-    priority = 1000,
+  },
+  {
+    'rebelot/kanagawa.nvim',
+  },
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+  },
+  {
+    'EdenEast/nightfox.nvim',
+  },
+  {
+    'projekt0n/github-nvim-theme',
+    name = 'github-theme',
+  },
+  {
+    'navarasu/onedark.nvim',
   },
 }

@@ -12,6 +12,11 @@ return {
         'tokyonight',
         'tokyonight-storm',
         'tokyonight-night',
+        'rose-pine',
+        'kanagawa',
+        'nightfox',
+        'github_dark',
+        'onedark',
       },
       livePreview = true,
     })
