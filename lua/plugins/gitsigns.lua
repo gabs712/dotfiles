@@ -23,13 +23,13 @@ return {
     end)
 
     vim.keymap.set({ 'n', 'x' }, '<leader>h', gitsigns.preview_hunk, { desc = 'Git preview hunk diff' })
-    vim.keymap.set({ 'n', 'x' }, '<leader>H', gitsigns.diffthis, { desc = 'Git all hunks diff' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>H', gitsigns.reset_hunk, { desc = 'Git reset hunk' })
 
     vim.keymap.set({ 'n', 'x' }, '<leader>b', gitsigns.blame_line, { desc = 'Git preview blame' })
     vim.keymap.set({ 'n', 'x' }, '<leader>B', gitsigns.blame, { desc = 'Git all blames' })
 
     vim.keymap.set({ 'n', 'x' }, '<leader>g', gitsigns.stage_hunk, { desc = 'Git stage hunk' })
-    vim.keymap.set({ 'n', 'x' }, '<leader>G', gitsigns.reset_hunk, { desc = 'Git reset hunk' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>G', gitsigns.diffthis, { desc = 'Git diff' })
 
     vim.keymap.set('n', ']h', next_hunk, { desc = 'Git next hunk' })
     vim.keymap.set('n', '[h', prev_hunk, { desc = 'Git previous hunk' })
