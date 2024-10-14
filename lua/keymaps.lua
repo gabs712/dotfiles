@@ -65,7 +65,7 @@ vim.keymap.set('x', 'gP', '"_dP')
 -- Use 'x' as alternative to black hole register
 vim.keymap.set({ 'n', 'x' }, 'x', '"_x')
 vim.keymap.set('n', 'X', '"_X')
-vim.keymap.set('x', 'X', '"_d') -- Substitute behavior of deleting line when using 'X' on 'v' mode
+vim.keymap.set('x', 'X', '"_d') -- Also substitutes behavior of deleting line when using 'X' on 'v' mode
 
 -- Weird tab bug. When mapping something to tab, <c-i> is also mapped to it.
 -- To fix it, <c-i> is mapped to tab (it doesn't really make any sense).
