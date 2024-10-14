@@ -1,8 +1,3 @@
--- Show icon when maximizing window (declancm/maximize.nvim)
-local function maximize_icon()
-  return vim.t.maximized and ' ' or ''
-end
-
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = {
@@ -98,7 +93,9 @@ return {
         lualine_y = {
           {
             padding = { left = 1, right = 0 },
-            maximize_icon,
+            function()
+              return vim.t.maximized and ' ' or ''
+            end,
           },
           'progress',
         },
