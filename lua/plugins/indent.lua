@@ -16,6 +16,8 @@ return {
           'harpoon',
           'neo-tree',
           'trouble',
+          'text',
+          'markdown',
         },
       },
     })
