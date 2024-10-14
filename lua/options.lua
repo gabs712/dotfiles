@@ -6,9 +6,6 @@ vim.g.maplocalleader = ' '
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1 -- Disable aditional netrw features
 
--- Removes greeting message when opening the editor
-vim.opt.shortmess:append('I')
-
 -- True colors suport
 vim.opt.termguicolors = true
 
