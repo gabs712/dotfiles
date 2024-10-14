@@ -31,8 +31,8 @@ vim.opt.smartcase = true
 -- Open space to line symbols
 vim.opt.signcolumn = 'yes'
 
--- Decrease custom mapped sequence wait time -- Default is 1000
-vim.opt.timeoutlen = 1000
+-- Wait time for conflcting keys - Default is 1000
+vim.opt.timeoutlen = 3000
 
 -- Change position of new splits
 vim.opt.splitright = true
@@ -56,9 +56,6 @@ vim.opt.expandtab = true -- Spaces instead of tabs
 
 -- Use status bar globally
 vim.opt.laststatus = 3
-
--- Extend timeout to use custom keybinds - Default is 1000
-vim.o.timeoutlen = 4000
 
 -- Turn off swapfile
 vim.opt.swapfile = false
