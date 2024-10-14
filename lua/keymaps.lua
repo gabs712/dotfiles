@@ -52,9 +52,20 @@ end, { expr = true })
 vim.cmd("nnoremap <expr> j v:count ? (v:count > 0 ? \"m'\" . v:count : '') . 'j' : 'gj'")
 vim.cmd("nnoremap <expr> k v:count ? (v:count > 0 ? \"m'\" . v:count : '') . 'k' : 'gk'")
 
--- Clipboard
+-- Clipboard to OS
 vim.keymap.set({ 'n', 'x' }, 'gy', '"+y', { desc = 'Yank to OS' })
 vim.keymap.set({ 'n', 'x' }, 'gY', '"+y$', { desc = 'Yank remaining line to OS' })
+
+-- Don't copy when pasting
+vim.keymap.set('x', 'p', '"_dP')
+vim.keymap.set('x', 'P', '"_dP')
+vim.keymap.set('x', 'gp', '"_dP')
+vim.keymap.set('x', 'gP', '"_dP')
+
+-- Use 'x' as alternative to black hole register
+vim.keymap.set({ 'n', 'x' }, 'x', '"_x')
+vim.keymap.set('n', 'X', '"_X')
+vim.keymap.set('x', 'X', '"_d') -- Substitute behavior of deleting line when using 'X' on 'v' mode
 
 vim.keymap.set({ 'n', 'x' }, "<C-'>", '<cmd>buffer #<CR>', { desc = 'Go to most recent buffer' })
 
