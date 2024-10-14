@@ -21,7 +21,7 @@ return {
     })
 
     local is_enabled = default_conceal
-    vim.keymap.set({ 'n', 'x' }, '<leader>-', function()
+    vim.keymap.set({ 'n', 'x' }, '<leader>C', function()
       vim.cmd('TailwindConcealToggle')
       is_enabled = not is_enabled
 
