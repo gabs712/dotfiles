@@ -65,6 +65,17 @@ return {
           },
         })
       end,
+
+      ['tailwindcss'] = function()
+        lspconfig['tailwindcss'].setup({
+          capabilities = cmp_capabilities,
+          root_dir = function(fname) -- Will only attach if root of project has a tailwind config file
+            local root_pattern =
+              require('lspconfig').util.root_pattern('tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.js')
+            return root_pattern(fname)
+          end,
+        })
+      end,
     })
   end,
 }
