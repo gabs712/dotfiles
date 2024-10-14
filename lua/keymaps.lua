@@ -86,9 +86,6 @@ vim.keymap.del('x', 'gra')
 vim.keymap.del('n', 'grn')
 vim.keymap.del('n', 'gri')
 
--- Free space for s
-vim.keymap.set({ 'n', 'x' }, 'R', 's')
-
 -- Alternatives to scroll also keeping cursor at center
 vim.keymap.set({ 'n', 'x' }, '<Left>', '<C-y>0M')
 vim.keymap.set({ 'n', 'x' }, '<Right>', '<C-e>0M')
