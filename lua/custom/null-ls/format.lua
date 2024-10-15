@@ -1,4 +1,3 @@
--- Used by null-ls
 local M = {}
 
 -- Formats only using null_ls sources
@@ -10,7 +9,7 @@ local null_format = function()
   })
 end
 
-M.format = function()
+M.default = function()
   -- Don't format if there isn't any lsp clients attached
   local buffer_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
   if #buffer_clients == 0 then
@@ -21,7 +20,7 @@ M.format = function()
 end
 
 -- Format and sort with tailwind
-M.sort_format = function()
+M.sort = function()
   local buffer_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
   if #buffer_clients == 0 then
     return

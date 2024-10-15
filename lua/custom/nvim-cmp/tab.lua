@@ -1,4 +1,3 @@
--- Used by nvim-cmp
 local M = {}
 
 local cmp = require('cmp')
