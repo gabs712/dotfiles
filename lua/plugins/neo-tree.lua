@@ -4,6 +4,7 @@ return {
     branch = 'v3.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'antosha417/nvim-lsp-file-operations', -- Lsp rename
       'nvim-tree/nvim-web-devicons',
       'MunifTanjim/nui.nvim',
     },
@@ -82,6 +83,7 @@ return {
           },
         },
       })
+      require('lsp-file-operations').setup()
 
       -- Toggle window, highlight current file, move cursor
       vim.keymap.set({ 'n', 'x' }, '<leader>e', '<cmd>Neotree toggle reveal focus left<CR>', { desc = 'Explore tree' })
