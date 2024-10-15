@@ -21,16 +21,14 @@ return {
       },
     })
 
-    vim.keymap.set({ 'n', 'x' }, '<leader>fh', function()
-      builtin.find_files({ hidden = true, prompt_title = 'Find Hidden Files' })
+    vim.keymap.set({ 'n', 'x' }, '<C-f>', builtin.find_files, { desc = 'Find files' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>ff', function()
+      builtin.find_files({ hidden = true, prompt_title = 'Find Files (Hidden)' })
     end, { desc = 'Find files including hidden' })
 
     vim.keymap.set({ 'n', 'x' }, '<leader>fe', function()
       builtin.find_files({ hidden = true, no_ignore = true, prompt_title = 'Find Every File' })
     end, { desc = 'Find all files' })
-
-    vim.keymap.set({ 'n', 'x' }, '<leader>ff', builtin.find_files, { desc = 'Find files' })
-    vim.keymap.set({ 'n', 'x' }, '<C-f>', builtin.find_files, { desc = 'Find files (shortcut)' })
 
     vim.keymap.set({ 'n', 'x' }, '<leader>fg', function()
       builtin.git_status({
@@ -61,8 +59,8 @@ return {
     vim.keymap.set({ 'n', 'x' }, '<leader>fk', builtin.keymaps, { desc = 'Find keymaps' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fs', builtin.lsp_document_symbols, { desc = 'Find symbols' })
 
-    vim.keymap.set({ 'n', 'x' }, '<leader>fn', builtin.help_tags, { desc = 'Find neovim help' })
-    vim.keymap.set({ 'n', 'x' }, '<leader>fN', function()
+    vim.keymap.set({ 'n', 'x' }, '<leader>fh', builtin.help_tags, { desc = 'Find help' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>fn', function()
       builtin.find_files({
         cwd = vim.fn.stdpath('config'),
         prompt_title = 'Neovim Files',
