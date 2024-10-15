@@ -26,6 +26,6 @@ return {
     end, { desc = 'Jump to previous snippet' })
 
     -- Custom snippets
-    require('lua.custom.luasnip.snippets')
+    require('custom.luasnip.snippets')
   end,
 }
