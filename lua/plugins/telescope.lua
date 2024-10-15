@@ -60,7 +60,9 @@ return {
     vim.keymap.set({ 'n', 'x' }, '<leader>fc', builtin.colorscheme, { desc = 'Find colorschemes' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fk', builtin.keymaps, { desc = 'Find keymaps' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fs', builtin.lsp_document_symbols, { desc = 'Find symbols' })
-    vim.keymap.set({ 'n', 'x' }, '<leader>fn', function()
+
+    vim.keymap.set({ 'n', 'x' }, '<leader>fn', builtin.help_tags, { desc = 'Find neovim help' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>fN', function()
       builtin.find_files({
         cwd = vim.fn.stdpath('config'),
         prompt_title = 'Neovim Files',
