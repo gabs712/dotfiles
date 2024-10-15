@@ -39,7 +39,7 @@ return {
             path = 4, -- Parent directory and file name
             symbols = {
               -- Icons:  
-              modified = '',
+              modified = icons.buffer.modified,
               readonly = '',
               unnamed = 'Unnamed',
               newfile = '',
