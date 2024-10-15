@@ -29,11 +29,24 @@ return {
       })
     end
 
-    -- Format and sort with tailwind
-    local tailwind_format = function()
-      null_format()
-
+    local format = function()
+      -- Don't format if there isn't any lsp clients attached
       local buffer_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
+      if #buffer_clients == 0 then
+        return
+      end
+
+      null_format()
+    end
+
+    -- Format and sort with tailwind
+    local format_and_sort = function()
+      local buffer_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
+      if #buffer_clients == 0 then
+        return
+      end
+
+      null_format()
       for _, client in ipairs(buffer_clients) do
         if client.name == 'tailwindcss' then
           vim.cmd('TailwindSort')
@@ -42,9 +55,7 @@ return {
       end
     end
 
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      callback = null_format,
-    })
-    vim.keymap.set({ 'n', 'x' }, '<leader>p', tailwind_format, { desc = 'Format (make pretty)' })
+    vim.api.nvim_create_autocmd('BufWritePre', { callback = format })
+    vim.keymap.set({ 'n', 'x' }, '<leader>p', format_and_sort, { desc = 'Format (make pretty)' })
   end,
 }
