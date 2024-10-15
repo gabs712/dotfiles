@@ -55,11 +55,11 @@ return {
     vim.keymap.set({ 'n', 'x' }, '<leader>f/', builtin.search_history, { desc = 'Find search history' })
     vim.keymap.set({ 'n', 'x' }, '<leader>f:', builtin.command_history, { desc = 'Find command history' })
 
-    vim.keymap.set({ 'n', 'x' }, '<leader>fr', builtin.oldfiles, { desc = 'Find recent files' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>fo', builtin.oldfiles, { desc = 'Find old files' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fb', builtin.buffers, { desc = 'Find buffers' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fc', builtin.colorscheme, { desc = 'Find colorschemes' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fk', builtin.keymaps, { desc = 'Find keymaps' })
-    vim.keymap.set({ 'n', 'x' }, '<leader>fo', builtin.lsp_document_symbols, { desc = 'Find symbols (outline)' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>fs', builtin.lsp_document_symbols, { desc = 'Find symbols' })
     vim.keymap.set({ 'n', 'x' }, '<leader>fn', function()
       builtin.find_files({
         cwd = vim.fn.stdpath('config'),
