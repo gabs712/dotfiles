@@ -128,7 +128,7 @@ return {
         completeopt = 'noselect',
       },
       mapping = cmp.mapping.preset.cmdline({
-        ['<Tab>'] = require('custom.nvim-cmp.tab').tab,
+        ['<Tab>'] = require('custom.nvim-cmp.tab').search,
       }),
     })
 
@@ -160,7 +160,7 @@ return {
         autocomplete = false,
       },
       mapping = cmp.mapping.preset.cmdline({
-        ['<Tab>'] = require('custom.nvim-cmp.tab').tab_confirm,
+        ['<Tab>'] = require('custom.nvim-cmp.tab').cmd,
         ['<C-e>'] = cmp.config.disable,
       }),
     })
