@@ -25,16 +25,7 @@ return {
       end
     end, { desc = 'Jump to previous snippet' })
 
-    -- Snippets
-    local fmt = require('luasnip.extras.fmt').fmt -- '{{' inserts '{'
-    local s = ls.snippet -- New snippet
-
-    local rep = require('luasnip.extras').rep -- Repeats
-    local i = ls.insert_node -- Insert cursor
-
-    ls.add_snippets('lua', {
-      s('lr', fmt("local {} = require('{}')", { rep(1, 'module'), i(1, 'module') })),
-      s('vk', fmt("vim.keymap.set({}, '{}', {})", { i(1, 'mode'), i(2, 'keymap'), i(3, 'action') })),
-    })
+    -- Custom snippets
+    require('lua.custom.luasnip.snippets')
   end,
 }
