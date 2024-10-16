@@ -14,6 +14,9 @@ return {
       defaults = {
         mappings = {
           i = {
+            ['<C-s>'] = actions.select_horizontal,
+            ['<C-x>'] = false,
+
             ['<esc>'] = actions.close,
             ['<C-j>'] = actions.select_default,
           },
