@@ -18,20 +18,6 @@ return {
           },
           opts = { skip = true },
         },
-        {
-          filter = {
-            event = 'msg_show',
-            find = 'Already at newest change',
-          },
-          opts = { skip = true },
-        },
-        {
-          filter = {
-            event = 'msg_show',
-            find = 'Already at oldest change',
-          },
-          opts = { skip = true },
-        },
       },
       lsp = {
         progress = { enabled = false }, -- Disable lsp notifications
