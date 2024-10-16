@@ -13,6 +13,7 @@ return {
 
       require('neo-tree').setup({
         filesystem = {
+          hijack_netrw_behavior = 'disabled', -- Wheater to use neo-tree as default file explorer
           filtered_items = {
             visible = false, -- Enable hidden files when opening a window
             hide_dotfiles = true,
