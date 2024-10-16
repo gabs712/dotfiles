@@ -100,8 +100,9 @@ vim.keymap.set({ 'n', 'i', 'x' }, '<C-e>', '<cmd>e!<CR>', { desc = 'Discard chan
 -- Fix indentation absence with autopairs when using C-j
 vim.keymap.set({ 'i', 'o' }, '<C-j>', '<CR>', { remap = true })
 
--- Alternative to ':'
+-- Shortcuts to ':' and '/'
 vim.keymap.set({ 'n', 'x' }, '<C-p>', ':', { desc = 'Command mode (pallete)' })
+vim.keymap.set({ 'n', 'x' }, '<C-n>', '/', { desc = 'Search next' })
 
 -- Quick comments
 vim.keymap.set('n', '<C-c>', 'gcc', { remap = true })
