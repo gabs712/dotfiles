@@ -3,6 +3,7 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     'folke/noice.nvim',
+    'stevearc/oil.nvim',
   },
   config = function()
     local icons = require('custom.icons')
@@ -38,7 +39,6 @@ return {
           'filename',
           path = 4, -- Parent directory and file name
           symbols = {
-            -- Icons:  
             modified = icons.buffer.modified,
             readonly = '',
             unnamed = 'Unnamed',
@@ -109,8 +109,14 @@ return {
       filetypes = { 'oil' },
     }
 
-    oil.sections.lualine_c[2].path = 2 -- Absolute path
-    oil.sections.lualine_c[2].symbols.readonly = '' -- Avoids brief flash showing symbol
+    -- Cleaner displayed path
+    oil.sections.lualine_c[2] = {
+      function()
+        local oil_directory = vim.fn.fnamemodify(require('oil').get_current_dir(), ':~')
+        local modified_symbol = vim.bo.modified and ' ' .. require('custom.icons').buffer.modified or ''
+        return oil_directory .. modified_symbol
+      end,
+    }
 
     require('lualine').setup({
       options = options,
