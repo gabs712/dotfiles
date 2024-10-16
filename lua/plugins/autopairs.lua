@@ -5,7 +5,6 @@ return {
     require('nvim-autopairs').setup({
       disable_filetype = {
         'TelescopePrompt',
-        'spectre_panel',
         'harpoon',
       },
       -- Avoid buggy / iconsistent behavior on those modes
