@@ -14,6 +14,12 @@ vim.keymap.set({ 'n', 'x' }, '<leader>r', vim.lsp.buf.rename, { desc = 'Rename s
 vim.keymap.set({ 'n', 'x' }, '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
 vim.keymap.set({ 'n', 'x' }, '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
 
+-- Quickfix
+vim.keymap.set({ 'n', 'x' }, 'L', '<cmd>cnext<CR>', { desc = 'Quickfix next' })
+vim.keymap.set({ 'n', 'x' }, 'H', '<cmd>cprev<CR>', { desc = 'Quickfix previous' })
+
+vim.keymap.set({ 'n', 'x' }, '<leader>q', '<cmd>copen<CR>', { desc = 'Open quickfix' })
+
 -- Undo
 vim.keymap.set('n', '<C-->', 'g-', { desc = 'Undo non-lineraly' })
 vim.keymap.set('n', '<C-=>', 'g+', { desc = 'Redo non-lineraly' })
@@ -26,8 +32,6 @@ vim.keymap.set({ 'n', 'x' }, '<A-l>', '<C-w><C-l>', { desc = 'Window right' })
 
 vim.keymap.set('c', '<C-d>', '<Nop>') -- Can cause some weird behavior with plugins
 vim.keymap.set({ 'n', 'x' }, '<Space>', '<Nop>')
-vim.keymap.set('n', 'H', '<Nop>')
-vim.keymap.set('n', 'L', '<Nop>')
 vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
 
 -- With strings, when using "a" on operator-pending mode or visual modes, not include extra whitespace
