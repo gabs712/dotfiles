@@ -59,6 +59,6 @@ return {
     })
 
     require('telescope').load_extension('noice')
-    vim.keymap.set({ 'n', 'x' }, '<leader>n', '<cmd>Noice telescope<CR>', { desc = 'Notifications' })
+    vim.keymap.set('n', '<leader>n', '<cmd>Noice telescope<CR>', { desc = 'Notifications' })
   end,
 }

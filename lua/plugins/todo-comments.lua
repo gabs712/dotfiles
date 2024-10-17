@@ -16,6 +16,6 @@ return {
       },
     })
 
-    vim.keymap.set({ 'n', 'x' }, '<leader>ft', '<cmd>TodoTelescope<CR>', { desc = 'Find todos' })
+    vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<CR>', { desc = 'Find todos' })
   end,
 }

@@ -10,15 +10,15 @@ vim.keymap.set('n', '<Esc>', function()
 end, { desc = 'Clear highlights and popups' })
 
 -- Lsp
-vim.keymap.set({ 'n', 'x' }, '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
-vim.keymap.set({ 'n', 'x' }, '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
-vim.keymap.set({ 'n', 'x' }, '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
+vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
+vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
 
 -- Quickfix
-vim.keymap.set({ 'n', 'x' }, 'L', '<cmd>cnext<CR>', { desc = 'Quickfix next' })
-vim.keymap.set({ 'n', 'x' }, 'H', '<cmd>cprev<CR>', { desc = 'Quickfix previous' })
+vim.keymap.set('n', 'L', '<cmd>cnext<CR>', { desc = 'Quickfix next' })
+vim.keymap.set('n', 'H', '<cmd>cprev<CR>', { desc = 'Quickfix previous' })
 
-vim.keymap.set({ 'n', 'x' }, '<leader>q', '<cmd>copen<CR>', { desc = 'Open quickfix' })
+vim.keymap.set('n', '<leader>q', '<cmd>copen<CR>', { desc = 'Open quickfix' })
 
 -- Undo
 vim.keymap.set('n', '<C-->', 'g-', { desc = 'Undo non-lineraly' })
@@ -68,9 +68,7 @@ vim.keymap.set('x', 'X', '"_d') -- Also substitutes behavior of deleting line wh
 -- Weird tab bug. When mapping something to tab, <c-i> is also mapped to it.
 -- To fix it, <c-i> is mapped to tab (it doesn't really make any sense).
 vim.keymap.set('n', '<c-i>', '<tab>', { desc = 'To fix bug. Has no effect.' })
-
--- The same happens with <CR>
-vim.keymap.set('n', '<CR>', '<C-m>', { desc = 'To fix bug. Has no effect.' })
+vim.keymap.set('n', '<CR>', '<C-m>', { desc = 'To fix bug. Has no effect.' }) -- The same happens with <CR>
 
 -- Improve repetitive window movements
 vim.keymap.set({ 'n', 'x' }, '<c-w>H', '<c-w>H<c-w>', { remap = true })
@@ -98,8 +96,8 @@ vim.keymap.set({ 'n', 'x' }, '<Down>', '<C-d>0M')
 vim.keymap.set({ 'n', 'x' }, '<ScrollWheelUp>', '<ScrollWheelUp>0M')
 vim.keymap.set({ 'n', 'x' }, '<ScrollWheelDown>', '<ScrollWheelDown>0M')
 
-vim.keymap.set({ 'n', 'i', 'x' }, '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
-vim.keymap.set({ 'n', 'i', 'x' }, '<C-e>', '<cmd>e!<CR>', { desc = 'Discard changes' })
+vim.keymap.set({ 'n', 'i' }, '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
+vim.keymap.set('n', '<C-e>', '<cmd>e!<CR>', { desc = 'Discard changes' })
 
 -- Fix indentation absence with autopairs when using C-j
 vim.keymap.set({ 'i', 'o' }, '<C-j>', '<CR>', { remap = true })

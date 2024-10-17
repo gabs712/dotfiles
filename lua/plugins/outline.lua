@@ -17,6 +17,6 @@ return {
       },
     })
 
-    vim.keymap.set({ 'n', 'x' }, '<leader>o', '<cmd>Outline<CR>', { desc = 'Toggle outline (symbols)' })
+    vim.keymap.set('n', '<leader>o', '<cmd>Outline<CR>', { desc = 'Toggle outline (symbols)' })
   end,
 }

@@ -14,11 +14,6 @@ return {
       },
     })
 
-    vim.keymap.set(
-      { 'n', 'x' },
-      '<leader>D',
-      '<cmd>Trouble diagnostics toggle<CR>',
-      { desc = 'Diagnostics on workspace' }
-    )
+    vim.keymap.set('n', '<leader>D', '<cmd>Trouble diagnostics toggle<CR>', { desc = 'Diagnostics on workspace' })
   end,
 }

@@ -17,6 +17,6 @@ return {
       end,
     })
 
-    vim.keymap.set({ 'n', 'x' }, '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Undotree' })
+    vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Undotree' })
   end,
 }

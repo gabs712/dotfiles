@@ -88,7 +88,7 @@ return {
 
       -- Toggle window, highlight current file, move cursor
       vim.keymap.set(
-        { 'n', 'x' },
+        'n',
         '<leader>E',
         '<cmd>Neotree toggle reveal focus left<CR>',
         { desc = 'Explore tree (neo-tree)' }
