@@ -18,7 +18,24 @@ return {
           },
           opts = { skip = true },
         },
+        -- Popups when using "*" or "#" on visual mode
+        {
+          filter = {
+            event = 'msg_show',
+            find = '^%s*W?%s?%[%d+/%d+%]$',
+          },
+          opts = { skip = true },
+        },
+        -- Redundant message when pattern is not found
+        {
+          filter = {
+            event = 'msg_show',
+            find = '^/.+',
+          },
+          opts = { skip = true },
+        },
       },
+
       lsp = {
         progress = { enabled = false }, -- Disable lsp notifications
         hover = { silent = true }, -- Disable hover notification when not avaliable
