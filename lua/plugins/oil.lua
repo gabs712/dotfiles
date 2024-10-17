@@ -1,4 +1,3 @@
--- TODO: Enhance config
 return {
   'stevearc/oil.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -27,25 +26,26 @@ return {
         end,
       },
 
-      -- use_default_keymaps = true,
+      use_default_keymaps = false,
       keymaps = {
-        ['<C-p>'] = false,
-        ['<C-s>'] = false,
-        ['<C-t>'] = false,
-
-        ['gs'] = 'actions.change_sort',
-        ['<C-h>'] = false,
-        ['<C-l>'] = false,
-
         ['H'] = 'actions.parent',
         ['L'] = 'actions.select',
+        ['<CR>'] = 'actions.select',
 
-        ['<leader>e'] = 'actions.close',
-
+        ['-'] = 'actions.open_cwd',
         ['K'] = 'actions.preview',
+
+        ['gd'] = { 'actions.cd', opts = { scope = 'tab' }, desc = 'Change cwd on tab', mode = 'n' },
+        ['g?'] = 'actions.show_help',
+        ['gh'] = 'actions.toggle_hidden',
+        ['gs'] = 'actions.change_sort',
+        ['g\\'] = 'actions.toggle_trash',
+
+        ['<leader>o'] = 'actions.close',
+        ['<C-c>'] = 'actions.close',
       },
     })
 
-    vim.keymap.set('n', '<leader>e', '<cmd>Oil<CR>', { desc = 'Explore tree (oil)' })
+    vim.keymap.set('n', '<leader>o', '<cmd>Oil<CR>', { desc = 'Explore tree (oil)' })
   end,
 }
