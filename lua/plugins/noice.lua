@@ -26,14 +26,6 @@ return {
           },
           opts = { skip = true },
         },
-        -- Redundant message when pattern is not found
-        {
-          filter = {
-            event = 'msg_show',
-            find = '^/.+',
-          },
-          opts = { skip = true },
-        },
       },
 
       lsp = {
