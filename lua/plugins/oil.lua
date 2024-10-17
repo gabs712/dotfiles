@@ -12,6 +12,10 @@ return {
         enabled = true,
         autosave_changes = false, -- Autosave buffers that are updated with lsp
       },
+      win_options = {
+        wrap = true,
+      },
+
       view_options = {
         show_hidden = true, -- Show files and directories that start with "."
 
