@@ -3,6 +3,7 @@ return {
   dependencies = {
     'nvim-treesitter/nvim-treesitter',
     'chrisgrieser/nvim-various-textobjs', -- Extra text-objects
+    'folke/todo-comments.nvim',
   },
   config = function()
     require('nvim-treesitter.configs').setup({
@@ -131,6 +132,8 @@ return {
 
     vim.keymap.set('n', ']d', next_diagnostic, { desc = 'Next diagnostic' })
     vim.keymap.set('n', '[d', prev_diagnostic, { desc = 'Previous diagnostic' })
+    vim.keymap.set('n', ']D', next_diagnostic, { desc = 'Next diagnostic' })
+    vim.keymap.set('n', '[D', prev_diagnostic, { desc = 'Previous diagnostic' })
 
     -- Quickfix
     local next_quickfix, prev_quickfix = ts_repeat_move.make_repeatable_move_pair(function()
@@ -141,5 +144,17 @@ return {
 
     vim.keymap.set('n', ']q', next_quickfix, { desc = 'Next quickfix ' })
     vim.keymap.set('n', '[q', prev_quickfix, { desc = 'Previous Quickfix' })
+
+    -- Todo comments
+    local next_todo, prev_todo = ts_repeat_move.make_repeatable_move_pair(function()
+      require('todo-comments').jump_next()
+    end, function()
+      require('todo-comments').jump_prev()
+    end)
+
+    vim.keymap.set('n', ']t', next_todo, { desc = 'Next todo ' })
+    vim.keymap.set('n', '[t', prev_todo, { desc = 'Previous todo' })
+    vim.keymap.set('n', ']T', next_todo, { desc = 'Next todo ' })
+    vim.keymap.set('n', '[T', prev_todo, { desc = 'Previous todo' })
   end,
 }
