@@ -99,8 +99,8 @@ vim.keymap.set('n', '<C-e>', '<cmd>e!<CR>', { desc = 'Discard changes' })
 vim.keymap.set({ 'i', 'o' }, '<C-j>', '<CR>', { remap = true })
 
 -- Shortcuts to ':' and '/'
-vim.keymap.set({ 'n', 'x' }, '<C-p>', ':', { desc = 'Command mode (pallete)' })
-vim.keymap.set({ 'n', 'x' }, '<C-n>', '/', { desc = 'Search next' })
+vim.keymap.set({ 'n', 'x', 'o' }, '<C-p>', ':', { desc = 'Command mode (pallete)' })
+vim.keymap.set({ 'n', 'x', 'o' }, '<C-n>', '/', { desc = 'Search next' })
 
 -- Quick comments
 vim.keymap.set('n', '<C-c>', 'gcc', { remap = true })
