@@ -131,5 +131,15 @@ return {
 
     vim.keymap.set('n', ']d', next_diagnostic, { desc = 'Next diagnostic' })
     vim.keymap.set('n', '[d', prev_diagnostic, { desc = 'Previous diagnostic' })
+
+    -- Quickfix
+    local next_quickfix, prev_quickfix = ts_repeat_move.make_repeatable_move_pair(function()
+      vim.cmd('cnext')
+    end, function()
+      vim.cmd('cprev')
+    end)
+
+    vim.keymap.set('n', ']q', next_quickfix, { desc = 'Next quickfix ' })
+    vim.keymap.set('n', '[q', prev_quickfix, { desc = 'Previous Quickfix' })
   end,
 }

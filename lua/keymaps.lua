@@ -14,10 +14,6 @@ vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol acr
 vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
 
--- Quickfix
-vim.keymap.set('n', 'L', '<cmd>cnext<CR>', { desc = 'Quickfix next' })
-vim.keymap.set('n', 'H', '<cmd>cprev<CR>', { desc = 'Quickfix previous' })
-
 vim.keymap.set('n', '<leader>q', '<cmd>copen<CR>', { desc = 'Open quickfix' })
 
 -- Undo
