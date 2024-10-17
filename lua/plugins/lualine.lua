@@ -112,7 +112,7 @@ return {
     -- Cleaner displayed path
     oil.sections.lualine_c[2] = {
       function()
-        local oil_directory = vim.fn.fnamemodify(require('oil').get_current_dir(), ':.')
+        local oil_directory = vim.fn.fnamemodify(require('oil').get_current_dir(), ':~')
         local modified_symbol = vim.bo.modified and ' ' .. require('custom.icons').buffer.modified or ''
         return oil_directory .. modified_symbol
       end,
