@@ -17,12 +17,12 @@ return {
         ['H'] = 'actions.parent',
         ['L'] = 'actions.select',
 
-        ['<leader>o'] = 'actions.close',
+        ['<leader>e'] = 'actions.close',
 
         ['K'] = 'actions.preview',
       },
     })
 
-    vim.keymap.set('n', '<leader>o', '<cmd>Oil<CR>', { desc = 'Oil' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>e', '<cmd>Oil<CR>', { desc = 'Explore tree (oil)' })
   end,
 }
