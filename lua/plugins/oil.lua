@@ -22,9 +22,8 @@ return {
         is_hidden_file = function(name) -- What is considered a hidden file
           return vim.startswith(name, '.')
         end,
-
-        is_always_hidden = function(name, bufnr) -- Never show
-          return false
+        is_always_hidden = function(name) -- Never show
+          return name == '..'
         end,
       },
 
