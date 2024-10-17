@@ -43,17 +43,6 @@ return {
           auto_open = { enabled = false },
         },
       },
-      views = {
-        -- Notification fallback if notify not present
-        mini = {
-          timeout = 1500, -- 2000
-          reverse = false, -- true
-          position = {
-            row = 0, -- -1
-          },
-          -- size = 80
-        },
-      },
       cmdline = {
         view = 'cmdline', -- cmdline, cmdline_popup
 
