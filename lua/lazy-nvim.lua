@@ -15,19 +15,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'lazy',
-  callback = function()
-    local current = vim.api.nvim_get_current_buf()
-
-    vim.keymap.set('n', '<C-h>', '<Nop>', { buffer = current })
-    vim.keymap.set('n', '<C-k>', '<Nop>', { buffer = current })
-    vim.keymap.set('n', '<C-l>', '<Nop>', { buffer = current })
-
-    vim.keymap.set('n', '-', '<Nop>', { buffer = current })
-    vim.keymap.set('n', '<C-j>', '<CR>', { buffer = current, remap = true })
-  end,
-})
+require('custom.helpers').free_ft_ctrl('lazy')
 
 require('lazy').setup('plugins', {
   change_detection = {

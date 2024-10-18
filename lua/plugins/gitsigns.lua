@@ -5,6 +5,8 @@ return {
   },
   config = function()
     local gitsigns = require('gitsigns')
+
+    require('custom.helpers').free_ft_ctrl('gitsigns-blame')
     gitsigns.setup({
       -- Untracked files don't need to be refreshed when committed to be attached
       attach_to_untracked = true,
@@ -40,19 +42,5 @@ return {
     -- Uses ':' in visual mode due to a bug (Only lines after cursor were being selected)
     vim.keymap.set('x', 'ah', ':Gitsigns select_hunk<CR>', { desc = 'Select hunk' })
     vim.keymap.set('x', 'ih', ':Gitsigns select_hunk<CR>', { desc = 'Select hunk' })
-
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = 'gitsigns-blame',
-      callback = function()
-        local current = vim.api.nvim_get_current_buf()
-
-        vim.keymap.set('n', '<C-h>', '<Nop>', { buffer = current })
-        vim.keymap.set('n', '<C-k>', '<Nop>', { buffer = current })
-        vim.keymap.set('n', '<C-l>', '<Nop>', { buffer = current })
-
-        vim.keymap.set('n', '-', '<Nop>', { buffer = current })
-        vim.keymap.set('n', '<C-j>', '<CR>', { buffer = current, remap = true })
-      end,
-    })
   end,
 }

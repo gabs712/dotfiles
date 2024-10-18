@@ -1,6 +1,8 @@
 return {
   'mbbill/undotree',
   config = function()
+    require('custom.helpers').free_ft_ctrl('undotree')
+
     vim.g.undotree_WindowLayout = 3
     vim.g.undotree_SplitWidth = 44
     vim.g.undotree_DiffAutoOpen = 0 -- 0, 1
@@ -18,13 +20,6 @@ return {
 
         vim.keymap.set('n', '<C-->', '<plug>UndotreePreviousState', { buffer = current })
         vim.keymap.set('n', '<C-=>', '<plug>UndotreeNextState', { buffer = current })
-
-        vim.keymap.set('n', '<C-j>', '<plug>UndotreeEnter', { buffer = current })
-
-        vim.keymap.set('n', '<C-h>', '<Nop>', { buffer = current })
-        vim.keymap.set('n', '<C-k>', '<Nop>', { buffer = current })
-        vim.keymap.set('n', '<C-l>', '<Nop>', { buffer = current })
-        vim.keymap.set('n', '-', '<Nop>', { buffer = current })
       end,
     })
   end,
