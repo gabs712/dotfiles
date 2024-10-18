@@ -11,10 +11,10 @@ return {
         dictionary = '-0123456789qrtuiopagzxc',
       },
       navigate = {
-        close_buffer = 'd',
+        close_buffer = 'D',
         next_page = 'J',
         prev_page = 'K',
-        cancel_snipe = '<esc>',
+        cancel_snipe = '-',
         under_cursor = '<cr>',
       },
       sort = 'last', -- last / default
