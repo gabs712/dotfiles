@@ -22,7 +22,7 @@ return {
 
     local format = require('custom.null-ls.format')
 
-    vim.api.nvim_create_autocmd('BufWritePre', { callback = format.default })
+    vim.api.nvim_create_autocmd('BufWritePre', { callback = format.on_save })
     vim.keymap.set({ 'n', 'x' }, '<leader>p', format.sort, { desc = 'Format (make pretty)' })
   end,
 }

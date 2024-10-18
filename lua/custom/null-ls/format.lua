@@ -9,7 +9,22 @@ local null_format = function()
   })
 end
 
-M.default = function()
+local format_on_save = true
+vim.api.nvim_create_user_command('ToggleFormatOnSave', function()
+  format_on_save = not format_on_save
+
+  if format_on_save then
+    print('FormatOnSave enabled')
+  else
+    print('FormatOnSave disabled')
+  end
+end, {})
+
+M.on_save = function()
+  if not format_on_save then
+    return
+  end
+
   -- Don't format if there isn't any lsp clients attached
   local buffer_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
   if #buffer_clients == 0 then
