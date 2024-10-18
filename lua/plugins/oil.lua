@@ -8,16 +8,20 @@ return {
 
     -- Notify when toggling hidden files
     local hidden_enabled = show_hidden
-    local notify_toggle_hidden = function()
-      oil.toggle_hidden()
-      hidden_enabled = not hidden_enabled
+    local notify_toggle_hidden = {
+      callback = function()
+        oil.toggle_hidden()
+        hidden_enabled = not hidden_enabled
 
-      if hidden_enabled then
-        print('Hidden files enabled')
-      else
-        print('Hidden files disabled')
-      end
-    end
+        if hidden_enabled then
+          print('Hidden files enabled')
+        else
+          print('Hidden files disabled')
+        end
+      end,
+      mode = 'n',
+      desc = 'Toggle hidden files',
+    }
 
     oil.setup({
       default_file_explorer = true,
