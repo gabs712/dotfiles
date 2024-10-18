@@ -91,7 +91,7 @@ return {
     vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle reveal focus left<CR>', { desc = 'Explore tree (neo-tree)' })
 
     vim.api.nvim_create_autocmd('FileType', {
-      pattern = 'neo-tree',
+      pattern = { 'neo-tree', 'neo-tree-popup' },
       callback = function()
         local current = vim.api.nvim_get_current_buf()
 
