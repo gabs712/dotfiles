@@ -30,5 +30,14 @@ return {
     vim.keymap.set('n', '<C-h>', function()
       harpoon:list():select(4)
     end, { desc = 'Go to harpoon mark 4' })
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'harpoon',
+      callback = function()
+        local current = vim.api.nvim_get_current_buf()
+
+        vim.keymap.set('n', '-', '<Nop>', { buffer = current })
+      end,
+    })
   end,
 }

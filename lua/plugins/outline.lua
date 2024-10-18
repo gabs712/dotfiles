@@ -12,9 +12,27 @@ return {
         show_symbol_lineno = false, -- Line numbers for each symbol
       },
       keymaps = {
-        fold_all = { 'W', '<C-h>' },
-        unfold_all = { 'E', '<C-l>' },
+        goto_location = { '<C-j>', '<CR>' },
+
+        fold_all = 'H',
+        unfold_all = 'L',
+
+        toggle_preview = 'P',
+        down_and_jump = 'J',
+        up_and_jump = 'K',
+        restore_location = '-',
       },
+    })
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'Outline',
+      callback = function()
+        local current = vim.api.nvim_get_current_buf()
+
+        vim.keymap.set('n', '<C-h>', '<Nop>', { buffer = current })
+        vim.keymap.set('n', '<C-k>', '<Nop>', { buffer = current })
+        vim.keymap.set('n', '<C-l>', '<Nop>', { buffer = current })
+      end,
     })
 
     vim.keymap.set('n', '<leader>s', '<cmd>Outline<CR>', { desc = 'Toggle outline (symbols)' })

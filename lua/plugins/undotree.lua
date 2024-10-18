@@ -9,14 +9,23 @@ return {
     vim.g.undotree_HighlightChangedText = 0
     vim.g.undotree_HelpLine = 1
 
+    vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Undotree' })
+
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'undotree',
       callback = function()
-        vim.keymap.set('n', '<C-->', '<plug>UndotreePreviousState', { buffer = vim.api.nvim_get_current_buf() })
-        vim.keymap.set('n', '<C-=>', '<plug>UndotreeNextState', { buffer = vim.api.nvim_get_current_buf() })
+        local current = vim.api.nvim_get_current_buf()
+
+        vim.keymap.set('n', '<C-->', '<plug>UndotreePreviousState', { buffer = current })
+        vim.keymap.set('n', '<C-=>', '<plug>UndotreeNextState', { buffer = current })
+
+        vim.keymap.set('n', '<C-j>', '<plug>UndotreeEnter', { buffer = current })
+
+        vim.keymap.set('n', '<C-h>', '<Nop>', { buffer = current })
+        vim.keymap.set('n', '<C-k>', '<Nop>', { buffer = current })
+        vim.keymap.set('n', '<C-l>', '<Nop>', { buffer = current })
+        vim.keymap.set('n', '-', '<Nop>', { buffer = current })
       end,
     })
-
-    vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Undotree' })
   end,
 }

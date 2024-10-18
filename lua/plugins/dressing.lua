@@ -6,6 +6,11 @@ return {
         mappings = {
           n = {
             ['<C-c>'] = 'Close',
+            ['<C-j>'] = 'Confirm',
+
+            ['<C-h>'] = '<Nop>',
+            ['<C-k>'] = '<Nop>',
+            ['<C-l>'] = '<Nop>',
           },
           i = {
             ['<C-c>'] = 'Close',
