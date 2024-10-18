@@ -61,24 +61,32 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   end,
 })
 
+local diagnostics_enabled = true
+
 -- Diagnostic toggle command
-local manually_disabled = false
-vim.api.nvim_create_user_command('DiagnosticToggle', function()
-  manually_disabled = not manually_disabled
-  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+vim.api.nvim_create_user_command('ToggleDiagnostics', function()
+  diagnostics_enabled = not diagnostics_enabled
+
+  vim.diagnostic.enable(diagnostics_enabled)
+
+  if diagnostics_enabled then
+    print('Diagnostic enabled')
+  else
+    print('Diagnostic disabled')
+  end
 end, {})
 
 -- Disable diagnostics on insert mode
 vim.api.nvim_create_autocmd('InsertEnter', {
   callback = function()
-    if not manually_disabled then
+    if diagnostics_enabled then
       vim.diagnostic.enable(false)
     end
   end,
 })
 vim.api.nvim_create_autocmd('InsertLeave', {
   callback = function()
-    if not manually_disabled then
+    if diagnostics_enabled then
       vim.diagnostic.enable(true)
     end
   end,
