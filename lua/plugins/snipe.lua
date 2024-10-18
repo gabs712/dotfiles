@@ -8,7 +8,7 @@ return {
         position = 'center',
       },
       hints = {
-        dictionary = '-0123456789qwertyuiopasfgzxcvbnm',
+        dictionary = '-0123456789qrtuiopagzxc',
       },
       navigate = {
         close_buffer = 'd',
