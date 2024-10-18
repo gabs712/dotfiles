@@ -49,21 +49,21 @@ return {
 
       use_default_keymaps = false,
       keymaps = {
-        ['H'] = 'actions.parent',
-        ['L'] = 'actions.select',
-        ['<CR>'] = 'actions.select',
+        ['<C-j>'] = 'actions.select',
+        ['<C-k>'] = 'actions.parent',
 
         ['-'] = 'actions.open_cwd',
-        ['K'] = 'actions.preview',
+        ['<C-l>'] = 'actions.preview',
 
         ['gd'] = { 'actions.cd', opts = { scope = 'tab' }, desc = 'Change cwd on tab', mode = 'n' },
         ['g?'] = 'actions.show_help',
-        ['gh'] = notify_toggle_hidden,
+        ['<C-h>'] = notify_toggle_hidden,
         ['gs'] = 'actions.change_sort',
         ['g\\'] = 'actions.toggle_trash',
 
         ['<leader>o'] = 'actions.close',
         ['<C-c>'] = 'actions.close',
+        ['<CR>'] = 'actions.select',
       },
     })
 
