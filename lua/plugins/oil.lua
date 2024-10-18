@@ -2,7 +2,24 @@ return {
   'stevearc/oil.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
-    require('oil').setup({
+    local oil = require('oil')
+
+    local show_hidden = true
+
+    -- Notify when toggling hidden files
+    local hidden_enabled = show_hidden
+    local notify_toggle_hidden = function()
+      oil.toggle_hidden()
+      hidden_enabled = not hidden_enabled
+
+      if hidden_enabled then
+        print('Hidden files enabled')
+      else
+        print('Hidden files disabled')
+      end
+    end
+
+    oil.setup({
       default_file_explorer = true,
       delete_to_trash = true,
       watch_for_changes = true, -- Watch the filesystem for changes and reload oil
@@ -16,7 +33,7 @@ return {
       },
 
       view_options = {
-        show_hidden = true, -- Show files and directories that start with "."
+        show_hidden = show_hidden, -- Show files and directories that start with "."
 
         is_hidden_file = function(name) -- What is considered a hidden file
           return vim.startswith(name, '.')
@@ -37,7 +54,7 @@ return {
 
         ['gd'] = { 'actions.cd', opts = { scope = 'tab' }, desc = 'Change cwd on tab', mode = 'n' },
         ['g?'] = 'actions.show_help',
-        ['gh'] = 'actions.toggle_hidden',
+        ['gh'] = notify_toggle_hidden,
         ['gs'] = 'actions.change_sort',
         ['g\\'] = 'actions.toggle_trash',
 
