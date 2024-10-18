@@ -23,6 +23,15 @@ return {
       },
     })
 
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'Outline',
+      callback = function()
+        local current = vim.api.nvim_get_current_buf()
+        vim.keymap.set('n', '<C-o>', '<Nop>', { buffer = current })
+        vim.keymap.set('n', '<C-i>', '<Nop>', { buffer = current })
+      end,
+    })
+
     vim.keymap.set('n', '<leader>s', '<cmd>Outline<CR>', { desc = 'Toggle outline (symbols)' })
   end,
 }
