@@ -28,7 +28,6 @@ return {
           width = 32,
           mappings = {
             ['<space>'] = 'none',
-            ['<C-f>'] = 'none',
             ['<C-e>'] = 'none',
             ['<bs>'] = 'none',
             ['s'] = 'none',
@@ -37,8 +36,8 @@ return {
             ['h'] = 'close_node',
             ['<C-s>'] = 'open_split',
             ['<C-v>'] = 'open_vsplit',
-            ['<C-u>'] = { 'scroll_preview', config = { direction = 10 } },
-            ['<C-d>'] = { 'scroll_preview', config = { direction = -10 } },
+            ['<C-b>'] = { 'scroll_preview', config = { direction = 10 } },
+            ['<C-f>'] = { 'scroll_preview', config = { direction = -10 } },
             ['<Left>'] = { 'scroll_preview', config = { direction = 10 } },
             ['<Right>'] = { 'scroll_preview', config = { direction = -10 } },
           },
