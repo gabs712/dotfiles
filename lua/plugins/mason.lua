@@ -26,5 +26,19 @@ return {
         'eslint_d',
       },
     })
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'mason',
+      callback = function()
+        local current = vim.api.nvim_get_current_buf()
+
+        vim.keymap.set('n', '<C-h>', '<Nop>', { buffer = current })
+        vim.keymap.set('n', '<C-k>', '<Nop>', { buffer = current })
+        vim.keymap.set('n', '<C-l>', '<Nop>', { buffer = current })
+
+        vim.keymap.set('n', '-', '<Nop>', { buffer = current })
+        vim.keymap.set('n', '<C-j>', '<CR>', { buffer = current, remap = true })
+      end,
+    })
   end,
 }
