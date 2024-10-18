@@ -25,7 +25,6 @@ return {
 
     oil.setup({
       default_file_explorer = true,
-      delete_to_trash = true,
       watch_for_changes = true, -- Watch the filesystem for changes and reload oil
 
       lsp_file_methods = {
@@ -59,7 +58,6 @@ return {
         ['g?'] = 'actions.show_help',
         ['<C-h>'] = notify_toggle_hidden,
         ['gs'] = 'actions.change_sort',
-        ['g\\'] = 'actions.toggle_trash',
 
         ['<leader>o'] = 'actions.close',
         ['<C-c>'] = 'actions.close',
