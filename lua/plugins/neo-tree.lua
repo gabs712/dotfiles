@@ -14,6 +14,7 @@ return {
     require('custom.helpers').free_ft_ctrl({ 'neo-tree', 'neo-tree-popup' })
     require('neo-tree').setup({
       filesystem = {
+        follow_current_file = { enabled = true },
         hijack_netrw_behavior = 'disabled', -- Wheater to use neo-tree as default file explorer
         filtered_items = {
           visible = false, -- Enable hidden files when opening a window
@@ -91,6 +92,6 @@ return {
     require('lsp-file-operations').setup()
 
     -- Toggle window, highlight current file, move cursor
-    vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle reveal focus left<CR>', { desc = 'Explore tree (neo-tree)' })
+    vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle focus left<CR>', { desc = 'Explore tree (neo-tree)' })
   end,
 }
