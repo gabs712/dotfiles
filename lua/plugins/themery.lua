@@ -1,26 +1,36 @@
 return {
-  enabled = true,
   'zaldih/themery.nvim',
+  dependencies = {
+    'folke/tokyonight.nvim',
+  },
   config = function()
-    -- Minimal config
+    vim.cmd('colorscheme tokyonight-moon') -- Default colorscheme
+
+    require('custom.helpers').free_ft_ctrl('themery')
     require('themery').setup({
       themes = {
-        'dracula',
-        'dracula-soft',
-        'catppuccin',
-        'catppuccin-frappe',
-        'tokyonight',
-        'tokyonight-storm',
+        'tokyonight-moon',
         'tokyonight-night',
-        'rose-pine',
-        'kanagawa',
+        'tokyonight-storm',
+
+        'catppuccin-mocha',
+        'catppuccin-macchiato',
+        'catppuccin-frappe',
+
+        'duskfox',
+        'nordfox',
         'nightfox',
-        'github_dark',
-        'onedark',
+        'carbonfox',
+
+        'rose-pine-main',
+        'rose-pine-moon',
+
+        'kanagawa-wave',
+        'kanagawa-dragon',
       },
       livePreview = true,
     })
 
-    vim.keymap.set('n', '<leader>t', '<cmd>Themery<cr>')
+    vim.keymap.set('n', '<leader>t', '<cmd>Themery<cr>', { desc = 'Themery' })
   end,
 }

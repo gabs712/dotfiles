@@ -1,13 +1,10 @@
 return {
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-  },
-  {
     'folke/tokyonight.nvim',
   },
   {
-    'Mofiqul/dracula.nvim',
+    'catppuccin/nvim',
+    name = 'catppuccin',
   },
   {
     'rebelot/kanagawa.nvim',
@@ -18,12 +15,5 @@ return {
   },
   {
     'EdenEast/nightfox.nvim',
-  },
-  {
-    'projekt0n/github-nvim-theme',
-    name = 'github-theme',
-  },
-  {
-    'navarasu/onedark.nvim',
   },
 }
