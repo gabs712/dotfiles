@@ -39,6 +39,7 @@ return {
 
           ['<C-j>'] = 'open',
           ['l'] = 'open',
+          ['<C-k>'] = 'close_node',
           ['h'] = 'close_node',
           ['<C-s>'] = 'open_split',
           ['<C-v>'] = 'open_vsplit',
