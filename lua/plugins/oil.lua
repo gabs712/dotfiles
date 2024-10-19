@@ -55,9 +55,10 @@ return {
         ['<C-l>'] = 'actions.preview',
 
         ['gd'] = { 'actions.cd', opts = { scope = 'tab' }, desc = 'Change cwd on tab', mode = 'n' },
-        ['g?'] = 'actions.show_help',
-        ['<C-h>'] = notify_toggle_hidden,
+        ['gr'] = 'actions.refresh',
+        ['g.'] = notify_toggle_hidden,
         ['gs'] = 'actions.change_sort',
+        ['g?'] = 'actions.show_help',
 
         ['<leader>o'] = 'actions.close',
         ['<C-c>'] = 'actions.close',
