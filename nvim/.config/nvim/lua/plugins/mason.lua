@@ -18,13 +18,11 @@ return {
         'tailwindcss',
         'emmet_ls',
         'lua_ls',
+        'eslint',
 
         -- Formatters
         'prettier',
         'stylua',
-
-        -- Linters
-        'eslint_d',
       },
     })
   end,

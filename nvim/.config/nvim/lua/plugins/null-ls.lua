@@ -2,7 +2,6 @@ return {
   'nvimtools/none-ls.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvimtools/none-ls-extras.nvim', -- Extra sources
     { 'luckasRanarison/tailwind-tools.nvim', name = 'tailwind-tools' }, -- Sort tailwind
   },
   config = function()
@@ -14,9 +13,6 @@ return {
         -- Formatters
         formatting.stylua,
         formatting.prettier,
-
-        -- Linters
-        require('none-ls.diagnostics.eslint_d'),
       },
     })
 
