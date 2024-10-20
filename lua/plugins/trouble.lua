@@ -6,7 +6,7 @@ return {
       warn_no_results = false,
       open_no_results = true,
       auto_preview = false,
-      focus = false,
+      focus = true,
 
       keys = {
         ['l'] = 'jump',
