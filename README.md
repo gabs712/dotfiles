@@ -8,5 +8,7 @@
 ## 📦 Installation
 
 ```sh
-git clone git@github.com:gabs712/dev-enviroment.git ~/dotfiles
+git clone git@github.com:gabs712/dev-enviroment.git ~/dev-enviroment
 ```
+
+Use `stow */` to link all or pick indivdual packages with `stow [package]`.
