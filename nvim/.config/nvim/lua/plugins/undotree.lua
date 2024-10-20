@@ -9,7 +9,7 @@ return {
     vim.g.undotree_SetFocusWhenToggle = 0
     vim.g.undotree_ShortIndicators = 0 -- s, h, m, etc
     vim.g.undotree_HighlightChangedText = 0
-    vim.g.undotree_HelpLine = 1
+    vim.g.undotree_HelpLine = 0
 
     vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Undotree' })
 
