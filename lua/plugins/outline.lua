@@ -1,7 +1,7 @@
 return {
   'hedyhli/outline.nvim',
   config = function()
-    require('custom.helpers').free_ft_ctrl('Outline')
+    require('custom.helpers').map_ctrl_j('Outline')
     require('outline').setup({
       outline_window = {
         position = 'right', -- left / right

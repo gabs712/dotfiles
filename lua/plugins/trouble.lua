@@ -1,7 +1,7 @@
 return {
   'folke/trouble.nvim',
   config = function()
-    require('custom.helpers').free_ft_ctrl('trouble')
+    require('custom.helpers').map_ctrl_j('trouble')
     require('trouble').setup({
       warn_no_results = false,
       open_no_results = true,

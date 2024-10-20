@@ -1,7 +1,7 @@
 return {
   'mbbill/undotree',
   config = function()
-    require('custom.helpers').free_ft_ctrl('undotree')
+    require('custom.helpers').map_ctrl_j('undotree')
 
     vim.g.undotree_WindowLayout = 3
     vim.g.undotree_SplitWidth = 44

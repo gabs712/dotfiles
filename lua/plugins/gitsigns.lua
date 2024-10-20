@@ -6,7 +6,7 @@ return {
   config = function()
     local gitsigns = require('gitsigns')
 
-    require('custom.helpers').free_ft_ctrl('gitsigns-blame')
+    require('custom.helpers').map_ctrl_j('gitsigns-blame')
     gitsigns.setup({
       -- Untracked files don't need to be refreshed when committed to be attached
       attach_to_untracked = true,

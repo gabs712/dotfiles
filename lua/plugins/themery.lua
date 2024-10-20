@@ -6,7 +6,7 @@ return {
   config = function()
     vim.cmd('colorscheme tokyonight-moon') -- Default colorscheme
 
-    require('custom.helpers').free_ft_ctrl('themery')
+    require('custom.helpers').map_ctrl_j('themery')
     require('themery').setup({
       themes = {
         'tokyonight-moon',

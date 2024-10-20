@@ -1,5 +1,4 @@
 return {
-  enabled = true,
   'folke/noice.nvim',
   event = 'VeryLazy',
   dependencies = {
@@ -8,6 +7,7 @@ return {
     'rcarriga/nvim-notify',
   },
   config = function()
+    require('custom.helpers').clear_ctrl('noice')
     require('noice').setup({
       routes = {
         -- Disable popups for undos
