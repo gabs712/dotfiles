@@ -25,6 +25,8 @@ return {
         'toml',
         'query',
         'json',
+        'gitcommit',
+        'gitignore',
       },
     })
   end,
