@@ -34,7 +34,7 @@ return {
   {
     'drmingdrmer/vim-toggle-quickfix',
     config = function()
-      vim.keymap.set('n', '<leader>q', '<Plug>window:quickfix:loop', { desc = 'Toggle quickfix' })
+      vim.keymap.set('n', '<leader>q', '<Plug>window:quickfix:toggle', { desc = 'Toggle quickfix' })
     end,
   },
 }
