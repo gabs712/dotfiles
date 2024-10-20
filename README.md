@@ -8,5 +8,5 @@
 ## 📦 Installation
 
 ```sh
-git clone https://github.com/gabs712/neovim-config ~/.config/nvim
+git clone git@github.com:gabs712/dev-enviroment.git ~/
 ```
