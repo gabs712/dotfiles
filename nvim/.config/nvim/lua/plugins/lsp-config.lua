@@ -35,8 +35,7 @@ return {
           settings = {
             diagnostics = {
               ignoredCodes = {
-                6133, -- Unused vars
-                7016, -- 'Invalid' imports
+                7016, -- 'Invalid' imports (causing incorrect linting)
               },
             },
           },
