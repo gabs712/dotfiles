@@ -26,6 +26,14 @@ return {
           },
           opts = { skip = true },
         },
+        -- cnext/cprev throws errors when reaching last item, annoying call stack with repeatable movements
+        {
+          filter = {
+            event = 'msg_show',
+            find = 'E553: No more items',
+          },
+          opts = { skip = true },
+        },
       },
 
       lsp = {
