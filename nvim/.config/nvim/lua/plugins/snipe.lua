@@ -1,6 +1,7 @@
 return {
   'leath-dub/snipe.nvim',
   config = function()
+    require('custom.helpers').map_ctrl_j('snipe-menu')
     local snipe = require('snipe')
 
     snipe.setup({
