@@ -106,3 +106,6 @@ vim.keymap.set('x', '<C-c>', 'gc', { remap = true })
 
 -- Marks go to col
 vim.keymap.set('n', "'", '`')
+
+-- Quickfix popup keymaps
+require('custom.helpers').map_ctrl_j('qf')
