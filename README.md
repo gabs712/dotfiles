@@ -8,5 +8,5 @@
 ## 📦 Installation
 
 ```sh
-git clone git@github.com:gabs712/dev-enviroment.git ~/
+git clone git@github.com:gabs712/dev-enviroment.git ~/dotfiles
 ```
