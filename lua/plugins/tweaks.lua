@@ -31,4 +31,10 @@ return {
       require('auto-indent').setup()
     end,
   },
+  {
+    'drmingdrmer/vim-toggle-quickfix',
+    config = function()
+      vim.keymap.set('n', '<leader>q', '<Plug>window:quickfix:loop', { desc = 'Toggle quickfix' })
+    end,
+  },
 }

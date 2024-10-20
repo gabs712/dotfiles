@@ -14,8 +14,6 @@ vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol acr
 vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
 
-vim.keymap.set('n', '<leader>q', '<cmd>copen<CR>', { desc = 'Open quickfix' })
-
 -- Undo
 vim.keymap.set('n', '<C-->', 'g-', { desc = 'Undo non-lineraly' })
 vim.keymap.set('n', '<C-=>', 'g+', { desc = 'Redo non-lineraly' })
