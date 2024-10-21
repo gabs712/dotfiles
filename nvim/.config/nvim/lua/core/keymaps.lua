@@ -20,6 +20,10 @@ vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostic
 vim.keymap.set('n', '<C-->', 'g-', { desc = 'Undo non-lineraly' })
 vim.keymap.set('n', '<C-=>', 'g+', { desc = 'Redo non-lineraly' })
 
+-- Facilitate indent
+vim.keymap.set('x', '>', '>gv')
+vim.keymap.set('x', '<', '<gv')
+
 -- Window navigation
 vim.keymap.set({ 'n', 'x' }, '<A-h>', '<C-w><C-h>', { desc = 'Window left' })
 vim.keymap.set({ 'n', 'x' }, '<A-j>', '<C-w><C-j>', { desc = 'Window bottom' })
