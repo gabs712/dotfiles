@@ -12,26 +12,6 @@ return {
     end,
   },
   {
-    -- Whenever indent (<, >, =) is used, the cursor doesn't move to start
-    -- Doesn't yet support dot repeat and undos
-    'gbprod/stay-in-place.nvim',
-    config = function()
-      require('stay-in-place').setup({
-        {
-          set_keymaps = true, -- Keymaps are automatically settled
-          preserve_visual_selection = true, -- Keep selection when indenting
-        },
-      })
-    end,
-  },
-  {
-    -- When pressing tab at start of line, automatically indents
-    'vidocqh/auto-indent.nvim',
-    config = function()
-      require('auto-indent').setup()
-    end,
-  },
-  {
     'drmingdrmer/vim-toggle-quickfix',
     config = function()
       vim.keymap.set('n', '<leader>q', '<Plug>window:quickfix:toggle', { desc = 'Toggle quickfix' })
