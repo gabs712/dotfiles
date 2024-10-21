@@ -69,7 +69,7 @@ return {
         },
         {
           'diff',
-          padding = { left = 1, right = 1 },
+          padding = { left = 2, right = 1 },
           colored = true,
           symbols = {
             added = ' ',
