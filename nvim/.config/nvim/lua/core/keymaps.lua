@@ -9,6 +9,8 @@ vim.keymap.set('n', '<Esc>', function()
   end
 end, { desc = 'Clear highlights and popups' })
 
+vim.keymap.set({ 'i', 'o', 'x' }, '<C-j>', '<CR>', { remap = true }) -- Use c-j as enter in a more consistent way
+
 -- Lsp
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
 vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
@@ -92,9 +94,6 @@ vim.keymap.set({ 'n', 'x' }, '<ScrollWheelDown>', '<ScrollWheelDown>0M')
 
 vim.keymap.set({ 'n', 'i' }, '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
 vim.keymap.set('n', '<C-e>', '<cmd>e!<CR>', { desc = 'Discard changes' })
-
--- Fix indentation absence with autopairs when using C-j
-vim.keymap.set({ 'i', 'o' }, '<C-j>', '<CR>', { remap = true })
 
 -- Shortcuts to ':' and '/'
 vim.keymap.set({ 'n', 'x', 'o' }, '<C-p>', ':', { desc = 'Command mode (pallete)' })
