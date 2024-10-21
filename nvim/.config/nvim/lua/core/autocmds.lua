@@ -5,6 +5,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Automatically fixes identation when inserting on blank lines
+vim.api.nvim_create_autocmd('InsertEnter', {
+  callback = function()
+    if vim.bo.filetype ~= 'TelescopePrompt' then
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-f>', true, false, true), 'i', false)
+    end
+  end,
+})
+
 -- Disable automatic comment insertion
 vim.api.nvim_create_autocmd('BufEnter', {
   callback = function()
