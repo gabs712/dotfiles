@@ -80,16 +80,16 @@ vim.opt.fillchars = {
   diff = '╱',
 }
 
--- Diagnostics
 local icons = require('custom.icons')
 vim.diagnostic.config({
   virtual_text = false, -- Inline diagnostic
   underline = true,
-  signs = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
+      [vim.diagnostic.severity.WARN] = icons.diagnostics.warn,
+      [vim.diagnostic.severity.INFO] = icons.diagnostics.info,
+      [vim.diagnostic.severity.HINT] = icons.diagnostics.hint,
+    },
+  },
 })
-
--- For plugins like trouble
-vim.fn.sign_define('DiagnosticSignError', { text = icons.diagnostics.error })
-vim.fn.sign_define('DiagnosticSignWarn', { text = icons.diagnostics.warn })
-vim.fn.sign_define('DiagnosticSignInfo', { text = icons.diagnostics.info })
-vim.fn.sign_define('DiagnosticSignHint', { text = icons.diagnostics.hint })
