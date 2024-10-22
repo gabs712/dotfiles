@@ -12,6 +12,13 @@ return {
     end,
   },
   {
+    -- When pressing tab at start of line, automatically indents
+    'vidocqh/auto-indent.nvim',
+    config = function()
+      require('auto-indent').setup()
+    end,
+  },
+  {
     'drmingdrmer/vim-toggle-quickfix',
     config = function()
       vim.keymap.set('n', '<leader>q', '<Plug>window:quickfix:toggle', { desc = 'Toggle quickfix' })
