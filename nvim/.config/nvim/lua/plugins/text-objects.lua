@@ -43,7 +43,7 @@ return {
           swap_previous = {
             ['<C-,>v'] = { query = '@assignment.outer', desc = 'Swap variable with previous' },
             ['<C-,>f'] = { query = '@function.outer', desc = 'Swap function with previous' },
-            -- ['<C-,>m'] = { query = '@call.outer', desc = 'Swap function call (method) with previous' }, -- Doesn't behave as expected
+            ['<C-,>m'] = { query = '@call.outer', desc = 'Swap function call (method) with previous' }, -- Doesn't behave as expected
             ['<C-,>l'] = { query = '@loop.outer', desc = 'Swap loop with previous' },
             ['<C-,>i'] = { query = '@conditional.outer', desc = 'Swap conditional (if) with previous' },
             ['<C-,>s'] = { query = '@class.outer', desc = 'Swap class with previous' },
@@ -53,7 +53,7 @@ return {
           swap_next = {
             ['<C-;>v'] = { query = '@assignment.outer', desc = 'Swap variable with next' },
             ['<C-;>f'] = { query = '@function.outer', desc = 'Swap function with next' },
-            -- ['<C-,>m'] = { query = '@call.outer', desc = 'Swap function call (method) with next' },
+            ['<C-,>m'] = { query = '@call.outer', desc = 'Swap function call (method) with next' },
             ['<C-;>l'] = { query = '@loop.outer', desc = 'Swap loop with next' },
             ['<C-;>i'] = { query = '@conditional.outer', desc = 'Swap conditional (if) with next' },
             ['<C-;>s'] = { query = '@class.outer', desc = 'Swap class with next' },
