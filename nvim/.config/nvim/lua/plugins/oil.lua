@@ -47,6 +47,6 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>o', '<cmd>Oil<CR>', { desc = 'Explore tree (oil)' })
+    vim.keymap.set('n', '<leader>o', oil.open_float, { desc = 'Explore tree (oil)' })
   end,
 }
