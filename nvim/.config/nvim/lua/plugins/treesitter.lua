@@ -27,6 +27,7 @@ return {
         'json',
         'gitcommit',
         'gitignore',
+        'tmux',
       },
     })
   end,
