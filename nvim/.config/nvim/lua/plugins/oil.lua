@@ -32,7 +32,7 @@ return {
         ['<C-j>'] = 'actions.select',
         ['<C-k>'] = 'actions.parent',
 
-        ['-'] = 'actions.open_cwd',
+        ['<C-h>'] = 'actions.open_cwd',
         ['<C-l>'] = 'actions.preview',
 
         ['gd'] = { 'actions.cd', opts = { scope = 'tab' }, desc = 'Change cwd on tab', mode = 'n' },
@@ -43,6 +43,7 @@ return {
 
         ['<leader>o'] = 'actions.close',
         ['<C-c>'] = 'actions.close',
+        ['<C-q>'] = 'actions.close',
         ['<CR>'] = 'actions.select',
       },
     })
