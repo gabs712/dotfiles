@@ -9,8 +9,6 @@ vim.keymap.set('n', '<Esc>', function()
   end
 end, { desc = 'Clear highlights and popups' })
 
-vim.keymap.set({ 'i', 'o', 'x' }, '<C-j>', '<CR>', { remap = true }) -- Use c-j as enter in a more consistent way
-
 -- Lsp
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
 vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
