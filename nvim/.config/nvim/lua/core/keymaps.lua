@@ -22,12 +22,6 @@ vim.keymap.set('n', ')', 'g+', { desc = 'Redo non-lineraly' })
 vim.keymap.set('x', '>', '>gv')
 vim.keymap.set('x', '<', '<gv')
 
--- Window navigation
-vim.keymap.set({ 'n', 'x' }, '<A-h>', '<C-w><C-h>', { desc = 'Window left' })
-vim.keymap.set({ 'n', 'x' }, '<A-j>', '<C-w><C-j>', { desc = 'Window bottom' })
-vim.keymap.set({ 'n', 'x' }, '<A-k>', '<C-w><C-k>', { desc = 'Window top' })
-vim.keymap.set({ 'n', 'x' }, '<A-l>', '<C-w><C-l>', { desc = 'Window right' })
-
 vim.keymap.set('c', '<C-d>', '<Nop>') -- Can cause some weird behavior with plugins
 vim.keymap.set({ 'n', 'x' }, '<Space>', '<Nop>')
 vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
