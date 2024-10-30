@@ -11,7 +11,7 @@ return {
   config = function()
     local icons = require('custom.icons')
 
-    require('custom.helpers').map_ctrl_j({ 'neo-tree', 'neo-tree-popup' })
+    require('custom.helpers').clear_ctrl({ 'neo-tree', 'neo-tree-popup' })
     require('neo-tree').setup({
       filesystem = {
         follow_current_file = { enabled = true },
