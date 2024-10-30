@@ -111,4 +111,4 @@ vim.keymap.set('x', '<C-c>', 'gc', { remap = true })
 vim.keymap.set('n', "'", '`')
 
 -- Quickfix popup keymaps
-require('custom.helpers').map_ctrl_j('qf')
+require('custom.helpers').map_ctrl_j('qf', false)
