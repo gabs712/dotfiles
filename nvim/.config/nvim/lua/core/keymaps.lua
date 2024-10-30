@@ -17,8 +17,8 @@ vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
 
 -- Undo
-vim.keymap.set('n', '<C-->', 'g-', { desc = 'Undo non-lineraly' })
-vim.keymap.set('n', '<C-=>', 'g+', { desc = 'Redo non-lineraly' })
+vim.keymap.set('n', '(', 'g-', { desc = 'Undo non-lineraly' })
+vim.keymap.set('n', ')', 'g+', { desc = 'Redo non-lineraly' })
 
 -- Facilitate indent
 vim.keymap.set('x', '>', '>gv')
