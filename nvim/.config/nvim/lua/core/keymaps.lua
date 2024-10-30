@@ -63,11 +63,6 @@ vim.keymap.set({ 'n', 'x' }, 'x', '"_x')
 vim.keymap.set('n', 'X', '"_X')
 vim.keymap.set('x', 'X', '"_d') -- Also substitutes behavior of deleting line when using 'X' on 'v' mode
 
--- Weird tab bug. When mapping something to tab, <c-i> is also mapped to it.
--- To fix it, <c-i> is mapped to tab (it doesn't really make any sense).
-vim.keymap.set('n', '<c-i>', '<tab>', { desc = 'To fix bug. Has no effect.' })
-vim.keymap.set('n', '<CR>', '<C-m>', { desc = 'To fix bug. Has no effect.' }) -- The same happens with <CR>
-
 vim.keymap.set({ 'n', 'x' }, '<c-w>t', '<cmd>tabnew<CR>', { desc = 'Create tab' })
 
 -- Improve repetitive window movements
