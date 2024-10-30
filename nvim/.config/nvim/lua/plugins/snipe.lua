@@ -16,7 +16,6 @@ return {
         next_page = 'J',
         prev_page = 'K',
         cancel_snipe = '-',
-        under_cursor = '<cr>',
       },
       sort = 'last', -- last / default
     })
