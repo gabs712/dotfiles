@@ -18,5 +18,8 @@ return {
       map_c_h = true,
       map_c_w = true,
     })
+
+    -- Indent pairs with C-j
+    vim.keymap.set('i', '<C-j>', '<CR>', { remap = true })
   end,
 }
