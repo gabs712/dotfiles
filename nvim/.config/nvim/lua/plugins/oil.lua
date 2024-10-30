@@ -32,7 +32,7 @@ return {
         ['<C-j>'] = 'actions.select',
         ['<C-k>'] = 'actions.parent',
 
-        ['<C-h>'] = 'actions.open_cwd',
+        ['-'] = 'actions.open_cwd',
         ['<C-l>'] = 'actions.preview',
 
         ['gd'] = { 'actions.cd', opts = { scope = 'tab' }, desc = 'Change cwd on tab', mode = 'n' },
@@ -53,7 +53,7 @@ return {
       callback = function()
         local current = vim.api.nvim_get_current_buf()
 
-        vim.keymap.set('n', '<Esc>', function()
+        vim.keymap.set('n', '<C-h>', function()
           vim.cmd('nohlsearch')
         end, { buffer = current })
       end,
