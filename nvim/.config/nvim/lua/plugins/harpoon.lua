@@ -10,10 +10,10 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>w', function()
+    vim.keymap.set('n', '<C-q>', function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = 'Harpoon' })
-    vim.keymap.set('n', '<CR>', function() -- Also is triggered by C-m
+    vim.keymap.set('n', '<C-m>', function() -- Also is triggered by CR
       harpoon:list():add()
       print('Harpoon mark settled ' .. os.date('%H:%M:%S'))
     end, { desc = 'Set harpoon mark' })
