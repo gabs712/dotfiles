@@ -76,10 +76,22 @@ return {
         end,
       },
       mapping = cmp.mapping.preset.insert({
-        -- Selects first option when confirming if select equals true
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- C-j is also being remaped to it
+        ['<C-j>'] = cmp.mapping.confirm({ select = true }),
 
-        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+        -- Show completion / toggle docs
+        ['<C-Space>'] = cmp.mapping(function()
+          if cmp.visible() then
+            if cmp.visible_docs() then
+              cmp.close_docs()
+            else
+              cmp.open_docs()
+            end
+            return
+          end
+
+          cmp.complete()
+        end, { 'i', 'c' }),
+
         ['<C-c>'] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c' }),
 
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -88,15 +100,6 @@ return {
         -- Prevent from interfering with default behavior
         ['<C-y>'] = cmp.config.disable,
         ['<C-e>'] = cmp.config.disable,
-
-        -- Show docs (manual)
-        ['<C-m>'] = function()
-          if cmp.visible_docs() then
-            cmp.close_docs()
-          else
-            cmp.open_docs()
-          end
-        end,
       }),
     })
 
