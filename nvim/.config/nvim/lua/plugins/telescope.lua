@@ -70,7 +70,7 @@ return {
       })
     end, { desc = 'Find neovim config' })
 
-    vim.keymap.set('n', '<C-/>', builtin.current_buffer_fuzzy_find, { desc = 'Search in buffer' })
+    vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = 'Search in buffer' })
     vim.keymap.set('n', "<leader>'", builtin.registers, { desc = 'Find registers' })
     vim.keymap.set('n', '<leader>m', builtin.marks, { desc = 'Find marks' })
 
