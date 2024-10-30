@@ -70,6 +70,8 @@ vim.keymap.set('x', 'X', '"_d') -- Also substitutes behavior of deleting line wh
 vim.keymap.set('n', '<c-i>', '<tab>', { desc = 'To fix bug. Has no effect.' })
 vim.keymap.set('n', '<CR>', '<C-m>', { desc = 'To fix bug. Has no effect.' }) -- The same happens with <CR>
 
+vim.keymap.set({ 'n', 'x' }, '<c-w>t', '<cmd>tabnew<CR>', { desc = 'Create tab' })
+
 -- Improve repetitive window movements
 vim.keymap.set({ 'n', 'x' }, '<c-w>H', '<c-w>H<c-w>', { remap = true })
 vim.keymap.set({ 'n', 'x' }, '<c-w>J', '<c-w>J<c-w>', { remap = true })
