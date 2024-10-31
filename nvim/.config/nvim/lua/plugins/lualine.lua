@@ -4,6 +4,8 @@ return {
     'nvim-tree/nvim-web-devicons',
     'folke/noice.nvim',
     'stevearc/oil.nvim',
+    'ThePrimeagen/harpoon',
+    'letieu/harpoon-lualine',
   },
   config = function()
     local icons = require('custom.icons')
@@ -24,7 +26,15 @@ return {
     local sections = {
       lualine_a = {},
       lualine_b = {
-        'branch',
+        {
+          'harpoon2',
+          icon = '',
+          indicators = { '1', '2', '3', '4' },
+          active_indicators = { '1', '2', '3', '4' },
+          color_active = { fg = '#059669' },
+
+          padding = { left = 0, right = 1 },
+        },
       },
       lualine_c = {
         {
@@ -49,7 +59,7 @@ return {
         {
           require('noice').api.statusline.mode.get,
           cond = require('noice').api.statusline.mode.has,
-          color = { fg = '#ff9e64' },
+          color = { fg = '#c026d3' },
           padding = { left = 2, right = 1 },
         },
       },
