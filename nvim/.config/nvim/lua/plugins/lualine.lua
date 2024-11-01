@@ -31,7 +31,7 @@ return {
           icon = '',
           indicators = { '1', '2', '3', '4' },
           active_indicators = { '1', '2', '3', '4' },
-          color_active = { fg = '#059669' },
+          color_active = { fg = '#5eead4' },
 
           padding = { left = 0, right = 1 },
         },
@@ -55,19 +55,6 @@ return {
             newfile = '',
           },
         },
-        -- Show macros
-        {
-          require('noice').api.statusline.mode.get,
-          cond = require('noice').api.statusline.mode.has,
-          color = { fg = '#c026d3' },
-          padding = { left = 2, right = 1 },
-        },
-      },
-      lualine_x = {
-        {
-          'searchcount',
-          padding = { left = 1, right = 3 },
-        },
         {
           'diagnostics',
           symbols = {
@@ -77,9 +64,21 @@ return {
             error = icons.diagnostics.error,
           },
         },
+        -- Show macros
+        {
+          require('noice').api.statusline.mode.get,
+          cond = require('noice').api.statusline.mode.has,
+          color = { fg = '#ff9e64' },
+          padding = { left = 2, right = 1 },
+        },
+      },
+      lualine_x = {
+        {
+          'searchcount',
+          padding = { left = 1, right = 2 },
+        },
         {
           'diff',
-          padding = { left = 2, right = 1 },
           colored = true,
           symbols = {
             added = ' ',
