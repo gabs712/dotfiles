@@ -31,7 +31,7 @@ return {
           icon = '',
           indicators = { '1', '2', '3', '4' },
           active_indicators = { '1', '2', '3', '4' },
-          color_active = { fg = '#5eead4' },
+          color_active = { fg = '#ff9e64' },
 
           padding = { left = 0, right = 1 },
         },
