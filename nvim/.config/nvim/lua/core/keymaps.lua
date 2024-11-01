@@ -18,11 +18,17 @@ vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostic
 vim.keymap.set('n', '(', 'g-', { desc = 'Undo non-lineraly' })
 vim.keymap.set('n', ')', 'g+', { desc = 'Redo non-lineraly' })
 
+-- Shell-like command movements
+vim.keymap.set('c', '<C-f>', '<Right>')
+vim.keymap.set('c', '<C-b>', '<Left>')
+vim.keymap.set('c', '<C-a>', '<C-b>')
+-- <C-e> is mapped by default
+
 -- Facilitate indent
 vim.keymap.set('x', '>', '>gv')
 vim.keymap.set('x', '<', '<gv')
 
-vim.keymap.set('c', '<C-d>', '<Nop>') -- Can cause some weird behavior with plugins
+vim.keymap.set('c', '<C-d>', '<Nop>') -- Causes conflicts with completion
 vim.keymap.set({ 'n', 'x' }, '<Space>', '<Nop>')
 vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
 
