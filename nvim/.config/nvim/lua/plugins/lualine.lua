@@ -28,12 +28,12 @@ return {
       lualine_b = {
         {
           'harpoon2',
-          icon = '',
+          icon = '󰛢',
           indicators = { '1', '2', '3', '4' },
           active_indicators = { '1', '2', '3', '4' },
-          color_active = { fg = '#ff9e64' },
+          color_active = { fg = '#10b981' },
 
-          padding = { left = 0, right = 1 },
+          padding = { left = 1, right = 1 },
         },
       },
       lualine_c = {
