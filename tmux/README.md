@@ -1,7 +1,10 @@
 ## ⚡️ Requirements
 
 - a [Nerd Font](https://www.nerdfonts.com/)
-- tmux package manager (tpm)
+
+## 📦 Installation
+
+Add tmux package manager (tpm)
 
 ```sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
