@@ -32,6 +32,13 @@ vim.keymap.set('c', '<C-d>', '<Nop>') -- Causes conflicts with completion
 vim.keymap.set({ 'n', 'x' }, '<Space>', '<Nop>')
 vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
 
+-- Clear gr keys
+vim.keymap.del('n', 'grr')
+vim.keymap.del('n', 'gra')
+vim.keymap.del('x', 'gra')
+vim.keymap.del('n', 'grn')
+vim.keymap.del('n', 'gri')
+
 -- With strings, when using "a" on operator-pending mode or visual modes, not include extra whitespace
 vim.keymap.set({ 'o', 'x' }, "a'", "2i'")
 vim.keymap.set({ 'o', 'x' }, 'a"', '2i"')
@@ -75,13 +82,6 @@ vim.keymap.set({ 'n', 'x' }, '<C-w>.', '<cmd>vertical resize +5<cr><C-w>', { rem
 vim.keymap.set({ 'n', 'x' }, '<C-w>,', '<cmd>vertical resize -5<cr><C-w>', { remap = true })
 vim.keymap.set({ 'n', 'x' }, '<C-w>>', '<cmd>horizontal resize +5<cr><C-w>', { remap = true })
 vim.keymap.set({ 'n', 'x' }, '<C-w><', '<cmd>horizontal resize -5<cr><C-w>', { remap = true })
-
--- Free gr keys
-vim.keymap.del('n', 'grr')
-vim.keymap.del('n', 'gra')
-vim.keymap.del('x', 'gra')
-vim.keymap.del('n', 'grn')
-vim.keymap.del('n', 'gri')
 
 -- Alternatives to scroll also keeping cursor at center
 vim.keymap.set({ 'n', 'x' }, '<Left>', '<C-y>0M')
