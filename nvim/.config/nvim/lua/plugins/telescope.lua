@@ -65,10 +65,11 @@ return {
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Find help' })
     vim.keymap.set('n', '<leader>fn', function()
       builtin.find_files({
-        cwd = vim.fn.stdpath('config'),
-        prompt_title = 'Neovim Files',
+        hidden = true,
+        cwd = '~/dotfiles/',
+        prompt_title = 'Dotfiles',
       })
-    end, { desc = 'Find neovim config' })
+    end, { desc = 'Find dotfiles (neovim and alike)' })
 
     vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = 'Search in buffer' })
     vim.keymap.set('n', "<leader>'", builtin.registers, { desc = 'Find registers' })
