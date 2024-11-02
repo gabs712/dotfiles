@@ -1,0 +1,24 @@
+add_newline = false
+format = """
+$directory\
+$character"""
+
+[character]
+success_symbol = '[❯](bold purple)'
+error_symbol = '[❯](bold red)'
+
+vimcmd_symbol =	'[❮](bold green)'
+vimcmd_replace_one_symbol =	'[❮](bold purple)'
+vimcmd_replace_symbol =	'[❮](bold purple)'
+vimcmd_visual_symbol = '[❮](bold yellow)'
+
+[directory]
+format = '[$path]($style) '
+style	= 'bold cyan'
+
+truncation_length =	0 # Path depth (0 means no limitation)
+truncation_symbol	= '' # Indicates trucation (...)
+use_os_path_sep	= false # Adapt path separator for OS (/ or \)
+
+truncate_to_repo = false # Start at repo root
+use_logical_path = true # Original path instead of symlinked

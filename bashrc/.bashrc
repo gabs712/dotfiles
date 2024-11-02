@@ -127,4 +127,4 @@ alias nv='nvim'
 alias tm='tmux'
 alias lz='lazygit'
 
-
+eval "$(starship init bash)"
