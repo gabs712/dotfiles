@@ -122,6 +122,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # custom
 alias boilerplate='cp -r ~/boilerplate/* ~/boilerplate/.gitignore . && git init && git add . && git commit -m "Initial commit"'
+
 alias nv='nvim'
+alias tm='tmux'
+alias lz='lazygit'
 
 
