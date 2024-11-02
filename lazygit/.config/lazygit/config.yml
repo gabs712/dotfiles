@@ -1,6 +1,5 @@
 keybinding:
     universal:
-        quit: <esc>
         return: <c-k>
         confirm: <c-j>
         goInto: <c-j>
