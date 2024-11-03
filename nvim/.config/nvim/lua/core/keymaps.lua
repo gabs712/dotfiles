@@ -84,10 +84,10 @@ vim.keymap.set({ 'n', 'x' }, '<C-w>>', '<cmd>horizontal resize +5<cr><C-w>', { r
 vim.keymap.set({ 'n', 'x' }, '<C-w><', '<cmd>horizontal resize -5<cr><C-w>', { remap = true })
 
 -- Alternatives to scroll also keeping cursor at center
-vim.keymap.set({ 'n', 'x' }, '<Left>', '<C-y>0M')
-vim.keymap.set({ 'n', 'x' }, '<Right>', '<C-e>0M')
-vim.keymap.set({ 'n', 'x' }, '<Up>', '<C-u>0M')
-vim.keymap.set({ 'n', 'x' }, '<Down>', '<C-d>0M')
+vim.keymap.set({ 'n', 'x' }, '<Up>', '2<C-y>0M')
+vim.keymap.set({ 'n', 'x' }, '<Down>', '2<C-e>0M')
+vim.keymap.set({ 'n', 'x' }, '<Left>', '<C-u>0M')
+vim.keymap.set({ 'n', 'x' }, '<Right>', '<C-d>0M')
 vim.keymap.set({ 'n', 'x' }, '<ScrollWheelUp>', '<ScrollWheelUp>0M')
 vim.keymap.set({ 'n', 'x' }, '<ScrollWheelDown>', '<ScrollWheelDown>0M')
 
