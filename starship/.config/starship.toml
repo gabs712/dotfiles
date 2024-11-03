@@ -4,8 +4,8 @@ $directory\
 $character"""
 
 [character]
-success_symbol = '[❯](bold purple)'
-error_symbol = '[❯](bold purple)'
+success_symbol = '[❯](bold blue)'
+error_symbol = '[❯](bold blue)'
 
 vimcmd_symbol =	'[❮](bold green)'
 vimcmd_replace_one_symbol =	'[❮](bold purple)'
