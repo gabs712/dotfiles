@@ -5,7 +5,7 @@ $character"""
 
 [character]
 success_symbol = '[❯](bold purple)'
-error_symbol = '[❯](bold red)'
+error_symbol = '[❯](bold purple)'
 
 vimcmd_symbol =	'[❮](bold green)'
 vimcmd_replace_one_symbol =	'[❮](bold purple)'
