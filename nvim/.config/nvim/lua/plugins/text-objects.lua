@@ -108,6 +108,10 @@ return {
         },
       },
     })
+    -- Clear swap keys
+    vim.keymap.set('n', 'H', '<Nop>')
+    vim.keymap.set('n', 'L', '<Nop>')
+
     vim.keymap.set({ 'x', 'o' }, 'id', require('various-textobjs').entireBuffer, { desc = 'Select entire document' })
     vim.keymap.set({ 'x', 'o' }, 'ad', require('various-textobjs').entireBuffer, { desc = 'Select entire document' })
 
