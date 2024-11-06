@@ -1,6 +1,6 @@
 ## ⚡️ Requirements
 
-- [FiraCode Nerd Font](https://www.nerdfonts.com/)
+- [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 - tmux package manager (tpm)
 
 ```sh

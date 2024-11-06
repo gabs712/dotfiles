@@ -5,4 +5,4 @@
 - nodejs
 - gcc
 - ripgrep
-- [FiraCode Nerd Font](https://www.nerdfonts.com/)
+- [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
