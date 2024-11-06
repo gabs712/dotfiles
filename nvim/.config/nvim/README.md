@@ -4,4 +4,4 @@
 - lazygit
 - nodejs
 - gcc
-- a [Nerd Font](https://www.nerdfonts.com/)
+- [FiraCode Nerd Font](https://www.nerdfonts.com/)
