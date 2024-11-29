@@ -17,7 +17,7 @@ return {
         follow_current_file = { enabled = true },
         hijack_netrw_behavior = 'disabled', -- Wheater to use neo-tree as default file explorer
         filtered_items = {
-          visible = false, -- Enable hidden files when opening a window
+          visible = true, -- Enable hidden files initially
           hide_dotfiles = true,
           hide_gitignored = true,
           hide_by_name = {},
