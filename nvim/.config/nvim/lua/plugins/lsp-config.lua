@@ -36,6 +36,7 @@ return {
             diagnostics = {
               ignoredCodes = {
                 7016, -- 'Invalid' imports (causing incorrect linting)
+                80001, -- CommonJs imports,
               },
             },
           },
