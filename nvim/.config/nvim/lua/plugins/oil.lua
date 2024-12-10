@@ -57,6 +57,14 @@ return {
       end,
     })
 
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'oil',
+      callback = function()
+        local current = vim.api.nvim_get_current_buf()
+
+        vim.keymap.set('i', '<C-s>', '<Esc><cmd>w<CR>', { buffer = current })
+      end,
+    })
     vim.keymap.set('n', '<leader>o', oil.open_float, { desc = 'Explore tree (oil)' })
   end,
 }
