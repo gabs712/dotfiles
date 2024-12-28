@@ -55,15 +55,6 @@ return {
             newfile = '',
           },
         },
-        {
-          'diagnostics',
-          symbols = {
-            hint = icons.diagnostics.hint,
-            info = icons.diagnostics.info,
-            warn = icons.diagnostics.warn,
-            error = icons.diagnostics.error,
-          },
-        },
         -- Show macros
         {
           require('noice').api.statusline.mode.get,
@@ -75,6 +66,16 @@ return {
       lualine_x = {
         {
           'searchcount',
+          padding = { left = 1, right = 2 },
+        },
+        {
+          'diagnostics',
+          symbols = {
+            hint = icons.diagnostics.hint,
+            info = icons.diagnostics.info,
+            warn = icons.diagnostics.warn,
+            error = icons.diagnostics.error,
+          },
           padding = { left = 1, right = 2 },
         },
         {
