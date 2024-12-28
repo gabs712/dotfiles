@@ -42,6 +42,8 @@ return {
         ['g?'] = 'actions.show_help',
 
         ['<leader>o'] = 'actions.close',
+        ['<C-c>'] = 'actions.close',
+
         ['<CR>'] = 'actions.select',
       },
     })
