@@ -32,4 +32,28 @@ M.clear_ctrl = function(filetype)
   })
 end
 
+M.switch_to_previous_buffer = function()
+  -- Capture the output of `:ls t`
+  local ls_output = vim.fn.execute('ls t')
+
+  -- Split the output into lines
+  local lines = vim.split(ls_output, '\n', { trimempty = true })
+
+  -- Check if there are at least two terminal buffers
+  if #lines < 2 then
+    return
+  end
+
+  -- Extract the buffer number of the second terminal buffer
+  local second_line = lines[2]
+  local buffer_number = tonumber(second_line:match('^%s*(%d+)'))
+
+  if buffer_number then
+    -- Switch to the buffer
+    vim.cmd('buffer ' .. buffer_number)
+  else
+    print('Could not parse the second terminal buffer number.')
+  end
+end
+
 return M

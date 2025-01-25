@@ -9,6 +9,13 @@ vim.keymap.set('n', '<Esc>', function()
   end
 end, { desc = 'Clear highlights and popups' })
 
+vim.keymap.set(
+  'n',
+  '<C-Space>',
+  require('custom.helpers').switch_to_previous_buffer,
+  { desc = 'Switch to the previous terminal buffer' }
+)
+
 -- Lsp
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
 vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions' })
