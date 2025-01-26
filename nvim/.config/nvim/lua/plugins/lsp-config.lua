@@ -77,6 +77,13 @@ return {
           end,
         })
       end,
+
+      ['emmet_ls'] = function()
+        lspconfig['emmet_ls'].setup({
+          capabilities = cmp_capabilities,
+          filetypes = { 'html', 'css', 'sass', 'scss' },
+        })
+      end,
     })
   end,
 }
