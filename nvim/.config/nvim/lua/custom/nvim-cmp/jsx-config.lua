@@ -34,6 +34,7 @@ local jsx_config = {
           cursor_node:type() == 'string'
           or cursor_node:type() == 'jsx_opening_element'
           or cursor_node:type() == 'jsx_closing_element'
+          or cursor_node:type() == 'jsx_self_closing_element'
           or cursor_node:type() == 'jsx_attribute'
         then
           return false
@@ -45,6 +46,7 @@ local jsx_config = {
 
         if
           (cursor_node:parent():type() == 'jsx_opening_element' and cursor_node:type() == 'identifier')
+          or (cursor_node:parent():type() == 'jsx_self_closing_element')
           or (cursor_node:parent():type() == 'jsx_attribute' and cursor_node:type() == 'identifier')
           or (cursor_node:parent():type() == 'jsx_attribute' and cursor_node:type() == 'property_identifier')
         then
