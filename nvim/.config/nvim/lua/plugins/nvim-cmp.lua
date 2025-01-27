@@ -195,6 +195,8 @@ return {
           cmp.config.compare.order,
         },
       },
+
+      cmp.setup.filetype({ 'javascriptreact', 'typescriptreact' }, require('custom.nvim-cmp.jsx-config')),
     })
   end,
 }
