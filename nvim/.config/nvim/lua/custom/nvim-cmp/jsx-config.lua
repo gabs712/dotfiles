@@ -2,15 +2,6 @@ local cmp = require('cmp')
 local types = require('cmp.types')
 local ts_utils = require('nvim-treesitter.ts_utils')
 
-local hide_on_attributes = function()
-  -- Doesn't show snippets in tag attributes
-  local cursor_node = ts_utils.get_node_at_cursor()
-
-  if cursor_node:type() == 'jsx_opening_element' then
-    return false
-  end
-end
-
 local jsx_config = {
   sources = {
     {
@@ -33,7 +24,36 @@ local jsx_config = {
     },
     {
       name = 'luasnip',
-      entry_filter = hide_on_attributes,
+      entry_filter = function()
+        local cursor_node = ts_utils.get_node_at_cursor()
+        if not cursor_node then
+          return true
+        end
+
+        if
+          cursor_node:type() == 'string'
+          or cursor_node:type() == 'jsx_opening_element'
+          or cursor_node:type() == 'jsx_closing_element'
+          or cursor_node:type() == 'jsx_attribute'
+        then
+          return false
+        end
+
+        if not cursor_node:parent() then
+          return true
+        end
+
+        if
+          cursor_node:parent():type() == 'variable_declarator'
+          or (cursor_node:parent():type() == 'jsx_opening_element' and cursor_node:type() == 'identifier')
+          or (cursor_node:parent():type() == 'jsx_attribute' and cursor_node:type() == 'identifier')
+          or (cursor_node:parent():type() == 'jsx_attribute' and cursor_node:type() == 'property_identifier')
+        then
+          return false
+        end
+
+        return true
+      end,
     },
     {
       name = 'buffer',
