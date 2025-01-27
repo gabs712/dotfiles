@@ -1,19 +1,29 @@
 local cmp = require('cmp')
 local types = require('cmp.types')
+local ts_utils = require('nvim-treesitter.ts_utils')
+
+local hide_on_attributes = function()
+  -- Doesn't show snippets in tag attributes
+  local cursor_node = ts_utils.get_node_at_cursor()
+
+  if cursor_node:type() == 'jsx_opening_element' then
+    return false
+  end
+end
 
 local jsx_config = {
   sources = {
     {
       name = 'nvim_lsp',
       entry_filter = function(entry)
-        -- Only shows emmet suggestions inside of jsx elements
-        local ts_node = require('nvim-treesitter.ts_utils').get_node_at_cursor()
+        local cursor_node = ts_utils.get_node_at_cursor()
 
+        -- Only shows emmet suggestions inside of jsx elements
         if
           types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
           and entry.source:get_debug_name() == 'nvim_lsp:emmet_ls'
         then
-          if ts_node:type() ~= 'jsx_text' then
+          if cursor_node:type() ~= 'jsx_text' then
             return false
           end
         end
@@ -21,9 +31,17 @@ local jsx_config = {
         return true
       end,
     },
-    { name = 'luasnip' },
-    { name = 'buffer' },
-    { name = 'path' },
+    {
+      name = 'luasnip',
+      entry_filter = hide_on_attributes,
+    },
+    {
+      name = 'buffer',
+      entry_filter = hide_on_attributes,
+    },
+    {
+      name = 'path',
+    },
   },
   sorting = {
     priority_weight = 2,
