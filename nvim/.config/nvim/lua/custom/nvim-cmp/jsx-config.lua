@@ -44,8 +44,7 @@ local jsx_config = {
         end
 
         if
-          cursor_node:parent():type() == 'variable_declarator'
-          or (cursor_node:parent():type() == 'jsx_opening_element' and cursor_node:type() == 'identifier')
+          (cursor_node:parent():type() == 'jsx_opening_element' and cursor_node:type() == 'identifier')
           or (cursor_node:parent():type() == 'jsx_attribute' and cursor_node:type() == 'identifier')
           or (cursor_node:parent():type() == 'jsx_attribute' and cursor_node:type() == 'property_identifier')
         then
