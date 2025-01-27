@@ -81,11 +81,11 @@ local jsx_config = {
         end
 
         -- Deprioritize emmet_ls compared to other sources
-        if is_emmet1 and not is_emmet2 then
-          return false
-        elseif not is_emmet1 and is_emmet2 then
-          return true
-        end
+        -- if is_emmet1 and not is_emmet2 then
+        --   return false
+        -- elseif not is_emmet1 and is_emmet2 then
+        --   return true
+        -- end
 
         return nil
       end,
