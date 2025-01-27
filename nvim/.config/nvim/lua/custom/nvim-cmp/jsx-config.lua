@@ -57,6 +57,9 @@ local jsx_config = {
     {
       name = 'buffer',
     },
+    {
+      name = 'path',
+    },
   },
   sorting = {
     priority_weight = 2,

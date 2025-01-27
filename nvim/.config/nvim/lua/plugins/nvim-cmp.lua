@@ -4,6 +4,7 @@ return {
   dependencies = {
     'hrsh7th/cmp-nvim-lsp', -- Source for lsp
     'hrsh7th/cmp-buffer', -- Source for text written in buffer
+    'hrsh7th/cmp-path', -- Source for paths
     'hrsh7th/cmp-cmdline', -- Source for cmdline
 
     'L3MON4D3/LuaSnip', -- Engine responsable for snippets
@@ -27,6 +28,7 @@ return {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'buffer' },
+        { name = 'path' },
       }),
       formatting = {
         fields = { 'kind', 'abbr', 'menu' }, -- kind, abbr, menu
@@ -165,6 +167,7 @@ return {
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'path' },
       }),
       -- Give low priority for snippets, even if the match is exact (i'm really aiming for emmet)
       sorting = {
