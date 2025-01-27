@@ -37,10 +37,6 @@ local jsx_config = {
     },
     {
       name = 'buffer',
-      entry_filter = hide_on_attributes,
-    },
-    {
-      name = 'path',
     },
   },
   sorting = {
