@@ -28,6 +28,16 @@ const config = {
         use: ['html-loader'],
       },
       {
+        test: /\.css$/i,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.(js|jsx|mjs|cjs)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      },
+      {
         test: /\.(png|svg|jpg|jpeg|jfif|gif|webp|avif|woff|woff2|eot|ttf|otf)$/i,
         exclude: /node_modules/,
         type: 'asset/resource',
