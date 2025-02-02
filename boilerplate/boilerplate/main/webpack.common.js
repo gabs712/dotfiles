@@ -1,6 +1,4 @@
 import path from 'path'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const config = {
   entry: ['./src/js/main.jsx', './src/css/main.css'],
@@ -28,11 +26,6 @@ const config = {
         use: ['html-loader'],
       },
       {
-        test: /\.css$/i,
-        exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-      },
-      {
         test: /\.(js|jsx|mjs|cjs)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
@@ -47,15 +40,6 @@ const config = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      scriptLoading: 'module',
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].bundle.css',
-    }),
-  ],
 }
 
 export default config
