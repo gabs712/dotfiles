@@ -3,7 +3,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
 const config = {
-  entry: ['./src/js/main.js', './src/css/main.css'],
+  entry: ['./src/js/main.jsx', './src/css/main.css'],
   output: {
     path: path.resolve(import.meta.dirname, 'dist'),
     clean: true,

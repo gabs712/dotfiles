@@ -1,6 +1,6 @@
 const config = {
   darkMode: 'selector',
-  content: ['./src/index.html', './src/js/*.js'],
+  content: ['./src/js/*.jsx'],
   theme: {
     extend: {},
   },
