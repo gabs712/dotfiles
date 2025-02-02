@@ -21,11 +21,6 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.html$/i,
-        exclude: /node_modules/,
-        use: ['html-loader'],
-      },
-      {
         test: /\.(js|jsx|mjs|cjs)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
