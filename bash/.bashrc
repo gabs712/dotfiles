@@ -121,8 +121,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # custom
-alias boilerplate='cp -r ~/boilerplate/main/* ~/boilerplate/main/.gitignore . && git init'
-alias boilerplate-base='cp -r ~/boilerplate/base/* ~/boilerplate/base/.gitignore . && git init'
+alias boilerplate='cp -r ~/boilerplate/main/{*,.*} . && git init'
+alias boilerplate-base='cp -r ~/boilerplate/base/{*,.*} . && git init'
 
 alias nv='nvim'
 alias tm='tmux'
