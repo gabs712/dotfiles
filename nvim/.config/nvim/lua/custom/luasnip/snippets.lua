@@ -3,6 +3,7 @@ local fmt = require('luasnip.extras.fmt').fmt -- '{{' inserts '{'
 
 local s = ls.snippet -- New snippet
 local i = ls.insert_node -- Insert cursor
+local f = ls.function_node
 local rep = require('luasnip.extras').rep -- Repeats
 
 ls.add_snippets('lua', {
@@ -90,5 +91,14 @@ local javascript = {
 ls.add_snippets('javascript', javascript)
 ls.add_snippets('javascriptreact', javascript)
 ls.add_snippets('javascriptreact', {
-  s('use', fmt('const [{}, set{}] = useState({})', { i(1, '_'), i(2, '_'), i(3, '_') })),
+  s(
+    'use',
+    fmt('const [{}, set{}] = useState({})', {
+      i(1, 'name'),
+      f(function(args)
+        return args[1][1]:gsub('^%l', string.upper)
+      end, { 1 }),
+      i(2, '_'),
+    })
+  ),
 })
