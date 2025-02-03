@@ -4,6 +4,7 @@ local ts_utils = require('nvim-treesitter.ts_utils')
 
 local css_config = {
   sources = {
+    { name = 'luasnip' },
     {
       name = 'nvim_lsp',
       entry_filter = function(entry)
@@ -22,7 +23,6 @@ local css_config = {
         return true
       end,
     },
-    { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
   },

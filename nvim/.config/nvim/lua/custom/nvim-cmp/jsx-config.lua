@@ -5,24 +5,6 @@ local ts_utils = require('nvim-treesitter.ts_utils')
 local jsx_config = {
   sources = {
     {
-      name = 'nvim_lsp',
-      entry_filter = function(entry)
-        local cursor_node = ts_utils.get_node_at_cursor()
-
-        -- Only shows emmet suggestions inside of jsx elements
-        if
-          types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
-          and entry.source:get_debug_name() == 'nvim_lsp:emmet_ls'
-        then
-          if cursor_node:type() ~= 'jsx_text' then
-            return false
-          end
-        end
-
-        return true
-      end,
-    },
-    {
       name = 'luasnip',
       entry_filter = function()
         local cursor_node = ts_utils.get_node_at_cursor()
@@ -51,6 +33,24 @@ local jsx_config = {
           or (cursor_node:parent():type() == 'jsx_attribute' and cursor_node:type() == 'property_identifier')
         then
           return false
+        end
+
+        return true
+      end,
+    },
+    {
+      name = 'nvim_lsp',
+      entry_filter = function(entry)
+        local cursor_node = ts_utils.get_node_at_cursor()
+
+        -- Only shows emmet suggestions inside of jsx elements
+        if
+          types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
+          and entry.source:get_debug_name() == 'nvim_lsp:emmet_ls'
+        then
+          if cursor_node:type() ~= 'jsx_text' then
+            return false
+          end
         end
 
         return true
