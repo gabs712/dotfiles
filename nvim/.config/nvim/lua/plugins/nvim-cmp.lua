@@ -162,41 +162,7 @@ return {
       }),
     })
 
-    local types = require('cmp.types')
-    cmp.setup.filetype({ 'html', 'css' }, {
-      sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'path' },
-      }),
-      -- Give low priority for snippets, even if the match is exact (i'm really aiming for emmet)
-      sorting = {
-        priority_weight = 2,
-        comparators = {
-          function(entry1, entry2)
-            if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then
-              return false
-            end
-            if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then
-              return true
-            end
-          end,
-
-          -- The rest of the comparators are pretty much the defaults
-          cmp.config.compare.offset,
-          cmp.config.compare.exact,
-          cmp.config.compare.scopes,
-          cmp.config.compare.score,
-          -- cmp.config.compare.recently_used,
-          cmp.config.compare.locality,
-          cmp.config.compare.kind,
-          cmp.config.compare.sort_text,
-          cmp.config.compare.length,
-          cmp.config.compare.order,
-        },
-      },
-
-      cmp.setup.filetype({ 'javascriptreact', 'typescriptreact' }, require('custom.nvim-cmp.jsx-config')),
-    })
+    cmp.setup.filetype('html', require('custom.nvim-cmp.html-config'))
+    cmp.setup.filetype({ 'javascriptreact', 'typescriptreact' }, require('custom.nvim-cmp.jsx-config'))
   end,
 }
