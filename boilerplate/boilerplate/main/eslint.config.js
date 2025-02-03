@@ -7,7 +7,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 
 const config = [
   {
-    files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'],
+    files: ['src/**/*.{js,jsx,mjs,cjs,ts,tsx}'],
     plugins: {
       react,
       'react-hooks': reactHooks,
