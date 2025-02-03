@@ -37,7 +37,7 @@ vim.keymap.set('x', '<', '<gv')
 
 vim.keymap.set('c', '<C-d>', '<Nop>') -- Causes conflicts with completion
 vim.keymap.set({ 'n', 'x' }, '<Space>', '<Nop>')
-vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
+vim.keymap.set({ 'n', 'x', 's' }, '<C-w><C-w>', '<Nop>')
 
 -- Clear gr keys
 vim.keymap.del('n', 'grr')
@@ -77,36 +77,36 @@ vim.keymap.set({ 'n', 'x' }, 'x', '"_x')
 vim.keymap.set('n', 'X', '"_X')
 vim.keymap.set('x', 'X', '"_d') -- Also substitutes behavior of deleting line when using 'X' on 'v' mode
 
-vim.keymap.set({ 'n', 'x' }, '<c-w>t', '<cmd>tabnew<CR>', { desc = 'Create tab' })
+vim.keymap.set({ 'n', 'x', 's' }, '<c-w>t', '<cmd>tabnew<CR>', { desc = 'Create tab' })
 
 -- Improve repetitive window movements
-vim.keymap.set({ 'n', 'x' }, '<c-w>H', '<c-w>H<c-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<c-w>J', '<c-w>J<c-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<c-w>K', '<c-w>K<c-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<c-w>L', '<c-w>L<c-w>', { remap = true })
+vim.keymap.set({ 'n', 'x', 's' }, '<c-w>H', '<c-w>H<c-w>', { remap = true })
+vim.keymap.set({ 'n', 'x', 's' }, '<c-w>J', '<c-w>J<c-w>', { remap = true })
+vim.keymap.set({ 'n', 'x', 's' }, '<c-w>K', '<c-w>K<c-w>', { remap = true })
+vim.keymap.set({ 'n', 'x', 's' }, '<c-w>L', '<c-w>L<c-w>', { remap = true })
 
-vim.keymap.set({ 'n', 'x' }, '<C-w>.', '<cmd>vertical resize +5<cr><C-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<C-w>,', '<cmd>vertical resize -5<cr><C-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<C-w>>', '<cmd>horizontal resize +5<cr><C-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<C-w><', '<cmd>horizontal resize -5<cr><C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x', 's' }, '<C-w>.', '<cmd>vertical resize +5<cr><C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x', 's' }, '<C-w>,', '<cmd>vertical resize -5<cr><C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x', 's' }, '<C-w>>', '<cmd>horizontal resize +5<cr><C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x', 's' }, '<C-w><', '<cmd>horizontal resize -5<cr><C-w>', { remap = true })
 
 -- Alternatives to scroll also keeping cursor at center
-vim.keymap.set({ 'n', 'x' }, '<Up>', '2<C-y>0M')
-vim.keymap.set({ 'n', 'x' }, '<Down>', '2<C-e>0M')
-vim.keymap.set({ 'n', 'x' }, '<Left>', '<C-u>0M')
-vim.keymap.set({ 'n', 'x' }, '<Right>', '<C-d>0M')
-vim.keymap.set({ 'n', 'x' }, '<ScrollWheelUp>', '<ScrollWheelUp>0M')
-vim.keymap.set({ 'n', 'x' }, '<ScrollWheelDown>', '<ScrollWheelDown>0M')
+vim.keymap.set({ 'n', 'x', 's' }, '<Up>', '2<C-y>0M')
+vim.keymap.set({ 'n', 'x', 's' }, '<Down>', '2<C-e>0M')
+vim.keymap.set({ 'n', 'x', 's' }, '<Left>', '<C-u>0M')
+vim.keymap.set({ 'n', 'x', 's' }, '<Right>', '<C-d>0M')
+vim.keymap.set({ 'n', 'x', 's' }, '<ScrollWheelUp>', '<ScrollWheelUp>0M')
+vim.keymap.set({ 'n', 'x', 's' }, '<ScrollWheelDown>', '<ScrollWheelDown>0M')
 
-vim.keymap.set({ 'n', 'i' }, '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
-vim.keymap.set('n', '<C-e>', '<cmd>e!<CR>', { desc = 'Discard changes' })
+vim.keymap.set({ 'n', 'i', 's' }, '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
+vim.keymap.set({ 'n', 's' }, '<C-e>', '<cmd>e!<CR>', { desc = 'Discard changes' })
 
 -- Shortcuts to ':' and '/'
-vim.keymap.set({ 'n', 'x', 'o' }, '<C-p>', ':', { desc = 'Command mode (pallete)' })
-vim.keymap.set({ 'n', 'x', 'o' }, '<C-n>', '/', { desc = 'Search next' })
+vim.keymap.set({ 'n', 'x', 'o', 's' }, '<C-p>', ':', { desc = 'Command mode (pallete)' })
+vim.keymap.set({ 'n', 'x', 'o', 's' }, '<C-n>', '/', { desc = 'Search next' })
 
 -- Quick comments
-vim.keymap.set('n', '<C-c>', 'gcc', { remap = true })
+vim.keymap.set({ 'n', 's' }, '<C-c>', 'gcc', { remap = true })
 vim.keymap.set('x', '<C-c>', 'gc', { remap = true })
 
 -- Marks go to col

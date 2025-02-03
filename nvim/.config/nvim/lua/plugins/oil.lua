@@ -83,7 +83,7 @@ return {
       callback = function()
         local current = vim.api.nvim_get_current_buf()
 
-        vim.keymap.set('i', '<C-s>', '<Esc><cmd>w<CR>', { buffer = current })
+        vim.keymap.set({ 'i', 's' }, '<C-s>', '<Esc><cmd>w<CR>', { buffer = current })
       end,
     })
     vim.keymap.set('n', '<leader>o', oil.open_float, { desc = 'Explore tree (oil)' })

@@ -27,8 +27,8 @@ return {
       pattern = 'Outline',
       callback = function()
         local current = vim.api.nvim_get_current_buf()
-        vim.keymap.set('n', '<C-o>', '<Nop>', { buffer = current })
-        vim.keymap.set('n', '<C-i>', '<Nop>', { buffer = current })
+        vim.keymap.set({ 'n', 's' }, '<C-o>', '<Nop>', { buffer = current })
+        vim.keymap.set({ 'n', 's' }, '<C-i>', '<Nop>', { buffer = current })
       end,
     })
 
