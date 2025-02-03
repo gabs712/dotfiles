@@ -8,7 +8,7 @@ return {
     require('mason').setup()
     require('mason-lspconfig').setup() -- Must be setup after mason
 
-    require('custom.helpers').map_ctrl_j('mason')
+    require('custom.helpers').map_ctrl_j_hl('mason')
     require('mason-tool-installer').setup({
       ensure_installed = {
         -- Language servers
