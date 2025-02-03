@@ -7,7 +7,7 @@ return {
     'rcarriga/nvim-notify',
   },
   config = function()
-    require('custom.helpers').clear_ctrl('noice')
+    require('custom.helpers').clear_ctrl_hl('noice')
     require('noice').setup({
       routes = {
         -- Disable popups for undos

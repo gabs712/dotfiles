@@ -36,13 +36,13 @@ M.map_ctrl_j_hl = function(filetype, remap)
   })
 end
 
-M.clear_ctrl = function(filetype)
+M.clear_ctrl_hl = function(filetype)
   vim.api.nvim_create_autocmd('FileType', {
     pattern = filetype,
     callback = function()
       local current = vim.api.nvim_get_current_buf()
 
-      vim.keymap.set('n', '<C-h>', '<Nop>', { buffer = current })
+      vim.keymap.set('n', '<C-h>', '<cmd>nohlsearch<cr>', { buffer = current })
       vim.keymap.set('n', '<C-j>', '<Nop>', { buffer = current })
       vim.keymap.set('n', '<C-k>', '<Nop>', { buffer = current })
       vim.keymap.set('n', '<C-l>', '<Nop>', { buffer = current })
