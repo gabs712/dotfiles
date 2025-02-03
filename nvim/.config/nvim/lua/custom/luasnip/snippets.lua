@@ -89,3 +89,6 @@ local javascript = {
 
 ls.add_snippets('javascript', javascript)
 ls.add_snippets('javascriptreact', javascript)
+ls.add_snippets('javascriptreact', {
+  s('use', fmt('const [{}, set{}] = useState({})', { i(1, '_'), i(2, '_'), i(3, '_') })),
+})
