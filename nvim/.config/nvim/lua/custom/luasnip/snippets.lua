@@ -6,7 +6,7 @@ local i = ls.insert_node -- Insert cursor
 local rep = require('luasnip.extras').rep -- Repeats
 
 ls.add_snippets('lua', {
-  s('l', fmt('local {} = {}', { i(1, 'name'), i(2, '{}') })),
+  s('l', fmt('local {} = {}', { i(1, 'name'), i(2, "''") })),
 })
 
 local jest = {
@@ -20,8 +20,8 @@ local jest = {
 ls.add_snippets('javascript', jest)
 
 local javascript = {
-  s('c', fmt('const {} = {}', { i(1, 'name'), i(2, '[]') })),
-  s('l', fmt('let {} = {}', { i(1, 'name'), i(2, '[]') })),
+  s('c', fmt('const {} = {}', { i(1, 'name'), i(2, "''") })),
+  s('l', fmt('let {} = {}', { i(1, 'name'), i(2, "''") })),
   s('fs', fmt('({}) => {}', { i(1), i(2) })),
 
   s(
@@ -56,7 +56,7 @@ local javascript = {
       {}
     }}
       ]],
-      { i(1, 'i'), rep(1, 'i'), i(2, '10'), rep(1, 'i'), i(3) }
+      { i(1, 'i'), rep(1, 'i'), i(2, "''"), rep(1, 'i'), i(3) }
     )
   ),
 
@@ -68,7 +68,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(2, '[]'), i(3) }
+      { i(1, 'name'), i(2, "''"), i(3) }
     )
   ),
 
@@ -80,7 +80,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(2, '{}'), i(3) }
+      { i(1, 'name'), i(2, "''"), i(3) }
     )
   ),
 
