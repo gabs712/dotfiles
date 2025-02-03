@@ -163,6 +163,7 @@ return {
     })
 
     cmp.setup.filetype('html', require('custom.nvim-cmp.html-config'))
+    cmp.setup.filetype('css', require('custom.nvim-cmp.css-config'))
     cmp.setup.filetype({ 'javascriptreact', 'typescriptreact' }, require('custom.nvim-cmp.jsx-config'))
   end,
 }
