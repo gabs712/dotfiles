@@ -80,6 +80,7 @@ return {
         },
         {
           'diff',
+          padding = { left = 1, right = 2 },
           colored = true,
           symbols = {
             added = ' ',
@@ -107,7 +108,16 @@ return {
             return vim.t.maximized and ' ' or ''
           end,
         },
-        'progress',
+        {
+          function()
+            local line_count = vim.api.nvim_buf_line_count(0)
+            return line_count .. 'L'
+          end,
+        },
+        {
+          padding = { left = 0, right = 1 },
+          'progress',
+        },
       },
       lualine_z = {},
     }
