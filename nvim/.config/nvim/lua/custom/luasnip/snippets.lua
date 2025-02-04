@@ -50,7 +50,7 @@ local javascript = {
   ),
 
   s(
-    'forc',
+    'for',
     fmt(
       [[
     for (let {} = 0; {} < {}; {}++) {{
