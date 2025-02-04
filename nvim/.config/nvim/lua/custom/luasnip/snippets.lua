@@ -92,13 +92,13 @@ ls.add_snippets('javascript', javascript)
 ls.add_snippets('javascriptreact', javascript)
 ls.add_snippets('javascriptreact', {
   s(
-    'use',
+    'st',
     fmt('const [{}, set{}] = useState({})', {
       i(1, 'name'),
       f(function(args)
         return args[1][1]:gsub('^%l', string.upper)
       end, { 1 }),
-      i(2, '_'),
+      i(2),
     })
   ),
 })
