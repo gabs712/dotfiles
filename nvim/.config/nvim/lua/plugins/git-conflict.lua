@@ -20,11 +20,11 @@ return {
       vim.cmd('GitConflictPrevConflict')
     end)
 
-    vim.keymap.set('n', '[g', prev_conflict)
-    vim.keymap.set('n', ']g', next_conflict)
-    vim.keymap.set('n', '<leader>[', '<Plug>(git-conflict-ours)')
-    vim.keymap.set('n', '<leader>]', '<Plug>(git-conflict-theirs)')
-    vim.keymap.set('n', '<leader>=', '<Plug>(git-conflict-both)')
-    vim.keymap.set('n', '<leader>-', '<Plug>(git-conflict-none)')
+    vim.keymap.set('n', '[g', prev_conflict, { desc = 'Previous git conflict' })
+    vim.keymap.set('n', ']g', next_conflict, { desc = 'Next git conflict' })
+    vim.keymap.set('n', '<leader>[', '<Plug>(git-conflict-ours)', { desc = 'Choose current git conflict' })
+    vim.keymap.set('n', '<leader>]', '<Plug>(git-conflict-theirs)', { desc = 'Choose merged git conflict' })
+    vim.keymap.set('n', '<leader>=', '<Plug>(git-conflict-both)', { desc = 'Choose both git conflicts' })
+    vim.keymap.set('n', '<leader>-', '<Plug>(git-conflict-none)', { desc = 'Choose neither of git conflicts' })
   end,
 }
