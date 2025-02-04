@@ -30,7 +30,7 @@ return {
     vim.keymap.set('n', '<leader>b', gitsigns.blame_line, { desc = 'Git preview blame' })
     vim.keymap.set('n', '<leader>B', gitsigns.blame, { desc = 'Git all blames' })
 
-    vim.keymap.set('n', '<leader>g', gitsigns.stage_hunk, { desc = 'Git stage hunk' })
+    vim.keymap.set('n', '<leader>g', gitsigns.stage_hunk, { desc = 'Git stage (add) hunk' })
     vim.keymap.set('n', '<leader>G', gitsigns.diffthis, { desc = 'Git diff' })
 
     vim.keymap.set('n', ']h', next_hunk, { desc = 'Git next hunk' })
