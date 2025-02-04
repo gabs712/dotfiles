@@ -86,6 +86,18 @@ local javascript = {
   ),
 
   s('cl', fmt('console.log({})', i(1))),
+
+  s(
+    'if',
+    fmt(
+      [[
+        if ({}) {{
+          {}
+        }}
+      ]],
+      { i(1), i(2) }
+    )
+  ),
 }
 
 ls.add_snippets('javascript', javascript)
