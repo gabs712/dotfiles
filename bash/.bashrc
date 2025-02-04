@@ -123,6 +123,7 @@ export NVM_DIR="$HOME/.nvm"
 # custom
 alias boilerplate='cp -r ~/boilerplate/main/{*,.*} . && git init'
 alias boilerplate-base='cp -r ~/boilerplate/base/{*,.*} . && git init'
+alias boilerplate-vite='cp -r ~/boilerplate/vite/{*,.*} . && git init'
 
 alias nv='nvim'
 alias tm='tmux'
