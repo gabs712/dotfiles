@@ -3,7 +3,6 @@ return {
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
-  version = '*',
   config = function()
     local git_conflict = require('git-conflict')
 
