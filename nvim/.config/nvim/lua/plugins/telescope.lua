@@ -59,8 +59,11 @@ return {
     vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Find old files' })
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find buffers' })
     vim.keymap.set('n', '<leader>fc', builtin.colorscheme, { desc = 'Find colorschemes' })
-    vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Find keymaps' })
     vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = 'Find symbols' })
+
+    vim.keymap.set('n', '<leader>fk', function()
+      builtin.keymaps({ show_plug = false })
+    end, { desc = 'Find keymaps' })
 
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Find help' })
     vim.keymap.set('n', '<leader>fn', function()
