@@ -92,7 +92,7 @@ ls.add_snippets('javascript', javascript)
 ls.add_snippets('javascriptreact', javascript)
 ls.add_snippets('javascriptreact', {
   s(
-    'st',
+    'us',
     fmt('const [{}, set{}] = useState({})', {
       i(1, 'name'),
       f(function(args)
