@@ -56,7 +56,7 @@ return {
     vim.keymap.set('n', '<leader>f/', builtin.search_history, { desc = 'Find search history' })
     vim.keymap.set('n', '<leader>f:', builtin.command_history, { desc = 'Find command history' })
 
-    vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Find old files' })
+    vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Find recent files' })
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find buffers' })
     vim.keymap.set('n', '<leader>fc', builtin.colorscheme, { desc = 'Find colorschemes' })
     vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = 'Find symbols' })
