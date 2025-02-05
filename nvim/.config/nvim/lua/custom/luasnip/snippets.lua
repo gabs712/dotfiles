@@ -7,7 +7,7 @@ local f = ls.function_node
 local rep = require('luasnip.extras').rep -- Repeats
 
 ls.add_snippets('lua', {
-  s('l', fmt('local {} = {}', { i(1, 'name'), i(2, '_') })),
+  s('l', fmt('local {}', { i(1) })),
 })
 
 local jest = {
@@ -21,8 +21,8 @@ local jest = {
 ls.add_snippets('javascript', jest)
 
 local javascript = {
-  s('c', fmt('const {} = {}', { i(1, 'name'), i(2, '_') })),
-  s('l', fmt('let {} = {}', { i(1, 'name'), i(2, '_') })),
+  s('c', fmt('const {}', { i(1) })),
+  s('l', fmt('let {}', { i(1) })),
   s('fs', fmt('({}) => {}', { i(1), i(2) })),
 
   s(
