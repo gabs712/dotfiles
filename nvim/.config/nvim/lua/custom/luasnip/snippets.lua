@@ -50,6 +50,24 @@ local javascript = {
   ),
 
   s(
+    'ef',
+    fmt(
+      [[
+        export default function {}({}) {{
+          {}
+        }}
+      ]],
+      {
+        f(function(_, snip)
+          return vim.fn.fnamemodify(snip.env.TM_FILENAME, ':r')
+        end),
+        i(1),
+        i(2, '//'),
+      }
+    )
+  ),
+
+  s(
     'for',
     fmt(
       [[
