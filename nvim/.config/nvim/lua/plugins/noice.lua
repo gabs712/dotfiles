@@ -72,8 +72,6 @@ return {
     })
 
     require('telescope').load_extension('noice')
-    --BUG: "Noice telescope" not working. Currently using "NoiceAll" instead
-    -- vim.keymap.set('n', '<leader>n', '<cmd>Noice telescope<CR>', { desc = 'Notifications' })
-    vim.keymap.set('n', '<leader>n', '<cmd>NoiceAll<CR>', { desc = 'Notifications' })
+    vim.keymap.set('n', '<leader>n', '<cmd>Noice telescope<CR>', { desc = 'Notifications' })
   end,
 }
