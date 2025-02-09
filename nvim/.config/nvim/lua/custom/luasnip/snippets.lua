@@ -13,9 +13,8 @@ ls.add_snippets('lua', {
 local jest = {
   s('jd', fmt("describe('{}', () => {{\n  {}\n}})", { i(1), i(2, '//') })),
   s('jt', fmt("test('{}', () => {{\n  {}\n}})", { i(1), i(2, '//') })),
-  s('ji', fmt("it('{}', () => {{\n  {}\n}})", { i(1), i(2, '//') })),
-  s('j', fmt('expect({}).toBe()', { i(1) })),
-  s('je', fmt('expect({}).toBe()', { i(1) })),
+  s('je', fmt('expect({}).toBe({})', { i(1), i(2) })),
+  s('j', fmt('expect({}).toBe({})', { i(1), i(2) })),
 }
 
 ls.add_snippets('javascript', jest)
