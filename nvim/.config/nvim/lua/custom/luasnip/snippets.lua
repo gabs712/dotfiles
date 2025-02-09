@@ -140,6 +140,20 @@ local javascript = {
       { i(1), i(2, '//') }
     )
   ),
+
+  s(
+    'swi',
+    fmt(
+      [[
+        switch ({}) {{
+          case '{}': {{
+            {}
+          }}
+        }}
+      ]],
+      { i(1), i(2), i(3, '//') }
+    )
+  ),
 }
 
 ls.add_snippets('javascript', javascript)
