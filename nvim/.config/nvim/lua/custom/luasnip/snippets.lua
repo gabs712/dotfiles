@@ -142,7 +142,7 @@ local javascript = {
   ),
 
   s(
-    'swi',
+    'switch',
     fmt(
       [[
         switch ({}) {{
@@ -152,6 +152,18 @@ local javascript = {
         }}
       ]],
       { i(1), i(2), i(3, '//') }
+    )
+  ),
+
+  s(
+    'dowhile',
+    fmt(
+      [[
+        do {{
+          {}
+        }} while ({})
+      ]],
+      { i(2, '//'), i(1) }
     )
   ),
 }
