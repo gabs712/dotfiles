@@ -21,9 +21,9 @@ ls.add_snippets('lua', {
 local javascript = {
   s('c', fmt('const {}', { i(1) })),
   s('l', fmt('let {}', { i(1) })),
-  s('fs', fmt('({}) => {}', { i(1), i(2) })),
-  s('cfs', fmt('const {} = ({}) => {}', { i(1, 'name'), i(2), i(3) })),
-  s('lfs', fmt('let {} = ({}) => {}', { i(1, 'name'), i(2), i(3) })),
+  s('fs', fmt('({}) => {}', { i(2), i(1) })),
+  s('cfs', fmt('const {} = ({}) => {}', { i(1, 'name'), i(3), i(2) })),
+  s('lfs', fmt('let {} = ({}) => {}', { i(1, 'name'), i(3), i(2) })),
 
   s(
     'f',
@@ -33,7 +33,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1), i(2, '//') }
+      { i(2), i(1, '//') }
     )
   ),
 
@@ -45,7 +45,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(2), i(3, '//') }
+      { i(1, 'name'), i(3), i(2, '//') }
     )
   ),
 
@@ -57,7 +57,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(2), i(3, '//') }
+      { i(1, 'name'), i(3), i(2, '//') }
     )
   ),
 
@@ -69,7 +69,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(2), i(3, '//') }
+      { i(1, 'name'), i(3), i(2, '//') }
     )
   ),
 
@@ -85,8 +85,8 @@ local javascript = {
         f(function(_, snip)
           return vim.fn.fnamemodify(snip.env.TM_FILENAME, ':r')
         end),
-        i(1),
-        i(2, '//'),
+        i(2),
+        i(1, '//'),
       }
     )
   ),
