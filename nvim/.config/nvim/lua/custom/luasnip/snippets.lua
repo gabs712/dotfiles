@@ -33,7 +33,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(2), i(1, '//') }
+      { i(2), i(1) }
     )
   ),
 
@@ -45,7 +45,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(3), i(2, '//') }
+      { i(1, 'name'), i(3), i(2) }
     )
   ),
 
@@ -57,7 +57,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(3), i(2, '//') }
+      { i(1, 'name'), i(3), i(2) }
     )
   ),
 
@@ -69,7 +69,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(3), i(2, '//') }
+      { i(1, 'name'), i(3), i(2) }
     )
   ),
 
@@ -86,7 +86,7 @@ local javascript = {
           return vim.fn.fnamemodify(snip.env.TM_FILENAME, ':r')
         end),
         i(2),
-        i(1, '//'),
+        i(1),
       }
     )
   ),
@@ -99,7 +99,7 @@ local javascript = {
       {}
     }}
       ]],
-      { i(1, 'i'), rep(1, 'i'), i(2, '_'), rep(1, 'i'), i(3, '//') }
+      { i(1, 'i'), rep(1, 'i'), i(2, '_'), rep(1, 'i'), i(3) }
     )
   ),
 
@@ -111,7 +111,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(2, '_'), i(3, '//') }
+      { i(1, 'name'), i(2, '_'), i(3) }
     )
   ),
 
@@ -123,7 +123,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(2, '_'), i(3, '//') }
+      { i(1, 'name'), i(2, '_'), i(3) }
     )
   ),
 
@@ -137,7 +137,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1), i(2, '//') }
+      { i(1), i(2) }
     )
   ),
 
@@ -151,7 +151,7 @@ local javascript = {
           }}
         }}
       ]],
-      { i(1), i(2), i(3, '//') }
+      { i(1), i(2), i(3) }
     )
   ),
 
@@ -163,7 +163,7 @@ local javascript = {
           {}
         }} while ({})
       ]],
-      { i(2, '//'), i(1) }
+      { i(2), i(1) }
     )
   ),
 }
