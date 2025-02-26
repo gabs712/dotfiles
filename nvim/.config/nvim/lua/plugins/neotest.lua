@@ -10,6 +10,9 @@ return {
     'nvim-neotest/neotest-jest',
   },
   config = function()
+    require('custom.helpers').clear_ctrl_hl('neotest-output')
+    require('custom.helpers').map_ctrl_j('neotest-summary')
+
     require('neotest').setup({
       adapters = {
         require('neotest-vitest'),
@@ -42,7 +45,7 @@ return {
           clear_target = 'T',
           debug = 'd',
           debug_marked = 'D',
-          expand = { '<C-j>', '<CR>', '<2-LeftMouse>' },
+          expand = { '<CR>', '<2-LeftMouse>' },
           expand_all = 'e',
           help = '?',
           jumpto = 'i',
