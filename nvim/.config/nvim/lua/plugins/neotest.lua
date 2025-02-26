@@ -26,10 +26,10 @@ return {
         }),
       },
       status = {
-        signs = true,
+        signs = false,
       },
       diagnostic = {
-        enabled = true,
+        enabled = false,
       },
       output = {
         open_on_run = false, -- Popup that opens after running tests
@@ -67,17 +67,17 @@ return {
     vim.keymap.set('n', '<leader>t', function()
       require('neotest').summary.toggle()
       local win = vim.fn.bufwinid('Neotest Summary')
-      -- if win > -1 then
-      --   vim.api.nvim_set_current_win(win) -- Autofocus window (doesn't focus current test properly when first opening)
-      -- end
+      if win > -1 then
+        vim.api.nvim_set_current_win(win) -- Autofocus window (doesn't focus current test properly when first opening)
+      end
     end)
 
-    vim.keymap.set('n', '<leader>T', function()
-      require('neotest').output.open({ enter = true, last_run = true })
-    end)
-
-    vim.keymap.set('n', '<C-t>', function()
-      require('neotest').run.run(vim.fn.expand('%'))
-    end)
+    -- vim.keymap.set('n', '<leader>T', function()
+    --   require('neotest').output.open({ enter = true, last_run = true })
+    -- end)
+    --
+    -- vim.keymap.set('n', '<C-t>', function()
+    --   require('neotest').run.run(vim.fn.expand('%'))
+    -- end)
   end,
 }
