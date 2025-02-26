@@ -77,6 +77,9 @@ return {
     -- end)
     --
     -- vim.keymap.set('n', '<C-t>', function()
+    --   require('neotest').watch.toggle(vim.fn.expand('%'))
+    -- end)
+    -- vim.keymap.set('n', '<C-t>', function()
     --   require('neotest').run.run(vim.fn.expand('%'))
     -- end)
   end,
