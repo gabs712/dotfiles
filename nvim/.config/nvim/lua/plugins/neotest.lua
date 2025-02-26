@@ -67,9 +67,9 @@ return {
     vim.keymap.set('n', '<leader>t', function()
       require('neotest').summary.toggle()
       local win = vim.fn.bufwinid('Neotest Summary')
-      if win > -1 then
-        vim.api.nvim_set_current_win(win) -- Autofocus window (doesn't focus current test properly when first opening)
-      end
+      -- if win > -1 then
+      --   vim.api.nvim_set_current_win(win) -- Autofocus window (doesn't focus current test properly when first opening)
+      -- end
     end)
 
     vim.keymap.set('n', '<leader>T', function()
