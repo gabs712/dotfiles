@@ -166,6 +166,20 @@ local javascript = {
       { i(2), i(1) }
     )
   ),
+
+  s(
+    'try',
+    fmt(
+      [[
+        try {{
+          {}
+        }} catch (error) {{
+          {}
+        }}
+      ]],
+      { i(1), i(2) }
+    )
+  ),
 }
 
 ls.add_snippets('javascript', javascript)
