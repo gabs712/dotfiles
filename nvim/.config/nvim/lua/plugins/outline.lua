@@ -20,6 +20,7 @@ return {
         down_and_jump = 'J',
         up_and_jump = 'K',
         restore_location = '-',
+        close = 'q',
       },
       symbols = {
         icons = {
