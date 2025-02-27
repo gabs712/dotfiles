@@ -21,6 +21,11 @@ return {
         up_and_jump = 'K',
         restore_location = '-',
       },
+      symbols = {
+        icons = {
+          Constant = { icon = '', hl = 'Constant' },
+        },
+      },
     })
 
     vim.api.nvim_create_autocmd('FileType', {
