@@ -21,9 +21,9 @@ ls.add_snippets('lua', {
 local javascript = {
   s('c', fmt('const {}', { i(1) })),
   s('l', fmt('let {}', { i(1) })),
-  s('fs', fmt('({}) => {}', { i(2), i(1) })),
-  s('cfs', fmt('const {} = ({}) => {}', { i(1, 'name'), i(3), i(2) })),
-  s('lfs', fmt('let {} = ({}) => {}', { i(1, 'name'), i(3), i(2) })),
+  s('sf', fmt('({}) => {}', { i(1), i(2) })),
+  s('csf', fmt('const {} = ({}) => {}', { i(1, 'name'), i(2), i(3) })),
+  s('lsf', fmt('let {} = ({}) => {}', { i(1, 'name'), i(2), i(3) })),
 
   s(
     'f',
@@ -33,7 +33,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(2), i(1) }
+      { i(1), i(2) }
     )
   ),
 
