@@ -5,9 +5,9 @@ return {
   end,
 
   config = function()
-    vim.keymap.set({ 'n', 'x', 't' }, '<A-h>', '<cmd>TmuxNavigateLeft<cr>')
-    vim.keymap.set({ 'n', 'x', 't' }, '<A-j>', '<cmd>TmuxNavigateDown<cr>')
-    vim.keymap.set({ 'n', 'x', 't' }, '<A-k>', '<cmd>TmuxNavigateUp<cr>')
-    vim.keymap.set({ 'n', 'x', 't' }, '<A-l>', '<cmd>TmuxNavigateRight<cr>')
+    vim.keymap.set({ 'n', 'i', 'x', 's', 'o', 't', 'c' }, '<A-h>', '<cmd>TmuxNavigateLeft<cr>')
+    vim.keymap.set({ 'n', 'i', 'x', 's', 'o', 't', 'c' }, '<A-j>', '<cmd>TmuxNavigateDown<cr>')
+    vim.keymap.set({ 'n', 'i', 'x', 's', 'o', 't', 'c' }, '<A-k>', '<cmd>TmuxNavigateUp<cr>')
+    vim.keymap.set({ 'n', 'i', 'x', 's', 'o', 't', 'c' }, '<A-l>', '<cmd>TmuxNavigateRight<cr>')
   end,
 }
