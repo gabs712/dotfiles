@@ -5,4 +5,4 @@
 - [nodejs](https://www.theodinproject.com/lessons/foundations-installing-node-js#installing-nvm)
 - gcc (treesitter) [sudo]
 - ripgrep (telescope live grep) [sudo]
-- [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip)
+- [FiraCode Nerd Font - regular](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip)
