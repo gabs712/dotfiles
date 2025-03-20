@@ -1,5 +1,6 @@
-return {
+-- NOTE: file-operations doesn't work if updating neotree
 
+return {
   'nvim-neo-tree/neo-tree.nvim',
   branch = 'v3.x',
   dependencies = {
