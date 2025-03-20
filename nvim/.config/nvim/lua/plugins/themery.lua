@@ -31,6 +31,6 @@ return {
       livePreview = true,
     })
 
-    vim.keymap.set('n', '<leader>z', '<cmd>Themery<cr>', { desc = 'Themery' })
+    vim.keymap.set('n', '<leader>t', '<cmd>Themery<cr>', { desc = 'Themery' })
   end,
 }
