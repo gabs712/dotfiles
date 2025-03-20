@@ -1,3 +1,5 @@
+-- WARN: Doesn't work on current nvim version
+
 return {
   'akinsho/git-conflict.nvim',
   dependencies = {
