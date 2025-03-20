@@ -93,13 +93,12 @@ return {
         end, { 'i', 'c' }),
 
         ['<C-c>'] = cmp.abort,
+        ['<C-e>'] = cmp.close,
 
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
 
-        -- Prevent from interfering with default behavior
         ['<C-y>'] = cmp.config.disable,
-        ['<C-e>'] = cmp.config.disable,
       }),
     })
 
