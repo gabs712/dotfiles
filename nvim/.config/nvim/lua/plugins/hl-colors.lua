@@ -7,7 +7,7 @@ return {
     hl_colors.turnOff()
 
     local enabled = false
-    vim.keymap.set('n', '<leader>C', function()
+    vim.keymap.set('n', '<leader>c', function()
       hl_colors.toggle()
       enabled = not enabled
 
