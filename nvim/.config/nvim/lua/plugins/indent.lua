@@ -34,7 +34,7 @@ return {
       require('mini.indentscope').setup({
         options = {
           try_as_border = true, -- When in indent border selects it's children instead of parent
-          indent_at_cursor = true, -- Selects based on cursor column
+          indent_at_cursor = false, -- Selects based on cursor column
         },
         mappings = {
           -- Textobjects
