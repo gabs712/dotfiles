@@ -92,7 +92,7 @@ return {
           cmp.complete()
         end, { 'i', 'c' }),
 
-        ['<C-c>'] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c' }),
+        ['<C-c>'] = cmp.abort,
 
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -125,7 +125,11 @@ return {
         completeopt = 'noselect',
       },
       mapping = cmp.mapping.preset.cmdline({
-        ['<Tab>'] = require('custom.nvim-cmp.tab').search,
+        ['<Tab>'] = cmp.config.disable,
+        ['<C-n>'] = cmp.config.disable,
+        ['<C-p>'] = cmp.config.disable,
+        ['<C-e>'] = cmp.config.disable,
+        ['<C-c>'] = cmp.config.disable,
       }),
     })
 
@@ -157,10 +161,15 @@ return {
         autocomplete = false,
       },
       mapping = cmp.mapping.preset.cmdline({
-        ['<Tab>'] = require('custom.nvim-cmp.tab').cmd,
+        ['<Tab>'] = cmp.config.disable,
+        ['<C-n>'] = cmp.config.disable,
+        ['<C-p>'] = cmp.config.disable,
         ['<C-e>'] = cmp.config.disable,
+        ['<C-c>'] = cmp.config.disable,
       }),
     })
+
+    require('custom.nvim-cmp.command-keys')
 
     cmp.setup.filetype('html', require('custom.nvim-cmp.html-config'))
     cmp.setup.filetype('css', require('custom.nvim-cmp.css-config'))
