@@ -23,6 +23,9 @@ return {
         -- Formatters
         'prettier',
         'stylua',
+
+        -- Debugger adapters
+        'js-debug-adapter',
       },
     })
   end,
