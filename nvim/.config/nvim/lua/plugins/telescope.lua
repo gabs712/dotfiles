@@ -75,8 +75,8 @@ return {
     end, { desc = 'Find dotfiles (neovim and alike)' })
 
     vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = 'Search in buffer' })
-    vim.keymap.set('n', "<leader>'", builtin.registers, { desc = 'Find registers' })
-    vim.keymap.set('n', '<leader>m', builtin.marks, { desc = 'Find marks' })
+    vim.keymap.set('n', '<leader>fy', builtin.registers, { desc = 'Find yank registers' })
+    vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = 'Find marks' })
 
     vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = 'Go to definition' })
     vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = 'Go to references' })
