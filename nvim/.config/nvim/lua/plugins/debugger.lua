@@ -124,5 +124,18 @@ return {
     vim.keymap.set('n', '<leader>4', function()
       dap.step_back()
     end, { desc = 'Step back on debugger' })
+
+    vim.keymap.set('n', ']k', function()
+      dap.step_over()
+    end, { desc = 'Step over on debugger' })
+    vim.keymap.set('n', ']K', function()
+      dap.step_into()
+    end, { desc = 'Step into on debugger' })
+    vim.keymap.set('n', '[K', function()
+      dap.step_out()
+    end, { desc = 'Step out on debugger' })
+    vim.keymap.set('n', '[k', function()
+      dap.step_back()
+    end, { desc = 'Step back on debugger' })
   end,
 }
