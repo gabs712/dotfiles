@@ -92,11 +92,11 @@ return {
       numhl = '',
     })
 
-    vim.keymap.set('n', "<leader>'", function()
+    vim.keymap.set('n', '<leader>K', function()
       dapui.toggle()
     end, { desc = 'Toggle debugger ui' })
 
-    vim.keymap.set('n', '<leader>x', function()
+    vim.keymap.set('n', '<leader>k', function()
       if dap.session() then
         dap.terminate({ all = true, hierarchy = true })
         return

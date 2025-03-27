@@ -64,7 +64,7 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>X', function()
+    vim.keymap.set('n', '<leader>x', function()
       require('neotest').summary.toggle()
       local win = vim.fn.bufwinid('Neotest Summary')
       if win > -1 then
