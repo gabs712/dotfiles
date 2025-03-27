@@ -24,10 +24,10 @@ return {
       require('todo-comments').jump_prev()
     end)
 
-    vim.keymap.set('n', ']t', next_todo, { desc = 'Next todo ' })
-    vim.keymap.set('n', '[t', prev_todo, { desc = 'Previous todo' })
-    vim.keymap.set('n', ']T', next_todo, { desc = 'Next todo ' })
-    vim.keymap.set('n', '[T', prev_todo, { desc = 'Previous todo' })
+    vim.keymap.set({ 'n', 'x', 'o' }, ']t', next_todo, { desc = 'Next todo ' })
+    vim.keymap.set({ 'n', 'x', 'o' }, '[t', prev_todo, { desc = 'Previous todo' })
+    vim.keymap.set({ 'n', 'x', 'o' }, ']T', next_todo, { desc = 'Next todo ' })
+    vim.keymap.set({ 'n', 'x', 'o' }, '[T', prev_todo, { desc = 'Previous todo' })
 
     vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<CR>', { desc = 'Find todos' })
   end,

@@ -33,8 +33,8 @@ return {
     vim.keymap.set('n', '<leader>g', gitsigns.stage_hunk, { desc = 'Git stage (add) hunk' })
     vim.keymap.set('n', '<leader>G', gitsigns.diffthis, { desc = 'Git diff' })
 
-    vim.keymap.set('n', ']h', next_hunk, { desc = 'Git next hunk' })
-    vim.keymap.set('n', '[h', prev_hunk, { desc = 'Git previous hunk' })
+    vim.keymap.set({ 'n', 'x', 'o' }, ']h', next_hunk, { desc = 'Git next hunk' })
+    vim.keymap.set({ 'n', 'x', 'o' }, '[h', prev_hunk, { desc = 'Git previous hunk' })
 
     vim.keymap.set('o', 'ah', gitsigns.select_hunk, { desc = 'Select hunk' })
     vim.keymap.set('o', 'ih', gitsigns.select_hunk, { desc = 'Select hunk' })

@@ -133,10 +133,10 @@ return {
       vim.diagnostic.jump({ count = -1 })
     end)
 
-    vim.keymap.set('n', ']d', next_diagnostic, { desc = 'Next diagnostic' })
-    vim.keymap.set('n', '[d', prev_diagnostic, { desc = 'Previous diagnostic' })
-    vim.keymap.set('n', ']D', next_diagnostic, { desc = 'Next diagnostic' })
-    vim.keymap.set('n', '[D', prev_diagnostic, { desc = 'Previous diagnostic' })
+    vim.keymap.set({ 'n', 'x', 'o' }, ']d', next_diagnostic, { desc = 'Next diagnostic' })
+    vim.keymap.set({ 'n', 'x', 'o' }, '[d', prev_diagnostic, { desc = 'Previous diagnostic' })
+    vim.keymap.set({ 'n', 'x', 'o' }, ']D', next_diagnostic, { desc = 'Next diagnostic' })
+    vim.keymap.set({ 'n', 'x', 'o' }, '[D', prev_diagnostic, { desc = 'Previous diagnostic' })
 
     -- Quickfix
     local next_quickfix, prev_quickfix = ts_repeat_move.make_repeatable_move_pair(function()
@@ -145,7 +145,7 @@ return {
       vim.cmd('cprev')
     end)
 
-    vim.keymap.set('n', ']q', next_quickfix, { desc = 'Next quickfix ' })
-    vim.keymap.set('n', '[q', prev_quickfix, { desc = 'Previous Quickfix' })
+    vim.keymap.set({ 'n', 'x', 'o' }, ']q', next_quickfix, { desc = 'Next quickfix ' })
+    vim.keymap.set({ 'n', 'x', 'o' }, '[q', prev_quickfix, { desc = 'Previous Quickfix' })
   end,
 }
