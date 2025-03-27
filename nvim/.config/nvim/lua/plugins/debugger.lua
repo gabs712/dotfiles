@@ -21,20 +21,20 @@ return {
           elements = {
             {
               id = 'watches',
-              size = 0.30,
-            },
-            {
-              id = 'scopes',
-              size = 0.40,
-            },
-            {
-              id = 'stacks',
               size = 0.20,
             },
             {
-              id = 'breakpoints',
-              size = 0.10,
+              id = 'scopes',
+              size = 0.55,
             },
+            {
+              id = 'stacks',
+              size = 0.25,
+            },
+            -- {
+            --   id = 'breakpoints',
+            --   size = 0,
+            -- },
           },
           position = 'left',
           size = 40,
@@ -92,46 +92,35 @@ return {
       numhl = '',
     })
 
-    vim.keymap.set('n', '<leader>k', function()
-      dapui.float_element()
-    end, { desc = 'Toggle debugger ui' })
-
     vim.keymap.set('n', "<leader>'", function()
       dapui.toggle()
     end, { desc = 'Toggle debugger ui' })
 
-    -- vim.keymap.set('n', "<leader>'", function()
-    --   dap.toggle_breakpoint()
-    -- end, { desc = 'Toggle debugger breakpoint' })
-    vim.keymap.set('n', '<leader>"', function()
-      dap.run_last()
-    end, { desc = 'Clear debugger breakpoints' })
-
     vim.keymap.set('n', '<leader>x', function()
       if dap.session() then
-        dap.clear_breakpoints()
         dap.terminate({ all = true, hierarchy = true })
         return
       end
 
       dap.set_breakpoint()
       dap.continue() -- Continue/Start
-    end)
-    vim.keymap.set('n', '<leader>1', function()
-      dap.step_over()
-    end)
-    vim.keymap.set('n', '<leader>2', function()
-      dap.step_into()
-    end)
-    vim.keymap.set('n', '<leader>3', function()
-      dap.step_out()
-    end)
-    vim.keymap.set('n', '<leader>4', function() end)
+    end, { desc = 'Toggle debugger' })
+
     vim.keymap.set('n', '<leader>0', function()
       dap.run_last()
-    end)
-    vim.keymap.set('n', '<leader>7', function()
+    end, { desc = 'Rerun last debugger session' })
+
+    vim.keymap.set('n', '<leader>1', function()
+      dap.step_over()
+    end, { desc = 'Step over on debugger' })
+    vim.keymap.set('n', '<leader>2', function()
+      dap.step_into()
+    end, { desc = 'Step into on debugger' })
+    vim.keymap.set('n', '<leader>3', function()
+      dap.step_out()
+    end, { desc = 'Step out on debugger' })
+    vim.keymap.set('n', '<leader>4', function()
       dap.step_back()
-    end)
+    end, { desc = 'Step back on debugger' })
   end,
 }
