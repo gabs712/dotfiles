@@ -67,14 +67,14 @@ return {
     })
 
     vim.fn.sign_define('DapBreakpointRejected', {
-      text = '',
+      text = '',
       texthl = 'DiagnosticSignError',
       linehl = '',
       numhl = '',
     })
 
     vim.fn.sign_define('DapStopped', {
-      text = '', -- → 
+      text = '', -- → 
       texthl = 'DiagnosticSignWarn',
       linehl = 'Visual',
       numhl = '',
@@ -96,37 +96,42 @@ return {
       dapui.float_element()
     end, { desc = 'Toggle debugger ui' })
 
-    vim.keymap.set('n', '<leader>x', function()
+    vim.keymap.set('n', "<leader>'", function()
       dapui.toggle()
     end, { desc = 'Toggle debugger ui' })
 
-    vim.keymap.set('n', "<leader>'", function()
-      dap.toggle_breakpoint()
-    end, { desc = 'Toggle debugger breakpoint' })
+    -- vim.keymap.set('n', "<leader>'", function()
+    --   dap.toggle_breakpoint()
+    -- end, { desc = 'Toggle debugger breakpoint' })
     vim.keymap.set('n', '<leader>"', function()
-      dap.clear_breakpoints()
+      dap.run_last()
     end, { desc = 'Clear debugger breakpoints' })
 
-    vim.keymap.set('n', '<leader>1', function()
+    vim.keymap.set('n', '<leader>x', function()
+      if dap.session() then
+        dap.clear_breakpoints()
+        dap.terminate({ all = true, hierarchy = true })
+        return
+      end
+
+      dap.set_breakpoint()
       dap.continue() -- Continue/Start
     end)
-    vim.keymap.set('n', '<leader>2', function()
+    vim.keymap.set('n', '<leader>1', function()
       dap.step_over()
     end)
-    vim.keymap.set('n', '<leader>3', function()
+    vim.keymap.set('n', '<leader>2', function()
       dap.step_into()
     end)
-    vim.keymap.set('n', '<leader>4', function()
+    vim.keymap.set('n', '<leader>3', function()
       dap.step_out()
     end)
-    vim.keymap.set('n', '<leader>5', function()
-      dap.restart()
-    end)
-    vim.keymap.set('n', '<leader>6', function()
-      require('dap').terminate()
+    vim.keymap.set('n', '<leader>4', function() end)
+    vim.keymap.set('n', '<leader>0', function()
+      dap.run_last()
     end)
     vim.keymap.set('n', '<leader>7', function()
-      require('dap').step_back()
+      dap.step_back()
     end)
   end,
 }
