@@ -41,6 +41,28 @@ return {
           },
           opts = { skip = true },
         },
+        -- DAP
+        {
+          filter = {
+            event = 'notify',
+            find = 'Debug adapter disconnected$',
+          },
+          opts = { skip = true },
+        },
+        {
+          filter = {
+            warning = true,
+            find = 'Adapter reported a frame in .* but: Cursor position outside buffer%. Ensure executable is up2date and if using a source mapping ensure it is correct',
+          },
+          opts = { skip = true },
+        },
+        {
+          filter = {
+            error = true,
+            find = '^No stopped threads. Cannot move$',
+          },
+          opts = { skip = true },
+        },
       },
 
       lsp = {
