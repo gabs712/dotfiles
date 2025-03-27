@@ -5,6 +5,13 @@ return {
     'nvim-neotest/nvim-nio',
   },
   config = function()
+    require('custom.helpers').map_ctrl_j_hl('dapui_watches')
+    require('custom.helpers').map_ctrl_j_hl('dapui_scopes')
+    require('custom.helpers').map_ctrl_j_hl('dapui_stacks')
+    require('custom.helpers').map_ctrl_j_hl('dapui_breakpoints')
+    require('custom.helpers').map_ctrl_j_hl('dap-repl')
+    require('custom.helpers').map_ctrl_j_hl('dapui_console', false)
+
     local dap = require('dap')
     local dapui = require('dapui')
 
