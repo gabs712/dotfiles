@@ -107,7 +107,9 @@ return {
     end, { desc = 'Toggle debugger' })
 
     vim.keymap.set('n', '<leader>0', function()
-      dap.run_last()
+      if dap.session() then
+        dap.run_last()
+      end
     end, { desc = 'Rerun last debugger session' })
 
     vim.keymap.set('n', '<leader>1', function()
