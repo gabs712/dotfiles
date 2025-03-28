@@ -6,6 +6,7 @@ return {
     'hrsh7th/cmp-buffer', -- Source for text written in buffer
     'hrsh7th/cmp-path', -- Source for paths
     'hrsh7th/cmp-cmdline', -- Source for cmdline
+    'rcarriga/cmp-dap', -- Source for DAP
 
     'L3MON4D3/LuaSnip', -- Engine responsable for snippets
     'saadparwaiz1/cmp_luasnip', -- Source for snippets
@@ -23,6 +24,10 @@ return {
 
     -- Global config
     cmp.setup({
+      enabled = function()
+        return vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt' or require('cmp_dap').is_dap_buffer()
+      end,
+
       -- Sources from higher to lower priority
       sources = cmp.config.sources({
         { name = 'luasnip' },
@@ -166,6 +171,13 @@ return {
         ['<C-e>'] = cmp.config.disable,
         ['<C-c>'] = cmp.config.disable,
       }),
+    })
+
+    -- Completion for DAP
+    require('cmp').setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
+      sources = {
+        { name = 'dap' },
+      },
     })
 
     require('custom.nvim-cmp.command-keys')
