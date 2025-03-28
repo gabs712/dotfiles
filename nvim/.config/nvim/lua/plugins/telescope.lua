@@ -14,11 +14,17 @@ return {
       defaults = {
         mappings = {
           i = {
-            ['<C-s>'] = actions.select_horizontal,
             ['<C-x>'] = false,
+            ['<C-u>'] = false,
+            ['<C-d>'] = false,
+
+            ['<C-s>'] = actions.select_horizontal,
 
             ['<esc>'] = actions.close,
             ['<C-j>'] = actions.select_default,
+
+            ['<C-f>'] = actions.preview_scrolling_down,
+            ['<C-b>'] = actions.preview_scrolling_up,
           },
         },
       },
