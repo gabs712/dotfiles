@@ -178,6 +178,19 @@ return {
       sources = {
         { name = 'dap' },
       },
+      completion = {
+        completeopt = 'noselect',
+      },
+      mapping = cmp.mapping.preset.insert({
+        ['<C-j>'] = cmp.mapping(function()
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', true)
+        end),
+
+        ['<C-c>'] = cmp.abort,
+        ['<C-e>'] = cmp.close,
+
+        ['<C-y>'] = cmp.config.disable,
+      }),
     })
 
     require('custom.nvim-cmp.command-keys')
