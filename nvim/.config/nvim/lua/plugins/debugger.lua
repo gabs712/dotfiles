@@ -102,6 +102,11 @@ return {
         return
       end
 
+      local hasConfig = require('custom.debugger.hasConfig')
+      if hasConfig() then
+        dap.set_breakpoint()
+      end
+
       dap.continue() -- Continue/Start
     end, { desc = 'Toggle debugger' })
 
