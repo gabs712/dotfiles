@@ -102,7 +102,6 @@ return {
         return
       end
 
-      dap.set_breakpoint()
       dap.continue() -- Continue/Start
     end, { desc = 'Toggle debugger' })
 
