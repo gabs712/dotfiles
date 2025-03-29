@@ -2,7 +2,8 @@ return {
   'rcarriga/nvim-dap-ui',
   dependencies = {
     'mfussenegger/nvim-dap',
-    'nvim-neotest/nvim-nio',
+    'nvim-neotest/nvim-nio', -- Async stuff
+    'theHamsta/nvim-dap-virtual-text',
   },
   config = function()
     require('custom.helpers').map_ctrl_j_hl('dapui_watches')
@@ -10,7 +11,7 @@ return {
     require('custom.helpers').map_ctrl_j_hl('dapui_stacks')
     require('custom.helpers').map_ctrl_j_hl('dapui_breakpoints')
     require('custom.helpers').map_ctrl_j_hl('dap-repl')
-    require('custom.helpers').map_ctrl_j_hl('dapui_console', false)
+    require('custom.helpers').map_ctrl_j_hl('dapui_console')
 
     local dap = require('dap')
     local dapui = require('dapui')
@@ -56,6 +57,15 @@ return {
       },
     })
     require('custom.debugger.attach')
+    require('nvim-dap-virtual-text').setup({
+      highlight_changed_variables = true,
+      highlight_new_as_changed = false, -- Highlight new variables in the same way as changed variables
+
+      only_first_definition = true, -- Only show at first variable definition
+      all_references = false, -- Show virtual text on all all references of the variable
+      commented = false, -- Add comment string at start (ex. '//')
+      virt_text_pos = 'eol', -- 'inline' or 'eol' (end of line)
+    })
 
     require('custom.debugger.vscode-js-debug')
 
