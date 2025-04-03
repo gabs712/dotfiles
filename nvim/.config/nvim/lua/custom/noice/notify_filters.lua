@@ -52,4 +52,19 @@ return {
   --   },
   --   opts = { skip = true },
   -- },
+  -- Telescope deprecated 'go to definition'
+  {
+    filter = {
+      warning = true,
+      find = 'position_encoding param is required in vim%.lsp%.util%.make_position_params%. Defaulting to position encoding of the first client%.',
+    },
+    opts = { skip = true },
+  },
+  {
+    event = 'notify',
+    filter = {
+      find = 'vim%.lsp%.util%.jump_to_location is deprecated%. Run ":checkhealth vim%.deprecated" for more information',
+    },
+    opts = { skip = true },
+  },
 }
