@@ -32,12 +32,12 @@ return {
               id = 'stacks',
               size = 0.25,
             },
-            -- {
-            --   id = 'breakpoints',
-            --   size = 0,
-            -- },
+            {
+              id = 'breakpoints',
+              size = 0,
+            },
           },
-          position = 'left',
+          position = 'right',
           size = 40,
         },
         {
@@ -84,7 +84,7 @@ return {
     })
 
     vim.fn.sign_define('DapStopped', {
-      text = '', -- → 
+      text = '→', -- → 
       texthl = 'DiagnosticSignWarn',
       linehl = 'Visual',
       numhl = '',
@@ -102,30 +102,49 @@ return {
       numhl = '',
     })
 
-    vim.keymap.set('n', '<leader>K', function()
+    -- vim.keymap.set('n', '<leader>k', function()
+    --   if dap.session() then
+    --     dap.terminate({ all = true, hierarchy = true })
+    --     return
+    --   end
+    --
+    --   local hasConfig = require('custom.debugger.hasConfig')
+    --   if hasConfig() then
+    --     dap.set_breakpoint()
+    --   end
+    --
+    --   dap.continue() -- Continue/Start
+    -- end, { desc = 'Toggle debugger' })
+
+    vim.keymap.set('n', '<leader>m', function()
       dapui.toggle()
     end, { desc = 'Toggle debugger ui' })
 
+    vim.keymap.set('n', '<leader>M', function()
+      dap.clear_breakpoints()
+    end, { desc = 'Clear debugger breakpoints' })
+
+    vim.keymap.set('n', '<leader>J', function()
+      dap.terminate({ all = true, hierarchy = true })
+    end, { desc = 'Terminate debugger' })
+
+    vim.keymap.set('n', '<leader>j', function()
+      dap.continue()
+    end, { desc = 'Continue debugger' })
+
     vim.keymap.set('n', '<leader>k', function()
-      if dap.session() then
-        dap.terminate({ all = true, hierarchy = true })
-        return
-      end
+      dap.toggle_breakpoint()
+    end, { desc = 'Toggle debugger breakpoints' })
 
-      local hasConfig = require('custom.debugger.hasConfig')
-      if hasConfig() then
-        dap.set_breakpoint()
-      end
-
-      dap.continue() -- Continue/Start
-    end, { desc = 'Toggle debugger' })
+    vim.keymap.set('n', '<leader>K', function()
+      dap.set_breakpoint(vim.fn.input('Condition: '))
+    end, { desc = 'Set conditional debugger breakpoint' })
 
     vim.keymap.set('n', '<leader>0', function()
       if dap.session() then
         dap.run_last()
       end
     end, { desc = 'Rerun last debugger session' })
-
     vim.keymap.set('n', '<leader>1', function()
       dap.step_over()
     end, { desc = 'Step over on debugger' })
@@ -136,19 +155,6 @@ return {
       dap.step_out()
     end, { desc = 'Step out on debugger' })
     vim.keymap.set('n', '<leader>4', function()
-      dap.step_back()
-    end, { desc = 'Step back on debugger' })
-
-    vim.keymap.set('n', ']k', function()
-      dap.step_over()
-    end, { desc = 'Step over on debugger' })
-    vim.keymap.set('n', ']K', function()
-      dap.step_into()
-    end, { desc = 'Step into on debugger' })
-    vim.keymap.set('n', '[K', function()
-      dap.step_out()
-    end, { desc = 'Step out on debugger' })
-    vim.keymap.set('n', '[k', function()
       dap.step_back()
     end, { desc = 'Step back on debugger' })
   end,
