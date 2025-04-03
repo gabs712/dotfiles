@@ -26,15 +26,15 @@ return {
             },
             {
               id = 'scopes',
-              size = 0.55,
+              size = 0.45,
             },
             {
               id = 'stacks',
-              size = 0.25,
+              size = 0.20,
             },
             {
               id = 'breakpoints',
-              size = 0,
+              size = 0.15,
             },
           },
           position = 'right',
@@ -67,7 +67,7 @@ return {
       virt_text_pos = 'eol', -- 'inline' or 'eol' (end of line)
     })
 
-    require('custom.debugger.vscode-js-debug')
+    require('custom.debugger.adapters')
 
     vim.fn.sign_define('DapBreakpoint', {
       text = '',
