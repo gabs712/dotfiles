@@ -128,6 +128,9 @@ alias nv='nvim'
 alias tm='tmux'
 alias lz='lazygit'
 
+alias n='node'
+alias ni='node --inspect'
+
 eval "$(starship init bash)"
 
 # Automatically start a tmux session if not already in one
