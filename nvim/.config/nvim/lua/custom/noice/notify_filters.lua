@@ -31,28 +31,14 @@ return {
     opts = { skip = true },
   },
   -- DAP
-  -- {
-  --   filter = {
-  --     event = 'notify',
-  --     find = 'Debug adapter disconnected$',
-  --   },
-  --   opts = { skip = true },
-  -- },
-  -- {
-  --   filter = {
-  --     warning = true,
-  --     find = 'Adapter reported a frame in .* but: Cursor position outside buffer%. Ensure executable is up2date and if using a source mapping ensure it is correct',
-  --   },
-  --   opts = { skip = true },
-  -- },
-  -- {
-  --   filter = {
-  --     error = true,
-  --     find = '^No stopped threads. Cannot move$',
-  --   },
-  --   opts = { skip = true },
-  -- },
-  -- Telescope deprecated 'go to definition'
+  { -- Warning when avancing steps outside of main buffer
+    filter = {
+      warning = true,
+      find = 'Adapter reported a frame in .* but: Cursor position outside buffer%. Ensure executable is up2date and if using a source mapping ensure it is correct',
+    },
+    opts = { skip = true },
+  },
+  -- Telescope go to definition deprecated warnings
   {
     filter = {
       warning = true,
