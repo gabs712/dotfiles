@@ -4,7 +4,7 @@ return {
     'folke/tokyonight.nvim',
   },
   config = function()
-    vim.cmd('colorscheme tokyonight-moon') -- Default colorscheme
+    vim.cmd('colorscheme duskfox') -- Default colorscheme
 
     require('custom.helpers').map_ctrl_j('themery')
     require('themery').setup({
