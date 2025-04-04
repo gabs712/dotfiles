@@ -47,16 +47,24 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
   dap.configurations[language] = {
     {
       type = 'pwa-node',
-      request = 'launch',
-      name = 'Launch file using Node.js',
-      program = '${file}',
-      cwd = '${workspaceFolder}',
-    },
-    {
-      type = 'pwa-node',
       request = 'attach',
       name = 'Attach to process using Node.js',
       processId = require('dap.utils').pick_process,
+      cwd = '${workspaceFolder}',
+    },
+    {
+      type = 'pwa-chrome',
+      request = 'launch',
+      name = 'Launch Chrome',
+      url = enter_launch_url,
+      webRoot = '${workspaceFolder}',
+      sourceMaps = true,
+    },
+    {
+      type = 'pwa-node',
+      request = 'launch',
+      name = 'Launch file using Node.js',
+      program = '${file}',
       cwd = '${workspaceFolder}',
     },
     {
@@ -66,14 +74,6 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
       program = '${file}',
       cwd = '${workspaceFolder}',
       runtimeArgs = { '-r', 'ts-node/register' },
-    },
-    {
-      type = 'pwa-chrome',
-      request = 'launch',
-      name = 'Launch Chrome',
-      url = enter_launch_url,
-      webRoot = '${workspaceFolder}',
-      sourceMaps = true,
     },
     {
       type = 'pwa-msedge',
