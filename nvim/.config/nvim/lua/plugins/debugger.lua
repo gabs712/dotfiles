@@ -3,6 +3,8 @@ return {
   dependencies = {
     'mfussenegger/nvim-dap',
     'nvim-neotest/nvim-nio', -- Async stuff
+
+    'windwp/nvim-autopairs', -- Loads first so C-w is not overwritten by it on dapui
   },
   config = function()
     require('custom.helpers').map_ctrl_j_hl('dapui_watches')
@@ -93,6 +95,14 @@ return {
       texthl = 'DiagnosticSignInfo',
       linehl = '',
       numhl = '',
+    })
+
+    -- Fix C-w behavior on dapui
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = { 'dap-repl', 'dapui_watches' },
+      callback = function()
+        vim.keymap.set('i', '<C-w>', '<C-S-w>', { buffer = true })
+      end,
     })
 
     vim.keymap.set('n', '<leader>k', function()
