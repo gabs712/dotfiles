@@ -3,7 +3,6 @@ return {
   dependencies = {
     'mfussenegger/nvim-dap',
     'nvim-neotest/nvim-nio', -- Async stuff
-    'theHamsta/nvim-dap-virtual-text',
   },
   config = function()
     require('custom.helpers').map_ctrl_j_hl('dapui_watches')
@@ -17,56 +16,42 @@ return {
     local dapui = require('dapui')
 
     require('dapui').setup({
-      layouts = {
+      layouts = { -- 'console' contents usually appear on 'repl'
         {
           elements = {
             {
-              id = 'watches',
-              size = 0.20,
-            },
-            {
               id = 'scopes',
-              size = 0.45,
+              size = 0.30,
             },
             {
-              id = 'stacks',
-              size = 0.20,
+              id = 'watches',
+              size = 0.30,
             },
             {
               id = 'breakpoints',
               size = 0.15,
             },
+            {
+              id = 'stacks',
+              size = 0.25,
+            },
           },
-          position = 'right',
+          position = 'left',
           size = 40,
         },
         {
           elements = {
             {
               id = 'repl',
-              size = 0.5,
-            },
-            {
-              id = 'console',
-              size = 0.5,
+              size = 1,
             },
           },
           position = 'bottom',
-          size = 10,
+          size = 11,
         },
       },
     })
     require('custom.debugger.attach')
-    require('nvim-dap-virtual-text').setup({
-      highlight_changed_variables = true,
-      highlight_new_as_changed = false, -- Highlight new variables in the same way as changed variables
-
-      only_first_definition = true, -- Only show at first variable definition
-      all_references = false, -- Show virtual text on all all references of the variable
-      commented = false, -- Add comment string at start (ex. '//')
-      virt_text_pos = 'eol', -- 'inline' or 'eol' (end of line)
-    })
-
     require('custom.debugger.adapters')
 
     vim.fn.sign_define('DapBreakpoint', {
