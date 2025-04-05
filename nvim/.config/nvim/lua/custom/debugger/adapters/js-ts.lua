@@ -40,19 +40,19 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
       cwd = '${workspaceFolder}',
     },
     {
+      type = 'pwa-node',
+      request = 'launch',
+      name = 'Launch file using Node.js',
+      program = '${file}',
+      cwd = '${workspaceFolder}',
+    },
+    {
       type = 'pwa-chrome',
       request = 'launch',
       name = 'Launch Chrome',
       url = require('custom.debugger.enter-launch-url'),
       webRoot = '${workspaceFolder}',
       sourceMaps = true,
-    },
-    {
-      type = 'pwa-node',
-      request = 'launch',
-      name = 'Launch file using Node.js',
-      program = '${file}',
-      cwd = '${workspaceFolder}',
     },
     {
       type = 'pwa-node',
