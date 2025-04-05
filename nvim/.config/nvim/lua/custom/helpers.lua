@@ -8,12 +8,10 @@ M.map_ctrl_j = function(filetype, remap)
   vim.api.nvim_create_autocmd('FileType', {
     pattern = filetype,
     callback = function()
-      local current = vim.api.nvim_get_current_buf()
-
-      vim.keymap.set({ 'n', 's' }, '<C-h>', '<Nop>', { buffer = current })
-      vim.keymap.set({ 'n', 's' }, '<C-j>', '<CR>', { buffer = current, remap = remap })
-      vim.keymap.set({ 'n', 's' }, '<C-k>', '<Nop>', { buffer = current })
-      vim.keymap.set({ 'n', 's' }, '<C-l>', '<Nop>', { buffer = current })
+      vim.keymap.set({ 'n', 's' }, '<C-h>', '<Nop>', { buffer = true })
+      vim.keymap.set({ 'n', 's' }, '<C-j>', '<CR>', { buffer = true, remap = remap })
+      vim.keymap.set({ 'n', 's' }, '<C-k>', '<Nop>', { buffer = true })
+      vim.keymap.set({ 'n', 's' }, '<C-l>', '<Nop>', { buffer = true })
     end,
   })
 end
@@ -26,12 +24,10 @@ M.map_ctrl_j_hl = function(filetype, remap)
   vim.api.nvim_create_autocmd('FileType', {
     pattern = filetype,
     callback = function()
-      local current = vim.api.nvim_get_current_buf()
-
-      vim.keymap.set({ 'n', 's' }, '<C-h>', '<cmd>nohlsearch<cr>', { buffer = current })
-      vim.keymap.set({ 'n', 's' }, '<C-j>', '<CR>', { buffer = current, remap = remap })
-      vim.keymap.set({ 'n', 's' }, '<C-k>', '<Nop>', { buffer = current })
-      vim.keymap.set({ 'n', 's' }, '<C-l>', '<Nop>', { buffer = current })
+      vim.keymap.set({ 'n', 's' }, '<C-h>', '<cmd>nohlsearch<cr>', { buffer = true })
+      vim.keymap.set({ 'n', 's' }, '<C-j>', '<CR>', { buffer = true, remap = remap })
+      vim.keymap.set({ 'n', 's' }, '<C-k>', '<Nop>', { buffer = true })
+      vim.keymap.set({ 'n', 's' }, '<C-l>', '<Nop>', { buffer = true })
     end,
   })
 end
@@ -40,12 +36,10 @@ M.clear_ctrl_hl = function(filetype)
   vim.api.nvim_create_autocmd('FileType', {
     pattern = filetype,
     callback = function()
-      local current = vim.api.nvim_get_current_buf()
-
-      vim.keymap.set({ 'n', 's' }, '<C-h>', '<cmd>nohlsearch<cr>', { buffer = current })
-      vim.keymap.set({ 'n', 's' }, '<C-j>', '<Nop>', { buffer = current })
-      vim.keymap.set({ 'n', 's' }, '<C-k>', '<Nop>', { buffer = current })
-      vim.keymap.set({ 'n', 's' }, '<C-l>', '<Nop>', { buffer = current })
+      vim.keymap.set({ 'n', 's' }, '<C-h>', '<cmd>nohlsearch<cr>', { buffer = true })
+      vim.keymap.set({ 'n', 's' }, '<C-j>', '<Nop>', { buffer = true })
+      vim.keymap.set({ 'n', 's' }, '<C-k>', '<Nop>', { buffer = true })
+      vim.keymap.set({ 'n', 's' }, '<C-l>', '<Nop>', { buffer = true })
     end,
   })
 end

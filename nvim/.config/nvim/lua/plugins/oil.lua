@@ -70,20 +70,16 @@ return {
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'oil',
       callback = function()
-        local current = vim.api.nvim_get_current_buf()
-
         vim.keymap.set('n', '<C-h>', function()
           vim.cmd('nohlsearch')
-        end, { buffer = current })
+        end, { buffer = true })
       end,
     })
 
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'oil',
       callback = function()
-        local current = vim.api.nvim_get_current_buf()
-
-        vim.keymap.set({ 'i', 's' }, '<C-s>', '<Esc><cmd>w<CR>', { buffer = current })
+        vim.keymap.set({ 'i', 's' }, '<C-s>', '<Esc><cmd>w<CR>', { buffer = true })
       end,
     })
     vim.keymap.set('n', '<leader>o', oil.open_float, { desc = 'Explore tree (oil)' })

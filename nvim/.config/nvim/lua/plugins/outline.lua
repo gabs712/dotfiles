@@ -32,9 +32,8 @@ return {
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'Outline',
       callback = function()
-        local current = vim.api.nvim_get_current_buf()
-        vim.keymap.set({ 'n', 's' }, '<C-o>', '<Nop>', { buffer = current })
-        vim.keymap.set({ 'n', 's' }, '<C-i>', '<Nop>', { buffer = current })
+        vim.keymap.set({ 'n', 's' }, '<C-o>', '<Nop>', { buffer = true })
+        vim.keymap.set({ 'n', 's' }, '<C-i>', '<Nop>', { buffer = true })
       end,
     })
 

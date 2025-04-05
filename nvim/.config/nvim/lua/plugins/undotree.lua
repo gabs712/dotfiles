@@ -16,13 +16,11 @@ return {
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'undotree',
       callback = function()
-        local current = vim.api.nvim_get_current_buf()
+        vim.keymap.set('n', 'g-', '<plug>UndotreePreviousState', { buffer = true })
+        vim.keymap.set('n', 'g+', '<plug>UndotreeNextState', { buffer = true })
 
-        vim.keymap.set('n', 'g-', '<plug>UndotreePreviousState', { buffer = current })
-        vim.keymap.set('n', 'g+', '<plug>UndotreeNextState', { buffer = current })
-
-        vim.keymap.set('n', '(', '<plug>UndotreePreviousState', { buffer = current })
-        vim.keymap.set('n', ')', '<plug>UndotreeNextState', { buffer = current })
+        vim.keymap.set('n', '(', '<plug>UndotreePreviousState', { buffer = true })
+        vim.keymap.set('n', ')', '<plug>UndotreeNextState', { buffer = true })
       end,
     })
   end,
