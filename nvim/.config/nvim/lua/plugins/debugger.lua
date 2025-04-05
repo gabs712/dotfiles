@@ -50,6 +50,14 @@ return {
           size = 11,
         },
       },
+      mappings = {
+        edit = 'e',
+        expand = { '<CR>', '<2-LeftMouse>' },
+        open = 'o',
+        remove = 'd',
+        repl = 'r',
+        toggle = 't',
+      },
     })
     require('custom.debugger.attach')
     require('custom.debugger.adapters-config')
