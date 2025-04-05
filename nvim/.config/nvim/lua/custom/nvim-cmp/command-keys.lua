@@ -30,4 +30,3 @@ vim.keymap.set('c', '<C-p>', function()
 end)
 
 vim.keymap.set('c', '<C-c>', cmp.abort)
-vim.keymap.set('c', '<C-e>', cmp.close)
