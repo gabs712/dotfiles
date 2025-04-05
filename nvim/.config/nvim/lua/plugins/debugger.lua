@@ -52,7 +52,7 @@ return {
       },
     })
     require('custom.debugger.attach')
-    require('custom.debugger.adapters')
+    require('custom.debugger.adapters-config')
 
     vim.fn.sign_define('DapBreakpoint', {
       text = '',
