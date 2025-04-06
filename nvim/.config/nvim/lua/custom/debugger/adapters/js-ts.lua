@@ -36,7 +36,9 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
       type = 'pwa-node',
       request = 'attach',
       name = 'Attach to process using Node.js',
-      processId = require('dap.utils').pick_process,
+      processId = function()
+        return require('dap.utils').pick_process({ filter = 'node%s+%-%-inspect' })
+      end,
       cwd = '${workspaceFolder}',
     },
     {
