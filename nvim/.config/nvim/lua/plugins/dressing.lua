@@ -9,6 +9,7 @@ return {
             ['<C-c>'] = 'Close',
           },
           i = {
+            ['<Esc>'] = 'Close',
             ['<C-c>'] = 'Close',
             ['<C-j>'] = 'Confirm',
           },
