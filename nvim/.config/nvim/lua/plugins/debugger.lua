@@ -123,6 +123,10 @@ return {
       dap.continue()
     end, { desc = 'Continue debugger' })
 
+    vim.keymap.set('n', "<leader>'", function()
+      dap.continue()
+    end, { desc = 'Continue debugger' })
+
     vim.keymap.set('n', '<leader>J', function()
       dap.terminate()
     end, { desc = 'Terminate debugger' })
