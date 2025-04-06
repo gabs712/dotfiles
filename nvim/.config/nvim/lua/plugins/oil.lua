@@ -1,6 +1,9 @@
 return {
   'stevearc/oil.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+    'nvim-telescope/telescope.nvim',
+  },
   config = function()
     local oil = require('oil')
 
@@ -76,10 +79,27 @@ return {
       end,
     })
 
+    local telescope = require('telescope.builtin')
+    local actions = require('oil.actions')
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'oil',
       callback = function()
+        -- Allow saving while in insert mode
         vim.keymap.set({ 'i', 's' }, '<C-s>', '<Esc><cmd>w<CR>', { buffer = true })
+
+        -- Close oil before running telescope on bindings matching possible oil contents
+        vim.keymap.set('n', '<C-f>', function()
+          actions.close.callback()
+          telescope.find_files()
+        end, { buffer = true })
+        vim.keymap.set('n', '<leader>ff', function()
+          actions.close.callback()
+          telescope.find_files({ hidden = true, prompt_title = 'Find Files (Hidden)' })
+        end, { buffer = true })
+        vim.keymap.set('n', '<leader>fe', function()
+          actions.close.callback()
+          telescope.find_files({ hidden = true, no_ignore = true, prompt_title = 'Find Every File' })
+        end, { buffer = true })
       end,
     })
     vim.keymap.set('n', '<leader>o', oil.open_float, { desc = 'Explore tree (oil)' })
