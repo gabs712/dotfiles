@@ -1,4 +1,4 @@
--- Dismiss highlights and floating windows (popups)
+-- Dismiss highlights and floating windows
 vim.keymap.set('n', '<Esc>', function()
   vim.cmd('nohlsearch')
 
@@ -24,6 +24,9 @@ vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostic
 -- Undo
 vim.keymap.set('n', '(', 'g-', { desc = 'Undo non-lineraly' })
 vim.keymap.set('n', ')', 'g+', { desc = 'Redo non-lineraly' })
+
+-- Alternative to ge
+vim.keymap.set({ 'n', 'x', 'o' }, '<C-b>', 'ge', { desc = 'Go to the end of last word' })
 
 -- Shell-like command movements
 vim.keymap.set('c', '<C-f>', '<Right>')
