@@ -117,5 +117,8 @@ vim.keymap.set('x', '<C-c>', 'gc', { remap = true })
 -- Marks go to col
 vim.keymap.set('n', "'", '`')
 
+vim.keymap.set('n', '[t', 'gT', { desc = 'Go to previous tab' })
+vim.keymap.set('n', ']t', 'gt', { desc = 'Go to next tab' })
+
 -- Quickfix popup keymaps
 require('custom.helpers').map_ctrl_j('qf', false)
