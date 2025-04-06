@@ -128,8 +128,7 @@ alias nv='nvim'
 alias tm='tmux'
 alias lz='lazygit'
 
-alias n='node'
-alias ni='node --inspect'
+alias nodei='node --inspect'
 
 eval "$(starship init bash)"
 
