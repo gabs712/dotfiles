@@ -11,6 +11,7 @@ return {
     require('custom.helpers').map_ctrl_j_hl('dapui_breakpoints')
     require('custom.helpers').map_ctrl_j_hl('dap-repl')
     require('custom.helpers').map_ctrl_j_hl('dapui_console')
+    require('custom.helpers').map_ctrl_j_hl('dapui_hover')
 
     local dap = require('dap')
     local dapui = require('dapui')
@@ -130,6 +131,10 @@ return {
     vim.keymap.set('n', '<leader>J', function()
       dap.disconnect()
     end, { desc = 'Disconnect debugger' })
+
+    vim.keymap.set({ 'n', 'x' }, 'M', function()
+      dapui.eval(nil, { enter = true })
+    end, { desc = 'Eval debugger expression' })
 
     vim.keymap.set('n', '<leader>0', function()
       if dap.session() then
