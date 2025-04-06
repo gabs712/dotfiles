@@ -5,6 +5,8 @@ return {
       disable_filetype = {
         'TelescopePrompt',
         'harpoon',
+        'dap-repl',
+        'dapui_watches',
       },
       -- Avoid buggy / iconsistent behavior on those modes
       disable_in_macro = true,

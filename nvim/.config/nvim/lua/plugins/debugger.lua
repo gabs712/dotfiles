@@ -3,8 +3,6 @@ return {
   dependencies = {
     'mfussenegger/nvim-dap',
     'nvim-neotest/nvim-nio', -- Async stuff
-
-    'windwp/nvim-autopairs', -- Loads first so C-w is not overwritten by it on dapui
   },
   config = function()
     require('custom.helpers').map_ctrl_j_hl('dapui_watches')
