@@ -38,7 +38,7 @@ return {
     },
     opts = { skip = true },
   },
-  -- Telescope go to definition deprecated warnings
+  -- NOTE: Telescope go to definition currently drops deprecated warnings
   {
     filter = {
       warning = true,
