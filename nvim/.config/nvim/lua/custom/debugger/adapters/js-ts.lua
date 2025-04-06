@@ -10,7 +10,7 @@ for _, adapterType in ipairs({ 'node', 'chrome', 'msedge' }) do
     executable = {
       command = 'node',
       args = {
-        vim.fn.stdpath('data') .. '/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js',
+        vim.fs.normalize(vim.fn.stdpath('data') .. '/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js'),
         '${port}',
       },
     },
