@@ -39,7 +39,7 @@ return {
       builtin.find_files({ hidden = true, no_ignore = true, prompt_title = 'Find Every File' })
     end, { desc = 'Find all files' })
 
-    vim.keymap.set('n', '<leader>fg', function()
+    vim.keymap.set('n', '<leader>fl', function()
       builtin.git_status({
         git_icons = {
           added = icons.git.added,
