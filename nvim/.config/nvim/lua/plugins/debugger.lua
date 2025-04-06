@@ -128,8 +128,8 @@ return {
     end, { desc = 'Continue debugger' })
 
     vim.keymap.set('n', '<leader>J', function()
-      dap.terminate()
-    end, { desc = 'Terminate debugger' })
+      dap.disconnect()
+    end, { desc = 'Disconnect debugger' })
 
     vim.keymap.set('n', '<leader>0', function()
       if dap.session() then
