@@ -73,33 +73,21 @@ return {
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'oil',
       callback = function()
+        -- Clear highlights
         vim.keymap.set('n', '<C-h>', function()
           vim.cmd('nohlsearch')
         end, { buffer = true })
-      end,
-    })
 
-    local telescope = require('telescope.builtin')
-    local actions = require('oil.actions')
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = 'oil',
-      callback = function()
         -- Allow saving while in insert mode
         vim.keymap.set({ 'i', 's' }, '<C-s>', '<Esc><cmd>w<CR>', { buffer = true })
 
-        -- Close oil before running telescope on bindings matching possible oil contents
-        vim.keymap.set('n', '<C-f>', function()
-          actions.close.callback()
-          telescope.find_files()
-        end, { buffer = true })
-        vim.keymap.set('n', '<leader>ff', function()
-          actions.close.callback()
-          telescope.find_files({ hidden = true, prompt_title = 'Find Files (Hidden)' })
-        end, { buffer = true })
-        vim.keymap.set('n', '<leader>fe', function()
-          actions.close.callback()
-          telescope.find_files({ hidden = true, no_ignore = true, prompt_title = 'Find Every File' })
-        end, { buffer = true })
+        -- Close oil before running telescope
+        for _, b in ipairs(require('custom.telescope.bindings')) do
+          vim.keymap.set(b.mode, b.lhs, function()
+            require('oil.actions').close.callback()
+            b.rhs()
+          end, b.obj)
+        end
       end,
     })
     vim.keymap.set('n', '<leader>o', oil.open_float, { desc = 'Explore tree (oil)' })
