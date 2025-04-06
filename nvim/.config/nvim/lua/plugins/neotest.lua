@@ -72,9 +72,9 @@ return {
       end
     end, { desc = 'Toggle neotest symmary' })
 
-    -- vim.keymap.set('n', '<leader>T', function()
-    --   require('neotest').output.open({ enter = true, last_run = true })
-    -- end, { desc = 'Toggle neotest output' })
+    vim.keymap.set('n', '<leader>X', function()
+      require('neotest').output.open({ enter = true, last_run = true })
+    end, { desc = 'Toggle neotest output' })
     --
     -- vim.keymap.set({ 'n', 'x', 's' }, '<C-t>', function()
     --   require('neotest').watch.toggle(vim.fn.expand('%'))
