@@ -6,16 +6,21 @@ return {
     local map = require('dial.map')
 
     config.augends:register_group({
-      --Default augends used when no group name is specified
       default = {
-        augend.integer.alias.decimal, --Nonnegative decimal number (0, 1, 2, 3, ...)
-        augend.integer.alias.hex, --Nonnegative hex number  (0x01, 0x1a1f, etc.)
-        augend.date.alias['%Y/%m/%d'], --Date (2024/03/19, etc.)
-        augend.constant.alias.bool, --Boolean value (true <-> false)
-      },
+        augend.integer.alias.decimal, -- decimal, decimal_int (includes negative numbers)
+        augend.constant.alias.bool,
+        augend.date.alias['%Y/%m/%d'],
+        augend.integer.alias.hex, -- Nonnegative hex number (0x01, 0x1a1f)
+        augend.hexcolor.new({ -- (#60a5fa)
+          case = 'prefer_lower', -- upper, lower, prefer_upper, prefer_lower
+        }),
 
-      --Augends used when group with name `mygroup` is specified
-      mygroup = {},
+        -- augend.constant.new({
+        --   elements = { '&&', '||' },
+        --   word = false, -- True if must be a separated 'word' *
+        --   cyclic = true, -- Cycle from the last to the first result
+        -- }),
+      },
     })
 
     vim.keymap.set('n', '<C-a>', function()
