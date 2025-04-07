@@ -120,9 +120,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# custom
-alias boilerplate='cp -r ~/boilerplate/main/{*,.*} . && git init'
-alias boilerplate-old='cp -r ~/boilerplate/old/{*,.*} . && git init'
+# Custom
+boilerplate() {
+  local folder="${1:-main}"
+  cp -r ~/boilerplate/"$folder"/{*,.*} . 2>/dev/null
+  git init
+}
 
 alias nv='nvim'
 alias tm='tmux'
