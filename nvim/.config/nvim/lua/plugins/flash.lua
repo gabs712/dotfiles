@@ -22,6 +22,9 @@ return {
         backdrop = true, -- When searching, fade out text
         matches = true, -- Highlights text as you type
         groups = {
+          backdrop = 'FlashBackdrop',
+          label = 'FlashLabel',
+          match = 'FlashMatch',
           current = 'FlashMatch', -- Does not show different color to first match
         },
       },
@@ -41,6 +44,20 @@ return {
         },
       },
     })
+
+    -- Consistent highlights
+    -- local function set_highlights()
+    --   vim.api.nvim_set_hl(0, 'FlashBackdrop', { fg = '#6c7087' })
+    --   vim.api.nvim_set_hl(0, 'FlashLabel', { fg = '#a6e3a2' })
+    --   vim.api.nvim_set_hl(0, 'FlashMatch', { fg = '#b4beff' })
+    -- end
+    --
+    -- set_highlights()
+    --
+    -- vim.api.nvim_create_autocmd('ColorScheme', {
+    --   pattern = '*',
+    --   callback = set_highlights,
+    -- })
 
     vim.keymap.set({ 'n', 'x', 'o' }, 's', flash.jump, { desc = 'Flash jump' })
     vim.keymap.set({ 'n', 'x', 'o' }, 'S', flash.treesitter_search, { desc = 'Flash jump to range' })
