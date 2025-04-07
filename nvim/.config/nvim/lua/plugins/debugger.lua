@@ -64,33 +64,33 @@ return {
     require('custom.debugger.adapters-config')
 
     vim.fn.sign_define('DapBreakpoint', {
-      text = '',
+      text = '󰻃', -- 󰻃 
       texthl = 'DiagnosticSignError',
       linehl = '',
       numhl = '',
     })
 
     vim.fn.sign_define('DapBreakpointRejected', {
-      text = '',
+      text = '󰻃',
       texthl = 'DiagnosticSignError',
       linehl = '',
       numhl = '',
     })
 
     vim.fn.sign_define('DapStopped', {
-      text = '', -- → 
+      text = '', --  → 
       texthl = 'Conditional',
       linehl = 'Visual',
       numhl = '',
     })
     vim.fn.sign_define('DapBreakpointCondition', {
-      text = '',
-      texthl = 'DiagnosticSignWarn',
+      text = '󰻃',
+      texthl = '@constructor',
       linehl = '',
       numhl = '',
     })
     vim.fn.sign_define('DapLogPoint', {
-      text = '',
+      text = '󰻃',
       texthl = 'DiagnosticSignInfo',
       linehl = '',
       numhl = '',
