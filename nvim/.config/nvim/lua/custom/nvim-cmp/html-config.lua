@@ -15,7 +15,7 @@ local html_config = {
           types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
           and entry.source:get_debug_name() == 'nvim_lsp:emmet_ls'
         then
-          if cursor_node:type() ~= 'element' then
+          if cursor_node:type() ~= 'element' and cursor_node:type() ~= 'document' then
             return false
           end
         end
