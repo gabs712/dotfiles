@@ -22,19 +22,15 @@ return {
           elements = {
             {
               id = 'scopes',
-              size = 0.30,
-            },
-            {
-              id = 'watches',
-              size = 0.30,
+              size = 0.70,
             },
             {
               id = 'breakpoints',
-              size = 0.15,
+              size = 0.10,
             },
             {
               id = 'stacks',
-              size = 0.25,
+              size = 0.20,
             },
           },
           position = 'left',
@@ -44,7 +40,11 @@ return {
           elements = {
             {
               id = 'repl',
-              size = 1,
+              size = 0.5,
+            },
+            {
+              id = 'watches',
+              size = 0.5,
             },
           },
           position = 'bottom',
