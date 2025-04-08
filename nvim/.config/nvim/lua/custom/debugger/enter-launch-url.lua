@@ -15,14 +15,14 @@ return function()
   local co = coroutine.running()
 
   return coroutine.create(function()
-    vim.ui.input({ prompt = 'Enter Port', default = default_url }, function(url)
-      if url == nil or url == '' then
+    vim.ui.input({ prompt = 'Enter Port', default = default_url }, function(port)
+      if port == nil or port == '' then
         return
       end
 
-      vim.fn.writefile({ url }, input_file)
+      vim.fn.writefile({ port }, input_file)
 
-      coroutine.resume(co, 'http://localhost:' .. url)
+      coroutine.resume(co, 'http://localhost:' .. port)
     end)
   end)
 end
