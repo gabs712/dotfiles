@@ -1,7 +1,8 @@
 {
   "name": "node",
+  "type": "module",
   "version": "1.0.0",
-  "main": "eslint.config.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
