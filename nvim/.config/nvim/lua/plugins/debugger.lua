@@ -108,7 +108,7 @@ return {
       dap.toggle_breakpoint()
     end, { desc = 'Toggle debugger breakpoint' })
 
-    vim.keymap.set('n', '<leader>K', function()
+    vim.keymap.set('n', '<leader>M', function()
       dap.set_breakpoint(vim.fn.input('Condition: '))
     end, { desc = 'Set conditional debugger breakpoint' })
 
@@ -116,7 +116,7 @@ return {
       dapui.toggle()
     end, { desc = 'Toggle debugger ui' })
 
-    vim.keymap.set('n', '<leader>M', function()
+    vim.keymap.set('n', '<leader>K', function()
       dap.clear_breakpoints()
     end, { desc = 'Clear debugger breakpoints' })
 
