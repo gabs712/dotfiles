@@ -39,11 +39,11 @@ return {
         {
           elements = {
             {
-              id = 'repl',
+              id = 'watches',
               size = 0.5,
             },
             {
-              id = 'watches',
+              id = 'repl',
               size = 0.5,
             },
           },
