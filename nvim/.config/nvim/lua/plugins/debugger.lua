@@ -108,9 +108,13 @@ return {
       dap.toggle_breakpoint()
     end, { desc = 'Toggle debugger breakpoint' })
 
-    vim.keymap.set('n', '<leader>M', function()
+    vim.keymap.set('n', '<leader>9', function()
       dap.set_breakpoint(vim.fn.input('Condition: '))
     end, { desc = 'Set conditional debugger breakpoint' })
+
+    vim.keymap.set('n', '<leader>0', function()
+      dap.set_breakpoint(nil, nil, vim.fn.input('Log: '))
+    end, { desc = 'Set log debugger breakpoint' })
 
     vim.keymap.set('n', '<leader>m', function()
       dapui.toggle()
@@ -136,7 +140,7 @@ return {
       dapui.eval(nil, { enter = true })
     end, { desc = 'Eval debugger expression' })
 
-    vim.keymap.set('n', '<leader>0', function()
+    vim.keymap.set('n', '<leader>5', function()
       if dap.session() then
         dap.run_last()
       end
