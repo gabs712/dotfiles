@@ -130,7 +130,7 @@ return {
     end, { desc = 'Set log debugger breakpoint' })
 
     vim.keymap.set('n', '<leader>m', function()
-      dapui.toggle()
+      dapui.toggle({ reset = true })
     end, { desc = 'Toggle debugger ui' })
 
     vim.keymap.set('n', '<leader>K', function()

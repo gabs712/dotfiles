@@ -7,7 +7,7 @@ local dapui = require('dapui')
 local will_open = true
 local on_start = function()
   if will_open then
-    dapui.open()
+    dapui.open({ reset = true })
   end
   will_open = false
 end
