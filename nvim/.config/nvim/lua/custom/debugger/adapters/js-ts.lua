@@ -40,6 +40,7 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
         return require('dap.utils').pick_process({ filter = 'node%s+%-%-inspect' })
       end,
       cwd = '${workspaceFolder}',
+      restart = true, -- Restart when saving while active instead of disconnecting
     },
     {
       type = 'pwa-node',
