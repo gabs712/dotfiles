@@ -105,6 +105,7 @@ return {
 
     local ui_toggle = require('custom.debugger.ui-toggle')
     vim.keymap.set('n', '<leader>j', ui_toggle.continue, { desc = 'Continue debugger' })
+    vim.keymap.set('n', "<leader>'", ui_toggle.continue, { desc = 'Continue debugger' })
     vim.keymap.set('n', '<leader>0', ui_toggle.run_last, { desc = 'Rerun last debugger session' })
 
     vim.keymap.set('n', '<leader>J', function()
@@ -136,10 +137,6 @@ return {
     vim.keymap.set('n', '<leader>K', function()
       dap.clear_breakpoints()
     end, { desc = 'Clear debugger breakpoints' })
-
-    vim.keymap.set('n', "<leader>'", function()
-      dap.continue()
-    end, { desc = 'Continue debugger' })
 
     vim.keymap.set({ 'n', 'x' }, 'M', function()
       dapui.eval(nil, { enter = true })
