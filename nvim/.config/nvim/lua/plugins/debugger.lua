@@ -103,7 +103,9 @@ return {
       end,
     })
 
-    vim.keymap.set('n', '<leader>j', require('custom.debugger.continue'), { desc = 'Continue debugger' })
+    local ui_toggle = require('custom.debugger.ui-toggle')
+    vim.keymap.set('n', '<leader>j', ui_toggle.continue, { desc = 'Continue debugger' })
+    vim.keymap.set('n', '<leader>0', ui_toggle.run_last, { desc = 'Rerun last debugger session' })
 
     vim.keymap.set('n', '<leader>J', function()
       dap.disconnect()
@@ -115,11 +117,15 @@ return {
       dap.toggle_breakpoint()
     end, { desc = 'Toggle debugger breakpoint' })
 
-    vim.keymap.set('n', '<leader>9', function()
+    vim.keymap.set('n', '<leader>7', function()
+      dap.set_breakpoint(nil, vim.fn.input('Hit condition: '))
+    end, { desc = 'Set hit conditional debugger breakpoint' })
+
+    vim.keymap.set('n', '<leader>8', function()
       dap.set_breakpoint(vim.fn.input('Condition: '))
     end, { desc = 'Set conditional debugger breakpoint' })
 
-    vim.keymap.set('n', '<leader>0', function()
+    vim.keymap.set('n', '<leader>9', function()
       dap.set_breakpoint(nil, nil, vim.fn.input('Log: '))
     end, { desc = 'Set log debugger breakpoint' })
 
@@ -139,9 +145,6 @@ return {
       dapui.eval(nil, { enter = true })
     end, { desc = 'Eval debugger expression' })
 
-    vim.keymap.set('n', '<leader>5', function()
-        dap.run_last()
-    end, { desc = 'Rerun last debugger session' })
     vim.keymap.set('n', '<leader>1', function()
       dap.step_over()
     end, { desc = 'Step over on debugger' })
