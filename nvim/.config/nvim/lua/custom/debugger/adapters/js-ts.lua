@@ -34,19 +34,9 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
   dap.configurations[language] = {
     {
       type = 'pwa-node',
-      request = 'attach',
-      name = 'Attach to process using Node.js',
-      processId = function()
-        return require('dap.utils').pick_process({ filter = 'node%s+%-%-inspect' })
-      end,
-      cwd = '${workspaceFolder}',
-      restart = true, -- Restart when saving while active instead of disconnecting
-    },
-    {
-      type = 'pwa-node',
       request = 'launch',
-      name = 'Launch file using Node.js',
-      program = '${file}',
+      name = 'Launch and watch Node',
+      runtimeArgs = { '--watch', '${file}' },
       cwd = '${workspaceFolder}',
     },
     {
@@ -59,8 +49,25 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
     },
     {
       type = 'pwa-node',
+      request = 'attach',
+      name = 'Attach to Node process',
+      processId = function()
+        return require('dap.utils').pick_process({ filter = 'node%s+%-%-inspect' })
+      end,
+      cwd = '${workspaceFolder}',
+      restart = true, -- Restart when saving while active instead of disconnecting
+    },
+    {
+      type = 'pwa-node',
       request = 'launch',
-      name = 'Launch file using Node.js with ts-node/register',
+      name = 'Launch Node',
+      program = '${file}',
+      cwd = '${workspaceFolder}',
+    },
+    {
+      type = 'pwa-node',
+      request = 'launch',
+      name = 'Launch Node with ts-node/register',
       program = '${file}',
       cwd = '${workspaceFolder}',
       runtimeArgs = { '-r', 'ts-node/register' },
