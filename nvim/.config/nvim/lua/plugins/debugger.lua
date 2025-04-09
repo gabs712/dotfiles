@@ -60,7 +60,6 @@ return {
         toggle = 't',
       },
     })
-    require('custom.debugger.attach')
     require('custom.debugger.adapters-config')
 
     vim.fn.sign_define('DapBreakpoint', {
@@ -104,6 +103,13 @@ return {
       end,
     })
 
+    vim.keymap.set('n', '<leader>j', require('custom.debugger.continue'), { desc = 'Continue debugger' })
+
+    vim.keymap.set('n', '<leader>J', function()
+      dap.disconnect()
+      dapui.close()
+    end, { desc = 'Disconnect debugger' })
+
     vim.keymap.set('n', '<leader>k', function()
       dap.toggle_breakpoint()
     end, { desc = 'Toggle debugger breakpoint' })
@@ -124,17 +130,9 @@ return {
       dap.clear_breakpoints()
     end, { desc = 'Clear debugger breakpoints' })
 
-    vim.keymap.set('n', '<leader>j', function()
-      dap.continue()
-    end, { desc = 'Continue debugger' })
-
     vim.keymap.set('n', "<leader>'", function()
       dap.continue()
     end, { desc = 'Continue debugger' })
-
-    vim.keymap.set('n', '<leader>J', function()
-      dap.disconnect()
-    end, { desc = 'Disconnect debugger' })
 
     vim.keymap.set({ 'n', 'x' }, 'M', function()
       dapui.eval(nil, { enter = true })
