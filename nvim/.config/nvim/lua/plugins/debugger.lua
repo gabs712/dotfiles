@@ -108,6 +108,7 @@ return {
     vim.keymap.set('n', '<leader>J', function()
       dap.disconnect()
       dapui.close()
+      dap.clear_breakpoints()
     end, { desc = 'Disconnect debugger' })
 
     vim.keymap.set('n', '<leader>k', function()
