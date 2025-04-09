@@ -1,3 +1,14 @@
+local preferred_files = {
+  'index.js',
+  'src/index.js',
+  'main.js',
+  'src/main.js',
+  'server.js',
+  'src/server.js',
+  'app.js',
+  'src/app.js',
+}
+
 local dap = require('dap')
 
 for _, adapterType in ipairs({ 'node', 'chrome', 'msedge' }) do
@@ -30,13 +41,17 @@ for _, adapterType in ipairs({ 'node', 'chrome', 'msedge' }) do
   end
 end
 
+local find_preferred_file = require('custom.debugger.find-preferred-file')
 for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' }) do
   dap.configurations[language] = {
     {
       type = 'pwa-node',
       request = 'launch',
       name = 'Launch and watch Node',
-      runtimeArgs = { '--watch', '${file}' },
+      program = function()
+        return find_preferred_file(preferred_files)
+      end,
+      runtimeArgs = { '--watch' },
       cwd = '${workspaceFolder}',
     },
     {
@@ -61,14 +76,18 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
       type = 'pwa-node',
       request = 'launch',
       name = 'Launch Node',
-      program = '${file}',
+      program = function()
+        return find_preferred_file(preferred_files)
+      end,
       cwd = '${workspaceFolder}',
     },
     {
       type = 'pwa-node',
       request = 'launch',
       name = 'Launch Node with ts-node/register',
-      program = '${file}',
+      program = function()
+        return find_preferred_file(preferred_files)
+      end,
       cwd = '${workspaceFolder}',
       runtimeArgs = { '-r', 'ts-node/register' },
     },
