@@ -140,9 +140,7 @@ return {
     end, { desc = 'Eval debugger expression' })
 
     vim.keymap.set('n', '<leader>5', function()
-      if dap.session() then
         dap.run_last()
-      end
     end, { desc = 'Rerun last debugger session' })
     vim.keymap.set('n', '<leader>1', function()
       dap.step_over()
