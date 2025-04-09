@@ -132,6 +132,8 @@ alias tm='tmux'
 alias lz='lazygit'
 
 alias nodei='node --inspect'
+alias nodew='node --watch'
+alias nodeiw='node --inspect --watch'
 
 eval "$(starship init bash)"
 
