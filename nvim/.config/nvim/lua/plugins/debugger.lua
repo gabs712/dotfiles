@@ -84,7 +84,7 @@ return {
     })
     vim.fn.sign_define('DapBreakpointCondition', {
       text = '󰻃',
-      texthl = '@constructor',
+      texthl = 'Conditional',
       linehl = '',
       numhl = '',
     })
