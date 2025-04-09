@@ -118,25 +118,25 @@ return {
       dap.toggle_breakpoint()
     end, { desc = 'Toggle debugger breakpoint' })
 
+    vim.keymap.set('n', '<leader>K', function()
+      dap.clear_breakpoints()
+    end, { desc = 'Clear debugger breakpoints' })
+
+    vim.keymap.set('n', '<leader>9', function()
+      dap.set_breakpoint(vim.fn.input('Condition: '))
+    end, { desc = 'Set conditional debugger breakpoint' })
+
+    vim.keymap.set('n', '<leader>8', function()
+      dap.set_breakpoint(nil, nil, vim.fn.input('Log: '))
+    end, { desc = 'Set log debugger breakpoint' })
+
     vim.keymap.set('n', '<leader>7', function()
       dap.set_breakpoint(nil, vim.fn.input('Hit condition: '))
     end, { desc = 'Set hit conditional debugger breakpoint' })
 
-    vim.keymap.set('n', '<leader>8', function()
-      dap.set_breakpoint(vim.fn.input('Condition: '))
-    end, { desc = 'Set conditional debugger breakpoint' })
-
-    vim.keymap.set('n', '<leader>9', function()
-      dap.set_breakpoint(nil, nil, vim.fn.input('Log: '))
-    end, { desc = 'Set log debugger breakpoint' })
-
     vim.keymap.set('n', '<leader>m', function()
       dapui.toggle({ reset = true })
     end, { desc = 'Toggle debugger ui' })
-
-    vim.keymap.set('n', '<leader>K', function()
-      dap.clear_breakpoints()
-    end, { desc = 'Clear debugger breakpoints' })
 
     vim.keymap.set({ 'n', 'x' }, 'M', function()
       dapui.eval(nil, { enter = true })
