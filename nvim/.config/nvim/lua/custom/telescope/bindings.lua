@@ -92,11 +92,18 @@ return {
     rhs = builtin.colorscheme,
     obj = { desc = 'Find colorschemes' },
   },
+  -- WARN: Currently deprecated api
   {
     mode = 'n',
     lhs = '<leader>fs',
     rhs = builtin.lsp_document_symbols,
     obj = { desc = 'Find symbols' },
+  },
+  {
+    mode = 'n',
+    lhs = '<leader>fs',
+    rhs = builtin.lsp_dynamic_workspace_symbols,
+    obj = { desc = 'Find symbols across project' },
   },
   {
     mode = 'n',
