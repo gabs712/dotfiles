@@ -109,8 +109,15 @@ return {
     vim.keymap.set('n', '<leader>0', ui_toggle.run_last, { desc = 'Rerun last debugger session' })
 
     vim.keymap.set('n', '<leader>J', function()
-      dap.disconnect({ terminateDebuggee = true })
-      dap.close()
+      -- 'terminate' on sessions of type 'launch', else defaults to 'disconnect'
+      local session = dap.session()
+      if session and session.config.request == 'launch' then
+        dap.terminate({ all = true, hierarchy = true })
+      else
+        dap.disconnect({ terminateDebuggee = true })
+        dap.close()
+      end
+
       dapui.close()
       dap.clear_breakpoints()
     end, { desc = 'Disconnect debugger' })
