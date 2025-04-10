@@ -64,7 +64,7 @@ M.switch_to_previous_buffer = function()
     -- Switch to the buffer
     vim.cmd('buffer ' .. buffer_number)
   else
-    print('Could not parse the second terminal buffer number.')
+    vim.notify('Could not parse the second terminal buffer number.', vim.log.levels.ERROR)
   end
 end
 

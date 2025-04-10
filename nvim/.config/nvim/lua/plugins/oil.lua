@@ -17,9 +17,9 @@ return {
         hidden_enabled = not hidden_enabled
 
         if hidden_enabled then
-          print('Hidden files enabled')
+          vim.notify('Hidden files enabled')
         else
-          print('Hidden files disabled')
+          vim.notify('Hidden files disabled')
         end
       end,
       mode = 'n',

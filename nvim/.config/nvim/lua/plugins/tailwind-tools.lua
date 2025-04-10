@@ -26,9 +26,9 @@ return {
       is_enabled = not is_enabled
 
       if is_enabled then
-        print('Tailwind conceal enabled')
+        vim.notify('Tailwind conceal enabled')
       else
-        print('Tailwind conceal disabled')
+        vim.notify('Tailwind conceal disabled')
       end
     end, { desc = 'Toggle tailwind conceal' })
   end,

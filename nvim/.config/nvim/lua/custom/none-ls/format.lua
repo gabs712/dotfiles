@@ -14,9 +14,9 @@ vim.api.nvim_create_user_command('ToggleFormatOnSave', function()
   format_on_save = not format_on_save
 
   if format_on_save then
-    print('FormatOnSave enabled')
+    vim.notify('FormatOnSave enabled')
   else
-    print('FormatOnSave disabled')
+    vim.notify('FormatOnSave disabled')
   end
 end, {})
 

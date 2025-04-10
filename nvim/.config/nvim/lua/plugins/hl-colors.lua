@@ -12,9 +12,9 @@ return {
       enabled = not enabled
 
       if enabled then
-        print('Color highlight enabled')
+        vim.notify('Color highlight enabled')
       else
-        print('Color highlight disabled')
+        vim.notify('Color highlight disabled')
       end
     end, { desc = 'Toggle colors highlight' })
   end,

@@ -70,9 +70,9 @@ vim.api.nvim_create_user_command('ToggleDiagnostics', function()
   vim.diagnostic.enable(diagnostics_enabled)
 
   if diagnostics_enabled then
-    print('Diagnostic enabled')
+    vim.notify('Diagnostic enabled')
   else
-    print('Diagnostic disabled')
+    vim.notify('Diagnostic disabled')
   end
 end, {})
 

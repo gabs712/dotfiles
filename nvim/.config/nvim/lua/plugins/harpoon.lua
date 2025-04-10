@@ -15,7 +15,7 @@ return {
     end, { desc = 'Harpoon' })
     vim.keymap.set({ 'n', 's' }, '<C-m>', function() -- Also is triggered by CR
       harpoon:list():prepend()
-      print('Harpoon mark settled ' .. os.date('%H:%M:%S'))
+      vim.notify('Harpoon mark settled ' .. os.date('%H:%M:%S'))
     end, { desc = 'Set harpoon mark' })
 
     vim.keymap.set('n', '<C-l>', function()
