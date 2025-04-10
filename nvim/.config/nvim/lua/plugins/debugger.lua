@@ -109,7 +109,8 @@ return {
     vim.keymap.set('n', '<leader>0', ui_toggle.run_last, { desc = 'Rerun last debugger session' })
 
     vim.keymap.set('n', '<leader>J', function()
-      dap.disconnect()
+      dap.disconnect({ terminateDebuggee = true })
+      dap.close()
       dapui.close()
       dap.clear_breakpoints()
     end, { desc = 'Disconnect debugger' })
