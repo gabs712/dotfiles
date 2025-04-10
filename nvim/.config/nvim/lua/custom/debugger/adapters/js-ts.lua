@@ -1,11 +1,11 @@
 local preferred_files = {
   'index.js',
-  'src/index.js',
   'main.js',
-  'src/main.js',
   'server.js',
-  'src/server.js',
   'app.js',
+  'src/index.js',
+  'src/main.js',
+  'src/server.js',
   'src/app.js',
 }
 
