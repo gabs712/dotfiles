@@ -47,7 +47,7 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
     {
       type = 'pwa-node',
       request = 'launch',
-      name = 'Launch and watch Node',
+      name = 'Launch and watch with Node',
       program = function()
         return find_preferred_file(preferred_files)
       end,
@@ -75,7 +75,7 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
     {
       type = 'pwa-node',
       request = 'launch',
-      name = 'Launch Node',
+      name = 'Launch with Node',
       program = function()
         return find_preferred_file(preferred_files)
       end,
