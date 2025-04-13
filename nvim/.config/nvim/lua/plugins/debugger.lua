@@ -153,6 +153,10 @@ return {
       dap.repl.toggle({ height = 12 })
     end, { desc = 'Toggle debugger repl (terminal)' })
 
+    vim.keymap.set('n', '<leader>I', function()
+      require('dap.repl').clear()
+    end, { desc = 'Clear debugger repl (terminal)' })
+
     vim.keymap.set('n', '<leader>1', function()
       dap.step_over()
     end, { desc = 'Step over on debugger' })
