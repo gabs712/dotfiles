@@ -150,7 +150,7 @@ return {
     end, { desc = 'Eval debugger expression' })
 
     vim.keymap.set('n', '<leader>i', function()
-      dap.repl.toggle({ height = 11 })
+      dap.repl.toggle({ height = 12 })
     end, { desc = 'Toggle debugger repl (terminal)' })
 
     vim.keymap.set('n', '<leader>1', function()
