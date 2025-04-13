@@ -49,7 +49,7 @@ return {
   {
     event = 'notify',
     filter = {
-      find = 'vim%.lsp%.util%.jump_to_location is deprecated%. Run ":checkhealth vim%.deprecated" for more information',
+      find = 'vim%.lsp%.util%.jump_to_location is deprecated',
     },
     opts = { skip = true },
   },
