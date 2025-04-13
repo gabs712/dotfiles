@@ -149,7 +149,7 @@ return {
       dapui.eval(nil, { enter = true })
     end, { desc = 'Eval debugger expression' })
 
-    vim.keymap.set('n', '<leader>M', function()
+    vim.keymap.set('n', '<leader>i', function()
       dap.repl.toggle({ height = 11 })
     end, { desc = 'Toggle debugger repl (terminal)' })
 
