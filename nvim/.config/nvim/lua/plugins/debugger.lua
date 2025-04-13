@@ -103,10 +103,9 @@ return {
       end,
     })
 
-    local ui_toggle = require('custom.debugger.ui-toggle')
-    vim.keymap.set('n', '<leader>j', ui_toggle.continue, { desc = 'Continue debugger' })
-    vim.keymap.set('n', "<leader>'", ui_toggle.continue, { desc = 'Continue debugger' })
-    vim.keymap.set('n', '<leader>0', ui_toggle.run_last, { desc = 'Rerun last debugger session' })
+    vim.keymap.set('n', '<leader>j', dap.continue, { desc = 'Continue debugger' })
+    vim.keymap.set('n', "<leader>'", dap.continue, { desc = 'Continue debugger' })
+    vim.keymap.set('n', '<leader>0', dap.run_last, { desc = 'Rerun last debugger session' })
 
     vim.keymap.set('n', '<leader>J', function()
       -- 'terminate' on sessions of type 'launch', else defaults to 'disconnect'
