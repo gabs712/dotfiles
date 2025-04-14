@@ -26,7 +26,7 @@ local javascript = {
   s('lsf', fmt('let {} = ({}) => {}', { i(1, 'name'), i(2), i(3) })),
 
   s('imp', fmt("import {} from '{}'", { i(1, 'name'), i(2, 'module') })),
-  s('req', fmt("const {} = require('{}')", { i(1, 'name'), i(2) })),
+  s('r', fmt("require('{}')", { i(1) })),
 
   s(
     'f',
