@@ -103,14 +103,20 @@ return {
       pattern = { 'dap-repl', 'dapui_watches' },
       callback = function()
         vim.keymap.set('i', '<C-w>', '<C-S-w>', { buffer = true }) -- Fix C-w behavior on dapui
-        vim.keymap.set({ 'n', 'i' }, '<C-l>', function()
-          require('dap.repl').clear()
-        end, { buffer = true })
 
         vim.keymap.set({ 'i', 's' }, '<C-f>', '<Right>', { buffer = true })
         vim.keymap.set({ 'i', 's' }, '<C-b>', '<Left>', { buffer = true })
         vim.keymap.set({ 'i', 's' }, '<C-a>', '<Home>', { buffer = true })
         vim.keymap.set({ 'i', 's' }, '<C-e>', '<End>', { buffer = true })
+      end,
+    })
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'dap-repl',
+      callback = function()
+        vim.keymap.set({ 'n', 'i' }, '<C-l>', function()
+          require('dap.repl').clear()
+        end, { buffer = true })
       end,
     })
 
