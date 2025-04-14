@@ -83,10 +83,12 @@ return {
 
         -- Close oil before running telescope
         for _, b in ipairs(require('custom.telescope.bindings')) do
+          local obj = vim.tbl_extend('force', b.obj, { buffer = true })
+
           vim.keymap.set(b.mode, b.lhs, function()
             require('oil.actions').close.callback()
             b.rhs()
-          end, b.obj)
+          end, obj)
         end
       end,
     })
