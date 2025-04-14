@@ -106,6 +106,11 @@ return {
         vim.keymap.set({ 'n', 'i' }, '<C-l>', function()
           require('dap.repl').clear()
         end, { buffer = true })
+
+        vim.keymap.set({ 'i', 's' }, '<C-f>', '<Right>', { buffer = true })
+        vim.keymap.set({ 'i', 's' }, '<C-b>', '<Left>', { buffer = true })
+        vim.keymap.set({ 'i', 's' }, '<C-a>', '<Home>', { buffer = true })
+        vim.keymap.set({ 'i', 's' }, '<C-e>', '<End>', { buffer = true })
       end,
     })
 

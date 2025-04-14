@@ -187,7 +187,6 @@ return {
         end),
 
         ['<C-c>'] = cmp.abort,
-        ['<C-e>'] = cmp.close,
 
         ['<C-y>'] = cmp.config.disable,
       }),
