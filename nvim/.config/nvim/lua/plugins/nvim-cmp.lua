@@ -94,7 +94,13 @@ return {
             return
           end
 
-          cmp.complete()
+          cmp.complete({
+            config = {
+              sources = {
+                { name = 'nvim_lsp' },
+              },
+            },
+          })
         end, { 'i', 'c' }),
 
         ['<C-c>'] = cmp.abort,
