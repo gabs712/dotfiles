@@ -51,6 +51,10 @@ return {
           size = 11,
         },
       },
+      controls = {
+        element = 'repl',
+        enabled = false, -- Disable repl icons
+      },
       mappings = {
         edit = 'e',
         expand = { '<CR>', '<2-LeftMouse>' },
