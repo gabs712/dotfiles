@@ -199,3 +199,7 @@ ls.add_snippets('javascriptreact', {
     })
   ),
 })
+
+ls.add_snippets('html', {
+  s('e', fmt('<%{} {} %>', { i(2), i(1) })),
+})
