@@ -99,11 +99,13 @@ return {
       numhl = '',
     })
 
-    -- Fix C-w behavior on dapui
     vim.api.nvim_create_autocmd('FileType', {
       pattern = { 'dap-repl', 'dapui_watches' },
       callback = function()
-        vim.keymap.set('i', '<C-w>', '<C-S-w>', { buffer = true })
+        vim.keymap.set('i', '<C-w>', '<C-S-w>', { buffer = true }) -- Fix C-w behavior on dapui
+        vim.keymap.set({ 'n', 'i' }, '<C-l>', function()
+          require('dap.repl').clear()
+        end, { buffer = true })
       end,
     })
 
