@@ -10,7 +10,7 @@ local html_config = {
       entry_filter = function(entry)
         local cursor_node = ts_utils.get_node_at_cursor()
 
-        -- Only shows emmet suggestions inside of elements
+        -- Only shows emmet suggestions on root or inside of elements
         if
           types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
           and entry.source:get_debug_name() == 'nvim_lsp:emmet_ls'

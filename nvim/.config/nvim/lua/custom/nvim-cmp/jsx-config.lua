@@ -1,6 +1,26 @@
-local cmp = require('cmp')
 local types = require('cmp.types')
 local ts_utils = require('nvim-treesitter.ts_utils')
+
+local comparators = vim.list_extend({
+  function(entry1, entry2)
+    local source1 = entry1.source:get_debug_name()
+    local source2 = entry2.source:get_debug_name()
+
+    local is_emmet1 = source1 == 'nvim_lsp:emmet_ls'
+    local is_emmet2 = source2 == 'nvim_lsp:emmet_ls'
+    local is_buffer1 = source1 == 'buffer'
+    local is_buffer2 = source2 == 'buffer'
+
+    -- Give emmet_ls priority over buffer
+    if is_emmet1 and is_buffer2 then
+      return true
+    elseif is_buffer1 and is_emmet2 then
+      return false
+    end
+
+    return nil
+  end,
+}, require('custom.nvim-cmp.global_comparators'))
 
 local jsx_config = {
   sources = {
@@ -65,45 +85,7 @@ local jsx_config = {
   },
   sorting = {
     priority_weight = 2,
-    comparators = {
-      function(entry1, entry2)
-        local source1 = entry1.source:get_debug_name()
-        local source2 = entry2.source:get_debug_name()
-
-        local is_emmet1 = source1 == 'nvim_lsp:emmet_ls'
-        local is_emmet2 = source2 == 'nvim_lsp:emmet_ls'
-        local is_buffer1 = source1 == 'buffer'
-        local is_buffer2 = source2 == 'buffer'
-
-        -- Give emmet_ls priority over buffer
-        if is_emmet1 and is_buffer2 then
-          return true
-        elseif is_buffer1 and is_emmet2 then
-          return false
-        end
-
-        -- Deprioritize emmet_ls compared to other sources
-        -- if is_emmet1 and not is_emmet2 then
-        --   return false
-        -- elseif not is_emmet1 and is_emmet2 then
-        --   return true
-        -- end
-
-        return nil
-      end,
-
-      -- The rest of the comparators are pretty much the defaults
-      cmp.config.compare.offset,
-      cmp.config.compare.exact,
-      cmp.config.compare.scopes,
-      cmp.config.compare.score,
-      cmp.config.compare.recently_used,
-      cmp.config.compare.locality,
-      cmp.config.compare.kind,
-      cmp.config.compare.sort_text,
-      cmp.config.compare.length,
-      cmp.config.compare.order,
-    },
+    comparators = comparators,
   },
 }
 

@@ -48,6 +48,10 @@ return {
           },
         }),
       },
+      sorting = {
+        priority_weight = 2,
+        comparators = require('custom.nvim-cmp.global_comparators'),
+      },
       window = {
         completion = {
           col_offset = -1,
