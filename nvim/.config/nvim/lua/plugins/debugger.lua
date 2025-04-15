@@ -15,6 +15,7 @@ return {
 
     local dap = require('dap')
     local dapui = require('dapui')
+    local dap_repl = require('dap.repl')
 
     require('dapui').setup({
       layouts = { -- 'console' contents usually appear on 'repl'
@@ -115,7 +116,7 @@ return {
       pattern = 'dap-repl',
       callback = function()
         vim.keymap.set({ 'n', 'i' }, '<C-l>', function()
-          require('dap.repl').clear()
+          dap_repl.clear()
         end, { buffer = true })
       end,
     })
@@ -135,6 +136,7 @@ return {
       end
 
       dapui.close()
+      dap_repl.close()
       dap.clear_breakpoints()
     end, { desc = 'Disconnect debugger' })
 
@@ -171,7 +173,7 @@ return {
     end, { desc = 'Toggle debugger repl (terminal)' })
 
     vim.keymap.set('n', '<leader>I', function()
-      require('dap.repl').clear()
+      dap_repl.clear()
     end, { desc = 'Clear debugger repl (terminal)' })
 
     vim.keymap.set('n', '<leader>1', function()
