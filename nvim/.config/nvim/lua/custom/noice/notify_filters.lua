@@ -1,4 +1,12 @@
 return {
+  -- Warning when editing a file opened on another instance
+  {
+    filter = {
+      warning = true,
+      find = '^W325: Ignoring swapfile from Nvim process %d+$',
+    },
+    opts = { skip = true },
+  },
   {
     filter = {
       event = 'msg_show',
