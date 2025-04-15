@@ -5,7 +5,7 @@
 
 ## 📦 Installation
 
-Copy this into `.bashrc`
+Copy this into `.bashrc`:
 
 ```sh
 if [ -f "$HOME/custom.sh" ]; then
