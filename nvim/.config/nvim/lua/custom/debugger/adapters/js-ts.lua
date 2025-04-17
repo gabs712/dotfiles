@@ -51,7 +51,7 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
       program = function()
         return find_preferred_file(preferred_files)
       end,
-      runtimeArgs = { '--watch' },
+      runtimeArgs = { '--inspect', '--watch' }, -- 'inspect' also allows the browser to open the debugger
       cwd = '${workspaceFolder}',
     },
     {
