@@ -47,7 +47,7 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
     {
       type = 'pwa-node',
       request = 'launch',
-      name = 'Launch and watch with Node',
+      name = 'Launch with Node',
       program = function()
         return find_preferred_file(preferred_files)
       end,
@@ -71,15 +71,6 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
       end,
       cwd = '${workspaceFolder}',
       restart = true, -- Restart when saving while active instead of disconnecting
-    },
-    {
-      type = 'pwa-node',
-      request = 'launch',
-      name = 'Launch with Node',
-      program = function()
-        return find_preferred_file(preferred_files)
-      end,
-      cwd = '${workspaceFolder}',
     },
     {
       type = 'pwa-node',
