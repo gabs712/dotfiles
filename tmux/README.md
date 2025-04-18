@@ -7,4 +7,4 @@
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-Type `[prefix] + I` to install plugins.
+Type `<prefix> + I` to install plugins.
