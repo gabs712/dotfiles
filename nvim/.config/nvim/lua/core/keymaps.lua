@@ -13,7 +13,14 @@ vim.keymap.set(
   'n',
   '<C-Space>',
   require('custom.helpers').switch_to_previous_buffer,
-  { desc = 'Switch to the previous terminal buffer' }
+  { desc = 'Switch to the previous buffer' }
+)
+
+vim.keymap.set(
+  'n',
+  '<BS>',
+  require('custom.helpers').switch_to_previous_buffer,
+  { desc = 'Switch to the previous buffer' }
 )
 
 -- Lsp
