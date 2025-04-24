@@ -9,7 +9,7 @@ return {
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'lazygit',
       callback = function()
-        vim.keymap.set('t', '<Esc>', '<cmd>close<CR>', { buffer = true })
+        vim.keymap.set('t', '<Esc>', '<C-c>', { buffer = true, remap = true })
       end,
     })
   end,
