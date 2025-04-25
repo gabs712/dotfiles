@@ -57,6 +57,9 @@ return {
         ['-'] = 'actions.open_cwd',
         ['<C-l>'] = 'actions.preview',
 
+        ['K'] = 'actions.preview_scroll_up',
+        ['J'] = 'actions.preview_scroll_down',
+
         ['gd'] = { 'actions.cd', opts = { scope = 'tab' }, desc = 'Change cwd on tab', mode = 'n' },
         ['gr'] = 'actions.refresh',
         ['g.'] = notify_toggle_hidden,
