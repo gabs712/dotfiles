@@ -44,6 +44,18 @@ M.clear_ctrl_hl = function(filetype)
   })
 end
 
+M.shell_movements = function(filetype)
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = filetype,
+    callback = function()
+      vim.keymap.set({ 'i', 's' }, '<C-f>', '<Right>', { buffer = true })
+      vim.keymap.set({ 'i', 's' }, '<C-b>', '<Left>', { buffer = true })
+      vim.keymap.set({ 'i', 's' }, '<C-a>', '<Home>', { buffer = true })
+      vim.keymap.set({ 'i', 's' }, '<C-e>', '<End>', { buffer = true })
+    end,
+  })
+end
+
 M.switch_to_previous_buffer = function()
   -- Capture the output of `:ls t`
   local ls_output = vim.fn.execute('ls t')
