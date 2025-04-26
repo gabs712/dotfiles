@@ -14,7 +14,7 @@ return {
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = 'Harpoon' })
     vim.keymap.set({ 'n', 's' }, '<C-m>', function() -- Also is triggered by CR
-      harpoon:list():prepend()
+      harpoon:list():add()
       vim.notify('Harpoon mark settled ' .. os.date('%H:%M:%S'))
     end, { desc = 'Set harpoon mark' })
 
