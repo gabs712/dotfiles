@@ -12,7 +12,6 @@ return {
   config = function()
     local icons = require('custom.icons')
 
-    require('custom.helpers').map_ctrl_j({ 'neo-tree', 'neo-tree-popup' })
     require('neo-tree').setup({
       filesystem = {
         follow_current_file = { enabled = true },
@@ -39,7 +38,6 @@ return {
           ['<C-b>'] = 'none',
 
           ['l'] = 'open',
-          ['<C-k>'] = 'close_node',
           ['h'] = 'close_node',
           ['<C-s>'] = 'open_split',
           ['<C-v>'] = 'open_vsplit',
