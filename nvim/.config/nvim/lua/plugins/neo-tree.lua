@@ -91,7 +91,7 @@ return {
     require('lsp-file-operations').setup()
 
     -- Toggle window, highlight current file, move cursor
-    vim.keymap.set('n', '<leader>E', '<cmd>Neotree toggle focus left<CR>', { desc = 'Explore tree (neo-tree)' })
+    vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle focus left<CR>', { desc = 'Explore tree (neo-tree)' })
 
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'neo-tree-popup',
