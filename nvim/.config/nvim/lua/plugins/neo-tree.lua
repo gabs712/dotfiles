@@ -19,7 +19,7 @@ return {
         filtered_items = {
           visible = true, -- Enable hidden files initially
           hide_dotfiles = true,
-          hide_gitignored = true,
+          hide_gitignored = false,
           hide_by_name = {},
           hide_by_pattern = {}, -- Glob syntax
           always_show = {},
