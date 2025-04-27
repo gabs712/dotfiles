@@ -33,7 +33,7 @@ vim.keymap.set('n', '(', 'g-', { desc = 'Undo non-lineraly' })
 vim.keymap.set('n', ')', 'g+', { desc = 'Redo non-lineraly' })
 
 -- Alternative to ge
-vim.keymap.set({ 'n', 'x', 'o' }, '<C-b>', 'ge', { desc = 'Go to the end of last word' })
+vim.keymap.set({ 'n', 'x', 'o' }, '<C-b>', 'ge', { desc = 'Go to the end of last word', remap = true })
 
 -- Shell-like command movements
 vim.keymap.set('c', '<C-f>', '<Right>')
