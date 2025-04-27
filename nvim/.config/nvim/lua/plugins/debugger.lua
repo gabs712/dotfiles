@@ -65,7 +65,7 @@ return {
         toggle = 't',
       },
     })
-    require('custom.debugger.adapters-config')
+    require('custom.debugger.adapter-init')
 
     vim.fn.sign_define('DapBreakpoint', {
       text = '󰻃', -- 󰻃 
