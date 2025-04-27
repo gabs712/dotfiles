@@ -27,8 +27,8 @@ return {
             ['ix'] = { query = '@conditional.inner', desc = 'Select inside conditional' },
             ['ax'] = { query = '@conditional.outer', desc = 'Select around conditional' },
 
-            ['is'] = { query = '@class.inner', desc = 'Select inside class' },
-            ['as'] = { query = '@class.outer', desc = 'Select around class' },
+            ['io'] = { query = '@class.inner', desc = 'Select inside class (object)' },
+            ['ao'] = { query = '@class.outer', desc = 'Select around class (object)' },
 
             ['ia'] = { query = '@parameter.inner', desc = 'Select inside argument or parameter' },
             ['aa'] = { query = '@parameter.outer', desc = 'Select around argument or parameter' },
@@ -45,7 +45,7 @@ return {
             ['Hm'] = { query = '@call.outer', desc = 'Swap function call (method) with previous' }, -- Doesn't behave as expected
             ['Hl'] = { query = '@loop.outer', desc = 'Swap loop with previous' },
             ['Hx'] = { query = '@conditional.outer', desc = 'Swap conditional with previous' },
-            ['Hs'] = { query = '@class.outer', desc = 'Swap class with previous' },
+            ['Ho'] = { query = '@class.outer', desc = 'Swap class (object) with previous' },
             ['Ha'] = { query = '@parameter.inner', desc = 'Swap argument with previous' },
             ['Hc'] = { query = '@comment.outer', desc = 'Swap comment with previous' },
           },
@@ -55,7 +55,7 @@ return {
             ['Lm'] = { query = '@call.outer', desc = 'Swap function call (method) with next' },
             ['Ll'] = { query = '@loop.outer', desc = 'Swap loop with next' },
             ['Lx'] = { query = '@conditional.outer', desc = 'Swap conditional with next' },
-            ['Ls'] = { query = '@class.outer', desc = 'Swap class with next' },
+            ['Lo'] = { query = '@class.outer', desc = 'Swap class (object) with next' },
             ['La'] = { query = '@parameter.inner', desc = 'Swap argument with next' },
             ['Lc'] = { query = '@comment.outer', desc = 'Swap comment with next' },
           },
@@ -70,7 +70,7 @@ return {
             [']m'] = { query = '@call.outer', desc = 'Next function call (method)' },
             [']l'] = { query = '@loop.outer', desc = 'Next loop' },
             [']x'] = { query = '@conditional.outer', desc = 'Next conditional' },
-            [']s'] = { query = '@class.outer', desc = 'Next class' },
+            [']o'] = { query = '@class.outer', desc = 'Next class (object)' },
             [']a'] = { query = '@parameter.inner', desc = 'Next argument or parameter' },
             [']c'] = { query = '@comment.outer', desc = 'Next comment' },
           },
@@ -80,7 +80,7 @@ return {
             [']M'] = { query = '@call.outer', desc = 'Next function call (method) on end' },
             [']L'] = { query = '@loop.outer', desc = 'Next loop on end' },
             [']X'] = { query = '@conditional.outer', desc = 'Next conditional on end' },
-            [']S'] = { query = '@class.outer', desc = 'Next class on end' },
+            [']O'] = { query = '@class.outer', desc = 'Next class (object) on end' },
             [']A'] = { query = '@parameter.inner', desc = 'Next argument or parameter on end' },
             [']C'] = { query = '@comment.outer', desc = 'Next comment on end' },
           },
@@ -90,7 +90,7 @@ return {
             ['[m'] = { query = '@call.outer', desc = 'Previous function call (method)' },
             ['[l'] = { query = '@loop.outer', desc = 'Previous loop' },
             ['[x'] = { query = '@conditional.outer', desc = 'Previous conditional' },
-            ['[s'] = { query = '@class.outer', desc = 'Previous class' },
+            ['[o'] = { query = '@class.outer', desc = 'Previous class (object)' },
             ['[a'] = { query = '@parameter.inner', desc = 'Previous argument or parameter' },
             ['[c'] = { query = '@comment.outer', desc = 'Previous comment' },
           },
@@ -100,7 +100,7 @@ return {
             ['[M'] = { query = '@call.outer', desc = 'Previous function call (method) on end' },
             ['[L'] = { query = '@loop.outer', desc = 'Previous loop on end' },
             ['[X'] = { query = '@conditional.outer', desc = 'Previous conditional on end' },
-            ['[S'] = { query = '@class.outer', desc = 'Previous class on end' },
+            ['[O'] = { query = '@class.outer', desc = 'Previous class (object) on end' },
             ['[A'] = { query = '@parameter.inner', desc = 'Previous argument or parameter on end' },
             ['[C'] = { query = '@comment.outer', desc = 'Previous comment on end' },
           },
@@ -111,8 +111,14 @@ return {
     vim.keymap.set('n', 'H', '<Nop>')
     vim.keymap.set('n', 'L', '<Nop>')
 
-    vim.keymap.set({ 'x', 'o' }, 'id', require('various-textobjs').entireBuffer, { desc = 'Select entire document' })
-    vim.keymap.set({ 'x', 'o' }, 'ad', require('various-textobjs').entireBuffer, { desc = 'Select entire document' })
+    local various = require('various-textobjs')
+
+    -- camelCase, snake_case, kebab-case
+    vim.keymap.set({ 'x', 'o' }, 'is', various.subword, { desc = 'Select subword' })
+    vim.keymap.set({ 'x', 'o' }, 'as', various.subword, { desc = 'Select subword' })
+
+    vim.keymap.set({ 'x', 'o' }, 'id', various.entireBuffer, { desc = 'Select entire document' })
+    vim.keymap.set({ 'x', 'o' }, 'ad', various.entireBuffer, { desc = 'Select entire document' })
 
     local ts_repeat_move = require('nvim-treesitter.textobjects.repeatable_move')
 
