@@ -74,6 +74,17 @@ return {
     })
 
     vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'oil_preview', -- Confirmation popup
+      callback = function()
+        vim.keymap.set({ 'n', 's' }, '<C-j>', 'y', { buffer = true, remap = true })
+        vim.keymap.set({ 'n', 's' }, '<CR>', 'y', { buffer = true, remap = true })
+        vim.keymap.set({ 'n', 's' }, '<C-k>', 'n', { buffer = true, remap = true })
+        vim.keymap.set({ 'n', 's' }, '<C-h>', '<Nop>', { buffer = true })
+        vim.keymap.set({ 'n', 's' }, '<C-l>', '<Nop>', { buffer = true })
+      end,
+    })
+
+    vim.api.nvim_create_autocmd('FileType', {
       pattern = 'oil',
       callback = function()
         -- Clear highlights
