@@ -108,11 +108,11 @@ return {
         end, { 'i', 'c' }),
 
         ['<C-c>'] = cmp.abort,
-        ['<C-e>'] = cmp.close,
 
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
 
+        ['<C-e>'] = cmp.config.disable,
         ['<C-y>'] = cmp.config.disable,
       }),
     })
@@ -143,6 +143,7 @@ return {
         ['<C-n>'] = cmp.config.disable,
         ['<C-p>'] = cmp.config.disable,
         ['<C-e>'] = cmp.config.disable,
+        ['<C-y>'] = cmp.config.disable,
         ['<C-c>'] = cmp.config.disable,
       }),
     })
@@ -179,6 +180,7 @@ return {
         ['<C-n>'] = cmp.config.disable,
         ['<C-p>'] = cmp.config.disable,
         ['<C-e>'] = cmp.config.disable,
+        ['<C-y>'] = cmp.config.disable,
         ['<C-c>'] = cmp.config.disable,
       }),
     })
@@ -200,6 +202,7 @@ return {
 
         ['<C-c>'] = cmp.abort,
 
+        ['<C-e>'] = cmp.config.disable,
         ['<C-y>'] = cmp.config.disable,
       }),
     })
