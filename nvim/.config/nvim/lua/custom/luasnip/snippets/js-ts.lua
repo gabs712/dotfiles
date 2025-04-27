@@ -6,10 +6,6 @@ local i = ls.insert_node -- Insert cursor
 local f = ls.function_node
 local rep = require('luasnip.extras').rep -- Repeats
 
-ls.add_snippets('lua', {
-  s('l', fmt('local {}', { i(1) })),
-})
-
 -- local jest = {
 --   s('jd', fmt("describe('{}', () => {{\n  {}\n}})", { i(1), i(2, '//') })),
 --   s('jt', fmt("test('{}', () => {{\n  {}\n}})", { i(1), i(2, '//') })),
@@ -198,8 +194,4 @@ ls.add_snippets('javascriptreact', {
       i(2),
     })
   ),
-})
-
-ls.add_snippets('html', {
-  s('e', fmt('<%{} {} %>', { i(2), i(1) })),
 })
