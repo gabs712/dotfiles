@@ -15,7 +15,7 @@ return {
     end, { desc = 'Harpoon' })
     vim.keymap.set({ 'n', 's' }, '<C-m>', function() -- Also is triggered by CR
       harpoon:list():add()
-      vim.notify('Harpoon mark settled ' .. os.date('%H:%M:%S'))
+      vim.notify('Harpoon mark settled')
     end, { desc = 'Set harpoon mark' })
 
     -- Harpoon sometimes jumps to a previously indexed position when using a mark
