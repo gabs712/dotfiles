@@ -18,17 +18,45 @@ return {
       vim.notify('Harpoon mark settled ' .. os.date('%H:%M:%S'))
     end, { desc = 'Set harpoon mark' })
 
+    -- Harpoon sometimes jumps to a previously indexed position when using a mark
+    -- that leads to the same file currently being displayed. This will only run
+    -- when the mark leads to a different file.
+    local select = function(selection)
+      for i, item in pairs(harpoon:list().items) do
+        if i ~= selection then
+          goto continue
+        end
+
+        local item_path = vim.fs.normalize(item.value)
+
+        if not vim.startswith(item_path, '/') then
+          local root = vim.fn.getcwd()
+          item_path = vim.fs.normalize(root .. '/' .. item_path)
+        end
+
+        local buf_path = vim.fs.normalize(vim.api.nvim_buf_get_name(0))
+
+        if buf_path == item_path then
+          return
+        end
+
+        harpoon:list():select(selection)
+
+        ::continue::
+      end
+    end
+
     vim.keymap.set('n', '<C-l>', function()
-      harpoon:list():select(1)
+      select(1)
     end, { desc = 'Go to harpoon mark 1' })
     vim.keymap.set('n', '<C-k>', function()
-      harpoon:list():select(2)
+      select(2)
     end, { desc = 'Go to harpoon mark 2' })
     vim.keymap.set('n', '<C-j>', function()
-      harpoon:list():select(3)
+      select(3)
     end, { desc = 'Go to harpoon mark 3' })
     vim.keymap.set('n', '<C-h>', function()
-      harpoon:list():select(4)
+      select(4)
     end, { desc = 'Go to harpoon mark 4' })
   end,
 }
