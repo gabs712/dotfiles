@@ -4,6 +4,50 @@ return {
   event = 'VeryLazy',
   config = function()
     require('nvim-surround').setup({
+      -- Swap open and closing pairs bindings for whitepaces
+      surrounds = {
+        [')'] = {
+          add = { '( ', ' )' },
+          delete = '^(. ?)().-( ?.)()$',
+        },
+        ['('] = {
+          add = { '(', ')' },
+          delete = '^(.)().-(.)()$',
+        },
+        ['}'] = {
+          add = { '{ ', ' }' },
+          delete = '^(. ?)().-( ?.)()$',
+        },
+        ['{'] = {
+          add = { '{', '}' },
+          delete = '^(.)().-(.)()$',
+        },
+        ['>'] = {
+          add = { '< ', ' >' },
+          delete = '^(. ?)().-( ?.)()$',
+        },
+        ['<'] = {
+          add = { '<', '>' },
+          delete = '^(.)().-(.)()$',
+        },
+        [']'] = {
+          add = { '[ ', ' ]' },
+          delete = '^(. ?)().-( ?.)()$',
+        },
+        ['['] = {
+          add = { '[', ']' },
+          delete = '^(.)().-(.)()$',
+        },
+      },
+      aliases = {
+        ['a'] = '<',
+        ['b'] = '(',
+        ['B'] = '{',
+        ['r'] = '[',
+        ['q'] = { '"', "'", '`' },
+        ['s'] = { '{', '[', '(', '<', '"', "'", '`' },
+      },
+
       move_cursor = 'sticky',
       keymaps = {
         -- Autopairs
