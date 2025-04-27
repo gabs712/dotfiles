@@ -77,7 +77,7 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
       request = 'launch',
       name = 'Launch Node with ts-node/register',
       program = function()
-        return find_preferred_file({})
+        return find_preferred_file()
       end,
       cwd = '${workspaceFolder}',
       runtimeArgs = { '-r', 'ts-node/register' },

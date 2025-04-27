@@ -1,4 +1,8 @@
 return function(preferred_files)
+  if preferred_files == nil then
+    preferred_files = {}
+  end
+
   local default_path = ''
 
   for _, file in ipairs(preferred_files) do
