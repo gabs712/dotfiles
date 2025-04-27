@@ -1,12 +1,11 @@
 return function(preferred_files)
-  local root = vim.fn.getcwd()
   local default_path = ''
 
   for _, file in ipairs(preferred_files) do
-    local path = vim.fs.normalize(root .. '/' .. file)
+    local normalized_path = vim.fs.normalize(file)
 
-    if vim.fn.filereadable(path) == 1 then
-      default_path = file
+    if vim.fn.filereadable(normalized_path) == 1 then
+      default_path = normalized_path
       break
     end
   end
@@ -14,27 +13,29 @@ return function(preferred_files)
   local co = coroutine.running()
 
   return coroutine.create(function()
-    vim.ui.input({ prompt = 'Enter Port', default = default_path }, function(input)
+    vim.ui.input({ prompt = 'Enter File', default = default_path }, function(input)
       if input == nil then
+        vim.notify('No file provided')
         return
       end
 
       if input == '' then
-        local current_file = vim.fn.expand('%:t')
-        vim.notify('Initializing on ' .. current_file)
+        local relative_path = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':.')
+        vim.notify('Initializing on ' .. relative_path)
 
         coroutine.resume(co, '${file}')
         return
       end
 
-      if vim.fn.filereadable(input) == 1 then
-        vim.notify('Initializing on ' .. input)
+      local normalized_input_path = vim.fs.normalize(input)
+      if vim.fn.filereadable(normalized_input_path) == 1 then
+        vim.notify('Initializing on ' .. normalized_input_path)
 
-        coroutine.resume(co, input)
+        coroutine.resume(co, normalized_input_path)
         return
       end
 
-      vim.notify('Cannot find module ' .. vim.fs.normalize(root .. '/' .. input), vim.log.levels.WARN)
+      vim.notify('Cannot find ' .. normalized_input_path, vim.log.levels.ERROR)
     end)
   end)
 end
