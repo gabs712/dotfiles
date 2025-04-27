@@ -183,6 +183,8 @@ return {
       }),
     })
 
+    require('custom.nvim-cmp.command-keys')
+
     -- Completion for DAP
     require('cmp').setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
       sources = {
@@ -202,10 +204,7 @@ return {
       }),
     })
 
-    require('custom.nvim-cmp.command-keys')
-
-    cmp.setup.filetype('html', require('custom.nvim-cmp.html-config'))
-    cmp.setup.filetype('css', require('custom.nvim-cmp.css-config'))
-    cmp.setup.filetype({ 'javascriptreact', 'typescriptreact' }, require('custom.nvim-cmp.jsx-config'))
+    -- Custom completions
+    require('custom.nvim-cmp.completion-init')
   end,
 }
