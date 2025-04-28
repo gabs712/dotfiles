@@ -6,7 +6,7 @@ return {
   config = function()
     vim.cmd('colorscheme duskfox') -- Default colorscheme
 
-    require('custom.helpers').map_ctrl_j('themery')
+    require('custom.helpers').map_ctrl_j_hl('themery')
     require('themery').setup({
       themes = {
         'catppuccin-mocha',
