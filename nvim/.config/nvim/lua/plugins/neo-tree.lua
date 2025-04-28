@@ -27,7 +27,7 @@ return {
       },
       close_if_last_window = true,
       window = {
-        width = 37,
+        width = 35,
         mappings = {
           ['<space>'] = 'none',
           ['<C-e>'] = 'none',
