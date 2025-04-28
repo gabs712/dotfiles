@@ -22,6 +22,9 @@ return {
         'roseprime',
 
         'hybrid',
+
+        'iceberg',
+
         'nord',
         'nordic',
 
@@ -35,7 +38,6 @@ return {
         'rose-pine-main',
         'rose-pine-moon',
 
-        'iceberg',
         'onedark',
 
         'tokyonight-moon',

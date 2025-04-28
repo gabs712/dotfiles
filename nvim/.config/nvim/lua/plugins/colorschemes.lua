@@ -47,5 +47,15 @@ return {
   },
   {
     'cocopon/iceberg.vim',
+    config = function()
+      vim.api.nvim_create_autocmd('ColorScheme', {
+        pattern = 'iceberg',
+        callback = function()
+          -- Normally StatusLine is too bright
+          vim.api.nvim_set_hl(0, 'StatusLine', { bg = '#818596', fg = '#1e2132' })
+          vim.api.nvim_set_hl(0, 'StatusLineTerm', { bg = '#818596', fg = '#1e2132' })
+        end,
+      })
+    end,
   },
 }
