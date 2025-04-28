@@ -9,10 +9,6 @@ return {
     require('custom.helpers').map_ctrl_j('themery')
     require('themery').setup({
       themes = {
-        'tokyonight-moon',
-        'tokyonight-night',
-        'tokyonight-storm',
-
         'catppuccin-mocha',
         'catppuccin-macchiato',
         'catppuccin-frappe',
@@ -22,8 +18,29 @@ return {
         'nightfox',
         'carbonfox',
 
+        'iceclimber',
+        'roseprime',
+
+        'hybrid',
+        'nord',
+        'nordic',
+
+        'moonfly',
+
+        'nightfly',
+
+        'github_dark_default',
+        'github_dark_dimmed',
+
         'rose-pine-main',
         'rose-pine-moon',
+
+        'iceberg',
+        'onedark',
+
+        'tokyonight-moon',
+        'tokyonight-night',
+        'tokyonight-storm',
 
         'kanagawa-wave',
         'kanagawa-dragon',
