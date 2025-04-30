@@ -34,6 +34,7 @@ local jsx_config = {
 
         if
           cursor_node:type() == 'string'
+          or cursor_node:type() == 'string_fragment'
           or cursor_node:type() == 'jsx_opening_element'
           or cursor_node:type() == 'jsx_closing_element'
           or cursor_node:type() == 'jsx_self_closing_element'
