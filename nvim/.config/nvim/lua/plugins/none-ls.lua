@@ -12,7 +12,14 @@ return {
       sources = {
         -- Formatters
         formatting.stylua,
-        formatting.prettier,
+        formatting.prettier.with({
+          extra_args = function(params)
+            if params.bufname:match('%.ejs$') then -- Treats '.ejs' as if it was '.html'
+              return { '--parser', 'html' }
+            end
+            return {}
+          end,
+        }),
       },
     })
 
