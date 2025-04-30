@@ -29,6 +29,26 @@ return {
         })
       end,
 
+      ['html'] = function()
+        local default = require('lspconfig.configs.html').default_config.filetypes
+        local filetypes = vim.tbl_extend('force', default, { 'ejs' })
+
+        lspconfig['html'].setup({
+          filetypes = filetypes,
+          capabilities = cmp_capabilities,
+        })
+      end,
+
+      ['emmet_ls'] = function()
+        local default = require('lspconfig.configs.emmet_ls').default_config.filetypes
+        local filetypes = vim.tbl_extend('force', default, { 'ejs' })
+
+        lspconfig['emmet_ls'].setup({
+          filetypes = filetypes,
+          capabilities = cmp_capabilities,
+        })
+      end,
+
       ['ts_ls'] = function()
         lspconfig['ts_ls'].setup({
           capabilities = cmp_capabilities,
