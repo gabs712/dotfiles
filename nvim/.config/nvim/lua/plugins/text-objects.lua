@@ -112,10 +112,23 @@ return {
     vim.keymap.set('n', 'L', '<Nop>')
 
     local various = require('various-textobjs')
+    require('various-textobjs').setup({
+      textobjs = {
+        subword = {
+          -- When deleting start of camelCase, changes remaining uppercase to lowercase
+          noCamelToPascalCase = false,
+        },
+      },
+    })
 
     -- camelCase, snake_case, kebab-case
-    vim.keymap.set({ 'x', 'o' }, 'is', various.subword, { desc = 'Select subword' })
-    vim.keymap.set({ 'x', 'o' }, 'as', various.subword, { desc = 'Select subword' })
+    vim.keymap.set({ 'x', 'o' }, 'is', function()
+      various.subword('inner')
+    end, { desc = 'Select inside subword' })
+
+    vim.keymap.set({ 'x', 'o' }, 'as', function()
+      various.subword('outer')
+    end, { desc = 'Select around subword' })
 
     vim.keymap.set({ 'x', 'o' }, 'id', various.entireBuffer, { desc = 'Select entire document' })
     vim.keymap.set({ 'x', 'o' }, 'ad', various.entireBuffer, { desc = 'Select entire document' })
