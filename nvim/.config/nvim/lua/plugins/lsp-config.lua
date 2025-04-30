@@ -31,7 +31,7 @@ return {
 
       ['html'] = function()
         local default = require('lspconfig.configs.html').default_config.filetypes
-        local filetypes = vim.tbl_extend('force', default, { 'ejs' })
+        local filetypes = vim.list_extend(vim.deepcopy(default), { 'ejs' })
 
         lspconfig['html'].setup({
           filetypes = filetypes,
@@ -41,7 +41,7 @@ return {
 
       ['emmet_ls'] = function()
         local default = require('lspconfig.configs.emmet_ls').default_config.filetypes
-        local filetypes = vim.tbl_extend('force', default, { 'ejs' })
+        local filetypes = vim.list_extend(vim.deepcopy(default), { 'ejs' })
 
         lspconfig['emmet_ls'].setup({
           filetypes = filetypes,
