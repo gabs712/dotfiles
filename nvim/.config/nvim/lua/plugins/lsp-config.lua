@@ -88,7 +88,6 @@ return {
 
       ['tailwindcss'] = function()
         lspconfig['tailwindcss'].setup({
-          filetypes = { 'html', 'css', 'sass', 'scss', 'javascriptreact', 'typescriptreact,' },
           capabilities = cmp_capabilities,
           root_dir = function(fname) -- Will only attach if root of project has a tailwind config file
             local root_pattern =
