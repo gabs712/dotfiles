@@ -97,10 +97,3 @@ vim.fn.sign_define('DiagnosticSignError', { text = icons.diagnostics.error })
 vim.fn.sign_define('DiagnosticSignWarn', { text = icons.diagnostics.warn })
 vim.fn.sign_define('DiagnosticSignInfo', { text = icons.diagnostics.info })
 vim.fn.sign_define('DiagnosticSignHint', { text = icons.diagnostics.hint })
-
--- Treat 'ejs' like 'html'
-vim.filetype.add({
-  extension = {
-    ejs = 'html',
-  },
-})

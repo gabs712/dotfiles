@@ -13,8 +13,10 @@ return {
         -- Formatters
         formatting.stylua,
         formatting.prettier.with({
+          -- Treats '.ejs' as if it was '.html'
+          extra_filetypes = { 'ejs' },
           extra_args = function(params)
-            if params.bufname:match('%.ejs$') then -- Treats '.ejs' as if it was '.html'
+            if params.bufname:match('%.ejs$') then
               return { '--parser', 'html' }
             end
             return {}

@@ -31,5 +31,13 @@ return {
         'tmux',
       },
     })
+
+    vim.filetype.add({
+      extension = {
+        ejs = 'ejs',
+      },
+    })
+
+    vim.treesitter.language.register('html', 'ejs')
   end,
 }
