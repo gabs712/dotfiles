@@ -76,9 +76,9 @@ return {
   },
   {
     mode = 'n',
-    lhs = '<leader>fr',
+    lhs = '<leader>fo',
     rhs = builtin.oldfiles,
-    obj = { desc = 'Find recent files' },
+    obj = { desc = 'Find old files' },
   },
   {
     mode = 'n',
