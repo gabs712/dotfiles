@@ -46,6 +46,13 @@ return {
         lspconfig['emmet_ls'].setup({
           filetypes = filetypes,
           capabilities = cmp_capabilities,
+          init_options = {
+            jsx = {
+              options = { -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+                ['output.selfClosingStyle'] = 'xhtml', -- Closes self closing tags with a space before the slash
+              },
+            },
+          },
         })
       end,
 
