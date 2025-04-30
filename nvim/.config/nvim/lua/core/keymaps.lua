@@ -85,9 +85,9 @@ vim.keymap.set('x', '<C-y>', '"+y', { desc = 'Yank selection to OS' })
 vim.keymap.set({ 'n', 'x' }, 'gY', '"+y$', { desc = 'Yank remaining line to OS' })
 
 -- Use 'x' as alternative to black hole register
-vim.keymap.set({ 'n', 'x' }, 'x', '"_x')
-vim.keymap.set('n', 'X', '"_X')
-vim.keymap.set('x', 'X', '"_d') -- Also substitutes behavior of deleting line when using 'X' on 'v' mode
+-- vim.keymap.set({ 'n', 'x' }, 'x', '"_x')
+-- vim.keymap.set('n', 'X', '"_X')
+-- vim.keymap.set('x', 'X', '"_d') -- Also substitutes behavior of deleting line when using 'X' on 'v' mode
 
 vim.keymap.set({ 'n', 'x', 's' }, '<c-w>t', '<cmd>tabnew<CR>', { desc = 'Create tab' })
 
