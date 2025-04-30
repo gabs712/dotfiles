@@ -1,4 +1,4 @@
--- Sets extensions for ejs and treat's it as html on treesitter (lsp is configured separately)
+-- Sets extensions for ejs and treats it as html on treesitter (lsp is configured separately)
 vim.filetype.add({
   extension = {
     ejs = 'ejs',
