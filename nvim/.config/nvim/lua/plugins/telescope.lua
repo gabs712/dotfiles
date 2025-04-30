@@ -5,8 +5,6 @@ return {
     'nvim-lua/plenary.nvim',
   },
   config = function()
-    require('custom.helpers').shell_movements('TelescopePrompt')
-
     local actions = require('telescope.actions')
     local builtin = require('telescope.builtin')
 
