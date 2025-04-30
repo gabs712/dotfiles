@@ -1,4 +1,5 @@
 require('core.options')
 require('core.keymaps')
+require('core.misc')
 require('core.autocmds')
 require('core.lazy-nvim')
