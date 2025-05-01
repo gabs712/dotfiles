@@ -1,3 +1,20 @@
+-- Leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- Clear keys (keep close to top to avoid side effects)
+vim.keymap.set({ 'n', 'x', 's' }, '<C-b>', '<Nop>')
+vim.keymap.set({ 'n', 'x', 's' }, '<C-f>', '<Nop>')
+vim.keymap.set('c', '<C-d>', '<Nop>') -- Causes conflicts with completion
+vim.keymap.set({ 'n', 'x' }, '<Space>', '<Nop>')
+vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
+
+vim.keymap.del('n', 'grr')
+vim.keymap.del('n', 'gra')
+vim.keymap.del('x', 'gra')
+vim.keymap.del('n', 'grn')
+vim.keymap.del('n', 'gri')
+
 -- Dismiss highlights and floating windows
 vim.keymap.set('n', '<Esc>', function()
   vim.cmd('nohlsearch')
@@ -38,8 +55,8 @@ vim.keymap.set('n', ')', 'g+', { desc = 'Redo non-lineraly' })
 -- Shell-like command movements
 vim.keymap.set('c', '<C-f>', '<Right>')
 vim.keymap.set('c', '<C-b>', '<Left>')
-vim.keymap.set('c', '<C-a>', '<C-b>')
--- <C-e> is mapped by default
+vim.keymap.set('c', '<C-a>', '<Home>')
+vim.keymap.set('c', '<C-e>', '<End>')
 
 -- Facilitate indent
 vim.keymap.set('x', '>', '>gv')
@@ -47,21 +64,6 @@ vim.keymap.set('x', '<', '<gv')
 
 -- Alternative to ge
 vim.keymap.set({ 'n', 'x', 'o' }, '<C-b>', 'ge', { desc = 'Go to the end of last word', remap = true })
-
--- Clear remaining <C-b> / <C-f> bindings
-vim.keymap.set('s', '<C-b>', '<Nop>')
-vim.keymap.set({ 'n', 'x', 's' }, '<C-f>', '<Nop>')
-
-vim.keymap.set('c', '<C-d>', '<Nop>') -- Causes conflicts with completion
-vim.keymap.set({ 'n', 'x' }, '<Space>', '<Nop>')
-vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
-
--- Clear gr keys
-vim.keymap.del('n', 'grr')
-vim.keymap.del('n', 'gra')
-vim.keymap.del('x', 'gra')
-vim.keymap.del('n', 'grn')
-vim.keymap.del('n', 'gri')
 
 -- With strings, when using "a" on operator-pending mode or visual modes, not include extra whitespace
 vim.keymap.set({ 'o', 'x' }, "a'", "2i'")

@@ -1,7 +1,3 @@
--- Leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 -- By default, nvim writes to a temp file and then rename it when saving.
 -- Because of that, some programs trying to watch the file can lost track of it.
 -- This option writes directly to the file, preventing possible issues.
