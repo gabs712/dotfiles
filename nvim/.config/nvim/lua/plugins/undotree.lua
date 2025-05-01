@@ -19,8 +19,8 @@ return {
         vim.keymap.set('n', 'g-', '<plug>UndotreePreviousState', { buffer = true })
         vim.keymap.set('n', 'g+', '<plug>UndotreeNextState', { buffer = true })
 
-        vim.keymap.set('n', '(', '<plug>UndotreePreviousState', { buffer = true })
-        vim.keymap.set('n', ')', '<plug>UndotreeNextState', { buffer = true })
+        vim.keymap.set('n', require('custom.bindings').timeline_undo, '<plug>UndotreePreviousState', { buffer = true })
+        vim.keymap.set('n', require('custom.bindings').timeline_redo, '<plug>UndotreeNextState', { buffer = true })
       end,
     })
   end,

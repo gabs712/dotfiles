@@ -49,8 +49,8 @@ vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code actions
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
 
 -- Undo
-vim.keymap.set('n', '(', 'g-', { desc = 'Undo non-lineraly' })
-vim.keymap.set('n', ')', 'g+', { desc = 'Redo non-lineraly' })
+vim.keymap.set('n', require('custom.bindings').timeline_undo, 'g-', { desc = 'Timeline undo' })
+vim.keymap.set('n', require('custom.bindings').timeline_redo, 'g+', { desc = 'Timeline redo' })
 
 -- Shell-like command movements
 vim.keymap.set('c', '<C-f>', '<Right>')
