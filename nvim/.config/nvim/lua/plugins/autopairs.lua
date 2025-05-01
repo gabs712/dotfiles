@@ -1,8 +1,19 @@
 return {
-  'windwp/nvim-autopairs',
+  'windwp/nvim-autopairs', -- General pairs and <CR> indent behavior
+  dependencies = {
+    'windwp/nvim-ts-autotag', -- Closing html tags
+  },
   config = function()
-    local pairs = require('nvim-autopairs')
+    require('nvim-ts-autotag').setup({
+      opts = {
+        enable_close_on_slash = true,
+      },
+      aliases = {
+        ['ejs'] = 'html',
+      },
+    })
 
+    local pairs = require('nvim-autopairs')
     pairs.setup({
       disable_filetype = {
         'TelescopePrompt',
@@ -29,8 +40,5 @@ return {
       Rule('<!--', '-->', { 'ejs' }):with_cr(cond.none()),
       Rule('>[%w%s]*$', '^%s*</', { 'ejs' }):only_cr():use_regex(true),
     })
-
-    -- Indent pairs with C-j
-    vim.keymap.set('i', '<C-j>', '<CR>', { remap = true })
   end,
 }
