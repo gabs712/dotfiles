@@ -72,11 +72,11 @@ return {
       },
       completion = {
         completeopt = 'menu', -- ',noselect' prevents from selecting automatically
-        -- Don't trigger completion after spaces, particullarly useful when writting tailwind classes
+        -- Don't trigger completion after spaces or quotes, particullarly useful when writting tailwind classes
         get_trigger_characters = function(chars)
           local new_chars = {}
           for _, char in ipairs(chars) do
-            if char ~= ' ' then
+            if char ~= ' ' and char ~= "'" and char ~= '"' then
               table.insert(new_chars, char)
             end
           end
