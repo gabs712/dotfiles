@@ -1,7 +1,9 @@
 return {
   'windwp/nvim-autopairs',
   config = function()
-    require('nvim-autopairs').setup({
+    local pairs = require('nvim-autopairs')
+
+    pairs.setup({
       disable_filetype = {
         'TelescopePrompt',
         'harpoon',
@@ -18,6 +20,14 @@ return {
       map_bs = true,
       map_c_h = true,
       map_c_w = true,
+    })
+
+    local Rule = require('nvim-autopairs.rule')
+    local cond = require('nvim-autopairs.conds')
+
+    pairs.add_rules({
+      Rule('<!--', '-->', { 'ejs' }):with_cr(cond.none()),
+      Rule('>[%w%s]*$', '^%s*</', { 'ejs' }):only_cr():use_regex(true),
     })
 
     -- Indent pairs with C-j
