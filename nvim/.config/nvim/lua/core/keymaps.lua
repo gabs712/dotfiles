@@ -9,6 +9,9 @@ vim.keymap.set('n', '<Esc>', function()
   end
 end, { desc = 'Clear highlights and popups' })
 
+-- <C-j> works with plugins that remap <CR> (ie. autopairs)
+vim.keymap.set('i', '<C-j>', '<CR>', { remap = true })
+
 vim.keymap.set(
   'n',
   '<C-Space>',
