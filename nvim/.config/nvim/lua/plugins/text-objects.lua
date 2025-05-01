@@ -150,9 +150,11 @@ return {
 
     -- Repeatable diagnostic move
     local next_diagnostic, prev_diagnostic = ts_repeat_move.make_repeatable_move_pair(function()
-      vim.diagnostic.jump({ count = 1 })
+      local count = vim.v.count > 0 and vim.v.count or 1
+      vim.diagnostic.jump({ count = count })
     end, function()
-      vim.diagnostic.jump({ count = -1 })
+      local count = vim.v.count > 0 and vim.v.count or 1
+      vim.diagnostic.jump({ count = -count })
     end)
 
     vim.keymap.set({ 'n', 'x', 'o' }, ']d', next_diagnostic, { desc = 'Next diagnostic' })
@@ -162,9 +164,11 @@ return {
 
     -- Quickfix
     local next_quickfix, prev_quickfix = ts_repeat_move.make_repeatable_move_pair(function()
-      vim.cmd('cnext')
+      local count = vim.v.count > 0 and vim.v.count or 1
+      vim.cmd('cnext ' .. count)
     end, function()
-      vim.cmd('cprev')
+      local count = vim.v.count > 0 and vim.v.count or 1
+      vim.cmd('cprev ' .. count)
     end)
 
     vim.keymap.set({ 'n', 'x', 'o' }, ']q', next_quickfix, { desc = 'Next quickfix ' })
