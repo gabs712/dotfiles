@@ -3,7 +3,7 @@ local icons = require('custom.icons')
 
 return {
   {
-    mode = { 'n', 's' },
+    mode = 'n',
     lhs = '<C-f>',
     rhs = builtin.find_files,
     obj = { desc = 'Find files' },

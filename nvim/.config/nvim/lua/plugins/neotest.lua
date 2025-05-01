@@ -76,10 +76,10 @@ return {
       require('neotest').output.open({ enter = true, last_run = true })
     end, { desc = 'Toggle neotest output' })
 
-    -- vim.keymap.set({ 'n', 'x', 's' }, '<C-t>', function()
+    -- vim.keymap.set('n', '<C-t>', function()
     --   require('neotest').watch.toggle(vim.fn.expand('%'))
     -- end, { desc = 'Run and watch tests from neotest' })
-    -- vim.keymap.set({ 'n', 'x', 's' }, '<C-t>', function()
+    -- vim.keymap.set('n', '<C-t>', function()
     --   require('neotest').run.run(vim.fn.expand('%'))
     -- end, { desc = 'Run tests from neotest' })
   end,
