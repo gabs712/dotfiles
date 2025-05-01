@@ -5,10 +5,13 @@ vim.g.maplocalleader = ' '
 -- Clear keys (keep close to top to avoid side effects)
 vim.keymap.set({ 'n', 'x', 's' }, '<C-b>', '<Nop>')
 vim.keymap.set({ 'n', 'x', 's' }, '<C-f>', '<Nop>')
+vim.keymap.set({ 'n', 'x', 's' }, '<C-e>', '<Nop>')
+vim.keymap.set({ 'n', 'x', 's' }, '<C-y>', '<Nop>')
 vim.keymap.set('c', '<C-d>', '<Nop>') -- Causes conflicts with completion
 vim.keymap.set({ 'n', 'x' }, '<Space>', '<Nop>')
 vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
 
+-- Defualt lsp bindings
 vim.keymap.del('n', 'grr')
 vim.keymap.del('n', 'gra')
 vim.keymap.del('x', 'gra')
