@@ -46,6 +46,14 @@ return {
       end
     end
 
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'harpoon',
+      callback = function()
+        -- Go to normal mode when saving
+        vim.keymap.set({ 'n', 'i', 'x', 's' }, '<C-s>', '<Esc><cmd>w<CR>', { buffer = true })
+      end,
+    })
+
     vim.keymap.set('n', '<C-l>', function()
       select(1)
     end, { desc = 'Go to harpoon mark 1' })
