@@ -119,6 +119,9 @@ return {
           noCamelToPascalCase = false,
         },
       },
+      notify = {
+        whenObjectNotFound = false,
+      },
     })
 
     -- camelCase, snake_case, kebab-case
