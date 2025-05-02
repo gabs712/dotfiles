@@ -22,7 +22,26 @@ local comparators = vim.list_extend({
   end,
 }, require('custom.nvim-cmp.global_comparators'))
 
-local jsx_config = {
+local lsp_filter = function(entry)
+  local cursor_node = ts_utils.get_node_at_cursor()
+
+  -- Only shows emmet suggestions inside of jsx elements
+  local is_emmet = types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
+    and entry.source:get_debug_name() == 'nvim_lsp:emmet_ls'
+
+  if is_emmet then
+    if cursor_node:type() ~= 'jsx_text' then
+      return false
+    end
+  end
+
+  return true
+end
+
+local cmp = require('cmp')
+local completion_trigger = require('custom.nvim-cmp.completion_trigger')
+
+return {
   sources = {
     {
       name = 'luasnip',
@@ -61,21 +80,7 @@ local jsx_config = {
     },
     {
       name = 'nvim_lsp',
-      entry_filter = function(entry)
-        local cursor_node = ts_utils.get_node_at_cursor()
-
-        -- Only shows emmet suggestions inside of jsx elements
-        local is_emmet = types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
-          and entry.source:get_debug_name() == 'nvim_lsp:emmet_ls'
-
-        if is_emmet then
-          if cursor_node:type() ~= 'jsx_text' then
-            return false
-          end
-        end
-
-        return true
-      end,
+      entry_filter = lsp_filter,
     },
     {
       name = 'buffer',
@@ -84,10 +89,13 @@ local jsx_config = {
       name = 'path',
     },
   },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-Space>'] = completion_trigger({
+      { name = 'nvim_lsp', entry_filter = lsp_filter },
+    }),
+  }),
   sorting = {
     priority_weight = 2,
     comparators = comparators,
   },
 }
-
-return jsx_config

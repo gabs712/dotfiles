@@ -17,6 +17,7 @@ return {
     local cmp = require('cmp')
     local luasnip = require('luasnip')
     local lspkind = require('lspkind')
+    local completion_trigger = require('custom.nvim-cmp.completion_trigger')
 
     -- Max completion height
     vim.opt.pumheight = 15
@@ -87,25 +88,9 @@ return {
         ['<C-j>'] = cmp.mapping.confirm({ select = true }),
 
         -- Show completion / toggle docs
-        ['<C-Space>'] = cmp.mapping(function()
-          if cmp.visible() then
-            if cmp.visible_docs() then
-              cmp.close_docs()
-            else
-              cmp.open_docs()
-            end
-            return
-          end
-
-          cmp.complete({
-            config = {
-              sources = {
-                { name = 'nvim_lsp' },
-              },
-            },
-          })
-        end, { 'i', 'c' }),
-
+        ['<C-Space>'] = completion_trigger({
+          { name = 'nvim_lsp' },
+        }),
         ['<C-c>'] = cmp.abort,
 
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
