@@ -50,7 +50,6 @@ local css_config = {
         return true
       end,
     },
-    { name = 'buffer' },
     { name = 'path' },
   },
   sorting = {
