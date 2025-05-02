@@ -65,10 +65,10 @@ local jsx_config = {
         local cursor_node = ts_utils.get_node_at_cursor()
 
         -- Only shows emmet suggestions inside of jsx elements
-        if
-          types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
+        local is_emmet = types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
           and entry.source:get_debug_name() == 'nvim_lsp:emmet_ls'
-        then
+
+        if is_emmet then
           if cursor_node:type() ~= 'jsx_text' then
             return false
           end
