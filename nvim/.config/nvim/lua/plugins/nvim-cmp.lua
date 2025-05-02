@@ -174,49 +174,6 @@ return {
 
     require('custom.nvim-cmp.command_keys')
 
-    -- Completion for DAP
-    local dap_sources = {
-      { name = 'dap' },
-    }
-    require('cmp').setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
-      sources = dap_sources,
-      completion = {
-        completeopt = 'noselect',
-      },
-      mapping = cmp.mapping.preset.insert({
-        ['<C-j>'] = cmp.mapping(function()
-          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', true)
-        end),
-
-        ['<Tab>'] = function()
-          if not cmp.visible() then
-            cmp.complete()
-            cmp.select_next_item()
-            return
-          end
-
-          cmp.select_next_item()
-        end,
-
-        ['<S-Tab>'] = function()
-          if not cmp.visible() then
-            cmp.complete()
-            cmp.select_prev_item()
-            return
-          end
-
-          cmp.select_prev_item()
-        end,
-
-        ['<C-c>'] = cmp.abort,
-
-        -- Doesn't seem to support docs
-        ['<C-Space>'] = completion_trigger(dap_sources),
-        ['<C-e>'] = cmp.config.disable,
-        ['<C-y>'] = cmp.config.disable,
-      }),
-    })
-
     -- Custom completions
     require('custom.nvim-cmp.completion_init')
   end,

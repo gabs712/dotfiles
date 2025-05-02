@@ -5,7 +5,7 @@ vim.keymap.set('c', '<Tab>', function() -- <S-Tab> automatically mapped by nvim,
     cmp.complete()
     cmp.select_next_item()
 
-    if #cmp.get_entries() == 1 then
+    if #cmp.get_entries() == 1 then -- Only works with noselect completeopt for some reason. Therefore the extra select
       cmp.close()
     end
   else

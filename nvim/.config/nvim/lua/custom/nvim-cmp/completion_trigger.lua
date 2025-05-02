@@ -11,6 +11,11 @@ return function(sources)
       return
     end
 
+    if not sources then
+      cmp.complete()
+      return
+    end
+
     cmp.complete({
       config = {
         sources = sources,
