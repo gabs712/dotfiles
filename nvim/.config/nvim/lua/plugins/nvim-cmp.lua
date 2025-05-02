@@ -17,6 +17,7 @@ return {
     local cmp = require('cmp')
     local luasnip = require('luasnip')
     local lspkind = require('lspkind')
+
     local completion_trigger = require('custom.nvim-cmp.completion_trigger')
 
     -- Max completion height
@@ -174,10 +175,11 @@ return {
     require('custom.nvim-cmp.command-keys')
 
     -- Completion for DAP
+    local dap_sources = {
+      { name = 'dap' },
+    }
     require('cmp').setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
-      sources = {
-        { name = 'dap' },
-      },
+      sources = dap_sources,
       completion = {
         completeopt = 'noselect',
       },
@@ -186,8 +188,30 @@ return {
           vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', true)
         end),
 
+        ['<Tab>'] = function()
+          if not cmp.visible() then
+            cmp.complete()
+            cmp.select_next_item()
+            return
+          end
+
+          cmp.select_next_item()
+        end,
+
+        ['<S-Tab>'] = function()
+          if not cmp.visible() then
+            cmp.complete()
+            cmp.select_prev_item()
+            return
+          end
+
+          cmp.select_prev_item()
+        end,
+
         ['<C-c>'] = cmp.abort,
 
+        -- Doesn't seem to support docs
+        ['<C-Space>'] = cmp.config.disable,
         ['<C-e>'] = cmp.config.disable,
         ['<C-y>'] = cmp.config.disable,
       }),
