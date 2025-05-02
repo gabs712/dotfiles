@@ -28,14 +28,23 @@ local css_config = {
       entry_filter = function(entry)
         local cursor_node = ts_utils.get_node_at_cursor()
 
-        -- Only shows emmet suggestions inside of css blocks
-        if
-          types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
+        local is_emmet = types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
           and entry.source:get_debug_name() == 'nvim_lsp:emmet_ls'
-        then
-          if cursor_node:type() ~= 'block' then
-            return false
+
+        -- Shows emmet completion only on empty part of block
+        if is_emmet then
+          local current = cursor_node
+          while current:parent() do
+            if current:type() == 'declaration' then
+              return false
+            end
+            if current:type() == 'block' then
+              return true
+            end
+            current = current:parent()
           end
+
+          return false
         end
 
         return true
