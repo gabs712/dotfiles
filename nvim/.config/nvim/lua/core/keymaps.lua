@@ -142,3 +142,6 @@ vim.keymap.set('n', ']t', 'gt', { desc = 'Go to next tab' })
 
 -- Quickfix popup keymaps
 require('custom.helpers').map_ctrl_j('qf', false)
+
+-- inspectTree
+require('custom.helpers').map_ctrl_j('query')
