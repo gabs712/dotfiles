@@ -41,7 +41,7 @@ for _, adapterType in ipairs({ 'node', 'chrome', 'msedge' }) do
   end
 end
 
-local find_preferred_file = require('custom.debugger.find-preferred-file')
+local find_preferred_file = require('custom.debugger.find_preferred_file')
 for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' }) do
   dap.configurations[language] = {
     {
@@ -58,7 +58,7 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
       type = 'pwa-chrome',
       request = 'launch',
       name = 'Launch Chrome',
-      url = require('custom.debugger.enter-launch-url'),
+      url = require('custom.debugger.enter_launch_url'),
       webRoot = '${workspaceFolder}',
       sourceMaps = true,
     },
@@ -86,7 +86,7 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
       type = 'pwa-msedge',
       request = 'launch',
       name = 'Launch Edge',
-      url = require('custom.debugger.enter-launch-url'),
+      url = require('custom.debugger.enter_launch_url'),
       webRoot = '${workspaceFolder}',
       sourceMaps = true,
     },

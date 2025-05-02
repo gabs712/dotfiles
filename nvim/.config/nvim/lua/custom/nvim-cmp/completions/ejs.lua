@@ -1,7 +1,7 @@
 local cmp = require('cmp')
 local ts_utils = require('nvim-treesitter.ts_utils')
 
-local emmet_on_element = require('custom.nvim-cmp.completions.utils.emmet-on-elemnt')
+local emmet_on_element = require('custom.nvim-cmp.completions.utils.emmet_on_element')
 
 local completion_trigger = require('custom.nvim-cmp.completion_trigger')
 return {

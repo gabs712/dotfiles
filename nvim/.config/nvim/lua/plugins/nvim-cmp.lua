@@ -172,7 +172,7 @@ return {
       }),
     })
 
-    require('custom.nvim-cmp.command-keys')
+    require('custom.nvim-cmp.command_keys')
 
     -- Completion for DAP
     local dap_sources = {
@@ -218,6 +218,6 @@ return {
     })
 
     -- Custom completions
-    require('custom.nvim-cmp.completion-init')
+    require('custom.nvim-cmp.completion_init')
   end,
 }
