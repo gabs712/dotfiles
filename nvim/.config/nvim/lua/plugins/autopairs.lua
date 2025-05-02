@@ -1,12 +1,13 @@
 return {
   'windwp/nvim-autopairs', -- General pairs and <CR> indent behavior
   dependencies = {
-    'windwp/nvim-ts-autotag', -- Closing html tags
+    'windwp/nvim-ts-autotag', -- Closes and rename html tags pairs
   },
   config = function()
     require('nvim-ts-autotag').setup({
       opts = {
         enable_close_on_slash = true,
+        enable_rename = true,
       },
       aliases = {
         ['ejs'] = 'html',
