@@ -123,6 +123,7 @@ return {
         completeopt = 'noselect',
       },
       mapping = cmp.mapping.preset.cmdline({
+        ['<C-Space>'] = cmp.config.disable,
         ['<Tab>'] = cmp.config.disable,
         ['<C-n>'] = cmp.config.disable,
         ['<C-p>'] = cmp.config.disable,
@@ -160,6 +161,7 @@ return {
         autocomplete = false,
       },
       mapping = cmp.mapping.preset.cmdline({
+        ['<C-Space>'] = cmp.config.disable,
         ['<Tab>'] = cmp.config.disable,
         ['<C-n>'] = cmp.config.disable,
         ['<C-p>'] = cmp.config.disable,
