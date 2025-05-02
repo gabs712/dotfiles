@@ -12,8 +12,8 @@ return {
           lookahead = true, -- Jump to next ocurrence if not inside any
 
           keymaps = {
-            ['iv'] = { query = '@assignment.inner', desc = 'Select inside variable' },
-            ['av'] = { query = '@assignment.outer', desc = 'Select around variable' },
+            ['iv'] = { query = '@assignment.rhs', desc = 'Select inside (right) variable' },
+            ['av'] = { query = '@assignment.lhs', desc = 'Select around (left) variable' },
 
             ['if'] = { query = '@function.inner', desc = 'Select inside function' },
             ['af'] = { query = '@function.outer', desc = 'Select around function' },
