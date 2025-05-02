@@ -125,9 +125,6 @@ return {
         },
       },
     })
-    -- Clear swap keys
-    vim.keymap.set('n', 'H', '<Nop>')
-    vim.keymap.set('n', 'L', '<Nop>')
 
     local various = require('various-textobjs')
     require('various-textobjs').setup({

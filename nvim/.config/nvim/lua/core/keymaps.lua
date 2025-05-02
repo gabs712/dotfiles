@@ -11,6 +11,8 @@ vim.keymap.set('c', '<C-d>', '<Nop>') -- Causes conflicts with completion
 vim.keymap.set({ 'n', 'x' }, '<Space>', '<Nop>')
 vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
 vim.keymap.set('i', '<C-Space>', '<Nop>')
+vim.keymap.set('n', 'H', '<Nop>')
+vim.keymap.set('n', 'L', '<Nop>')
 
 -- Defualt lsp bindings
 vim.keymap.del('n', 'grr')
