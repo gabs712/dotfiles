@@ -16,5 +16,5 @@ return function(sources)
         sources = sources,
       },
     })
-  end, { 'i', 'c' })
+  end, { 'i' })
 end

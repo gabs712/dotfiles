@@ -211,7 +211,7 @@ return {
         ['<C-c>'] = cmp.abort,
 
         -- Doesn't seem to support docs
-        ['<C-Space>'] = cmp.config.disable,
+        ['<C-Space>'] = completion_trigger(dap_sources),
         ['<C-e>'] = cmp.config.disable,
         ['<C-y>'] = cmp.config.disable,
       }),
