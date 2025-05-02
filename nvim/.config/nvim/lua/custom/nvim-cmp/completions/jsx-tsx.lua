@@ -89,7 +89,7 @@ return {
       name = 'path',
     },
   },
-  mapping = cmp.mapping.preset.insert({
+  mapping = cmp.mapping({
     ['<C-Space>'] = completion_trigger({
       { name = 'nvim_lsp', entry_filter = lsp_filter },
     }),

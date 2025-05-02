@@ -85,20 +85,21 @@ return {
           return new_chars
         end,
       },
-      mapping = cmp.mapping.preset.insert({
+      mapping = cmp.mapping({
         ['<C-j>'] = cmp.mapping.confirm({ select = true }),
 
         -- Show completion / toggle docs
         ['<C-Space>'] = completion_trigger({
           { name = 'nvim_lsp' },
         }),
+
+        ['<C-n>'] = cmp.mapping.select_next_item(),
+        ['<C-p>'] = cmp.mapping.select_prev_item(),
+
         ['<C-c>'] = cmp.abort,
 
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-
-        ['<C-e>'] = cmp.config.disable,
-        ['<C-y>'] = cmp.config.disable,
       }),
     })
 
@@ -123,15 +124,6 @@ return {
       completion = {
         completeopt = 'noselect',
       },
-      mapping = cmp.mapping.preset.cmdline({
-        ['<C-Space>'] = cmp.config.disable,
-        ['<Tab>'] = cmp.config.disable,
-        ['<C-n>'] = cmp.config.disable,
-        ['<C-p>'] = cmp.config.disable,
-        ['<C-e>'] = cmp.config.disable,
-        ['<C-y>'] = cmp.config.disable,
-        ['<C-c>'] = cmp.config.disable,
-      }),
     })
 
     -- Cmd mode config
@@ -161,15 +153,6 @@ return {
         completeopt = 'noselect',
         autocomplete = false,
       },
-      mapping = cmp.mapping.preset.cmdline({
-        ['<C-Space>'] = cmp.config.disable,
-        ['<Tab>'] = cmp.config.disable,
-        ['<C-n>'] = cmp.config.disable,
-        ['<C-p>'] = cmp.config.disable,
-        ['<C-e>'] = cmp.config.disable,
-        ['<C-y>'] = cmp.config.disable,
-        ['<C-c>'] = cmp.config.disable,
-      }),
     })
 
     require('custom.nvim-cmp.command_keys')

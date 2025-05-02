@@ -5,7 +5,7 @@ return {
   sources = {
     { name = 'dap' },
   },
-  mapping = cmp.mapping.preset.insert({
+  mapping = cmp.mapping({
     ['<C-j>'] = cmp.mapping(function()
       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', true)
     end),
@@ -28,12 +28,7 @@ return {
       cmp.select_prev_item()
     end,
 
-    ['<C-c>'] = cmp.abort,
-
     -- Doesn't seem to support docs
     ['<C-Space>'] = completion_trigger(),
-
-    ['<C-e>'] = cmp.config.disable,
-    ['<C-y>'] = cmp.config.disable,
   }),
 }
