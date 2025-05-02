@@ -52,6 +52,11 @@ return {
                 ['output.selfClosingStyle'] = 'xhtml', -- Closes self closing tags with a space before the slash
               },
             },
+            html = {
+              options = {
+                ['output.selfClosingStyle'] = 'xhtml',
+              },
+            },
           },
         })
       end,
