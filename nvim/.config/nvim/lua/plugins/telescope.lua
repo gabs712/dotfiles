@@ -26,6 +26,19 @@ return {
           },
         },
       },
+      pickers = {
+        git_status = {
+          mappings = {
+            i = {
+              ['<C-g>'] = actions.git_staging_toggle,
+              ['<Tab>'] = function(bufnr)
+                actions.toggle_selection(bufnr)
+                actions.move_selection_previous(bufnr)
+              end,
+            },
+          },
+        },
+      },
     })
 
     for _, b in ipairs(require('custom.telescope.bindings')) do
