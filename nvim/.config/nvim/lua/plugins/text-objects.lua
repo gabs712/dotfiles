@@ -36,7 +36,7 @@ return {
             ['ic'] = { query = '@comment.outer', desc = 'Select inside comment' }, -- @comment.inner not implemented for most languages
             ['ac'] = { query = '@comment.outer', desc = 'Select around comment' },
 
-            ['it'] = { query = '@statement.inner', desc = 'Select inside statement' }, -- Usually doesn't work
+            ['it'] = { query = '@statement.outer', desc = 'Select inside statement' }, -- @statement.inner tipically doesn't work
             ['at'] = { query = '@statement.outer', desc = 'Select around statement' },
 
             ['an'] = { query = '@number.inner', desc = 'Select number' },
