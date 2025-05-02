@@ -15,6 +15,8 @@ return {
   },
   config = function()
     local cmp = require('cmp')
+    local types = require('cmp.types')
+
     local luasnip = require('luasnip')
     local lspkind = require('lspkind')
 
@@ -90,7 +92,17 @@ return {
 
         -- Show completion / toggle docs
         ['<C-Space>'] = completion_trigger({
-          { name = 'nvim_lsp' },
+          { -- Only shows lsp completions that are not snippets
+            name = 'nvim_lsp',
+            entry_filter = function(entry)
+              local is_snippet = types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
+              if is_snippet then
+                return false
+              end
+
+              return true
+            end,
+          },
         }),
 
         ['<C-n>'] = cmp.mapping.select_next_item(),
