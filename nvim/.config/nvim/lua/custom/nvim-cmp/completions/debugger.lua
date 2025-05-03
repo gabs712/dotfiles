@@ -5,6 +5,9 @@ return {
   sources = {
     { name = 'dap' },
   },
+  completion = {
+    completeopt = 'noselect',
+  },
   mapping = cmp.mapping({
     ['<C-j>'] = cmp.mapping(function()
       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', true)
@@ -13,6 +16,7 @@ return {
     ['<Tab>'] = function()
       if not cmp.visible() then
         cmp.complete()
+        cmp.select_next_item()
         return
       end
 
@@ -22,6 +26,7 @@ return {
     ['<S-Tab>'] = function()
       if not cmp.visible() then
         cmp.complete()
+        cmp.select_prev_item()
         return
       end
 

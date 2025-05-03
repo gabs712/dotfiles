@@ -76,7 +76,7 @@ return {
         end,
       },
       completion = {
-        completeopt = 'menu', -- ',noselect' prevents from selecting automatically
+        completeopt = 'menu', -- 'noselect' prevents from selecting automatically
         -- Don't trigger completion after spaces or quotes, particullarly useful when writting tailwind classes
         get_trigger_characters = function(chars)
           local new_chars = {}
