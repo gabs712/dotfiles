@@ -94,6 +94,9 @@ return {
       sources = {
         { name = 'nvim_lsp', entry_filter = lsp_filter },
       },
+      sorting = {
+        comparators = comparators,
+      },
     }),
   }),
   sorting = {
