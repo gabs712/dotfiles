@@ -36,6 +36,12 @@ return {
           ['S'] = 'none',
           ['<C-f>'] = 'none',
           ['<C-b>'] = 'none',
+          ['<Esc>'] = 'none',
+
+          ['g?'] = 'show_help',
+          ['/'] = 'none',
+
+          ['?'] = 'none',
 
           ['l'] = 'open',
           ['h'] = 'close_node',
