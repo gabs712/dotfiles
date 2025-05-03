@@ -104,7 +104,9 @@ vim.keymap.set({ 'n', 'x' }, 'gY', '"+y$', { desc = 'Yank remaining line to OS' 
 -- vim.keymap.set('n', 'X', '"_X')
 -- vim.keymap.set('x', 'X', '"_d') -- Also substitutes behavior of deleting line when using 'X' on 'v' mode
 
-vim.keymap.set({ 'n', 'x' }, '<C-t>', '<cmd>tabnew<CR>', { desc = 'Create tab' })
+-- Tab
+vim.keymap.set({ 'n', 'x' }, '<C-w>t', '<cmd>tabnew<CR>', { desc = 'Create tab' })
+vim.keymap.set({ 'n', 'x' }, '<C-w>O', '<cmd>tabo<CR>', { desc = 'Tab only' })
 
 -- Improve repetitive window movements
 vim.keymap.set({ 'n', 'x' }, '<C-w>H', '<C-w>H<C-w>', { remap = true })
