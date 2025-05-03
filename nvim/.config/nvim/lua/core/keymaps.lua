@@ -105,8 +105,18 @@ vim.keymap.set({ 'n', 'x' }, 'gY', '"+y$', { desc = 'Yank remaining line to OS' 
 -- vim.keymap.set('x', 'X', '"_d') -- Also substitutes behavior of deleting line when using 'X' on 'v' mode
 
 -- Tab
-vim.keymap.set({ 'n', 'x' }, '<C-w>t', '<cmd>tabnew<CR>', { desc = 'Create tab' })
+vim.keymap.set({ 'n', 'x' }, '<C-t>', '<cmd>tabnew<CR>', { desc = 'Create tab' })
 vim.keymap.set({ 'n', 'x' }, '<C-w>O', '<cmd>tabo<CR>', { desc = 'Tab only' })
+
+vim.keymap.set({ 'n', 'x' }, 'g1', '<cmd>tabn 1<CR>', { desc = 'Go to tab n1' })
+vim.keymap.set({ 'n', 'x' }, 'g2', '<cmd>tabn 2<CR>', { desc = 'Go to tab n2' })
+vim.keymap.set({ 'n', 'x' }, 'g3', '<cmd>tabn 3<CR>', { desc = 'Go to tab n3' })
+vim.keymap.set({ 'n', 'x' }, 'g4', '<cmd>tabn 4<CR>', { desc = 'Go to tab n4' })
+vim.keymap.set({ 'n', 'x' }, 'g5', '<cmd>tabn 5<CR>', { desc = 'Go to tab n5' })
+vim.keymap.set({ 'n', 'x' }, 'g6', '<cmd>tabn 6<CR>', { desc = 'Go to tab n6' })
+vim.keymap.set({ 'n', 'x' }, 'g7', '<cmd>tabn 7<CR>', { desc = 'Go to tab n7' })
+vim.keymap.set({ 'n', 'x' }, 'g8', '<cmd>tabn 8<CR>', { desc = 'Go to tab n8' })
+vim.keymap.set({ 'n', 'x' }, 'g9', '<cmd>tabn 9<CR>', { desc = 'Go to tab n9' })
 
 -- Improve repetitive window movements
 vim.keymap.set({ 'n', 'x' }, '<C-w>H', '<C-w>H<C-w>', { remap = true })
