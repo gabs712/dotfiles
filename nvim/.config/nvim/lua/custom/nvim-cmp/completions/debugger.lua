@@ -1,9 +1,8 @@
 local cmp = require('cmp')
-local completion_trigger = require('custom.nvim-cmp.completion_trigger')
 
 return {
   sources = {
-    { name = 'dap' },
+    { name = 'dap' }, -- Doesn't support docs
   },
   completion = {
     completeopt = 'noselect',
@@ -33,7 +32,6 @@ return {
       cmp.select_prev_item()
     end,
 
-    -- Doesn't seem to support docs
-    ['<C-Space>'] = completion_trigger(),
+    ['<C-Space>'] = require('custom.nvim-cmp.toggle_completion'),
   }),
 }

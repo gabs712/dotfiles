@@ -26,18 +26,7 @@ vim.keymap.set('c', '<S-Tab>', function()
   end
 end)
 
-vim.keymap.set('c', '<C-Space>', function()
-  if cmp.visible() then
-    if cmp.visible_docs() then
-      cmp.close_docs()
-    else
-      cmp.open_docs()
-    end
-    return
-  end
-
-  cmp.complete()
-end)
+vim.keymap.set('c', '<C-Space>', require('custom.nvim-cmp.toggle_completion'))
 
 vim.keymap.set('c', '<C-n>', function()
   if cmp.visible() then
