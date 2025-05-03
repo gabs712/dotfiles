@@ -55,15 +55,20 @@ return {
     { name = 'nvim_lsp', entry_filter = lsp_filter },
     { name = 'path' },
   },
+  sorting = {
+    priority_weight = 0, -- When tailwind and css have same item, they appear side by side
+    comparators = comparators,
+  },
   mapping = cmp.mapping({
     ['<C-Space>'] = completion_trigger({
       sources = {
         { name = 'cmp-tw2css' },
         { name = 'nvim_lsp', entry_filter = lsp_filter },
       },
+      sorting = {
+        priority_weight = 0,
+        comparators = comparators,
+      },
     }),
   }),
-  sorting = {
-    comparators = comparators,
-  },
 }
