@@ -97,7 +97,6 @@ return {
     }),
   }),
   sorting = {
-    priority_weight = 2,
     comparators = comparators,
   },
 }
