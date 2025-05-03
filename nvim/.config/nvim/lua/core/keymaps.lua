@@ -104,13 +104,13 @@ vim.keymap.set({ 'n', 'x' }, 'gY', '"+y$', { desc = 'Yank remaining line to OS' 
 -- vim.keymap.set('n', 'X', '"_X')
 -- vim.keymap.set('x', 'X', '"_d') -- Also substitutes behavior of deleting line when using 'X' on 'v' mode
 
-vim.keymap.set({ 'n', 'x' }, '<c-t>', '<cmd>tabnew<CR>', { desc = 'Create tab' })
+vim.keymap.set({ 'n', 'x' }, '<C-t>', '<cmd>tabnew<CR>', { desc = 'Create tab' })
 
 -- Improve repetitive window movements
-vim.keymap.set({ 'n', 'x' }, '<c-w>H', '<c-w>H<c-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<c-w>J', '<c-w>J<c-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<c-w>K', '<c-w>K<c-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<c-w>L', '<c-w>L<c-w>', { remap = true })
+vim.keymap.set({ 'n', 'x' }, '<C-w>H', '<C-w>H<C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x' }, '<C-w>J', '<C-w>J<C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x' }, '<C-w>K', '<C-w>K<C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x' }, '<C-w>L', '<C-w>L<C-w>', { remap = true })
 
 vim.keymap.set({ 'n', 'x' }, '<C-w>l', '<cmd>vertical resize +5<cr><C-w>', { remap = true })
 vim.keymap.set({ 'n', 'x' }, '<C-w>h', '<cmd>vertical resize -5<cr><C-w>', { remap = true })
@@ -138,9 +138,6 @@ vim.keymap.set('x', '<C-c>', 'gc', { remap = true })
 
 -- Marks go to col
 vim.keymap.set('n', "'", '`')
-
-vim.keymap.set('n', '[t', 'gT', { desc = 'Go to previous tab' })
-vim.keymap.set('n', ']t', 'gt', { desc = 'Go to next tab' })
 
 -- Quickfix popup keymaps
 require('custom.helpers').map_ctrl_j('qf', false)
