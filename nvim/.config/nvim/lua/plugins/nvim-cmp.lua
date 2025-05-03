@@ -1,11 +1,13 @@
 return {
   'hrsh7th/nvim-cmp',
   dependencies = {
-    'hrsh7th/cmp-nvim-lsp', -- Source for lsp
-    'hrsh7th/cmp-buffer', -- Source for text written in buffer
-    'hrsh7th/cmp-path', -- Source for paths
-    'hrsh7th/cmp-cmdline', -- Source for cmdline
-    'rcarriga/cmp-dap', -- Source for DAP
+    -- Sources
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'rcarriga/cmp-dap',
+    'jcha0713/cmp-tw2css', -- Tailwind on css
 
     'L3MON4D3/LuaSnip', -- Engine responsable for snippets
     'saadparwaiz1/cmp_luasnip', -- Source for snippets

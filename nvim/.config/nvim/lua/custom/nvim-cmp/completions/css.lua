@@ -51,12 +51,16 @@ local completion_trigger = require('custom.nvim-cmp.completion_trigger')
 return {
   sources = {
     { name = 'luasnip' },
+    { name = 'cmp-tw2css' },
     { name = 'nvim_lsp', entry_filter = lsp_filter },
     { name = 'path' },
   },
   mapping = cmp.mapping({
     ['<C-Space>'] = completion_trigger({
-      { name = 'nvim_lsp', entry_filter = lsp_filter },
+      sources = {
+        { name = 'cmp-tw2css' },
+        { name = 'nvim_lsp', entry_filter = lsp_filter },
+      },
     }),
   }),
   sorting = {
