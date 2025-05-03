@@ -1,6 +1,6 @@
 local cmp = require('cmp')
 
-return function(sources)
+return function(config)
   return cmp.mapping(function()
     if cmp.visible() then
       if cmp.visible_docs() then
@@ -11,15 +11,13 @@ return function(sources)
       return
     end
 
-    if not sources then
+    if not config then
       cmp.complete()
       return
     end
 
     cmp.complete({
-      config = {
-        sources = sources,
-      },
+      config = config,
     })
   end, { 'i' })
 end

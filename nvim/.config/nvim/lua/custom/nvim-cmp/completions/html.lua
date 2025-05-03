@@ -14,7 +14,9 @@ return {
   },
   mapping = cmp.mapping({
     ['<C-Space>'] = completion_trigger({
-      { name = 'nvim_lsp', entry_filter = emmet_on_element },
+      sources = {
+        { name = 'nvim_lsp', entry_filter = emmet_on_element },
+      },
     }),
   }),
 }

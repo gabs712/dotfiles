@@ -92,16 +92,18 @@ return {
 
         -- Show completion / toggle docs
         ['<C-Space>'] = completion_trigger({
-          { -- Only shows lsp completions that are not snippets
-            name = 'nvim_lsp',
-            entry_filter = function(entry)
-              local is_snippet = types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
-              if is_snippet then
-                return false
-              end
+          sources = {
+            { -- Only shows lsp completions that are not snippets
+              name = 'nvim_lsp',
+              entry_filter = function(entry)
+                local is_snippet = types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
+                if is_snippet then
+                  return false
+                end
 
-              return true
-            end,
+                return true
+              end,
+            },
           },
         }),
 

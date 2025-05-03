@@ -91,7 +91,9 @@ return {
   },
   mapping = cmp.mapping({
     ['<C-Space>'] = completion_trigger({
-      { name = 'nvim_lsp', entry_filter = lsp_filter },
+      sources = {
+        { name = 'nvim_lsp', entry_filter = lsp_filter },
+      },
     }),
   }),
   sorting = {
