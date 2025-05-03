@@ -1,6 +1,6 @@
 local cmp = require('cmp')
 
-vim.keymap.set('c', '<Tab>', function() -- <S-Tab> automatically mapped by nvim, couldn't change behavior
+vim.keymap.set('c', '<Tab>', function()
   if not cmp.visible() then
     cmp.complete()
     cmp.select_next_item()
@@ -10,6 +10,19 @@ vim.keymap.set('c', '<Tab>', function() -- <S-Tab> automatically mapped by nvim,
     end
   else
     cmp.select_next_item()
+  end
+end)
+
+vim.keymap.set('c', '<S-Tab>', function()
+  if not cmp.visible() then
+    cmp.complete()
+    cmp.select_prev_item()
+
+    if #cmp.get_entries() == 1 then
+      cmp.close()
+    end
+  else
+    cmp.select_prev_item()
   end
 end)
 
