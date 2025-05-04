@@ -12,6 +12,8 @@ return {
   config = function()
     local icons = require('custom.icons')
 
+    require('custom.helpers').shell_movements('neo-tree-popup')
+
     require('neo-tree').setup({
       filesystem = {
         follow_current_file = { enabled = true },
@@ -98,15 +100,5 @@ return {
 
     -- Toggle window, highlight current file, move cursor
     vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle focus left<CR>', { desc = 'Explore tree (neo-tree)' })
-
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = 'neo-tree-popup',
-      callback = function()
-        vim.keymap.set('i', '<C-f>', '<Right>', { buffer = true })
-        vim.keymap.set('i', '<C-b>', '<Left>', { buffer = true })
-        vim.keymap.set('i', '<C-a>', '<Home>', { buffer = true })
-        vim.keymap.set('i', '<C-e>', '<End>', { buffer = true })
-      end,
-    })
   end,
 }

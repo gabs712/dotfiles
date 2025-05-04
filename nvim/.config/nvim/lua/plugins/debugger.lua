@@ -13,6 +13,8 @@ return {
     require('custom.helpers').map_ctrl_j_hl('dapui_console')
     require('custom.helpers').map_ctrl_j_hl('dapui_hover')
 
+    require('custom.helpers').shell_movements({ 'dap-repl', 'dapui_watches' })
+
     local dap = require('dap')
     local dapui = require('dapui')
     local dap_repl = require('dap.repl')
@@ -103,12 +105,7 @@ return {
     vim.api.nvim_create_autocmd('FileType', {
       pattern = { 'dap-repl', 'dapui_watches' },
       callback = function()
-        vim.keymap.set('i', '<C-w>', '<C-S-w>', { buffer = true }) -- Fix C-w behavior on dapui
-
-        vim.keymap.set({ 'i', 's' }, '<C-f>', '<Right>', { buffer = true })
-        vim.keymap.set({ 'i', 's' }, '<C-b>', '<Left>', { buffer = true })
-        vim.keymap.set({ 'i', 's' }, '<C-a>', '<Home>', { buffer = true })
-        vim.keymap.set({ 'i', 's' }, '<C-e>', '<End>', { buffer = true })
+        vim.keymap.set('i', '<C-w>', '<C-S-w>', { buffer = true }) -- Fix C-w triggering window bindings
       end,
     })
 

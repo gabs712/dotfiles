@@ -48,10 +48,10 @@ M.shell_movements = function(filetype)
   vim.api.nvim_create_autocmd('FileType', {
     pattern = filetype,
     callback = function()
-      vim.keymap.set({ 'i', 's' }, '<C-f>', '<Right>', { buffer = true })
-      vim.keymap.set({ 'i', 's' }, '<C-b>', '<Left>', { buffer = true })
-      vim.keymap.set({ 'i', 's' }, '<C-a>', '<Home>', { buffer = true })
-      vim.keymap.set({ 'i', 's' }, '<C-e>', '<End>', { buffer = true })
+      vim.keymap.set('i', '<C-f>', '<Right>', { buffer = true })
+      vim.keymap.set('i', '<C-b>', '<Left>', { buffer = true })
+      vim.keymap.set('i', '<C-a>', '<Home>', { buffer = true })
+      vim.keymap.set('i', '<C-e>', '<End>', { buffer = true })
     end,
   })
 end
