@@ -9,7 +9,8 @@ return function(entry)
     and entry.source:get_debug_name() == 'nvim_lsp:emmet_ls'
 
   if is_emmet then
-    if cursor_node:type() ~= 'element' and cursor_node:type() ~= 'document' then
+    local type = cursor_node:type()
+    if type ~= 'element' and type ~= 'document' and type ~= 'ERROR' then
       return false
     end
   end
