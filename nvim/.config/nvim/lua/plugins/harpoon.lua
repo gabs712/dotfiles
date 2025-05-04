@@ -3,6 +3,8 @@ return {
   branch = 'harpoon2',
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
+    require('custom.helpers').map_ctrl_j_hl('harpoon')
+
     local harpoon = require('harpoon')
     harpoon:setup({
       settings = {
