@@ -8,21 +8,21 @@ return {
     local actions = require('telescope.actions')
     local builtin = require('telescope.builtin')
 
+    require('custom.helpers').shell_movements('TelescopePrompt')
+
     require('telescope').setup({
       defaults = {
         mappings = {
           i = {
             ['<C-x>'] = false,
-            ['<C-u>'] = false,
-            ['<C-d>'] = false,
 
             ['<C-s>'] = actions.select_horizontal,
 
             ['<esc>'] = actions.close,
             ['<C-j>'] = actions.select_default,
 
-            ['<C-f>'] = actions.preview_scrolling_down,
-            ['<C-b>'] = actions.preview_scrolling_up,
+            ['<C-u>'] = actions.preview_scrolling_up,
+            ['<C-d>'] = actions.preview_scrolling_down,
           },
         },
       },
