@@ -115,7 +115,7 @@ return {
   },
   {
     mode = 'n',
-    lhs = '<leader>fh',
+    lhs = '<leader>?',
     rhs = builtin.help_tags,
     obj = { desc = 'Find help' },
   },
