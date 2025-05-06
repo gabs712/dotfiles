@@ -166,9 +166,19 @@ return {
     -- Repeatable diagnostic move
     local next_diagnostic, prev_diagnostic = ts_repeat_move.make_repeatable_move_pair(function()
       local count = vim.v.count > 0 and vim.v.count or 1
+
+      if vim.diagnostic.get_next() then
+        vim.cmd("normal! m'")
+      end
+
       vim.diagnostic.jump({ count = count })
     end, function()
       local count = vim.v.count > 0 and vim.v.count or 1
+
+      if vim.diagnostic.get_prev() then
+        vim.cmd("normal! m'")
+      end
+
       vim.diagnostic.jump({ count = -count })
     end)
 
