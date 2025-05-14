@@ -64,13 +64,13 @@ return {
   },
   {
     mode = 'n',
-    lhs = '<leader>f/',
+    lhs = '<leader>/',
     rhs = builtin.search_history,
     obj = { desc = 'Find search history' },
   },
   {
     mode = 'n',
-    lhs = '<leader>f:',
+    lhs = '<leader>:',
     rhs = builtin.command_history,
     obj = { desc = 'Find command history' },
   },
@@ -133,7 +133,7 @@ return {
   },
   {
     mode = 'n',
-    lhs = '<leader>/',
+    lhs = '<leader>f/',
     rhs = builtin.current_buffer_fuzzy_find,
     obj = { desc = 'Search in buffer' },
   },
