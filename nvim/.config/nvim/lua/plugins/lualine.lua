@@ -47,7 +47,7 @@ return {
         },
         {
           'filename',
-          path = 4, -- Parent directory and file name
+          path = 1, -- Displayed path
           symbols = {
             modified = icons.buffer.modified,
             readonly = '',
