@@ -14,7 +14,7 @@ vim.g.loaded_netrwPlugin = 1 -- Disable aditional netrw features
 vim.opt.termguicolors = true
 
 -- Add contents of '+' register to unnamed (") register
-vim.o.clipboard = 'unnamedplus'
+-- vim.o.clipboard = 'unnamedplus'
 
 vim.opt.relativenumber = true
 vim.opt.number = true
