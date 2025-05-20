@@ -9,12 +9,19 @@ return {
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim',
 
-      -- Optional
       'hrsh7th/nvim-cmp', -- Completion for commands and mentions
       {
         'MeanderingProgrammer/render-markdown.nvim',
         opts = {
           file_types = { 'Avante' },
+          anti_conceal = {
+            enabled = false, -- Shows chars original appearence on current line
+          },
+          win_options = {
+            concealcursor = {
+              rendered = 'nic', -- Conceal raw markdown chars on current line in given modes
+            },
+          },
         },
         ft = { 'Avante' },
       },
