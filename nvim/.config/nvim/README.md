@@ -8,3 +8,10 @@
 - ripgrep (telescope live grep) [sudo]
 - make (required by some plugins) [sudo]
 - [FiraCode Nerd Font - regular](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip)
+
+## 🤖 AI
+
+The AI provider can be setted with the following enviroment variables:
+
+- AI_PROVIDER - provider name
+- { PROVIDER }\_API_KEY - key for provider

@@ -28,7 +28,8 @@ return {
     },
     config = function()
       require('avante').setup({
-        provider = 'gemini',
+        --- claude | openai | azure | gemini | cohere | copilot
+        provider = os.getenv('AI_PROVIDER'),
         behaviour = {
           enable_token_counting = true,
         },
