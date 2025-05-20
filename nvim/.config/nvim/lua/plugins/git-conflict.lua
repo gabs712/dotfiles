@@ -15,8 +15,16 @@ return {
 
     -- Repeatable conflict move
     local next_conflict, prev_conflict = ts_repeat_move.make_repeatable_move_pair(function()
+      if git_conflict.conflict_count() > 0 then
+        vim.cmd("normal! m'")
+      end
+
       vim.cmd('GitConflictNextConflict')
     end, function()
+      if git_conflict.conflict_count() > 0 then
+        vim.cmd("normal! m'")
+      end
+
       vim.cmd('GitConflictPrevConflict')
     end)
 
