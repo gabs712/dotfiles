@@ -32,14 +32,14 @@ return {
         behaviour = {
           enable_token_counting = true,
         },
-        hints = { enabled = false }, -- Virtual text
+        hints = { enabled = false }, -- Virtual text on visual mode
         windows = {
           sidebar_header = {
-            enabled = false, -- true, false to enable/disable the header
+            enabled = true,
           },
           position = 'right',
           wrap = true,
-          width = 30,
+          width = 50,
           input = {
             prefix = '> ',
           },
