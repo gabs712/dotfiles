@@ -6,4 +6,5 @@
 - xclip (OS clipboard access) [sudo]
 - gcc (treesitter) [sudo]
 - ripgrep (telescope live grep) [sudo]
+- make (required by some plugins) [sudo]
 - [FiraCode Nerd Font - regular](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip)
