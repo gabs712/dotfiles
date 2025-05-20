@@ -15,7 +15,6 @@ return {
 
     -- Repeatable conflict move
     local next_conflict, prev_conflict = ts_repeat_move.make_repeatable_move_pair(function()
-      -- NOTE: Might be possible to add count support, check it out if fixed
       vim.cmd('GitConflictNextConflict')
     end, function()
       vim.cmd('GitConflictPrevConflict')
