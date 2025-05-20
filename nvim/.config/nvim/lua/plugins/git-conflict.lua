@@ -1,7 +1,6 @@
--- WARN: Doesn't work on current nvim version
-
 return {
   'akinsho/git-conflict.nvim',
+  version = '*',
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
