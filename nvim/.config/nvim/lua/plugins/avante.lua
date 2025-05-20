@@ -36,12 +36,14 @@ return {
         windows = {
           sidebar_header = {
             enabled = true,
+            align = 'right', -- left, center, right for title
           },
           position = 'right',
           wrap = true,
           width = 50,
           input = {
             prefix = '> ',
+            height = 8,
           },
           ask = {
             start_insert = false,
