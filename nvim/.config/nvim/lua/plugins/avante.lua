@@ -56,6 +56,14 @@ return {
       })
 
       vim.keymap.set({ 'n', 'x' }, '<leader>w', '<cmd>AvanteToggle<CR>')
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'AvanteConfirm',
+        callback = function()
+          vim.keymap.set('n', '<Esc>', 'n', { buffer = true, remap = true })
+          vim.keymap.set('n', '<C-j>', 'y', { buffer = true, remap = true })
+        end,
+      })
     end,
   },
 }

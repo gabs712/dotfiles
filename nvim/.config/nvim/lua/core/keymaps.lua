@@ -29,7 +29,10 @@ vim.keymap.set('n', '<Esc>', function()
 
   for _, win in pairs(vim.api.nvim_list_wins()) do
     if vim.api.nvim_win_is_valid(win) and vim.api.nvim_win_get_config(win).relative ~= '' then
-      vim.api.nvim_win_close(win, false)
+      local buf = vim.api.nvim_win_get_buf(win)
+      if vim.api.nvim_buf_get_option(buf, 'filetype') ~= 'AvanteConfirm' then
+        vim.api.nvim_win_close(win, false)
+      end
     end
   end
 end, { desc = 'Clear highlights and popups' })
