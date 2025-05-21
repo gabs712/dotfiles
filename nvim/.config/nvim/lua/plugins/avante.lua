@@ -9,6 +9,8 @@ return {
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim',
 
+      'nvim-tree/nvim-web-devicons',
+      'nvim-telescope/telescope.nvim',
       'hrsh7th/nvim-cmp', -- Completion for commands and mentions
       {
         'MeanderingProgrammer/render-markdown.nvim',
@@ -19,7 +21,7 @@ return {
           },
           win_options = {
             concealcursor = {
-              rendered = 'nic', -- Conceal raw markdown chars on current line in given modes
+              rendered = 'nic', -- Conceals raw markdown chars on current line
             },
           },
         },
