@@ -28,8 +28,12 @@ return {
     },
     config = function()
       require('avante').setup({
-        --- claude | openai | azure | gemini | cohere | copilot
+        -- claude | openai | azure | gemini | cohere | copilot
         provider = os.getenv('AI_PROVIDER'),
+        web_search_engine = {
+          -- tavily | serpapi | searchapi | google | kagi | brave | searxng
+          provider = os.getenv('SEARCH_PROVIDER') or 'tavily',
+        },
         behaviour = {
           enable_token_counting = true,
         },

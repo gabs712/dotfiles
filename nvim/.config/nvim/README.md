@@ -13,5 +13,10 @@
 
 The AI provider can be setted with the following enviroment variables:
 
-- AI_PROVIDER - provider name
-- { PROVIDER }\_API_KEY - key for provider
+- AI_PROVIDER - defaults to input value
+- { PROVIDER }\_API_KEY - tipical format
+
+And for the search engine:
+
+- SEARCH_PROVIDER - defaults to "tavily"
+- { PROVIDER }\_API_KEY - tipical format
