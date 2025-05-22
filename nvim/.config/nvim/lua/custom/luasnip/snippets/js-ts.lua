@@ -68,7 +68,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(3), i(2) }
+      { i(1, 'name'), i(2), i(3) }
     )
   ),
 
@@ -84,8 +84,8 @@ local javascript = {
         f(function(_, snip)
           return vim.fn.fnamemodify(snip.env.TM_FILENAME, ':r')
         end),
-        i(2),
         i(1),
+        i(2),
       }
     )
   ),
