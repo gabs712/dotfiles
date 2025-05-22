@@ -100,7 +100,7 @@ return {
       },
     })
 
-    vim.keymap.set({ 'n', 'x' }, '<leader>w', '<cmd>AvanteToggle<CR>')
+    vim.keymap.set({ 'n', 'x' }, '<leader>w', '<cmd>AvanteToggle<CR>', { desc = 'Toggle Avante' })
     vim.keymap.set('n', '<leader>as', '<Nop>')
 
     vim.api.nvim_create_autocmd('FileType', {
