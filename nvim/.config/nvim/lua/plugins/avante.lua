@@ -68,7 +68,7 @@ return {
           prev = '[g',
         },
         suggestion = {
-          accept = nil, -- TODO: Define it later
+          accept = '<C-q>',
           next = '<M-]>',
           prev = '<M-[>',
           dismiss = '<C-]>',
