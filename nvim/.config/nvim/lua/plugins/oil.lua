@@ -32,7 +32,7 @@ return {
 
       lsp_file_methods = {
         enabled = true,
-        autosave_changes = false, -- Autosave buffers that are updated with lsp
+        autosave_changes = true, -- Autosave buffers that are updated with lsp
       },
       win_options = {
         wrap = true,
