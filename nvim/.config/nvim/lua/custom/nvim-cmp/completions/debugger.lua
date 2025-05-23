@@ -13,6 +13,10 @@ return {
     end),
 
     ['<Tab>'] = function()
+      if vim.fn.reg_recording() ~= '' then
+        return
+      end
+
       if not cmp.visible() then
         cmp.complete()
         cmp.select_next_item()
@@ -23,6 +27,10 @@ return {
     end,
 
     ['<S-Tab>'] = function()
+      if vim.fn.reg_recording() ~= '' then
+        return
+      end
+
       if not cmp.visible() then
         cmp.complete()
         cmp.select_prev_item()

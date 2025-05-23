@@ -17,7 +17,6 @@ return {
   },
   config = function()
     local cmp = require('cmp')
-    local types = require('cmp.types')
 
     local luasnip = require('luasnip')
     local lspkind = require('lspkind')
@@ -30,7 +29,7 @@ return {
     -- Global config
     cmp.setup({
       enabled = function()
-        return (vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt' or require('cmp_dap').is_dap_buffer())
+        return (vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt' or require('cmp_dap').is_dap_buffer()) -- Recommended by cmp-dap
           and vim.fn.reg_recording() == '' -- Disable when recording macros
       end,
 
@@ -93,21 +92,7 @@ return {
         ['<C-j>'] = cmp.mapping.confirm({ select = true }),
 
         -- Show completion / toggle docs
-        ['<C-Space>'] = completion_trigger({
-          sources = {
-            { -- Only shows lsp completions that are not snippets
-              name = 'nvim_lsp',
-              entry_filter = function(entry)
-                local is_snippet = types.lsp.CompletionItemKind[entry:get_kind()] == 'Snippet'
-                if is_snippet then
-                  return false
-                end
-
-                return true
-              end,
-            },
-          },
-        }),
+        ['<C-Space>'] = completion_trigger(),
 
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),

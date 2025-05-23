@@ -2,6 +2,10 @@ local cmp = require('cmp')
 
 return function(config)
   return cmp.mapping(function()
+    if vim.fn.reg_recording() ~= '' then
+      return
+    end
+
     if cmp.visible() then
       if cmp.visible_docs() then
         cmp.close_docs()
