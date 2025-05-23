@@ -34,7 +34,7 @@ vim.keymap.set('c', '<S-Tab>', function()
   end
 end)
 
-vim.keymap.set('c', '<C-Space>', require('custom.nvim-cmp.toggle_completion'))
+vim.keymap.set('c', '<C-Space>', require('custom.nvim-cmp.completion_toggle'))
 
 vim.keymap.set('c', '<C-n>', function()
   if cmp.visible() then

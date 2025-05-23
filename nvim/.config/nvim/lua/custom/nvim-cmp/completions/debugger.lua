@@ -40,6 +40,6 @@ return {
       cmp.select_prev_item()
     end,
 
-    ['<C-Space>'] = require('custom.nvim-cmp.toggle_completion'),
+    ['<C-Space>'] = require('custom.nvim-cmp.completion_toggle'),
   }),
 }
