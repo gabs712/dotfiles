@@ -54,7 +54,7 @@ vim.opt.scrolloff = 14
 
 -- Tabs
 local tab_size = 2
-vim.opt.shiftwidth = tab_size -- Tailing tabs
+vim.opt.shiftwidth = tab_size -- Trailing tabs
 vim.opt.tabstop = tab_size -- Leading tabs
 vim.opt.expandtab = true -- Spaces instead of tabs
 
@@ -84,12 +84,13 @@ vim.opt.fillchars = {
   diff = '╱',
 }
 
-local icons = require('custom.icons')
 vim.diagnostic.config({
   virtual_text = false, -- Inline diagnostic
   underline = true,
   signs = false,
 })
+
+local icons = require('custom.icons')
 
 -- For plugins like trouble
 vim.fn.sign_define('DiagnosticSignError', { text = icons.diagnostics.error })
