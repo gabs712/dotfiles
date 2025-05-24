@@ -92,7 +92,18 @@ return {
         ['<C-j>'] = cmp.mapping.confirm({ select = true }),
 
         -- Show completion / toggle docs
-        ['<C-Space>'] = completion_trigger(),
+        ['<C-Space>'] = cmp.mapping(function()
+          local current_sources = require('cmp.config').get().sources
+          local filtered = {}
+
+          for _, item in ipairs(current_sources) do
+            if item.name ~= 'luasnip' and item.name ~= 'buffer' then
+              table.insert(filtered, item)
+            end
+          end
+
+          completion_trigger({ sources = filtered })
+        end),
 
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
