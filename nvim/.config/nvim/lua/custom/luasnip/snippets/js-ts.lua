@@ -44,7 +44,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(3), i(2) }
+      { i(1, 'name'), i(2), i(3) }
     )
   ),
 
@@ -56,7 +56,7 @@ local javascript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(3), i(2) }
+      { i(1, 'name'), i(2), i(3) }
     )
   ),
 
@@ -94,9 +94,9 @@ local javascript = {
     'for',
     fmt(
       [[
-    for (let {} = 0; {} < {}; {}++) {{
-      {}
-    }}
+        for (let {} = 0; {} < {}; {}++) {{
+          {}
+        }}
       ]],
       { i(1, 'i'), rep(1, 'i'), i(2, '_'), rep(1, 'i'), i(3) }
     )
