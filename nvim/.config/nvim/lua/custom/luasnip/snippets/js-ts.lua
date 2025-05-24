@@ -1,5 +1,5 @@
 local ls = require('luasnip')
-local fmt = require('luasnip.extras.fmt').fmt -- '{{' inserts '{'
+local fmt = require('custom.luasnip.fmt')
 
 local s = ls.snippet -- New snippet
 local i = ls.insert_node -- Insert cursor
