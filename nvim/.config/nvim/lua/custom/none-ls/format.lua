@@ -10,7 +10,7 @@ local null_format = function()
 end
 
 local format_on_save = true
-vim.api.nvim_create_user_command('ToggleFormatOnSave', function()
+vim.api.nvim_create_user_command('ToggleFormat', function()
   format_on_save = not format_on_save
 
   if format_on_save then
