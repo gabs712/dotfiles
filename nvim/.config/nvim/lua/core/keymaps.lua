@@ -99,9 +99,7 @@ vim.cmd("nnoremap <expr> j v:count ? (v:count > 0 ? \"m'\" . v:count : '') . 'j'
 vim.cmd("nnoremap <expr> k v:count ? (v:count > 0 ? \"m'\" . v:count : '') . 'k' : 'gk'")
 
 -- Clipboard to OS
-vim.keymap.set({ 'n', 'x' }, 'gy', '"+y', { desc = 'Yank to OS' })
-vim.keymap.set('n', '<C-y>', '"+yy', { desc = 'Yank line to OS' })
-vim.keymap.set('x', '<C-y>', '"+y', { desc = 'Yank selection to OS' })
+vim.keymap.set({ 'n', 'x' }, '<C-y>', '"+y', { desc = 'Yank to OS' })
 vim.keymap.set({ 'n', 'x' }, 'gY', '"+y$', { desc = 'Yank remaining line to OS' })
 
 -- Use 'x' as alternative to black hole register
