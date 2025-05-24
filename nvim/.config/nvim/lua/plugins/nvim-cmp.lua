@@ -92,7 +92,11 @@ return {
         ['<C-j>'] = cmp.mapping.confirm({ select = true }),
 
         -- Show completion / toggle docs
-        ['<C-Space>'] = cmp.mapping(function()
+        ['<C-Space>'] = function()
+          if vim.fn.reg_recording() ~= '' then
+            return
+          end
+
           local current_sources = require('cmp.config').get().sources
           local filtered = {}
 
@@ -103,7 +107,7 @@ return {
           end
 
           completion_trigger({ sources = filtered })
-        end),
+        end,
 
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
