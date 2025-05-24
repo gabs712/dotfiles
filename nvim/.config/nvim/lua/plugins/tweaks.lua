@@ -24,4 +24,8 @@ return {
       vim.keymap.set('n', '<leader>q', '<Plug>window:quickfix:toggle', { desc = 'Toggle quickfix' })
     end,
   },
+  {
+    -- Automatically detects indentation and tab type when opening a buffer
+    'tpope/vim-sleuth',
+  },
 }
