@@ -16,6 +16,7 @@ return {
 
     local pairs = require('nvim-autopairs')
     pairs.setup({
+      ignored_next_char = '',
       disable_filetype = {
         'TelescopePrompt',
         'harpoon',
