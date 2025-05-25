@@ -100,7 +100,6 @@ vim.cmd("nnoremap <expr> k v:count ? (v:count > 0 ? \"m'\" . v:count : '') . 'k'
 
 -- Clipboard to OS
 vim.keymap.set({ 'n', 'x' }, '<C-y>', '"+y', { desc = 'Yank to OS' })
-vim.keymap.set({ 'n', 'x' }, 'gY', '"+y$', { desc = 'Yank remaining line to OS' })
 
 -- Use 'x' as alternative to black hole register
 -- vim.keymap.set({ 'n', 'x' }, 'x', '"_x')
