@@ -117,6 +117,9 @@ return {
           dap_repl.clear()
         end, { buffer = true })
 
+        vim.keymap.set('x', 'gf', '<Nop>', { buffer = true })
+        vim.keymap.set('x', 'gF', '<Nop>', { buffer = true })
+
         vim.keymap.set('n', 'gf', function()
           repl_go_to_path(true)
         end, { buffer = true })

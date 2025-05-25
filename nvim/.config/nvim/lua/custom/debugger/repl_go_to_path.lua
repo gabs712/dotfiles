@@ -17,8 +17,16 @@ return function(goToLine)
 
   pcall(vim.cmd, 'edit ' .. vim.fn.fnameescape(path))
 
-  if goToLine then
+  if not goToLine then
+    return
+  end
+
+  if line and col then
     vim.api.nvim_win_set_cursor(0, { line, col - 1 })
     return
+  end
+
+  if line then
+    vim.api.nvim_win_set_cursor(0, { line, 5 })
   end
 end
