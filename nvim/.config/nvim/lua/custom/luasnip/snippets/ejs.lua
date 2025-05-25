@@ -5,5 +5,5 @@ local s = ls.snippet
 local i = ls.insert_node
 
 ls.add_snippets('ejs', {
-  s('e', fmt('<%{} {} %>', { i(2), i(1) })),
+  s('e', fmt('<%{} {} %>', { i(1), i(2) })),
 })
