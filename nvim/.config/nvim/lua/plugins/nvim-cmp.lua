@@ -46,8 +46,11 @@ return {
           mode = 'symbol',
           before = require('tailwind-tools.cmp').lspkind_format, -- Icons provided by tailwind-tools
           symbol_map = {
-            Variable = '',
             Color = '', -- ██  󰝤    󱓻
+            Variable = '',
+            Function = '󰆧',
+            Method = '󰆧',
+            Text = '󰉿', -- 󰉿  󰊄 
             Constant = '',
             Value = '',
           },
