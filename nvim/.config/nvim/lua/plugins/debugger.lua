@@ -166,7 +166,7 @@ return {
       dap.set_breakpoint(nil, vim.fn.input('Hit Condition'))
     end, { desc = 'Set hit condition debugger breakpoint' })
 
-    vim.keymap.set('n', '<leader>m', function()
+    vim.keymap.set('n', '<leader>I', function()
       dapui.toggle({ reset = true })
     end, { desc = 'Toggle debugger ui' })
 
@@ -177,10 +177,6 @@ return {
     vim.keymap.set('n', '<leader>i', function()
       dap.repl.toggle({ height = 12 })
     end, { desc = 'Toggle debugger repl (terminal)' })
-
-    vim.keymap.set('n', '<leader>I', function()
-      dap_repl.clear()
-    end, { desc = 'Clear debugger repl (terminal)' })
 
     vim.keymap.set('n', '<leader>1', function()
       dap.step_over()

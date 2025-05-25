@@ -146,6 +146,7 @@ vim.keymap.set({ 'n', 'x' }, '<C-e>', '<cmd>e!<CR>', { desc = 'Discard changes' 
 -- Shortcuts to ':' and '/'
 vim.keymap.set({ 'n', 'x' }, '<C-p>', ':', { desc = 'Command mode (pallete)' })
 vim.keymap.set({ 'n', 'x', 'o' }, '<C-n>', '/', { desc = 'Search next' })
+vim.keymap.set({ 'n', 'x', 'o' }, '<M-n>', '?', { desc = 'Search prev' })
 
 -- Quick comments remapped to work with comment plugins (ie. Comment.nvim)
 vim.keymap.set('n', '<C-c>', 'gcc', { remap = true })
