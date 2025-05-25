@@ -154,6 +154,10 @@ vim.keymap.set('x', '<C-c>', 'gc', { remap = true })
 -- Marks go to col
 vim.keymap.set('n', "'", '`')
 
+-- Swap gf and gF
+vim.keymap.set('n', 'gf', 'gF') -- goes to line if any
+vim.keymap.set('n', 'gF', 'gf')
+
 -- Quickfix popup keymaps
 require('custom.helpers').map_ctrl_j('qf', false)
 
