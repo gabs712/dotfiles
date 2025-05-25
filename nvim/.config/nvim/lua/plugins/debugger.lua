@@ -131,7 +131,6 @@ return {
     })
 
     vim.keymap.set('n', '<leader>j', dap.continue, { desc = 'Continue debugger' })
-    vim.keymap.set('n', "<leader>'", dap.continue, { desc = 'Continue debugger' })
     vim.keymap.set('n', '<leader>0', dap.run_last, { desc = 'Rerun last debugger session' })
 
     vim.keymap.set('n', '<leader>J', function()
@@ -170,6 +169,10 @@ return {
     end, { desc = 'Set hit condition debugger breakpoint' })
 
     vim.keymap.set('n', '<leader>I', function()
+      dapui.toggle({ reset = true })
+    end, { desc = 'Toggle debugger ui' })
+
+    vim.keymap.set('n', "<leader>'", function()
       dapui.toggle({ reset = true })
     end, { desc = 'Toggle debugger ui' })
 
