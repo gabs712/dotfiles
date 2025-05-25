@@ -19,7 +19,7 @@ return {
     local dapui = require('dapui')
     local dap_repl = require('dap.repl')
 
-    require('dapui').setup({
+    dapui.setup({
       layouts = { -- 'console' contents usually appear on 'repl'
         {
           elements = {
@@ -109,11 +109,20 @@ return {
       end,
     })
 
+    local repl_go_to_path = require('custom.debugger.repl_go_to_path')
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'dap-repl',
       callback = function()
         vim.keymap.set({ 'n', 'i' }, '<C-l>', function()
           dap_repl.clear()
+        end, { buffer = true })
+
+        vim.keymap.set('n', 'gf', function()
+          repl_go_to_path(true)
+        end, { buffer = true })
+
+        vim.keymap.set('n', 'gF', function()
+          repl_go_to_path(false)
         end, { buffer = true })
       end,
     })
