@@ -73,8 +73,9 @@ vim.keymap.set('c', '<C-e>', '<End>')
 vim.keymap.set('x', '>', '>gv')
 vim.keymap.set('x', '<', '<gv')
 
--- Alternative to ge
+-- Alternatives to ge
 vim.keymap.set({ 'n', 'x', 'o' }, '<C-b>', 'ge', { desc = 'Go to the end of last word', remap = true })
+vim.keymap.set({ 'n', 'x', 'o' }, '<M-b>', 'gE', { desc = 'Go to the end of last WORD', remap = true })
 
 -- With strings, when using "a" on operator-pending mode or visual modes, not include extra whitespace
 vim.keymap.set({ 'o', 'x' }, "a'", "2i'")
