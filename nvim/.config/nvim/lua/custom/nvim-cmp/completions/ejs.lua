@@ -6,7 +6,9 @@ return {
     { name = 'luasnip' },
     {
       name = 'nvim_lsp',
-      entry_filter = emmet_on_element,
+      entry_filter = function(entry)
+        return emmet_on_element(entry, false)
+      end,
     },
     {
       name = 'buffer',
