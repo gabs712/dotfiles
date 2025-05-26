@@ -30,7 +30,7 @@ for _, adapterType in ipairs({ 'node', 'chrome', 'msedge' }) do
   end
 end
 
-local pick_launch_url = require('custom.debugger.pick_launch_url')
+local pick_launch_url = require('custom.nvim-dap.pick_launch_url')
 for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' }) do
   dap.configurations[language] = {
     {

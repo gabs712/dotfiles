@@ -67,7 +67,7 @@ return {
         toggle = 't',
       },
     })
-    require('custom.debugger.adapter_init')
+    require('custom.nvim-dap.adapter_init')
 
     vim.fn.sign_define('DapBreakpoint', {
       text = '󰻃', -- 󰻃 
@@ -109,7 +109,7 @@ return {
       end,
     })
 
-    local repl_go_to_path = require('custom.debugger.repl_go_to_path')
+    local repl_go_to_path = require('custom.nvim-dap.repl_go_to_path')
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'dap-repl',
       callback = function()
