@@ -47,6 +47,7 @@ return {
       },
     })
 
-    vim.keymap.set({ 'n', 'x' }, '<leader>w', '<cmd>CodeCompanionChat Toggle<CR>')
+    vim.keymap.set('n', '<leader>w', '<cmd>CodeCompanionChat Toggle<CR>')
+    vim.keymap.set('x', '<leader>w', '<cmd>CodeCompanionChat Add<CR>')
   end,
 }
