@@ -47,7 +47,14 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>w', '<cmd>CodeCompanionChat Toggle<CR>')
-    vim.keymap.set('x', '<leader>w', '<cmd>CodeCompanionChat Add<CR>')
+    vim.keymap.set('n', '<leader>w', '<cmd>CodeCompanionChat Toggle<CR>', { desc = 'AI chat toggle' })
+    vim.keymap.set('x', '<leader>w', '<cmd>CodeCompanionChat Add<CR>', { desc = 'Add selection to AI chat' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>W', '<cmd>CodeCompanionActions<CR>', { desc = 'AI menu' })
+
+    vim.keymap.set({ 'n', 'x' }, '<leader>a', ':CodeCompanion<CR>', { desc = 'Act with AI (edit/ask)' }) -- TODO: Check if ':' is the only way to select with it and prompt commands
+
+    vim.api.nvim_create_user_command('AI', function(opts)
+      vim.cmd('CodeCompanionCmd ' .. table.concat(opts.fargs, ' '))
+    end, { nargs = '*' })
   end,
 }
