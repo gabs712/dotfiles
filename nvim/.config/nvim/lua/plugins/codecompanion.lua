@@ -1,27 +1,42 @@
 return {
   'olimorris/codecompanion.nvim',
   dependencies = {
+    { 'MeanderingProgrammer/render-markdown.nvim', config = require('custom.codecompanion.render-markdown') },
     'nvim-treesitter/nvim-treesitter',
     'nvim-lua/plenary.nvim',
-    {
-      'MeanderingProgrammer/render-markdown.nvim',
-      opts = {
-        file_types = { 'codecompanion' },
-        anti_conceal = {
-          enabled = false, -- Shows chars original appearence on current line
-        },
-        win_options = {
-          concealcursor = {
-            rendered = 'nic', -- Conceals raw markdown chars on current line
+  },
+  config = function()
+    require('codecompanion').setup({
+      strategies = {
+        chat = {
+          roles = {
+            llm = function(adapter)
+              return 'CodeCompanion (' .. adapter.formatted_name .. ')'
+            end,
+            user = 'Me',
           },
         },
       },
-      ft = { 'codecompanion' },
-    },
-  },
-  config = function()
-    require('codecompanion').setup()
+      display = {
+        chat = {
+          auto_scroll = false,
+          start_in_insert_mode = false,
+          intro_message = '',
+          show_settings = false,
+          show_token_count = true,
+          show_references = true, -- slash commands and variables
 
-    vim.keymap.set('n', '<leader>w', '<cmd>CodeCompanionChat Toggle<CR>')
+          window = {
+            width = 0.60,
+            opts = {
+              number = false,
+              relativenumber = false,
+            },
+          },
+        },
+      },
+    })
+
+    vim.keymap.set({ 'n', 'x' }, '<leader>w', '<cmd>CodeCompanionChat Toggle<CR>')
   end,
 }
