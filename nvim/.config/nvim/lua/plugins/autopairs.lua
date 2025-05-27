@@ -16,13 +16,13 @@ return {
 
     local pairs = require('nvim-autopairs')
     pairs.setup({
-      ignored_next_char = '',
       disable_filetype = {
         'TelescopePrompt',
         'harpoon',
         'dap-repl',
         'dapui_watches',
       },
+
       -- Avoid buggy / iconsistent behavior on those modes
       disable_in_macro = true,
       disable_in_replace_mode = true,
