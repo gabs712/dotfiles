@@ -7,9 +7,6 @@ return function()
       enabled = false, -- Shows chars original appearence on current line
     },
     win_options = {
-      conceallevel = {
-        rendered = 1, -- 1 show inserted language icons, 3 hide all
-      },
       concealcursor = {
         rendered = 'nic', -- Conceals raw markdown chars on current line
       },
@@ -19,11 +16,12 @@ return function()
       icons = { '', '▋ ', '', '', '', '' },
     },
     code = {
-      highlight_inline = '',
-      language_icon = false,
-      render_modes = false,
-      language_name = true,
+      highlight_inline = '', -- backhround highlight on statements
+
+      -- Revealing language on code block border
       highlight_border = false,
+      language_icon = true,
+      language_name = false,
     },
   })
 end
