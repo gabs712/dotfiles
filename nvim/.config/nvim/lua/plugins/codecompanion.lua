@@ -41,10 +41,7 @@ return {
     require('cmp').setup.filetype('codecompanion', {
       sources = {
         { name = 'codecompanion_models' },
-        {
-          name = 'codecompanion_slash_commands',
-          keyword_pattern = [[/\w\+]],
-        },
+        { name = 'codecompanion_slash_commands' },
         { name = 'codecompanion_tools' },
         { name = 'codecompanion_variables' },
       },
