@@ -2,6 +2,7 @@ return {
   'olimorris/codecompanion.nvim',
   dependencies = {
     { 'MeanderingProgrammer/render-markdown.nvim', config = require('custom.codecompanion.render-markdown') },
+    'hrsh7th/nvim-cmp',
     'nvim-treesitter/nvim-treesitter',
     'nvim-lua/plenary.nvim',
   },
@@ -34,6 +35,18 @@ return {
             },
           },
         },
+      },
+    })
+
+    require('cmp').setup.filetype('codecompanion', {
+      sources = {
+        { name = 'codecompanion_models' },
+        {
+          name = 'codecompanion_slash_commands',
+          keyword_pattern = [[/\w\+]],
+        },
+        { name = 'codecompanion_tools' },
+        { name = 'codecompanion_variables' },
       },
     })
 
