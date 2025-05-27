@@ -20,7 +20,7 @@ return {
       },
       display = {
         chat = {
-          auto_scroll = false,
+          auto_scroll = true,
           start_in_insert_mode = false,
           intro_message = '',
           show_settings = false,
