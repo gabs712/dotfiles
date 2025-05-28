@@ -7,7 +7,9 @@ return {
     'nvim-lua/plenary.nvim',
   },
   config = function()
-    require('codecompanion').setup({
+    local codecompanion = require('codecompanion')
+
+    codecompanion.setup({
       strategies = {
         chat = {
           roles = {
@@ -47,7 +49,7 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>w', '<cmd>CodeCompanionChat Toggle<CR>', { desc = 'AI chat toggle' })
+    vim.keymap.set('n', '<leader>w', codecompanion.toggle, { desc = 'AI chat toggle' })
     vim.keymap.set('x', '<leader>w', '<cmd>CodeCompanionChat Add<CR>', { desc = 'Add selection to AI chat' })
     vim.keymap.set({ 'n', 'x' }, '<leader>W', '<cmd>CodeCompanionActions<CR>', { desc = 'AI menu' })
 
