@@ -12,6 +12,7 @@ return {
     codecompanion.setup({
       strategies = {
         chat = {
+          adapter = os.getenv('AI_PROVIDER') or nil,
           roles = {
             llm = function(adapter)
               return 'CodeCompanion (' .. adapter.formatted_name .. ')'
