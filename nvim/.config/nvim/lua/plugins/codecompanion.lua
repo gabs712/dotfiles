@@ -18,6 +18,14 @@ return {
             end,
             user = 'Me',
           },
+          keymaps = {
+            send = {
+              callback = function(chat)
+                vim.cmd('stopinsert')
+                chat:submit()
+              end,
+            },
+          },
         },
       },
       display = {
