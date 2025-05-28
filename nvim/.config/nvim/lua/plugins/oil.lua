@@ -87,6 +87,12 @@ return {
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'oil',
       callback = function()
+        local actions = require('oil.actions')
+
+        vim.keymap.set('n', '<Esc>', function()
+          actions.close.callback()
+        end, { buffer = true })
+
         -- Clear highlights
         vim.keymap.set('n', '<C-h>', function()
           vim.cmd('nohlsearch')
@@ -100,7 +106,7 @@ return {
           local obj = vim.tbl_extend('force', b.obj, { buffer = true })
 
           vim.keymap.set(b.mode, b.lhs, function()
-            require('oil.actions').close.callback()
+            actions.close.callback()
             b.rhs()
           end, obj)
         end
