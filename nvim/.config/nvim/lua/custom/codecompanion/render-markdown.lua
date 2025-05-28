@@ -17,6 +17,7 @@ return function()
     },
     code = {
       highlight_inline = '', -- backhround highlight on statements
+      width = 'block',
 
       -- Revealing language on code block border
       highlight_border = false,

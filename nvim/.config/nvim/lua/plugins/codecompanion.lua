@@ -8,6 +8,7 @@ return {
   },
   config = function()
     local codecompanion = require('codecompanion')
+    local floating_window = require('custom.codecompanion.floating_window')
 
     codecompanion.setup({
       strategies = {
@@ -39,8 +40,17 @@ return {
           show_references = true, -- slash commands and variables
 
           window = {
-            width = 0.60,
+            title = '',
+            layout = 'float',
+
+            border = 'rounded',
+            relative = 'editor',
+            row = floating_window.col,
+            col = floating_window.row,
+            width = floating_window.width,
+            height = floating_window.height,
             opts = {
+              scrolloff = 15, -- 14
               number = false,
               relativenumber = false,
             },
