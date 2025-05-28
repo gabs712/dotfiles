@@ -1,7 +1,7 @@
 local M = {}
 
 local HEIGHT_RATIO = 0.80
-local WIDTH_RATIO = 0.90
+local WIDTH_RATIO = 0.80
 
 local screen_w = vim.opt.columns:get()
 local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()

@@ -50,7 +50,7 @@ return {
             width = floating_window.width,
             height = floating_window.height,
             opts = {
-              scrolloff = 15, -- 14
+              scrolloff = 15,
               number = false,
               relativenumber = false,
             },
