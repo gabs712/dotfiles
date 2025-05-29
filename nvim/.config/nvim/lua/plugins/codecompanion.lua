@@ -19,7 +19,7 @@ return {
           intro_message = '',
           show_settings = false,
           show_token_count = true,
-          show_references = true, -- slash commands and variables
+          show_references = true, -- Slash commands and variables
 
           window = {
             title = '',
@@ -126,20 +126,20 @@ return {
               end,
               description = 'Clear highlights',
             },
-            next_header = {
-              modes = {
-                n = '<C-j>',
-              },
-              callback = function()
-                utils.nav_heading('next')
-              end,
-            },
             previous_header = {
               modes = {
                 n = '<C-k>',
               },
               callback = function()
                 utils.nav_heading('prev')
+              end,
+            },
+            next_header = {
+              modes = {
+                n = '<C-j>',
+              },
+              callback = function()
+                utils.nav_heading('next')
               end,
             },
             goto_input = {
@@ -179,11 +179,14 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>w', codecompanion.toggle, { desc = 'AI chat toggle' })
+    vim.keymap.set('n', '<leader>w', '<cmd>CodeCompanionChat Toggle<CR>', { desc = 'AI chat toggle' })
     vim.keymap.set('x', '<leader>w', '<cmd>CodeCompanionChat Add<CR>', { desc = 'Add selection to AI chat' })
-    vim.keymap.set({ 'n', 'x' }, '<leader>W', '<cmd>CodeCompanionActions<CR>', { desc = 'AI menu' })
 
-    vim.keymap.set({ 'n', 'x' }, '<leader>a', ':CodeCompanion<CR>', { desc = 'Act with AI (edit/ask)' }) -- TODO: Check if ':' is the only way to select with it and prompt commands
+    vim.keymap.set('n', '<leader>W', '<cmd>CodeCompanionChat<CR>', { desc = 'new AI chat toggle' })
+    vim.keymap.set('x', '<leader>W', '<cmd>CodeCompanionChat<CR>', { desc = 'Add selection to new AI chat' })
+
+    vim.keymap.set({ 'n', 'x' }, '<leader>a', ':CodeCompanion<CR>', { desc = 'Act with AI (edit/ask)' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>A', '<cmd>CodeCompanionActions<CR>', { desc = 'AI actions' })
 
     vim.api.nvim_create_user_command('AI', function(opts)
       vim.cmd('CodeCompanionCmd ' .. table.concat(opts.fargs, ' '))
