@@ -109,17 +109,30 @@ return {
               modes = {
                 n = 'gt',
               },
-              index = 18,
               callback = 'keymaps.auto_tool_mode',
-              description = 'Toggle automatic tool mode',
             },
             system_prompt = {
               modes = {
                 n = 'gT',
               },
-              index = 17,
               callback = 'keymaps.toggle_system_prompt',
-              description = 'Toggle the system prompt',
+            },
+            clear_highlights = {
+              modes = {
+                n = '<C-h>',
+              },
+              callback = function()
+                vim.cmd('nohlsearch')
+              end,
+              description = 'Clear highlights',
+            },
+            next_header = {
+              modes = {
+                n = '<C-j>',
+              },
+              callback = function()
+                utils.nav_heading('next')
+              end,
             },
             previous_header = {
               modes = {
@@ -129,13 +142,14 @@ return {
                 utils.nav_heading('prev')
               end,
             },
-            next_header = {
+            goto_input = {
               modes = {
-                n = '<C-j>',
+                n = '<C-l>',
               },
               callback = function()
-                utils.nav_heading('next')
+                vim.cmd('normal! G0')
               end,
+              description = 'Go to input',
             },
           },
         },
