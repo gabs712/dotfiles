@@ -17,7 +17,9 @@ return function()
     },
     code = {
       highlight_inline = '', -- backhround highlight on statements
-      width = 'full', -- block | full
+      width = 'block', -- block | full
+      left_pad = 1,
+      right_pad = 1,
 
       -- Revealing language on code block border
       highlight_border = false,
