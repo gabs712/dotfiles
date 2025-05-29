@@ -5,6 +5,7 @@ return {
     'hrsh7th/nvim-cmp',
     'nvim-treesitter/nvim-treesitter',
     'nvim-lua/plenary.nvim',
+    'ravitemer/codecompanion-history.nvim',
   },
   config = function()
     local codecompanion = require('codecompanion')
@@ -41,7 +42,6 @@ return {
       },
       strategies = {
         chat = {
-          adapter = os.getenv('AI_PROVIDER') or nil,
           roles = {
             llm = function(adapter)
               return 'CodeCompanion (' .. adapter.formatted_name .. ')'
@@ -168,6 +168,22 @@ return {
           },
         },
       },
+      extensions = {
+        history = {
+          opts = {
+            expiration_days = 30,
+            continue_last_chat = false,
+
+            auto_save = true,
+            delete_on_clearing_chat = false,
+
+            dir_to_save = vim.fn.stdpath('data') .. '/codecompanion-history',
+
+            keymap = '<C-f>',
+            save_chat_keymap = 'gH',
+          },
+        },
+      },
     })
 
     require('cmp').setup.filetype('codecompanion', {
@@ -182,8 +198,7 @@ return {
     vim.keymap.set('n', '<leader>w', '<cmd>CodeCompanionChat Toggle<CR>', { desc = 'AI chat toggle' })
     vim.keymap.set('x', '<leader>w', '<cmd>CodeCompanionChat Add<CR>', { desc = 'Add selection to AI chat' })
 
-    vim.keymap.set('n', '<leader>W', '<cmd>CodeCompanionChat<CR>', { desc = 'new AI chat toggle' })
-    vim.keymap.set('x', '<leader>W', '<cmd>CodeCompanionChat<CR>', { desc = 'Add selection to new AI chat' })
+    vim.keymap.set('n', '<leader>W', '<cmd>CodeCompanionHistory<CR>', { desc = 'Show AI chat history' })
 
     vim.keymap.set({ 'n', 'x' }, '<leader>a', ':CodeCompanion<CR>', { desc = 'Act with AI (edit/ask)' })
     vim.keymap.set({ 'n', 'x' }, '<leader>A', '<cmd>CodeCompanionActions<CR>', { desc = 'AI actions' })
