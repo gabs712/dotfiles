@@ -25,12 +25,16 @@ return {
     end)
 
     vim.keymap.set('n', '<leader>h', gitsigns.preview_hunk, { desc = 'Git preview hunk diff' })
+
     vim.keymap.set('n', '<leader>H', gitsigns.reset_hunk, { desc = 'Git reset hunk' })
+    vim.keymap.set('x', '<leader>H', ':Gitsigns reset_hunk<CR>', { desc = 'Git reset selected hunk' })
 
     vim.keymap.set('n', '<leader>b', gitsigns.blame_line, { desc = 'Git preview blame' })
     vim.keymap.set('n', '<leader>B', gitsigns.blame, { desc = 'Git all blames' })
 
-    vim.keymap.set('n', '<leader>g', gitsigns.stage_hunk, { desc = 'Git stage (add) hunk' })
+    vim.keymap.set('n', '<leader>g', gitsigns.stage_hunk, { desc = 'Git stage hunk' })
+    vim.keymap.set('x', '<leader>g', ':Gitsigns stage_hunk<CR>', { desc = 'Git stage selected hunk' })
+
     vim.keymap.set('n', '<leader>G', gitsigns.diffthis, { desc = 'Git diff' })
 
     vim.keymap.set({ 'n', 'x', 'o' }, ']h', next_hunk, { desc = 'Git next hunk' })
