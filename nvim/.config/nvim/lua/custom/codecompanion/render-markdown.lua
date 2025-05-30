@@ -1,7 +1,6 @@
 -- Config specifically made for codecompanion
 return function()
   require('render-markdown').setup({
-    enabled = true,
     file_types = { 'codecompanion' },
     anti_conceal = {
       enabled = false, -- Shows chars original appearence on current line
@@ -16,15 +15,15 @@ return function()
       icons = { '', '▋ ', '', '', '', '' },
     },
     code = {
-      highlight_inline = '', -- backhround highlight on statements
       width = 'block', -- block | full
+      style = 'normal',
+
       left_pad = 1,
       right_pad = 1,
-
-      -- Revealing language on code block border
-      highlight_border = false,
-      language_icon = true,
-      language_name = false,
+      highlight_inline = '',
+    },
+    bullet = {
+      icons = { '●', '●', '●', '●' },
     },
   })
 end

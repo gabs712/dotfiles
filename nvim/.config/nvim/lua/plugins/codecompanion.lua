@@ -1,7 +1,11 @@
 return {
   'olimorris/codecompanion.nvim',
   dependencies = {
-    { 'MeanderingProgrammer/render-markdown.nvim', config = require('custom.codecompanion.render-markdown') },
+    {
+      'MeanderingProgrammer/render-markdown.nvim',
+      ft = { 'codecompanion' },
+      config = require('custom.codecompanion.render-markdown'),
+    },
     'hrsh7th/nvim-cmp',
     'nvim-treesitter/nvim-treesitter',
     'nvim-lua/plenary.nvim',
