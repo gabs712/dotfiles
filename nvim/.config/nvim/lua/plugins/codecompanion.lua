@@ -185,8 +185,6 @@ return {
             auto_save = true,
             delete_on_clearing_chat = false,
 
-            dir_to_save = vim.fn.stdpath('data') .. '/codecompanion-history',
-
             keymap = '<C-f>',
             save_chat_keymap = 'gH',
           },
@@ -222,12 +220,12 @@ return {
     })
 
     vim.keymap.set('n', '<leader>w', '<cmd>CodeCompanionChat Toggle<CR>', { desc = 'AI chat toggle' })
-    vim.keymap.set('x', '<leader>w', '<cmd>CodeCompanionChat Add<CR>', { desc = 'Add selection to AI chat' })
+    vim.keymap.set('x', '<leader>w', ':CodeCompanionChat Add<CR>', { desc = 'Add selection to AI chat' })
 
     vim.keymap.set('n', '<leader>W', '<cmd>CodeCompanionHistory<CR>', { desc = 'Show AI chat history' })
 
     vim.keymap.set({ 'n', 'x' }, '<leader>a', ':CodeCompanion<CR>', { desc = 'Act with AI (edit/ask)' })
-    vim.keymap.set({ 'n', 'x' }, '<leader>A', '<cmd>CodeCompanionActions<CR>', { desc = 'AI actions' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>A', ':CodeCompanionActions<CR>', { desc = 'AI actions' })
 
     vim.api.nvim_create_user_command('AI', function(opts)
       vim.cmd('CodeCompanionCmd ' .. table.concat(opts.fargs, ' '))
