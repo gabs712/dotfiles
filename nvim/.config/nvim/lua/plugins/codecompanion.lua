@@ -10,6 +10,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     'nvim-lua/plenary.nvim',
     'ravitemer/codecompanion-history.nvim',
+    'echasnovski/mini.diff',
   },
   config = function()
     local codecompanion = require('codecompanion')
@@ -42,6 +43,9 @@ return {
               relativenumber = false,
             },
           },
+        },
+        diff = {
+          provider = 'mini_diff',
         },
       },
       strategies = {
@@ -187,6 +191,24 @@ return {
             save_chat_keymap = 'gH',
           },
         },
+      },
+    })
+
+    local diff = require('mini.diff')
+    diff.setup({
+      source = diff.gen_source.none(),
+      view = {
+        style = 'sign',
+        signs = { add = '▒', change = '▒', delete = '▒' },
+      },
+      mappings = {
+        apply = '',
+        reset = '',
+        textobject = '',
+        goto_first = '',
+        goto_prev = '',
+        goto_next = '',
+        goto_last = '',
       },
     })
 
