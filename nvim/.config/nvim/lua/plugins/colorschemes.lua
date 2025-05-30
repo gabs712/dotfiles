@@ -5,6 +5,13 @@ return {
   {
     'catppuccin/nvim',
     name = 'catppuccin',
+    config = function()
+      require('catppuccin').setup({
+        integrations = {
+          render_markdown = false,
+        },
+      })
+    end,
   },
   {
     'rebelot/kanagawa.nvim',
