@@ -36,14 +36,15 @@ return {
           ['<bs>'] = 'none',
           ['s'] = 'none',
           ['S'] = 'none',
+          ['H'] = 'none',
+          ['/'] = 'none',
+          ['?'] = 'none',
           ['<C-f>'] = 'none',
           ['<C-b>'] = 'none',
           ['<Esc>'] = 'none',
 
           ['g?'] = 'show_help',
-          ['/'] = 'none',
-
-          ['?'] = 'none',
+          ['g.'] = 'toggle_hidden',
 
           ['l'] = 'open',
           ['h'] = 'close_node',
