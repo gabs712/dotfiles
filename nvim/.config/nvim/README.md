@@ -11,12 +11,8 @@
 
 ## 🤖 AI
 
-The AI provider can be setted with the following enviroment variables:
+The AI provider can be setted with a env variable that tipically follows the format:
 
-- AI_PROVIDER - defaults to input value
-- { PROVIDER }\_API_KEY - tipical format
-
-And for the search engine:
-
-- SEARCH_PROVIDER - defaults to "tavily"
-- { PROVIDER }\_API_KEY - tipical format
+```bash
+{PROVIDER}_API_KEY="{api_key}"
+```
