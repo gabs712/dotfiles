@@ -180,7 +180,7 @@ return {
         history = {
           opts = {
             expiration_days = 30,
-            continue_last_chat = false,
+            continue_last_chat = true,
 
             auto_save = true,
             delete_on_clearing_chat = false,
