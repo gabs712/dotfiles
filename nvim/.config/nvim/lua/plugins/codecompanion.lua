@@ -59,8 +59,14 @@ return {
           keymaps = {
             send = {
               callback = function(chat)
-                vim.cmd('stopinsert')
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>m'", true, false, true), 'n', false)
                 chat:submit()
+              end,
+            },
+            regenerate = {
+              callback = function(chat)
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>m'", true, false, true), 'n', false)
+                chat:regenerate()
               end,
             },
             close = {
@@ -141,6 +147,7 @@ return {
               callback = function()
                 utils.nav_heading('prev')
               end,
+              description = 'Go to next header',
             },
             next_header = {
               modes = {
@@ -149,6 +156,7 @@ return {
               callback = function()
                 utils.nav_heading('next')
               end,
+              description = 'Go to next header',
             },
             goto_input = {
               modes = {
@@ -191,6 +199,7 @@ return {
         },
       },
     })
+    vim.keymap.set('i', '1', function() end)
 
     local diff = require('mini.diff')
     diff.setup({
