@@ -87,7 +87,6 @@ return {
               modes = {
                 n = 'g?',
               },
-              callback = 'keymaps.options',
             },
             stop = {
               modes = {
@@ -123,13 +122,11 @@ return {
               modes = {
                 n = 'gt',
               },
-              callback = 'keymaps.auto_tool_mode',
             },
             system_prompt = {
               modes = {
                 n = 'gT',
               },
-              callback = 'keymaps.toggle_system_prompt',
             },
             clear_highlights = {
               modes = {
@@ -147,7 +144,7 @@ return {
               callback = function()
                 utils.nav_heading('prev')
               end,
-              description = 'Go to next header',
+              description = 'Go to prev header',
             },
             next_header = {
               modes = {
@@ -199,7 +196,6 @@ return {
         },
       },
     })
-    vim.keymap.set('i', '1', function() end)
 
     local diff = require('mini.diff')
     diff.setup({
