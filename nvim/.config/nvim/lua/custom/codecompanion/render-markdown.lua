@@ -22,8 +22,5 @@ return function()
       right_pad = 1,
       highlight_inline = '',
     },
-    bullet = {
-      icons = { '●', '●', '●', '●' },
-    },
   })
 end
