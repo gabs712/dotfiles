@@ -14,8 +14,14 @@ return {
   },
   config = function()
     local codecompanion = require('codecompanion')
-    local floating_window = require('custom.codecompanion.floating_window')
     local utils = require('custom.codecompanion.utils')
+
+    local window = utils.floating_window({
+      width = 120,
+      height = 32,
+      padding_x = 11,
+      padding_y = 4,
+    })
 
     codecompanion.setup({
       display = {
@@ -33,10 +39,10 @@ return {
 
             border = 'rounded',
             relative = 'editor',
-            row = floating_window.col,
-            col = floating_window.row,
-            width = floating_window.width,
-            height = floating_window.height,
+            row = window.col,
+            col = window.row,
+            width = window.width,
+            height = window.height,
             opts = {
               scrolloff = 15,
               number = false,
