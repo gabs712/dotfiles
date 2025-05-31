@@ -15,11 +15,9 @@ return function()
       icons = { '', '▋ ', '', '', '', '' },
     },
     code = {
-      width = 'block', -- block | full
+      width = 'full', -- block | full
       style = 'normal',
 
-      left_pad = 1,
-      right_pad = 1,
       highlight_inline = '',
     },
   })
