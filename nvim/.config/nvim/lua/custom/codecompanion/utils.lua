@@ -27,13 +27,13 @@ M.floating_window = function(opts)
   end
 
   local center_x = (screen_w - window_w) / 2
-  local center_y = (screen_h - window_h) / 2 - vim.opt.cmdheight:get()
+  local center_y = ((screen_h - window_h) / 2) - vim.opt.cmdheight:get()
 
   return {
     width = window_w,
     height = window_h,
-    row = center_x,
-    col = center_y,
+    col = center_x,
+    row = center_y,
   }
 end
 

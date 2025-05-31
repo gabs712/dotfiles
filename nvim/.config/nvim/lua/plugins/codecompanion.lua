@@ -39,8 +39,8 @@ return {
 
             border = 'rounded',
             relative = 'editor',
-            row = window.col,
-            col = window.row,
+            row = window.row,
+            col = window.col,
             width = window.width,
             height = window.height,
             opts = {
