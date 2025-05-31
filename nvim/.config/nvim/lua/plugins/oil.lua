@@ -17,9 +17,9 @@ return {
         hidden_enabled = not hidden_enabled
 
         if hidden_enabled then
-          vim.notify('Hidden files enabled')
+          vim.notify('Oil: hidden files enabled')
         else
-          vim.notify('Hidden files disabled')
+          vim.notify('Oil: hidden files disabled')
         end
       end,
       mode = 'n',
