@@ -181,10 +181,10 @@ return {
             },
             goto_input = {
               modes = {
-                n = '<C-l>',
+                n = { '<C-l>', 'G' },
               },
               callback = function()
-                vim.cmd('normal! G0')
+                vim.cmd('normal! Gzb$')
               end,
               description = 'Go to input',
             },
