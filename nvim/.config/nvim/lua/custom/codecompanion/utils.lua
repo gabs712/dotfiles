@@ -37,4 +37,34 @@ M.floating_window = function(opts)
   }
 end
 
+M.go_to_path = function(goToLine)
+  local c_WORD = vim.fn.expand('<cWORD>')
+  local trimed_WORD = c_WORD:match('^["\'%[%(%{]?(.-)["\'%]%)%}]?$')
+
+  local path, line, col = trimed_WORD:match('^([^:]+):?(%d*):?(%d*)$')
+  line = tonumber(line)
+  col = tonumber(col)
+
+  if vim.fn.filereadable(path) ~= 1 then
+    return
+  end
+
+  vim.cmd('close')
+
+  pcall(vim.cmd, 'edit ' .. vim.fn.fnameescape(path))
+
+  if not goToLine then
+    return
+  end
+
+  if line and col then
+    vim.api.nvim_win_set_cursor(0, { line, col - 1 })
+    return
+  end
+
+  if line then
+    vim.api.nvim_win_set_cursor(0, { line, 5 })
+  end
+end
+
 return M

@@ -134,6 +134,24 @@ return {
                 n = 'gT',
               },
             },
+            goto_path = {
+              modes = {
+                n = 'gf',
+              },
+              callback = function()
+                utils.go_to_path(true)
+              end,
+              description = 'Go to path',
+            },
+            goto_path_no_line = {
+              modes = {
+                n = 'gF',
+              },
+              callback = function()
+                utils.go_to_path(false)
+              end,
+              description = 'Go to path no line',
+            },
             clear_highlights = {
               modes = {
                 n = '<C-h>',
