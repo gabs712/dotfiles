@@ -25,9 +25,26 @@ return {
       },
     })
 
+    local format_on_save = true
     local format = require('custom.none-ls.format')
 
-    vim.api.nvim_create_autocmd('BufWritePre', { callback = format.on_save })
-    vim.keymap.set({ 'n', 'x' }, '<leader>p', format.sort, { desc = 'Format (make pretty)' })
+    vim.api.nvim_create_user_command('ToggleFormat', function()
+      format_on_save = not format_on_save
+      vim.notify('FormatOnSave ' .. (format_on_save and 'enabled' or 'disabled'))
+    end, {})
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      callback = function()
+        if format_on_save then
+          format()
+        end
+      end,
+    })
+
+    vim.keymap.set({ 'n', 'x' }, '<leader>p', function()
+      local result = format()
+      if result and result.found_tailwind then
+        vim.cmd('TailwindSort')
+      end
+    end, { desc = 'Format' })
   end,
 }

@@ -61,11 +61,4 @@ return {
     },
     opts = { skip = true },
   },
-  {
-    event = 'notify',
-    filter = {
-      find = '%[LSP%] Format request failed, no matching language servers%.',
-    },
-    opts = { skip = true },
-  },
 }

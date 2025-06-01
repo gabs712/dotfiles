@@ -1,53 +1,43 @@
-local M = {}
-
--- Formats only using null_ls sources
-local null_format = function()
-  vim.lsp.buf.format({
-    filter = function(client)
-      return client.name == 'null-ls'
-    end,
-  })
-end
-
-local format_on_save = true
-vim.api.nvim_create_user_command('ToggleFormat', function()
-  format_on_save = not format_on_save
-
-  if format_on_save then
-    vim.notify('FormatOnSave enabled')
-  else
-    vim.notify('FormatOnSave disabled')
-  end
-end, {})
-
-M.on_save = function()
-  if not format_on_save then
+return function()
+  local clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
+  if #clients <= 0 then
     return
   end
 
-  -- Don't format if there isn't any lsp clients attached
-  local buffer_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
-  if #buffer_clients == 0 then
-    return
-  end
+  local null_ls_available = false
+  local found_tailwind = false
 
-  null_format()
-end
+  for _, client in ipairs(clients) do
+    if client.name == 'null-ls' and client.supports_method('textDocument/formatting') then
+      null_ls_available = true
+    end
 
--- Format and sort with tailwind
-M.sort = function()
-  local buffer_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
-  if #buffer_clients == 0 then
-    return
-  end
-
-  null_format()
-  for _, client in ipairs(buffer_clients) do
     if client.name == 'tailwindcss' then
-      vim.cmd('TailwindSort')
-      return
+      found_tailwind = true
     end
   end
-end
 
-return M
+  local formatted = false
+  vim.lsp.buf.format({
+    filter = function(client)
+      if formatted then
+        return
+      end
+
+      if null_ls_available then
+        if client.name == 'null-ls' then
+          formatted = true
+          return true
+        end
+        return
+      end
+
+      if client.supports_method('textDocument/formatting') then
+        formatted = true
+        return true
+      end
+    end,
+  })
+
+  return { found_tailwind = found_tailwind }
+end
