@@ -134,23 +134,11 @@ return {
                 n = 'gT',
               },
             },
-            goto_path = {
+            goto_file_under_cursor = {
               modes = {
-                n = 'gf',
+                n = { 'gf', 'gF' },
               },
-              callback = function()
-                utils.go_to_path(true)
-              end,
-              description = 'Go to path',
-            },
-            goto_path_no_line = {
-              modes = {
-                n = 'gF',
-              },
-              callback = function()
-                utils.go_to_path(false)
-              end,
-              description = 'Go to path no line',
+              description = 'Open the file under cursor',
             },
             clear_highlights = {
               modes = {
@@ -204,6 +192,12 @@ return {
             },
           },
         },
+      },
+      opts = {
+        goto_file_action = function(fname)
+          vim.cmd('close')
+          vim.cmd('edit ' .. fname)
+        end,
       },
       extensions = {
         history = {
