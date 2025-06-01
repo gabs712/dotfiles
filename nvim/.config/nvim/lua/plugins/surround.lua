@@ -61,9 +61,9 @@ return {
         normal_line = '|',
         normal_cur_line = '||',
         visual_line = '|',
-        delete = 'd\\',
-        change = 'c\\',
-        change_line = 'c|',
+        delete = '\\d',
+        change = '\\c',
+        change_line = '|c',
       },
     })
   end,
