@@ -94,7 +94,7 @@ return {
       mapping = cmp.mapping({
         ['<C-j>'] = cmp.mapping.confirm({ select = true }),
 
-        -- Show completion / toggle docs
+        -- Show completion (filtering 'luasnip' and 'buffer') / toggle docs
         ['<C-Space>'] = function()
           if vim.fn.reg_recording() ~= '' then
             return

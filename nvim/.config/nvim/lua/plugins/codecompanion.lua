@@ -65,6 +65,7 @@ return {
           keymaps = {
             send = {
               callback = function(chat)
+                -- vim.cmd has buggy behavior here, therefore using nvim_feedkeys
                 vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>m'", true, false, true), 'n', false)
                 chat:submit()
               end,
