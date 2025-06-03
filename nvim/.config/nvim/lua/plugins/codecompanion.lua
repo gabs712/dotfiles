@@ -17,9 +17,9 @@ return {
     local utils = require('custom.codecompanion.utils')
 
     local window = utils.floating_window({
-      width = 120,
-      height = 32,
-      padding_x = 11,
+      width = 105,
+      height = 36,
+      padding_x = 7,
       padding_y = 4,
     })
 
@@ -44,7 +44,7 @@ return {
             width = window.width,
             height = window.height,
             opts = {
-              scrolloff = 15,
+              scrolloff = 17,
               number = false,
               relativenumber = false,
             },
