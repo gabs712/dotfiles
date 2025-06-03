@@ -53,6 +53,7 @@ return {
             Text = '󰉿', -- 󰉿  󰊄 
             Constant = '',
             Value = '',
+            TypeParameter = '',
           },
         }),
       },
