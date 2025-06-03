@@ -8,3 +8,11 @@ cmp.setup.filetype({ 'javascriptreact', 'typescriptreact' }, require('custom.nvi
 cmp.setup.filetype('html', require('custom.nvim-cmp.completions.html'))
 cmp.setup.filetype({ 'css', 'scss' }, require('custom.nvim-cmp.completions.css'))
 cmp.setup.filetype('ejs', require('custom.nvim-cmp.completions.ejs'))
+
+cmp.setup.filetype('prisma', {
+  sources = cmp.config.sources({
+    { name = 'luasnip' },
+    { name = 'nvim_lsp' },
+    { name = 'path' },
+  }),
+})
