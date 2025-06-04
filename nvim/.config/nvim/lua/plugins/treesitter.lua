@@ -29,6 +29,7 @@ return {
         'gitcommit',
         'gitignore',
         'git_config',
+        'sql',
         'prisma',
       },
     })
