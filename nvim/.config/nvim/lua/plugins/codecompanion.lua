@@ -243,10 +243,10 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>w', '<cmd>CodeCompanionChat Toggle<CR>', { desc = 'AI chat toggle' })
-    vim.keymap.set('x', '<leader>w', ':CodeCompanionChat Add<CR>', { desc = 'Add selection to AI chat' })
+    vim.keymap.set('n', '<leader>o', '<cmd>CodeCompanionChat Toggle<CR>', { desc = 'Open AI chat' })
+    vim.keymap.set('x', '<leader>o', ':CodeCompanionChat Add<CR>', { desc = 'Add selection to AI chat' })
 
-    vim.keymap.set('n', '<leader>W', '<cmd>CodeCompanionHistory<CR>', { desc = 'Show AI chat history' })
+    vim.keymap.set('n', '<leader>O', '<cmd>CodeCompanionHistory<CR>', { desc = 'Open AI chat history' })
 
     vim.keymap.set({ 'n', 'x' }, '<leader>a', ':CodeCompanion<CR>', { desc = 'Act with AI (edit/ask)' })
     vim.keymap.set({ 'n', 'x' }, '<leader>A', ':CodeCompanionActions<CR>', { desc = 'AI actions' })

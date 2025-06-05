@@ -66,7 +66,7 @@ return {
         ['gs'] = 'actions.change_sort',
         ['g?'] = 'actions.show_help',
 
-        ['<leader>o'] = 'actions.close',
+        ['<leader>w'] = 'actions.close',
         ['<C-c>'] = 'actions.close',
 
         ['<CR>'] = 'actions.select',
@@ -112,6 +112,6 @@ return {
         end
       end,
     })
-    vim.keymap.set('n', '<leader>o', oil.open_float, { desc = 'Explore tree (oil)' })
+    vim.keymap.set('n', '<leader>w', oil.open_float, { desc = 'Explore tree (oil)' })
   end,
 }
