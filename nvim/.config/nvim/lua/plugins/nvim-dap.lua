@@ -124,6 +124,8 @@ return {
         vim.keymap.set('n', 'gF', function()
           repl_go_to_path(false)
         end, { buffer = true })
+
+        vim.cmd('set wrap')
       end,
     })
 
