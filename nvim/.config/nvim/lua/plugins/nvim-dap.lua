@@ -168,10 +168,12 @@ return {
     end, { desc = 'Set hit condition debugger breakpoint' })
 
     vim.keymap.set('n', '<leader>I', function()
+      dap.repl.close({ mode = 'toggle' })
       dapui.toggle({ reset = true })
     end, { desc = 'Toggle debugger ui' })
 
     vim.keymap.set('n', "<leader>'", function()
+      dap.repl.close({ mode = 'toggle' })
       dapui.toggle({ reset = true })
     end, { desc = 'Toggle debugger ui' })
 
@@ -180,6 +182,7 @@ return {
     end, { desc = 'Eval debugger expression' })
 
     vim.keymap.set('n', '<leader>i', function()
+      dapui.close()
       dap.repl.toggle({ height = 12 })
     end, { desc = 'Toggle debugger repl (terminal)' })
 
