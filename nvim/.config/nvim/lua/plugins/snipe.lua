@@ -25,6 +25,6 @@ return {
       snipe.open_buffer_menu({
         max_path_width = 2, -- Displayed path depth
       })
-    end, { desc = 'Open snipe' })
+    end, { desc = 'Open snipe (out)' })
   end,
 }

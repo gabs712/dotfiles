@@ -117,6 +117,6 @@ return {
         end
       end,
     })
-    vim.keymap.set('n', toggle_binding, oil.open_float, { desc = 'Explore tree (oil)' })
+    vim.keymap.set('n', toggle_binding, oil.open_float, { desc = 'Open oil (workspace)' })
   end,
 }
