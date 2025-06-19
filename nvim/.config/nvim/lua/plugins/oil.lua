@@ -8,6 +8,7 @@ return {
     local oil = require('oil')
 
     local show_hidden = true
+    local toggle_binding = '<leader>w'
 
     -- Notify when toggling hidden files
     local hidden_enabled = show_hidden
@@ -70,7 +71,7 @@ return {
         ['gs'] = 'actions.change_sort',
         ['g?'] = 'actions.show_help',
 
-        ['<leader>w'] = 'actions.close',
+        [toggle_binding] = 'actions.close',
         ['<C-c>'] = 'actions.close',
 
         ['<CR>'] = 'actions.select',
@@ -116,6 +117,6 @@ return {
         end
       end,
     })
-    vim.keymap.set('n', '<leader>w', oil.open_float, { desc = 'Explore tree (oil)' })
+    vim.keymap.set('n', toggle_binding, oil.open_float, { desc = 'Explore tree (oil)' })
   end,
 }
