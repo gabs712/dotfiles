@@ -243,11 +243,11 @@ return {
       },
     })
 
-    local toggle_binding = '<leader>a'
-    vim.keymap.set('n', toggle_binding, '<cmd>CodeCompanionChat Toggle<CR>', { desc = 'Open AI chat' })
-    vim.keymap.set('x', toggle_binding, ':CodeCompanionChat Add<CR>', { desc = 'Add selection to AI chat' })
+    vim.keymap.set('n', '<leader>a', '<cmd>CodeCompanionChat Toggle<CR>', { desc = 'Open AI chat' })
+    vim.keymap.set('x', '<leader>a', ':CodeCompanionChat Add<CR>', { desc = 'Add selection to AI chat' })
 
-    vim.keymap.set({ 'n', 'x' }, '<leader>A', ':CodeCompanion<CR>', { desc = 'Act with AI (edit/ask)' })
+    vim.keymap.set('n', '<leader>A', '<cmd>CodeCompanion<CR>', { desc = 'Act with AI (edit/ask)' })
+    vim.keymap.set('x', '<leader>A', ':CodeCompanion<CR>', { desc = 'Act with AI (edit/ask)' })
 
     vim.api.nvim_create_user_command('AI', function(opts)
       vim.cmd('CodeCompanionCmd ' .. table.concat(opts.fargs, ' '))
