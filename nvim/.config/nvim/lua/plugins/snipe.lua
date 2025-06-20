@@ -10,7 +10,7 @@ return {
         position = 'center',
       },
       hints = {
-        dictionary = '-qwertyuiopasdfghlzxcvbnm,.;/',
+        dictionary = '-qwertyuiopasdfghlzxcvbnm,.;/QWERTYUIOPASFGHLZXCVBNM',
       },
       navigate = {
         close_buffer = 'D',
@@ -21,10 +21,6 @@ return {
       sort = 'last', -- last / default
     })
 
-    vim.keymap.set('n', toggle_binding, function()
-      snipe.open_buffer_menu({
-        max_path_width = 2, -- Displayed path depth
-      })
-    end, { desc = 'Open snipe (out)' })
+    vim.keymap.set('n', toggle_binding, snipe.open_buffer_menu, { desc = 'Open snipe (out)' })
   end,
 }
