@@ -26,7 +26,7 @@ return {
     codecompanion.setup({
       display = {
         chat = {
-          auto_scroll = false,
+          auto_scroll = true,
           start_in_insert_mode = false,
           intro_message = '',
           show_settings = false,
@@ -88,6 +88,7 @@ return {
             clear = {
               modes = {
                 n = '<C-e>',
+                i = '<C-e>',
               },
             },
             options = {
