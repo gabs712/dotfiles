@@ -236,12 +236,7 @@ return {
     })
 
     require('cmp').setup.filetype('codecompanion', {
-      sources = {
-        { name = 'codecompanion_models' },
-        { name = 'codecompanion_slash_commands' },
-        { name = 'codecompanion_tools' },
-        { name = 'codecompanion_variables' },
-      },
+      sources = {},
     })
 
     vim.keymap.set('n', '<leader>a', '<cmd>CodeCompanionChat Toggle<CR>', { desc = 'Open AI chat' })
