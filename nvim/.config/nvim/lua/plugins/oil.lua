@@ -59,7 +59,7 @@ return {
         ['<C-j>'] = 'actions.select',
         ['<C-k>'] = 'actions.parent',
 
-        ['-'] = 'actions.open_cwd',
+        ['<C-Space>'] = 'actions.open_cwd',
         ['<C-l>'] = 'actions.preview',
 
         ['K'] = 'actions.preview_scroll_up',

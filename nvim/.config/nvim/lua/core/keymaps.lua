@@ -44,13 +44,6 @@ vim.keymap.set(
   { desc = 'Switch to the previous buffer' }
 )
 
-vim.keymap.set(
-  'n',
-  '<BS>',
-  require('custom.helpers').switch_to_previous_buffer,
-  { desc = 'Switch to the previous buffer' }
-)
-
 -- <C-j> works with plugins that remap <CR> (ie. autopairs)
 vim.keymap.set('i', '<C-j>', '<CR>', { remap = true })
 

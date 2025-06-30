@@ -118,8 +118,8 @@ return {
 
         ['<C-c>'] = cmp.mapping.abort(),
 
-        ['<C-d>'] = cmp.mapping.scroll_docs(5),
-        ['<C-u>'] = cmp.mapping.scroll_docs(-5),
+        ['<C-f>'] = cmp.mapping.scroll_docs(5),
+        ['<C-b>'] = cmp.mapping.scroll_docs(-5),
       }),
     })
 
