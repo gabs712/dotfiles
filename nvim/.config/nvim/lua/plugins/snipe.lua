@@ -10,7 +10,7 @@ return {
         position = 'center',
       },
       hints = {
-        dictionary = '-qwertyuiopasdfghlzxcvbnm,.;/QWERTYUIOPASFGHLZXCVBNM',
+        dictionary = '-qwertyuiopasdfhlzxcvbnm,.;/QWERTYUIOPASFGHLZXCVBNM',
       },
       navigate = {
         close_buffer = 'D',
