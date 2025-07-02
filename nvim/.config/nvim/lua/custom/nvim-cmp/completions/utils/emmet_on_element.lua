@@ -13,11 +13,8 @@ return function(entry, show_on_ERROR)
   end
 
   local type = cursor_node:type()
-  if type == 'ERROR' and show_on_ERROR then
-    return true
-  end
 
-  if type == 'element' or type == 'document' then
+  if type == 'element' or type == 'document' or type == 'ERROR' then
     return true
   end
 

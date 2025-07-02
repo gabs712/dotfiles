@@ -7,7 +7,7 @@ return {
     {
       name = 'nvim_lsp',
       entry_filter = function(entry)
-        return emmet_on_element(entry, false)
+        return emmet_on_element(entry)
       end,
     },
     {
