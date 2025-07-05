@@ -21,6 +21,9 @@ return {
       sort = 'last', -- last / default
     })
 
-    vim.keymap.set('n', toggle_binding, snipe.open_buffer_menu, { desc = 'Open snipe (out)' })
+    vim.keymap.set('n', toggle_binding, function()
+      snipe.open_buffer_menu()
+      vim.cmd('norm! gg0')
+    end, { desc = 'Open snipe (out)' })
   end,
 }
