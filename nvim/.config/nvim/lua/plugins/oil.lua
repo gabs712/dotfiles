@@ -8,7 +8,7 @@ return {
     local oil = require('oil')
 
     local show_hidden = true
-    local toggle_binding = '<leader>w'
+    local toggle_binding = '<leader>e'
 
     -- Notify when toggling hidden files
     local hidden_enabled = show_hidden
@@ -117,6 +117,6 @@ return {
         end
       end,
     })
-    vim.keymap.set('n', toggle_binding, oil.open_float, { desc = 'Open oil (workspace)' })
+    vim.keymap.set('n', toggle_binding, oil.open_float, { desc = 'Explore tree (oil)' })
   end,
 }
