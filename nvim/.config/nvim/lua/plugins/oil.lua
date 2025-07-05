@@ -51,7 +51,7 @@ return {
       },
 
       preview_win = {
-        preview_method = 'load', -- Loads entire buffer on preview (necessary to scroll)
+        preview_method = 'scratch', -- Loads entire buffer without attaching lsp (necessary to scroll)
       },
 
       use_default_keymaps = false,
