@@ -80,4 +80,13 @@ M.switch_to_previous_buffer = function()
   end
 end
 
+M.map_close_window = function(filetype)
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = filetype,
+    callback = function()
+      vim.keymap.set('n', '<Esc>', '<C-w>c', { buffer = true })
+    end,
+  })
+end
+
 return M

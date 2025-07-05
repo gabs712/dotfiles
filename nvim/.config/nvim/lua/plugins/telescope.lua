@@ -18,7 +18,7 @@ return {
 
             ['<C-s>'] = actions.select_horizontal,
 
-            ['<esc>'] = actions.close,
+            ['<Esc>'] = actions.close,
             ['<C-j>'] = actions.select_default,
 
             ['<C-u>'] = actions.preview_scrolling_up,
