@@ -1,7 +1,6 @@
 boilerplate() {
   local folder="${1:-main}"
   cp -r ~/boilerplate/"$folder"/{*,.*} . 2>/dev/null
-  git init
 }
 
 alias nv='nvim'
