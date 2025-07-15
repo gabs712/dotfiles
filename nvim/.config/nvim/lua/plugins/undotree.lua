@@ -1,7 +1,7 @@
 return {
   'mbbill/undotree',
   config = function()
-    require('custom.helpers').map_ctrl_j('undotree')
+    require('custom.helpers').map_ctrl_j_hl('undotree')
 
     vim.g.undotree_WindowLayout = 3
     vim.g.undotree_SplitWidth = 44
@@ -21,6 +21,10 @@ return {
 
         vim.keymap.set('n', require('custom.bindings').timeline_undo, '<plug>UndotreePreviousState', { buffer = true })
         vim.keymap.set('n', require('custom.bindings').timeline_redo, '<plug>UndotreeNextState', { buffer = true })
+
+        vim.keymap.set('n', '<Esc>', function()
+          vim.cmd('UndotreeHide')
+        end, { buffer = true })
       end,
     })
   end,

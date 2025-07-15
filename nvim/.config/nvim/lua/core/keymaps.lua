@@ -158,7 +158,13 @@ vim.keymap.set('n', 'gf', 'gF') -- goes to line if any
 vim.keymap.set('n', 'gF', 'gf')
 
 -- Quickfix popup keymaps
-require('custom.helpers').map_ctrl_j('qf', false)
+require('custom.helpers').map_ctrl_j_hl('qf', false)
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'qf',
+  callback = function()
+    vim.keymap.set('n', '<Esc>', '<cmd>cclose<CR>', { buffer = true })
+  end,
+})
 
 -- inspectTree
 require('custom.helpers').map_ctrl_j('query')

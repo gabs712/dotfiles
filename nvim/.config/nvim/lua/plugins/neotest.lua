@@ -10,10 +10,10 @@ return {
     'nvim-neotest/neotest-jest',
   },
   config = function()
-    require('custom.helpers').clear_ctrl_hl('neotest-output')
-    require('custom.helpers').map_ctrl_j('neotest-summary')
+    require('custom.helpers').map_ctrl_j_hl('neotest-summary')
 
-    require('neotest').setup({
+    local neotest = require('neotest')
+    neotest.setup({
       adapters = {
         require('neotest-vitest'),
         require('neotest-jest')({
@@ -64,8 +64,15 @@ return {
       },
     })
 
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'neotest-summary',
+      callback = function()
+        vim.keymap.set('n', '<Esc>', '<cmd>Neotest summary close<CR>', { buffer = true })
+      end,
+    })
+
     vim.keymap.set('n', '<leader>x', function()
-      require('neotest').summary.toggle()
+      neotest.summary.toggle()
       local win = vim.fn.bufwinid('Neotest Summary')
       if win > -1 then
         vim.api.nvim_set_current_win(win) -- Autofocus window (doesn't focus current test properly when first opening)
@@ -73,14 +80,14 @@ return {
     end, { desc = 'Toggle neotest symmary' })
 
     vim.keymap.set('n', '<leader>X', function()
-      require('neotest').output.open({ enter = true, last_run = true })
+      neotest.output.open({ enter = true, last_run = true })
     end, { desc = 'Toggle neotest output' })
 
     -- vim.keymap.set('n', '', function()
-    --   require('neotest').watch.toggle(vim.fn.expand('%'))
+    --   neotest.watch.toggle(vim.fn.expand('%'))
     -- end, { desc = 'Run and watch tests from neotest' })
     -- vim.keymap.set('n', '', function()
-    --   require('neotest').run.run(vim.fn.expand('%'))
+    --   neotest.run.run(vim.fn.expand('%'))
     -- end, { desc = 'Run tests from neotest' })
   end,
 }

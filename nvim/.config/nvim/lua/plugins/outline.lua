@@ -1,7 +1,7 @@
 return {
   'hedyhli/outline.nvim',
   config = function()
-    require('custom.helpers').map_ctrl_j('Outline')
+    require('custom.helpers').map_ctrl_j_hl('Outline')
     require('outline').setup({
       outline_window = {
         position = 'right', -- left / right
@@ -21,7 +21,7 @@ return {
         down_and_jump = 'J',
         up_and_jump = 'K',
         restore_location = '-',
-        close = 'q',
+        close = '<Esc>',
       },
       symbols = {
         icons = {

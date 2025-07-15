@@ -24,6 +24,13 @@ return {
       gitsigns.nav_hunk('prev', { target = 'all' })
     end)
 
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'gitsigns-blame',
+      callback = function()
+        vim.keymap.set('n', '<Esc>', '<cmd>close<cr>', { buffer = true })
+      end,
+    })
+
     vim.keymap.set('n', '<leader>h', gitsigns.preview_hunk, { desc = 'Git preview hunk diff' })
 
     vim.keymap.set('n', '<leader>H', gitsigns.reset_hunk, { desc = 'Git reset hunk' })

@@ -63,6 +63,7 @@ return {
             },
             close = {
               modes = {
+                n = '<Esc>',
                 i = '<Nop>',
               },
               callback = function()
@@ -125,6 +126,15 @@ return {
                 n = { 'gf', 'gF' },
               },
               description = 'Open the file under cursor',
+            },
+            clear_highlights = {
+              modes = {
+                n = '<C-h>',
+              },
+              callback = function()
+                vim.cmd('nohlsearch')
+              end,
+              description = 'Clear highlights',
             },
             previous_header = {
               modes = {

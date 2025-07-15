@@ -12,7 +12,7 @@ return {
   config = function()
     local icons = require('custom.icons')
 
-    require('custom.helpers').clear_ctrl('neo-tree')
+    require('custom.helpers').clear_ctrl_hl('neo-tree')
     require('custom.helpers').shell_movements('neo-tree-popup')
 
     require('neo-tree').setup({
@@ -108,7 +108,7 @@ return {
           if preview.is_active() then
             preview.hide()
           else
-            vim.cmd('nohlsearch')
+            vim.cmd('Neotree close')
           end
         end, { buffer = true })
       end,

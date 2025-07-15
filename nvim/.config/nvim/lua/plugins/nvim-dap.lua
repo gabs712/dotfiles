@@ -103,9 +103,18 @@ return {
     })
 
     vim.api.nvim_create_autocmd('FileType', {
-      pattern = { 'dap-repl', 'dapui_watches' },
+      pattern = {
+        'dapui_watches',
+        'dapui_scopes',
+        'dapui_stacks',
+        'dapui_breakpoints',
+        'dapui_console',
+        'dapui_hover',
+      },
       callback = function()
-        vim.keymap.set('i', '<C-w>', '<C-S-w>', { buffer = true }) -- Fix C-w triggering window bindings
+        vim.keymap.set('n', '<Esc>', function()
+          dapui.close()
+        end, { buffer = true })
       end,
     })
 
@@ -113,6 +122,11 @@ return {
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'dap-repl',
       callback = function()
+        vim.keymap.set('n', '<Esc>', function()
+          dapui.close()
+          dap.repl.close({ mode = 'toggle' })
+        end, { buffer = true })
+
         vim.keymap.set({ 'n', 'i' }, '<C-l>', function()
           dap_repl.clear()
         end, { buffer = true })
@@ -126,6 +140,13 @@ return {
         end, { buffer = true })
 
         vim.cmd('set wrap')
+      end,
+    })
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = { 'dap-repl', 'dapui_watches' },
+      callback = function()
+        vim.keymap.set('i', '<C-w>', '<C-S-w>', { buffer = true }) -- Fix C-w triggering window bindings
       end,
     })
 
