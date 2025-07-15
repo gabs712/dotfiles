@@ -44,6 +44,18 @@ M.clear_ctrl_hl = function(filetype)
   })
 end
 
+M.clear_ctrl = function(filetype)
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = filetype,
+    callback = function()
+      vim.keymap.set('n', '<C-h>', '<Nop>', { buffer = true })
+      vim.keymap.set('n', '<C-j>', '<Nop>', { buffer = true })
+      vim.keymap.set('n', '<C-k>', '<Nop>', { buffer = true })
+      vim.keymap.set('n', '<C-l>', '<Nop>', { buffer = true })
+    end,
+  })
+end
+
 M.shell_movements = function(filetype)
   vim.api.nvim_create_autocmd('FileType', {
     pattern = filetype,

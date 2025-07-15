@@ -12,7 +12,7 @@ return {
   config = function()
     local icons = require('custom.icons')
 
-    require('custom.helpers').clear_ctrl_hl('neo-tree')
+    require('custom.helpers').clear_ctrl('neo-tree')
     require('custom.helpers').shell_movements('neo-tree-popup')
 
     require('neo-tree').setup({
@@ -42,6 +42,7 @@ return {
           ['?'] = 'none',
           ['<C-f>'] = 'none',
           ['<C-b>'] = 'none',
+          ['<Esc>'] = 'none',
 
           ['g?'] = 'show_help',
           ['g.'] = 'toggle_hidden',
@@ -98,6 +99,20 @@ return {
       },
     })
     require('lsp-file-operations').setup()
+
+    local preview = require('neo-tree.sources.common.preview')
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'neo-tree',
+      callback = function()
+        vim.keymap.set('n', '<Esc>', function()
+          if preview.is_active() then
+            preview.hide()
+          else
+            vim.cmd('nohlsearch')
+          end
+        end, { buffer = true })
+      end,
+    })
 
     -- Toggle window, highlight current file, move cursor
     vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle focus left<CR>', { desc = 'Explore tree (neo-tree)' })
