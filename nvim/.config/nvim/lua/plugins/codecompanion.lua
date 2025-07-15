@@ -43,9 +43,9 @@ return {
         chat = {
           roles = {
             llm = function(adapter)
-              return 'CodeCompanion (' .. adapter.formatted_name .. ')'
+              return '  Assistant'
             end,
-            user = 'Me',
+            user = '  User',
           },
           keymaps = {
             send = {
