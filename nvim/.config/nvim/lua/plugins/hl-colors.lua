@@ -7,7 +7,7 @@ return {
     hl_colors.turnOff()
 
     local enabled = false
-    vim.keymap.set('n', '<leader>c', function()
+    vim.keymap.set('n', '<leader>a', function()
       hl_colors.toggle()
       enabled = not enabled
 
@@ -16,6 +16,6 @@ return {
       else
         vim.notify('Color highlight disabled')
       end
-    end, { desc = 'Toggle colors highlight' })
+    end, { desc = 'Alternate color highlight' })
   end,
 }

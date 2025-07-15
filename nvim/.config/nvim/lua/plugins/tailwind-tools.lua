@@ -21,7 +21,7 @@ return {
     })
 
     local is_enabled = default_conceal
-    vim.keymap.set('n', '<leader>C', function()
+    vim.keymap.set('n', '<leader>A', function()
       vim.cmd('TailwindConcealToggle')
       is_enabled = not is_enabled
 
@@ -30,6 +30,6 @@ return {
       else
         vim.notify('Tailwind conceal disabled')
       end
-    end, { desc = 'Toggle tailwind conceal' })
+    end, { desc = 'Alternate tailwind conceal' })
   end,
 }
