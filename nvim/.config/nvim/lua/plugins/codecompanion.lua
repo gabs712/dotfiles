@@ -14,14 +14,7 @@ return {
   },
   config = function()
     local codecompanion = require('codecompanion')
-    local utils = require('custom.codecompanion.utils')
-
-    local window = utils.floating_window({
-      width = 105,
-      height = 36,
-      padding_x = 7,
-      padding_y = 4,
-    })
+    local nav_heading = require('custom.codecompanion.nav_heading')
 
     codecompanion.setup({
       display = {
@@ -34,17 +27,9 @@ return {
           show_references = true, -- Slash commands and variables
 
           window = {
-            title = '',
-            layout = 'float',
-
-            border = 'rounded',
-            relative = 'editor',
-            row = window.row,
-            col = window.col,
-            width = window.width,
-            height = window.height,
+            width = 0.45,
             opts = {
-              scrolloff = 17,
+              scrolloff = 99,
               number = false,
               relativenumber = false,
             },
@@ -78,7 +63,6 @@ return {
             },
             close = {
               modes = {
-                n = '<Esc>',
                 i = '<Nop>',
               },
               callback = function()
@@ -142,21 +126,12 @@ return {
               },
               description = 'Open the file under cursor',
             },
-            clear_highlights = {
-              modes = {
-                n = '<C-h>',
-              },
-              callback = function()
-                vim.cmd('nohlsearch')
-              end,
-              description = 'Clear highlights',
-            },
             previous_header = {
               modes = {
                 n = '<C-k>',
               },
               callback = function()
-                utils.nav_heading('prev')
+                nav_heading('prev')
               end,
               description = 'Go to prev header',
             },
@@ -165,7 +140,7 @@ return {
                 n = '<C-j>',
               },
               callback = function()
-                utils.nav_heading('next')
+                nav_heading('next')
               end,
               description = 'Go to next header',
             },
