@@ -67,7 +67,7 @@ return {
                 i = '<Nop>',
               },
               callback = function()
-                vim.cmd('close')
+                vim.cmd('hide')
               end,
             },
             clear = {
@@ -182,7 +182,7 @@ return {
       },
       opts = {
         goto_file_action = function(fname)
-          vim.cmd('close')
+          vim.cmd('hide')
           vim.cmd('edit ' .. fname)
         end,
       },
