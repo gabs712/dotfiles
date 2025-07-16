@@ -182,7 +182,7 @@ return {
       },
       opts = {
         goto_file_action = function(fname)
-          vim.cmd('hide')
+          vim.cmd('wincmd p')
           vim.cmd('edit ' .. fname)
         end,
       },
