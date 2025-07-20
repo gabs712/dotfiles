@@ -172,7 +172,7 @@ local javascript = {
       [[
         try {{
           {}
-        }} catch (error) {{
+        }} catch (err) {{
           {}
         }}
       ]],
