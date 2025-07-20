@@ -71,8 +71,8 @@ vim.keymap.set({ 'n', 'x', 'o' }, '<C-b>', 'ge', { remap = true })
 vim.keymap.set({ 'n', 'x', 'o' }, '<M-b>', 'gE', { remap = true })
 
 -- Alternatives to scroll
-vim.keymap.set({ 'n', 'x' }, '<M-d>', '<C-f>')
-vim.keymap.set({ 'n', 'x' }, '<M-u>', '<C-b>')
+vim.keymap.set({ 'n', 'x' }, '<M-d>', '2<C-e>')
+vim.keymap.set({ 'n', 'x' }, '<M-u>', '2<C-y>')
 
 -- With strings, when using "a" on operator-pending mode or visual modes, not include extra whitespace
 vim.keymap.set({ 'o', 'x' }, "a'", "2i'")
