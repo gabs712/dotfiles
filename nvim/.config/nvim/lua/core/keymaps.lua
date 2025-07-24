@@ -125,10 +125,15 @@ vim.keymap.set({ 'n', 'x' }, '<C-w>J', '<C-w>J<C-w>', { remap = true })
 vim.keymap.set({ 'n', 'x' }, '<C-w>K', '<C-w>K<C-w>', { remap = true })
 vim.keymap.set({ 'n', 'x' }, '<C-w>L', '<C-w>L<C-w>', { remap = true })
 
-vim.keymap.set({ 'n', 'x' }, '<C-w>l', '<cmd>vertical resize +5<cr><C-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<C-w>h', '<cmd>vertical resize -5<cr><C-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<C-w>k', '<cmd>horizontal resize +5<cr><C-w>', { remap = true })
-vim.keymap.set({ 'n', 'x' }, '<C-w>j', '<cmd>horizontal resize -5<cr><C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x' }, '<C-w>h', '<C-w>h<C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x' }, '<C-w>j', '<C-w>j<C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x' }, '<C-w>k', '<C-w>k<C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x' }, '<C-w>l', '<C-w>l<C-w>', { remap = true })
+
+vim.keymap.set({ 'n', 'x' }, '<C-w>.', '<cmd>vertical resize +5<cr><C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x' }, '<C-w>,', '<cmd>vertical resize -5<cr><C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x' }, '<C-w>>', '<cmd>horizontal resize +5<cr><C-w>', { remap = true })
+vim.keymap.set({ 'n', 'x' }, '<C-w><', '<cmd>horizontal resize -5<cr><C-w>', { remap = true })
 
 -- Alternatives to scroll while also keeping cursor at center
 vim.keymap.set({ 'n', 'x' }, '<Up>', '3<C-y>0M')
