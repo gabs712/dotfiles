@@ -5,7 +5,7 @@ return {
     require('outline').setup({
       outline_window = {
         position = 'right', -- left / right
-        auto_close = false, -- Closes window if item is selected with enter
+        auto_close = true, -- Closes window if item is selected with enter
         focus_on_open = true,
       },
       outline_items = {
@@ -17,7 +17,7 @@ return {
         unfold_all = 'L',
 
         show_help = 'g?',
-        toggle_preview = 'P',
+        toggle_preview = '<Nop>',
         down_and_jump = 'J',
         up_and_jump = 'K',
         restore_location = '-',
