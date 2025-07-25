@@ -143,7 +143,8 @@ vim.keymap.set({ 'n', 'x' }, '<Right>', '<C-d>0M')
 vim.keymap.set({ 'n', 'i', 'x', 's', 'o', 't', 'c' }, '<ScrollWheelUp>', '4<C-y>0M')
 vim.keymap.set({ 'n', 'i', 'x', 's', 'o', 't', 'c' }, '<ScrollWheelDown>', '4<C-e>0M')
 
-vim.keymap.set({ 'n', 'i', 'x', 's' }, '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
+vim.keymap.set({ 'n', 'x', 's' }, '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
+vim.keymap.set('i', '<C-s>', '<cmd>w<CR><Esc>', { desc = 'Write file (save) in normal mode' })
 vim.keymap.set({ 'n', 'x' }, '<C-e>', '<cmd>e!<CR>', { desc = 'Discard changes' })
 
 -- Shortcuts to ':' and '/'
