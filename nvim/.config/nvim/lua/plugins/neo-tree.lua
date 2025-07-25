@@ -30,7 +30,7 @@ return {
       },
       close_if_last_window = true,
       window = {
-        width = 35,
+        width = 36,
         mappings = {
           ['<space>'] = 'none',
           ['<C-e>'] = 'none',
@@ -43,6 +43,7 @@ return {
           ['<C-f>'] = 'none',
           ['<C-b>'] = 'none',
           ['<Esc>'] = 'none',
+          ['.'] = 'none',
 
           ['g?'] = 'show_help',
           ['g.'] = 'toggle_hidden',
