@@ -36,8 +36,8 @@ return {
             ['ic'] = { query = '@comment.outer', desc = 'Select inside comment' }, -- @comment.inner not implemented for most languages
             ['ac'] = { query = '@comment.outer', desc = 'Select around comment' },
 
-            ['it'] = { query = '@statement.outer', desc = 'Select inside statement' }, -- @statement.inner tipically doesn't work
-            ['at'] = { query = '@statement.outer', desc = 'Select around statement' },
+            ['ie'] = { query = '@statement.outer', desc = 'Select inside statement (every) ' }, -- @statement.inner tipically doesn't work
+            ['ae'] = { query = '@statement.outer', desc = 'Select around statement (every)' },
 
             ['an'] = { query = '@number.inner', desc = 'Select number' },
             ['in'] = { query = '@number.inner', desc = 'Select number' },
@@ -54,7 +54,7 @@ return {
             ['Ho'] = { query = '@class.outer', desc = 'Swap class (object) with previous' },
             ['Ha'] = { query = '@parameter.inner', desc = 'Swap argument with previous' },
             ['Hc'] = { query = '@comment.outer', desc = 'Swap comment with previous' },
-            ['Ht'] = { query = '@statement.outer', desc = 'Swap statement with previous' },
+            ['He'] = { query = '@statement.outer', desc = 'Swap statement (every) with previous' },
             ['Hn'] = { query = '@number.inner', desc = 'Swap number with previous' },
           },
           swap_next = {
@@ -66,7 +66,7 @@ return {
             ['Lo'] = { query = '@class.outer', desc = 'Swap class (object) with next' },
             ['La'] = { query = '@parameter.inner', desc = 'Swap argument with next' },
             ['Lc'] = { query = '@comment.outer', desc = 'Swap comment with next' },
-            ['Lt'] = { query = '@statement.outer', desc = 'Swap statement with next' },
+            ['Le'] = { query = '@statement.outer', desc = 'Swap statement (every) with next' },
             ['Ln'] = { query = '@number.inner', desc = 'Swap number with next' },
           },
         },
@@ -83,7 +83,7 @@ return {
             [']o'] = { query = '@class.outer', desc = 'Next class (object)' },
             [']a'] = { query = '@parameter.inner', desc = 'Next argument or parameter' },
             [']c'] = { query = '@comment.outer', desc = 'Next comment' },
-            [']t'] = { query = '@statement.outer', desc = 'Next statement' },
+            [']e'] = { query = '@statement.outer', desc = 'Next statement (every)' },
             [']n'] = { query = '@number.inner', desc = 'Next number' },
           },
           goto_next_end = {
@@ -95,7 +95,7 @@ return {
             [']O'] = { query = '@class.outer', desc = 'Next class (object) on end' },
             [']A'] = { query = '@parameter.inner', desc = 'Next argument or parameter on end' },
             [']C'] = { query = '@comment.outer', desc = 'Next comment on end' },
-            [']T'] = { query = '@statement.outer', desc = 'Next statement on end' },
+            [']E'] = { query = '@statement.outer', desc = 'Next statement (every) on end' },
             [']N'] = { query = '@number.inner', desc = 'Next number on end' },
           },
           goto_previous_start = {
@@ -107,7 +107,7 @@ return {
             ['[o'] = { query = '@class.outer', desc = 'Previous class (object)' },
             ['[a'] = { query = '@parameter.inner', desc = 'Previous argument or parameter' },
             ['[c'] = { query = '@comment.outer', desc = 'Previous comment' },
-            ['[t'] = { query = '@statement.outer', desc = 'Previous statement' },
+            ['[e'] = { query = '@statement.outer', desc = 'Previous statement (every)' },
             ['[n'] = { query = '@number.inner', desc = 'Previous number' },
           },
           goto_previous_end = {
@@ -119,7 +119,7 @@ return {
             ['[O'] = { query = '@class.outer', desc = 'Previous class (object) on end' },
             ['[A'] = { query = '@parameter.inner', desc = 'Previous argument or parameter on end' },
             ['[C'] = { query = '@comment.outer', desc = 'Previous comment on end' },
-            ['[T'] = { query = '@statement.outer', desc = 'Previous statement on end' },
+            ['[E'] = { query = '@statement.outer', desc = 'Previous statement (every) on end' },
             ['[N'] = { query = '@number.inner', desc = 'Next number on end' },
           },
         },
