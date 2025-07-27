@@ -25,6 +25,6 @@ return {
     vim.keymap.set('n', toggle_binding, function()
       snipe.open_buffer_menu()
       vim.cmd('norm! gg0')
-    end, { desc = 'Open snipe (out)' })
+    end, { desc = 'Show oldfiles for buffers' })
   end,
 }

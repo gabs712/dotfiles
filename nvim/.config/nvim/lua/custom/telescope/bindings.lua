@@ -78,7 +78,7 @@ return {
     mode = 'n',
     lhs = '<leader>fo',
     rhs = builtin.oldfiles,
-    obj = { desc = 'Find old files' },
+    obj = { desc = 'Find oldfiles' },
   },
   {
     mode = 'n',
