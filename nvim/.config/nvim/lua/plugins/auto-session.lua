@@ -3,8 +3,8 @@ return {
   config = function()
     local auto_session = require('auto-session')
 
-    -- Recommended options
-    vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+    -- When 'buffers' is abscent, it restores only the current and the "alt" (#) buffer, wich avoids stacking too much and messing up the buffer order.
+    vim.o.sessionoptions = ''
 
     auto_session.setup({
       suppressed_dirs = { '~/', '/' }, -- Don't restore those
