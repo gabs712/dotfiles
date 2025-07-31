@@ -17,9 +17,7 @@ local rep = require('luasnip.extras').rep -- Repeats
 local javascript = {
   s('c', fmt('const {}', { i(1) })),
   s('l', fmt('let {}', { i(1) })),
-  s('sf', fmt('({}) => {}', { i(1), i(2) })),
-  s('csf', fmt('const {} = ({}) => {}', { i(1, 'name'), i(2), i(3) })),
-  s('lsf', fmt('let {} = ({}) => {}', { i(1, 'name'), i(2), i(3) })),
+  s('fs', fmt('({}) => {}', { i(1), i(2) })),
 
   s('imp', fmt("import {} from '{}'", { i(2, 'name'), i(1, 'module') })),
   s('re', fmt("require('{}')", { i(1) })),
