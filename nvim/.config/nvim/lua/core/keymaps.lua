@@ -47,6 +47,9 @@ vim.keymap.set(
 -- <C-j> works with plugins that remap <CR> (ie. autopairs)
 vim.keymap.set('i', '<C-j>', '<CR>', { remap = true })
 
+-- Don't indent when using the registers with c-r
+vim.keymap.set('i', '<C-r>', '<C-r><C-o>', { remap = true })
+
 -- Lsp
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
 vim.keymap.set('n', '<leader>z', vim.lsp.buf.code_action, { desc = 'Code actions' })
