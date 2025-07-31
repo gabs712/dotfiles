@@ -3,12 +3,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Clear keys (keep close to top to avoid side effects)
-vim.keymap.set({ 'n', 'x', 's' }, '<C-b>', '<Nop>')
-vim.keymap.set({ 'n', 'x', 's' }, '<C-f>', '<Nop>')
-vim.keymap.set({ 'n', 'x', 's' }, '<C-e>', '<Nop>')
-vim.keymap.set({ 'n', 'x', 's' }, '<C-y>', '<Nop>')
-vim.keymap.set('c', '<C-d>', '<Nop>') -- Causes conflicts with completion
 vim.keymap.set({ 'n', 'x' }, '<Space>', '<Nop>')
+vim.keymap.set('c', '<C-d>', '<Nop>') -- Causes conflicts with completion
 vim.keymap.set({ 'n', 'x' }, '<C-w><C-w>', '<Nop>')
 vim.keymap.set('i', '<C-Space>', '<Nop>')
 vim.keymap.set('n', 'H', '<Nop>')
@@ -74,8 +70,24 @@ vim.keymap.set({ 'n', 'x', 'o' }, '<C-b>', 'ge', { remap = true })
 vim.keymap.set({ 'n', 'x', 'o' }, '<M-b>', 'gE', { remap = true })
 
 -- Alternatives to scroll
-vim.keymap.set({ 'n', 'x' }, '<M-d>', '3<C-e>')
-vim.keymap.set({ 'n', 'x' }, '<M-u>', '3<C-y>')
+local scroll = '4'
+local scroll_down = function()
+  vim.cmd('norm! ' .. scroll .. '')
+end
+local scroll_up = function()
+  vim.cmd('norm! ' .. scroll .. '')
+end
+
+vim.keymap.set({ 'n', 'x' }, '<M-d>', scroll_down)
+vim.keymap.set({ 'n', 'x' }, '<M-u>', scroll_up)
+
+vim.keymap.set({ 'n', 'x' }, '<Down>', scroll_down)
+vim.keymap.set({ 'n', 'x' }, '<Up>', scroll_up)
+vim.keymap.set({ 'n', 'i', 'x', 's', 'o', 't', 'c' }, '<ScrollWheelUp>', scroll_up)
+vim.keymap.set({ 'n', 'i', 'x', 's', 'o', 't', 'c' }, '<ScrollWheelDown>', scroll_down)
+
+vim.keymap.set({ 'n', 'x' }, '<Left>', '<C-u>0M')
+vim.keymap.set({ 'n', 'x' }, '<Right>', '<C-d>0M')
 
 -- With strings, when using "a" on operator-pending mode or visual modes, not include extra whitespace
 vim.keymap.set({ 'o', 'x' }, "a'", "2i'")
@@ -137,14 +149,6 @@ vim.keymap.set({ 'n', 'x' }, '<C-w>.', '<cmd>vertical resize +5<cr><C-w>', { rem
 vim.keymap.set({ 'n', 'x' }, '<C-w>,', '<cmd>vertical resize -5<cr><C-w>', { remap = true })
 vim.keymap.set({ 'n', 'x' }, '<C-w>>', '<cmd>horizontal resize +5<cr><C-w>', { remap = true })
 vim.keymap.set({ 'n', 'x' }, '<C-w><', '<cmd>horizontal resize -5<cr><C-w>', { remap = true })
-
--- Alternatives to scroll while also keeping cursor at center
-vim.keymap.set({ 'n', 'x' }, '<Up>', '3<C-y>0M')
-vim.keymap.set({ 'n', 'x' }, '<Down>', '3<C-e>0M')
-vim.keymap.set({ 'n', 'x' }, '<Left>', '<C-u>0M')
-vim.keymap.set({ 'n', 'x' }, '<Right>', '<C-d>0M')
-vim.keymap.set({ 'n', 'i', 'x', 's', 'o', 't', 'c' }, '<ScrollWheelUp>', '4<C-y>0M')
-vim.keymap.set({ 'n', 'i', 'x', 's', 'o', 't', 'c' }, '<ScrollWheelDown>', '4<C-e>0M')
 
 vim.keymap.set({ 'n', 'i', 'x', 's' }, '<C-s>', '<cmd>w<CR>', { desc = 'Write file (save)' })
 vim.keymap.set({ 'n', 'x' }, '<C-e>', '<cmd>e!<CR>', { desc = 'Discard changes' })
