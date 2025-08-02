@@ -12,7 +12,7 @@ return {
   config = function()
     local icons = require('custom.icons')
 
-    require('custom.helpers').clear_ctrl_hl('neo-tree')
+    require('custom.helpers').map_ctrl_j_hl('neo-tree')
     require('custom.helpers').shell_movements('neo-tree-popup')
 
     require('neo-tree').setup({
@@ -50,6 +50,7 @@ return {
 
           ['l'] = 'open',
           ['h'] = 'close_node',
+          ['<C-k>'] = 'close_node',
           ['<C-s>'] = 'open_split',
           ['<C-v>'] = 'open_vsplit',
           ['K'] = { 'scroll_preview', config = { direction = 10 } },
