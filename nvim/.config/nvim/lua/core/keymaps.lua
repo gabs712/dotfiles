@@ -11,6 +11,7 @@ vim.keymap.set('n', 'H', '<Nop>')
 vim.keymap.set('n', 'L', '<Nop>')
 vim.keymap.set('i', '<C-n>', '<Nop>')
 vim.keymap.set('i', '<C-p>', '<Nop>')
+vim.keymap.set({ 'n', 'x' }, '<leader><Esc>', '<Nop>')
 
 -- Defualt lsp bindings
 vim.keymap.del('n', 'grr')
