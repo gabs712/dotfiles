@@ -13,7 +13,7 @@ vim.keymap.set('i', '<C-n>', '<Nop>')
 vim.keymap.set('i', '<C-p>', '<Nop>')
 vim.keymap.set({ 'n', 'x' }, '<leader><Esc>', '<Nop>')
 
--- Defualt lsp bindings
+-- Default lsp bindings
 vim.keymap.del('n', 'grr')
 vim.keymap.del('n', 'gra')
 vim.keymap.del('x', 'gra')
