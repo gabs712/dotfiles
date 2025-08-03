@@ -1,7 +1,8 @@
 return {
   'leath-dub/snipe.nvim',
   config = function()
-    require('custom.helpers').map_ctrl_j_hl('snipe-menu')
+    require('utils.ft').clear_c_hjkl('snipe-menu', { bind_c_j = true })
+    require('utils.ft').bind_close_win('snipe-menu', 'close')
 
     local snipe = require('snipe')
     local toggle_binding = '<leader>o'
@@ -17,7 +18,7 @@ return {
         close_buffer = 'D',
         next_page = 'J',
         prev_page = 'K',
-        cancel_snipe = { '<Esc>', toggle_binding },
+        cancel_snipe = { toggle_binding },
       },
       sort = 'last', -- last / default
     })

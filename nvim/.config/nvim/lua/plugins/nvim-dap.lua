@@ -5,15 +5,15 @@ return {
     'nvim-neotest/nvim-nio', -- Async stuff
   },
   config = function()
-    require('custom.helpers').map_ctrl_j_hl('dapui_watches')
-    require('custom.helpers').map_ctrl_j_hl('dapui_scopes')
-    require('custom.helpers').map_ctrl_j_hl('dapui_stacks')
-    require('custom.helpers').map_ctrl_j_hl('dapui_breakpoints')
-    require('custom.helpers').map_ctrl_j_hl('dap-repl')
-    require('custom.helpers').map_ctrl_j_hl('dapui_console')
-    require('custom.helpers').map_ctrl_j_hl('dapui_hover')
+    require('utils.ft').clear_c_hjkl('dapui_watches', { bind_c_j = true })
+    require('utils.ft').clear_c_hjkl('dapui_scopes', { bind_c_j = true })
+    require('utils.ft').clear_c_hjkl('dapui_stacks', { bind_c_j = true })
+    require('utils.ft').clear_c_hjkl('dapui_breakpoints', { bind_c_j = true })
+    require('utils.ft').clear_c_hjkl('dap-repl', { bind_c_j = true })
+    require('utils.ft').clear_c_hjkl('dapui_console', { bind_c_j = true })
+    require('utils.ft').clear_c_hjkl('dapui_hover', { bind_c_j = true })
 
-    require('custom.helpers').shell_movements({ 'dap-repl', 'dapui_watches' })
+    require('utils.ft').bind_shell_movements({ 'dap-repl', 'dapui_watches' })
 
     local dap = require('dap')
     local dapui = require('dapui')
@@ -102,32 +102,27 @@ return {
       numhl = '',
     })
 
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = {
-        'dapui_watches',
-        'dapui_scopes',
-        'dapui_stacks',
-        'dapui_breakpoints',
-        'dapui_console',
-        'dapui_hover',
-      },
-      callback = function()
-        vim.keymap.set('n', '<Esc>', function()
-          dapui.close()
-        end, { buffer = true })
-      end,
-    })
+    require('utils.ft').bind_close_win({
+      'dapui_watches',
+      'dapui_scopes',
+      'dapui_stacks',
+      'dapui_breakpoints',
+      'dapui_console',
+      'dapui_hover',
+    }, dapui.close)
 
     local repl_go_to_path = require('custom.nvim-dap.repl_go_to_path')
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'dap-repl',
       callback = function()
         vim.keymap.set('n', '<Esc>', function()
-          dapui.close()
-          dap.repl.close({ mode = 'toggle' })
+          require('utils.close_win')(function()
+            dapui.close()
+            dap.repl.close({ mode = 'toggle' })
+          end)
         end, { buffer = true })
 
-        vim.keymap.set({ 'n', 'i' }, '<C-l>', function()
+        vim.keymap.set('n', '<C-e>', function()
           dap_repl.clear()
         end, { buffer = true })
 

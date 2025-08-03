@@ -7,7 +7,8 @@ return {
     'rcarriga/nvim-notify',
   },
   config = function()
-    require('custom.helpers').clear_ctrl_hl('noice')
+    require('utils.ft').clear_c_hjkl('noice')
+
     require('noice').setup({
       routes = require('custom.noice.notify_filters'),
       lsp = {

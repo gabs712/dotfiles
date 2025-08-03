@@ -8,7 +8,7 @@ return {
     local actions = require('telescope.actions')
     local builtin = require('telescope.builtin')
 
-    require('custom.helpers').shell_movements('TelescopePrompt')
+    require('utils.ft').bind_shell_movements('TelescopePrompt')
 
     require('telescope').setup({
       defaults = {

@@ -8,7 +8,7 @@ return {
     'letieu/harpoon-lualine',
   },
   config = function()
-    local icons = require('custom.icons')
+    local icons = require('utils.icons')
 
     local options = {
       theme = 'auto',
@@ -133,7 +133,7 @@ return {
     oil.sections.lualine_c[2] = {
       function()
         local oil_directory = vim.fn.fnamemodify(require('oil').get_current_dir(), ':~')
-        local modified_symbol = vim.bo.modified and ' ' .. require('custom.icons').buffer.modified or ''
+        local modified_symbol = vim.bo.modified and ' ' .. icons.buffer.modified or ''
         return oil_directory .. modified_symbol
       end,
     }

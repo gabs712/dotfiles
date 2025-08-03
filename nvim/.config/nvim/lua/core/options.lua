@@ -90,7 +90,7 @@ vim.diagnostic.config({
   signs = false,
 })
 
-local icons = require('custom.icons')
+local icons = require('utils.icons')
 
 -- For plugins like trouble
 vim.fn.sign_define('DiagnosticSignError', { text = icons.diagnostics.error })

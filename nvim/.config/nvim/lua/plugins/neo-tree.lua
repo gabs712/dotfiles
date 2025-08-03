@@ -10,10 +10,10 @@ return {
     'MunifTanjim/nui.nvim',
   },
   config = function()
-    local icons = require('custom.icons')
+    local icons = require('utils.icons')
 
-    require('custom.helpers').map_ctrl_j_hl('neo-tree')
-    require('custom.helpers').shell_movements('neo-tree-popup')
+    require('utils.ft').clear_c_hjkl('neo-tree', { bind_c_j = true })
+    require('utils.ft').bind_shell_movements('neo-tree-popup')
 
     require('neo-tree').setup({
       filesystem = {
@@ -32,7 +32,6 @@ return {
       window = {
         width = 36,
         mappings = {
-          ['<space>'] = 'none',
           ['<C-e>'] = 'none',
           ['<bs>'] = 'none',
           ['s'] = 'none',
@@ -110,7 +109,7 @@ return {
           if preview.is_active() then
             preview.hide()
           else
-            vim.cmd('Neotree close')
+            require('utils.close_win')('Neotree close')
           end
         end, { buffer = true })
       end,

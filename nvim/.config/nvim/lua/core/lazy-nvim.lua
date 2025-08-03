@@ -15,8 +15,8 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require('custom.helpers').map_ctrl_j_hl('lazy')
-require('custom.helpers').map_close_window('lazy')
+require('utils.ft').clear_c_hjkl('lazy', { bind_c_j = true })
+require('utils.ft').bind_close_win('lazy', 'close')
 
 require('lazy').setup('plugins', {
   change_detection = {

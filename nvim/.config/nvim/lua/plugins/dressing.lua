@@ -1,8 +1,8 @@
 return {
   'stevearc/dressing.nvim',
   config = function()
-    require('custom.helpers').map_ctrl_j('DressingInput')
-    require('custom.helpers').shell_movements('DressingInput')
+    require('utils.ft').clear_c_hjkl('DressingInput', { bind_c_j = true })
+    require('utils.ft').bind_shell_movements('DressingInput')
 
     require('dressing').setup({
       input = {

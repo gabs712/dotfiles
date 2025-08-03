@@ -1,7 +1,10 @@
 return {
   'hedyhli/outline.nvim',
   config = function()
-    require('custom.helpers').map_ctrl_j_hl('Outline')
+    require('utils.ft').clear_c_hjkl('Outline', { bind_c_j = true })
+    require('utils.ft').bind_close_win('Outline', 'OutlineClose')
+    require('utils.ft').bind_close_win('OutlineHelp', 'close')
+
     require('outline').setup({
       outline_window = {
         position = 'right', -- left / right
@@ -18,10 +21,10 @@ return {
 
         show_help = 'g?',
         toggle_preview = '<Nop>',
+        close = '<Nop>',
         down_and_jump = 'J',
         up_and_jump = 'K',
         restore_location = '-',
-        close = '<Esc>',
       },
       symbols = {
         icons = {
@@ -30,11 +33,23 @@ return {
       },
     })
 
+    require('utils.ft').bind_close_win('OutlineHelp', 'close')
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'Outline',
       callback = function()
         vim.keymap.set('n', '<C-o>', '<Nop>', { buffer = true })
         vim.keymap.set('n', '<C-i>', '<Nop>', { buffer = true })
+      end,
+    })
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'OutlineHelp',
+      callback = function()
+        vim.defer_fn(function()
+          vim.keymap.set('n', '<Esc>', function()
+            require('utils.close_win')('close')
+          end, { buffer = true })
+        end, 0)
       end,
     })
 

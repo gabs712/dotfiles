@@ -8,7 +8,7 @@ return {
   config = function()
     local harpoon = require('harpoon')
 
-    require('custom.helpers').map_ctrl_j_hl('harpoon')
+    require('utils.ft').clear_c_hjkl('harpoon', { bind_c_j = true })
 
     harpoon:setup({
       settings = {
@@ -21,6 +21,13 @@ return {
       callback = function()
         -- Go to normal mode when saving
         vim.keymap.set({ 'n', 'i', 'x', 's' }, '<C-s>', '<Esc><cmd>w<CR>', { buffer = true })
+
+        vim.defer_fn(function()
+          -- Harpoon is overiting this binding on every interaction, thus the need to defer
+          vim.keymap.set('n', '<Esc>', function()
+            require('utils.close_win')('close')
+          end, { buffer = true })
+        end, 0)
       end,
     })
 
@@ -112,5 +119,13 @@ return {
 
       vim.notify('Mark added at index ' .. last_index)
     end, { desc = 'Set harpoon mark' })
+
+    vim.api.nvim_create_autocmd('FileType', {
+      -- Remove mark binding from those
+      pattern = 'qf',
+      callback = function()
+        vim.keymap.set('n', '<CR>', '<CR>', { buffer = true })
+      end,
+    })
   end,
 }

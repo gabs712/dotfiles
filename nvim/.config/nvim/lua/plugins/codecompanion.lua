@@ -16,6 +16,8 @@ return {
     local codecompanion = require('codecompanion')
     local nav_heading = require('custom.codecompanion.nav_heading')
 
+    require('utils.ft').clear_c_hjkl('codecompanion')
+
     codecompanion.setup({
       display = {
         chat = {
@@ -67,7 +69,7 @@ return {
                 i = '<Nop>',
               },
               callback = function()
-                vim.cmd('hide')
+                require('utils.close_win')('close')
               end,
             },
             clear = {
@@ -126,15 +128,6 @@ return {
                 n = { 'gf', 'gF' },
               },
               description = 'Open the file under cursor',
-            },
-            clear_highlights = {
-              modes = {
-                n = '<C-h>',
-              },
-              callback = function()
-                vim.cmd('nohlsearch')
-              end,
-              description = 'Clear highlights',
             },
             previous_header = {
               modes = {

@@ -1,5 +1,5 @@
 local builtin = require('telescope.builtin')
-local icons = require('custom.icons')
+local icons = require('utils.icons')
 
 return {
   {

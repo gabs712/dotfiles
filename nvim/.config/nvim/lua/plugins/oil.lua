@@ -56,10 +56,12 @@ return {
 
       use_default_keymaps = false,
       keymaps = {
+        ['<C-space>'] = 'actions.open_cwd',
+        ['<C-h>'] = 'actions.open_cwd',
+
         ['<C-j>'] = 'actions.select',
         ['<C-k>'] = 'actions.parent',
 
-        ['<C-Space>'] = 'actions.open_cwd',
         ['<C-l>'] = 'actions.preview',
 
         ['K'] = 'actions.preview_scroll_up',
@@ -95,12 +97,7 @@ return {
         local actions = require('oil.actions')
 
         vim.keymap.set('n', '<Esc>', function()
-          actions.close.callback()
-        end, { buffer = true })
-
-        -- Clear highlights
-        vim.keymap.set('n', '<C-h>', function()
-          vim.cmd('nohlsearch')
+          require('utils.close_win')(actions.close.callback)
         end, { buffer = true })
 
         -- Allow saving while in insert mode

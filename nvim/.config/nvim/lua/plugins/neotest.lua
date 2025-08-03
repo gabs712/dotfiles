@@ -10,8 +10,6 @@ return {
     'nvim-neotest/neotest-jest',
   },
   config = function()
-    require('custom.helpers').map_ctrl_j_hl('neotest-summary')
-
     local neotest = require('neotest')
     neotest.setup({
       adapters = {
@@ -43,12 +41,12 @@ return {
           attach = 'a',
           clear_marked = 'M',
           clear_target = 'T',
-          debug = 'd',
-          debug_marked = 'D',
+          debug = 'gd',
+          debug_marked = 'gD',
           expand = { 'h', '<2-LeftMouse>' },
           expand_all = { 'l', 'e' },
-          help = '?',
-          jumpto = '<CR>',
+          help = 'g?',
+          jumpto = '<C-j>',
           mark = 'm',
           next_failed = 'J',
           output = 'o',
@@ -58,7 +56,7 @@ return {
           short = 'O',
           stop = 'u',
           target = 't',
-          watch = 'w',
+          watch = 'gw',
         },
         open = 'botright vsplit | vertical resize 50',
       },
@@ -67,7 +65,10 @@ return {
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'neotest-summary',
       callback = function()
-        vim.keymap.set('n', '<Esc>', '<cmd>Neotest summary close<CR>', { buffer = true })
+        vim.keymap.set('n', '<CR>', '<C-j>', { remap = true })
+        vim.keymap.set('n', '<Esc>', function()
+          require('utils.close_win')('Neotest summary close')
+        end, { buffer = true })
       end,
     })
 

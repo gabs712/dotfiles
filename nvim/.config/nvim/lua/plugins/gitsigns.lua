@@ -4,9 +4,11 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
   config = function()
+    require('utils.ft').clear_c_hjkl('gitsigns-blame', { bind_c_j = true })
+    require('utils.ft').bind_close_win('gitsigns-blame', 'close')
+
     local gitsigns = require('gitsigns')
 
-    require('custom.helpers').map_ctrl_j('gitsigns-blame')
     gitsigns.setup({
       -- Untracked files don't need to be refreshed when committed to be attached
       attach_to_untracked = true,
@@ -23,13 +25,6 @@ return {
     end, function()
       gitsigns.nav_hunk('prev', { target = 'all' })
     end)
-
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = 'gitsigns-blame',
-      callback = function()
-        vim.keymap.set('n', '<Esc>', '<cmd>close<cr>', { buffer = true })
-      end,
-    })
 
     vim.keymap.set('n', '<leader>h', gitsigns.preview_hunk, { desc = 'Git preview hunk diff' })
 
