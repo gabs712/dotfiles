@@ -3,6 +3,7 @@ keybinding:
     return: <c-k>
     confirm: <c-j>
     goInto: <c-j>
+    startSearch: <c-n>
     submitEditorText: <c-j>
     scrollUpMain-alt1: <disabled>
     scrollDownMain-alt1: <disabled>
