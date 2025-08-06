@@ -9,6 +9,10 @@
 - curl (required by some plugins) [sudo]
 - [FiraCode Nerd Font - regular](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip)
 
+## 📦 Installation
+
+Pickup a version on the [nvim releases page](https://github.com/neovim/neovim/releases)
+
 ## 🤖 AI
 
 The AI provider can be setted with a env variable that tipically follows the format:
