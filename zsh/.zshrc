@@ -9,7 +9,6 @@ PS1="%{%F{cyan}%}%~ %{%F{blue}%}❯%{%f%} "
 autoload -U colors && colors # Exposes color vars to zsh
 command -v dircolors &> /dev/null && eval "$(dircolors -b)" # Sets LS_COLOR values (used on completion)
 
-autoload -U compinit; compinit # Enables completion
 zmodload zsh/complist # More completion features
 
 WORDCHARS=${WORDCHARS/\/} # C-w will not delete entire path
