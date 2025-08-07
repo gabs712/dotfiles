@@ -13,9 +13,10 @@ boilerplate() {
   cp -r ~/boilerplate/"$folder"/{*,.*} . 2>/dev/null
 }
 
-alias l='ls -CF'
-alias la='ls -A'
-alias ll='ls -alF'
+alias ls='ls --color=auto'
+alias l='ls --color=auto'
+alias la='ls -A --color=auto'
+alias ll='ls -alF --color=auto'
 
 alias nv='nvim'
 alias tm='tmux'
