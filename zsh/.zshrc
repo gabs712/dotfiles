@@ -4,7 +4,7 @@
 command -v tmux &> /dev/null && [ -z "$TMUX" ] && (tmux attach || tmux new-session -s 0)
 
 # ~~~~~~~~~~ Options ~~~~~~~~~~
-PS1="%{%F{#8ae9fc}%}%~ %{%F{#bd92f8}%}❯%{%f%} " # Prompt visuals
+PS1="%{%F{cyan}%}%~ %{%F{blue}%}❯%{%f%} "
 
 autoload -U colors && colors # Exposes color vars to zsh
 command -v dircolors &> /dev/null && eval "$(dircolors -b)" # Sets LS_COLOR values (used on completion)
