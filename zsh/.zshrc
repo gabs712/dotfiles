@@ -12,6 +12,8 @@ command -v dircolors &> /dev/null && eval "$(dircolors -b)" # Sets LS_COLOR valu
 autoload -U compinit; compinit # Enables completion
 zmodload zsh/complist # More completion features
 
+WORDCHARS=${WORDCHARS/\/} # C-w will not delete entire path
+
 # -- History --
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
