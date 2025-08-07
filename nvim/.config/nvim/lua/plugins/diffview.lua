@@ -260,12 +260,10 @@ return {
     })
 
     vim.keymap.set('n', '<leader>L', '<cmd>DiffviewOpen<CR>', { desc = 'Open git diffview for file changes' })
-    vim.keymap.set('x', '<leader>L', ':DiffviewOpen<CR>', { desc = 'Open git diffview for file changes (range)' })
 
     vim.keymap.set('n', '<leader>v', '<cmd>DiffviewFileHistory<CR>', { desc = 'Open git diffview history' })
     vim.keymap.set('x', '<leader>v', ':DiffviewFileHistory<CR>', { desc = 'Open git diffview history (range)' })
 
     vim.keymap.set('n', '<leader>V', '<cmd>DiffviewFileHistory %<CR>', { desc = 'Open git diffview history (file)' })
-    vim.keymap.set('x', '<leader>V', ':DiffviewFileHistory %<CR>', { desc = 'Open git diffview history (file) ' })
   end,
 }
