@@ -60,7 +60,22 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 unalias zi
 # ~~~~~~~~~~ Plugins ~~~~~~~~~~
+zinit light zsh-users/zsh-history-substring-search
 zinit light Aloxaf/fzf-tab
+
+# -- zsh-history-substring-search --
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^[OA' history-substring-search-up
+bindkey '^[OB' history-substring-search-down
+
+HISTORY_SUBSTRING_SEARCH_PREFIXED=true # Only exact prefix match
+HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='' # Case sensisitive
+
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=''
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=''
 
 # -- fzf-tab --
 zstyle ':completion:*' menu no # Disable default completion
