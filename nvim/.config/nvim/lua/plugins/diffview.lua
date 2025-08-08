@@ -259,6 +259,15 @@ return {
       },
     })
 
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'DiffviewFileHistory',
+      callback = function()
+        vim.defer_fn(function()
+          vim.cmd('set wrap')
+        end, 0)
+      end,
+    })
+
     vim.keymap.set('n', '<leader>L', '<cmd>DiffviewOpen<CR>', { desc = 'Open git diffview for file changes' })
 
     vim.keymap.set('n', '<leader>v', '<cmd>DiffviewFileHistory<CR>', { desc = 'Open git diffview history' })
