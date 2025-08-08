@@ -88,9 +88,10 @@ zle -N smart-tab
 bindkey '^I' smart-tab # Tab will not have effect on empty lines
 
 # ~~~~~~~~~~ Shell integrations ~~~~~~~~~~
-# -- fzf -- 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(zoxide init zsh)"
 
+# -- fzf -- 
 export FZF_DEFAULT_OPTS="
   --bind 'ctrl-j:accept'
   --bind 'ctrl-space:toggle'
@@ -100,6 +101,4 @@ export FZF_DEFAULT_OPTS="
   --bind 'ctrl-l:ignore'
 "
 # -- zoxide --
-eval "$(zoxide init zsh)"
-
 alias cd='z'
