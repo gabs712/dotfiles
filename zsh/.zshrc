@@ -62,6 +62,8 @@ zinit light Aloxaf/fzf-tab
 # -- fzf-tab --
 zstyle ':completion:*' menu no # Disable default completion
 zstyle ':fzf-tab:*' use-fzf-default-opts yes # Mirror config for fzf
+zstyle ':fzf-tab:*' continuous-trigger 'ctrl-l' # Follow paths
+zstyle ':fzf-tab:*' switch-group 'f1' 'f2'
 
 smart-tab() { [[ -z ${BUFFER//[[:space:]]/} ]] || zle fzf-tab-complete }
 zle -N smart-tab
