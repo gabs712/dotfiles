@@ -6,6 +6,8 @@ command -v tmux &> /dev/null && [ -z "$TMUX" ] && (tmux attach || tmux new-sessi
 # ~~~~~~~~~~ Options ~~~~~~~~~~
 PS1="%{%F{cyan}%}%~ %{%F{blue}%}❯%{%f%} "
 
+export PATH="$HOME/.local/bin:$PATH"
+
 autoload -U colors && colors # Exposes color vars to zsh
 command -v dircolors &> /dev/null && eval "$(dircolors -b)" # Sets LS_COLOR values (used on completion)
 
@@ -56,6 +58,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
+unalias zi
 # ~~~~~~~~~~ Plugins ~~~~~~~~~~
 zinit light Aloxaf/fzf-tab
 
@@ -78,4 +81,7 @@ export FZF_DEFAULT_OPTS="
   --bind 'ctrl-k:ignore'
   --bind 'ctrl-l:ignore'
 "
+# -- zoxide --
+eval "$(zoxide init zsh)"
 
+alias cd='z'
