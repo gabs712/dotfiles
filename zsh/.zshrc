@@ -78,6 +78,9 @@ bindkey '^I' smart-tab # Tab will not have effect on empty lines
 
 export FZF_DEFAULT_OPTS="
   --bind 'ctrl-j:accept'
+  --bind 'ctrl-space:toggle'
+  --bind 'tab:down'
+  --bind 'shift-tab:up'
   --bind 'ctrl-k:ignore'
   --bind 'ctrl-l:ignore'
 "
