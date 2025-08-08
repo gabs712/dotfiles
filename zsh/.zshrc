@@ -32,10 +32,6 @@ zstyle ':completion:*' menu select # Tab focuses cmp menu
 zstyle ':completion:*' special-dirs true # Includes '.' and '..' on completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} 'ma=0\;38\;2\;247\;64\;140' # Colorize cmp menu
 
-zle -N smart-tab
-smart-tab() { [[ -z ${BUFFER//[[:space:]]/} ]] || zle expand-or-complete }
-bindkey '^I' smart-tab # Tab will not have effect on empty lines
-
 # ~~~~~~~~~~ Aliases ~~~~~~~~~~
 boilerplate() {
   local folder="${1:-main}"
@@ -66,6 +62,10 @@ zinit light Aloxaf/fzf-tab
 # -- fzf-tab --
 zstyle ':completion:*' menu no # Disable default completion
 zstyle ':fzf-tab:*' use-fzf-default-opts yes # Mirror config for fzf
+
+smart-tab() { [[ -z ${BUFFER//[[:space:]]/} ]] || zle fzf-tab-complete }
+zle -N smart-tab
+bindkey '^I' smart-tab # Tab will not have effect on empty lines
 
 # ~~~~~~~~~~ Shell integrations ~~~~~~~~~~
 # -- fzf -- 
