@@ -58,18 +58,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # ~~~~~~~~~~ Plugins ~~~~~~~~~~
 zinit light Aloxaf/fzf-tab
-zinit light zsh-users/zsh-syntax-highlighting
-
-# -- zsh-syntax-highlighting -- 
-ZSH_HIGHLIGHT_STYLES[unknown-token]='none'
-ZSH_HIGHLIGHT_STYLES[arg0]='fg=magenta'
-ZSH_HIGHLIGHT_STYLES[global-alias]='fg=magenta'
-ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=magenta'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=magenta'
-ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=magenta'
-ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=blue'
-ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue'
-ZSH_HIGHLIGHT_STYLES[path]='none'
 
 # -- fzf-tab --
 zstyle ':completion:*' menu no # Disable default completion
