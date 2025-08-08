@@ -61,3 +61,19 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # ~~~~~~~~~~ Plugins ~~~~~~~~~~
+zinit light Aloxaf/fzf-tab
+
+# -- fzf-tab --
+zstyle ':completion:*' menu no # Disable default completion
+zstyle ':fzf-tab:*' use-fzf-default-opts yes # Mirror config for fzf
+
+# ~~~~~~~~~~ Shell integrations ~~~~~~~~~~
+# -- fzf -- 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS="
+  --bind 'ctrl-j:accept'
+  --bind 'ctrl-k:ignore'
+  --bind 'ctrl-l:ignore'
+"
+
