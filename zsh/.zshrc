@@ -5,6 +5,7 @@ command -v tmux &> /dev/null && [ -z "$TMUX" ] && (tmux attach || tmux new-sessi
 
 # ~~~~~~~~~~ Options ~~~~~~~~~~
 PS1="%{%F{cyan}%}%~ %{%F{blue}%}❯%{%f%} "
+PROMPT_EOL_MARK="" # Suffix mark for when typing before loading
 
 export PATH="$HOME/.local/bin:$PATH"
 
