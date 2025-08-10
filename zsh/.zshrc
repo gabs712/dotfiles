@@ -1,12 +1,12 @@
+# Automatically start a tmux session if not already in one
+command -v tmux &> /dev/null && [ -z "$TMUX" ] && (tmux attach || tmux new-session -s 'home')
+
 # Instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 [[ -f "$HOME/.zsh_env" ]] && source "$HOME/.zsh_env"
-
-# Automatically start a tmux session if not already in one
-command -v tmux &> /dev/null && [ -z "$TMUX" ] && (tmux attach || tmux new-session -s 0)
 
 # ~~~~~~~~~~ Options ~~~~~~~~~~
 PROMPT_EOL_MARK="" # Suffix mark for when typing before loading
