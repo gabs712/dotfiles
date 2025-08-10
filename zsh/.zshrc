@@ -1,10 +1,14 @@
+# Instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 [[ -f "$HOME/.zsh_env" ]] && source "$HOME/.zsh_env"
 
 # Automatically start a tmux session if not already in one
 command -v tmux &> /dev/null && [ -z "$TMUX" ] && (tmux attach || tmux new-session -s 0)
 
 # ~~~~~~~~~~ Options ~~~~~~~~~~
-PS1="%{%F{cyan}%}%~ %{%F{blue}%}❯%{%f%} "
 PROMPT_EOL_MARK="" # Suffix mark for when typing before loading
 
 export PATH="$HOME/.local/bin:$PATH"
@@ -61,8 +65,12 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 unalias zi
 # ~~~~~~~~~~ Plugins ~~~~~~~~~~
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-history-substring-search
 zinit light Aloxaf/fzf-tab
+
+# -- powerlevel10k --
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # -- zsh-history-substring-search --
 bindkey -M emacs '^P' history-substring-search-up
