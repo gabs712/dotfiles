@@ -99,6 +99,7 @@ bindkey '^I' smart-tab # Tab will not have effect on empty lines
 # ~~~~~~~~~~ Shell integrations ~~~~~~~~~~
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init zsh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # -- fzf -- 
 export FZF_DEFAULT_OPTS="
