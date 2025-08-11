@@ -1,5 +1,6 @@
 keybinding:
   universal:
+    quit: <Esc>
     return: <c-k>
     confirm: <c-j>
     goInto: <c-j>
@@ -12,3 +13,5 @@ keybinding:
   commits:
     moveDownCommit: J
     moveUpCommit: K
+notARepository: skip
+promptToReturnFromSubprocess: false
