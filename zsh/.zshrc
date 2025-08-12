@@ -109,6 +109,8 @@ export FZF_DEFAULT_OPTS="
   --bind 'shift-tab:up'
   --bind 'ctrl-k:ignore'
   --bind 'ctrl-l:ignore'
+  --bind 'ctrl-u:preview-page-up'
+  --bind 'ctrl-d:preview-page-down'
 "
 # -- zoxide --
 alias cd='z'
