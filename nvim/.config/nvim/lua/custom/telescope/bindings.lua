@@ -139,13 +139,13 @@ return {
   },
   {
     mode = 'n',
-    lhs = '<leader>y',
+    lhs = '<leader>fy',
     rhs = builtin.registers,
     obj = { desc = 'Show yank registers' },
   },
   {
     mode = 'n',
-    lhs = '<leader>m',
+    lhs = '<leader>fm',
     rhs = builtin.marks,
     obj = { desc = 'Show marks' },
   },

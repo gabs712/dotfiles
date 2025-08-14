@@ -29,7 +29,7 @@ vim.keymap.set('i', '<C-j>', '<CR>', { remap = true })
 -- Don't indent when using the registers with c-r
 vim.keymap.set('i', '<C-r>', '<C-r><C-o>', { remap = true })
 
-vim.keymap.set('n', "<leader>'", function()
+vim.keymap.set('n', '<leader>y', function()
   vim.cmd('let @+=@0')
   vim.notify('Register "0" copied into register "+"')
 end, { desc = 'Copy register 0 to + register' })

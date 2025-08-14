@@ -183,7 +183,7 @@ return {
       dap.set_breakpoint(nil, vim.fn.input('Hit Condition'))
     end, { desc = 'Set hit condition debugger breakpoint' })
 
-    vim.keymap.set('n', '<leader>I', function()
+    vim.keymap.set('n', '<leader>m', function()
       dap.repl.close({ mode = 'toggle' })
       dapui.toggle({ reset = true })
     end, { desc = 'Toggle debugger ui' })
