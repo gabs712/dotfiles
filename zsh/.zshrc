@@ -1,6 +1,3 @@
-# Automatically start a tmux session if not already in one
-command -v tmux &> /dev/null && [ -z "$TMUX" ] && (tmux attach || tmux new-session -s 'home')
-
 # Instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -50,8 +47,8 @@ alias l='ls --color=auto'
 alias la='ls -A --color=auto'
 alias ll='ls -alF --color=auto'
 
+alias t="command -v tmux &> /dev/null && [ -z \"\$TMUX\" ] && (tmux attach &> /dev/null || tmux new-session -s 'home')"
 alias nv='nvim'
-alias tm='tmux'
 alias lz='lazygit'
 alias nodei='node --inspect'
 alias nodew='node --watch'
@@ -101,7 +98,7 @@ bindkey '^I' smart-tab # Tab will not have effect on empty lines
 eval "$(zoxide init zsh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# -- fzf -- 
+# -- fzf --
 export FZF_DEFAULT_OPTS="
   --bind 'ctrl-j:accept'
   --bind 'ctrl-space:toggle'
