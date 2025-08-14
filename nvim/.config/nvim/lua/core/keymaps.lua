@@ -32,7 +32,12 @@ vim.keymap.set('i', '<C-r>', '<C-r><C-o>', { remap = true })
 vim.keymap.set('n', '<leader>y', function()
   vim.cmd('let @+=@0')
   vim.notify('Register "0" copied into register "+"')
-end, { desc = 'Copy register 0 to + register' })
+end, { desc = 'Copy register "0" to "+" register' })
+
+vim.keymap.set('n', "<leader>'", function()
+  vim.cmd('let @+=@0')
+  vim.notify('Register "0" copied into register "+"')
+end, { desc = 'Copy register "0" to "+" register' })
 
 -- Lsp
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
