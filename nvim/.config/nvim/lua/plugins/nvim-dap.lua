@@ -188,11 +188,6 @@ return {
       dapui.toggle({ reset = true })
     end, { desc = 'Toggle debugger ui' })
 
-    vim.keymap.set('n', "<leader>'", function()
-      dap.repl.close({ mode = 'toggle' })
-      dapui.toggle({ reset = true })
-    end, { desc = 'Toggle debugger ui' })
-
     vim.keymap.set({ 'n', 'x' }, 'M', function()
       dapui.eval(nil, { enter = true })
     end, { desc = 'Eval debugger expression' })
