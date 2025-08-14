@@ -105,8 +105,7 @@ export FZF_DEFAULT_OPTS="
   --bind 'ctrl-space:toggle'
   --bind 'tab:down'
   --bind 'shift-tab:up'
+  --bind 'ctrl-d:ignore'
   --bind 'ctrl-k:ignore'
   --bind 'ctrl-l:ignore'
-  --bind 'ctrl-u:preview-page-up'
-  --bind 'ctrl-d:preview-page-down'
 "
