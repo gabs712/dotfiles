@@ -50,6 +50,7 @@ alias ll='ls -alF --color=auto'
 alias t="command -v tmux &> /dev/null && [ -z \"\$TMUX\" ] && (tmux attach &> /dev/null || tmux new-session -s 'home')"
 alias nv='nvim'
 alias lz='lazygit'
+alias cd='z'
 alias nodei='node --inspect'
 alias nodew='node --watch'
 alias nodeiw='node --inspect --watch'
@@ -109,5 +110,3 @@ export FZF_DEFAULT_OPTS="
   --bind 'ctrl-u:preview-page-up'
   --bind 'ctrl-d:preview-page-down'
 "
-# -- zoxide --
-alias cd='z'
