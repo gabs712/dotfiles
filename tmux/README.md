@@ -1,7 +1,11 @@
 ## ⚡️ Requirements
 
 - [FiraCode Nerd Font - regular](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip)
-- [sesh](https://github.com/joshmedeski/sesh?tab=readme-ov-file#how-to-install) [homebrew]
+- [zoxide](https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation)
+
+- [sesh](https://github.com/joshmedeski/sesh?tab=readme-ov-file#how-to-install) [homebrew]  
+  Tip: use `zoxide add` to quickly populate it with files.
+
 - tmux package manager (tpm)
 
 ```sh
