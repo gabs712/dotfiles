@@ -91,6 +91,7 @@ return {
       end,
     })
 
+    local builtin = require('telescope.builtin')
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'oil',
       callback = function()
@@ -103,17 +104,24 @@ return {
         -- Allow saving while in insert mode
         vim.keymap.set({ 'n', 'i', 'x', 's' }, '<C-s>', '<Esc><cmd>w<CR>', { buffer = true })
 
-        -- Close oil before running telescope
-        for _, b in ipairs(require('custom.telescope.bindings')) do
-          local obj = vim.tbl_extend('force', b.obj, { buffer = true })
+        -- Close oil before using telescope commands that would make sense to run while referencing oil
+        vim.keymap.set('n', '<C-f>', function()
+          actions.close.callback()
+          builtin.find_files()
+        end, { buffer = true, desc = 'Find files' })
 
-          vim.keymap.set(b.mode, b.lhs, function()
-            actions.close.callback()
-            b.rhs()
-          end, obj)
-        end
+        vim.keymap.set('n', '<leader>ff', function()
+          actions.close.callback()
+          builtin.find_files({ hidden = true, prompt_title = 'Find Files (Hidden)' })
+        end, { buffer = true, desc = 'Find files including hidden' })
+
+        vim.keymap.set('n', '<leader>fe', function()
+          actions.close.callback()
+          builtin.find_files({ hidden = true, no_ignore = true, prompt_title = 'Find Every File' })
+        end, { buffer = true, desc = 'Find every file' })
       end,
     })
+
     vim.keymap.set('n', toggle_binding, oil.open_float, { desc = 'Open oil (workspace)' })
   end,
 }
