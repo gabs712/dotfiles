@@ -100,6 +100,8 @@ eval "$(zoxide init zsh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # -- fzf --
+# ctrl-t, ctrl-r and alt-c binded automatically
+
 export FZF_DEFAULT_OPTS="
   --bind 'ctrl-j:accept'
   --bind 'ctrl-space:toggle'
