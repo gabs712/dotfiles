@@ -47,7 +47,12 @@ alias l='ls --color=auto'
 alias la='ls -A --color=auto'
 alias ll='ls -alF --color=auto'
 
-alias t="command -v tmux &> /dev/null && [ -z \"\$TMUX\" ] && (tmux attach &> /dev/null || tmux new-session -s 'home')"
+t() {
+  if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach &> /dev/null || sesh connect "$(sesh list | fzf)"
+  fi
+}
+
 alias nv='nvim'
 alias lz='lazygit'
 alias cd='z'
