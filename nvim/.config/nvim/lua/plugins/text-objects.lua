@@ -190,10 +190,14 @@ return {
     -- Quickfix
     local next_quickfix, prev_quickfix = ts_repeat_move.make_repeatable_move_pair(function()
       local count = vim.v.count > 0 and vim.v.count or 1
-      vim.cmd('cnext ' .. count)
+      pcall(function()
+        vim.cmd('cnext ' .. count)
+      end)
     end, function()
       local count = vim.v.count > 0 and vim.v.count or 1
-      vim.cmd('cprev ' .. count)
+      pcall(function()
+        vim.cmd('cprev ' .. count)
+      end)
     end)
 
     vim.keymap.set({ 'n', 'x', 'o' }, ']q', next_quickfix, { desc = 'Next quickfix ' })
