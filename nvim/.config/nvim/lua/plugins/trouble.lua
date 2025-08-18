@@ -16,9 +16,17 @@ return {
       },
 
       keys = {
-        ['l'] = 'jump',
-        ['h'] = 'fold_close',
         ['<C-k>'] = 'fold_close',
+        ['o'] = 'preview',
+        ['O'] = 'toggle_preview',
+        ['gd'] = 'inspect',
+        ['g?'] = 'help',
+
+        ['p'] = false,
+        ['P'] = false,
+        ['i'] = false,
+        ['<c-s>'] = false,
+        ['<c-v>'] = false,
         ['q'] = false,
         ['<esc>'] = false,
       },
