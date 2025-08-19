@@ -31,6 +31,8 @@ for _, adapterType in ipairs({ 'node', 'chrome', 'msedge' }) do
 end
 
 local pick_launch_url = require('custom.nvim-dap.pick_launch_url')
+local pick_executable = require('custom.nvim-dap.pick_executable')
+
 for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' }) do
   dap.configurations[language] = {
     {
@@ -46,7 +48,9 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
       request = 'launch',
       name = 'tsx',
       program = '${file}',
-      runtimeExecutable = 'tsx',
+      runtimeExecutable = function()
+        return pick_executable({ vim.fn.getcwd() .. '/node_modules/.bin/tsx', 'tsx' })
+      end,
       runtimeArgs = { '--inspect', '--watch' },
       skipFiles = {
         '<node_internals>/**',
