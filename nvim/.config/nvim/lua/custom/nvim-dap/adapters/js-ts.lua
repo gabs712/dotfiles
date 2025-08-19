@@ -38,8 +38,20 @@ for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'java
       request = 'launch',
       name = 'Launch with Node',
       program = '${file}', -- Initializes on current file
-      runtimeArgs = { '--inspect', '--watch' }, -- 'inspect' also allows the browser to open the debugger
+      runtimeArgs = { '--inspect', '--watch' },
       cwd = '${workspaceFolder}',
+    },
+    {
+      type = 'pwa-node',
+      request = 'launch',
+      name = 'tsx',
+      program = '${file}',
+      runtimeExecutable = 'tsx',
+      runtimeArgs = { '--inspect', '--watch' },
+      skipFiles = {
+        '<node_internals>/**',
+        '${workspaceFolder}/node_modules/**',
+      },
     },
     {
       type = 'pwa-chrome',
