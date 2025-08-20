@@ -33,60 +33,72 @@ end
 local pick_launch_url = require('custom.nvim-dap.pick_launch_url')
 local pick_executable = require('custom.nvim-dap.pick_executable')
 
-for _, language in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'vue' }) do
+dap.configurations['javascript'] = {
+  {
+    name = 'Attach to process',
+    request = 'attach',
+    type = 'pwa-node',
+    port = 9229,
+    cwd = '${workspaceFolder}',
+    restart = true, -- Restart when saving while active instead of disconnecting
+  },
+  {
+    name = 'Run with node',
+    request = 'launch',
+    type = 'pwa-node',
+    program = '${file}', -- Initializes on current file
+    runtimeArgs = { '--inspect', '--watch' },
+    cwd = '${workspaceFolder}',
+  },
+  {
+    name = 'Launch Chrome',
+    request = 'launch',
+    type = 'pwa-chrome',
+    url = pick_launch_url,
+    webRoot = '${workspaceFolder}',
+    sourceMaps = true,
+  },
+}
+
+dap.configurations['typescript'] = {
+  {
+    name = 'Attach to process',
+    request = 'attach',
+    type = 'pwa-node',
+    port = 9229,
+    cwd = '${workspaceFolder}',
+    restart = true,
+  },
+  {
+    name = 'Run with tsx',
+    request = 'launch',
+    type = 'pwa-node',
+    program = '${file}',
+    runtimeExecutable = function()
+      return pick_executable({ vim.fn.getcwd() .. '/node_modules/.bin/tsx', 'tsx' })
+    end,
+    runtimeArgs = { '--inspect', '--watch' },
+    skipFiles = {
+      '<node_internals>/**',
+      '${workspaceFolder}/node_modules/**',
+    },
+  },
+  {
+    name = 'Launch Chrome',
+    request = 'launch',
+    type = 'pwa-chrome',
+    url = pick_launch_url,
+    webRoot = '${workspaceFolder}',
+    sourceMaps = true,
+  },
+}
+
+for _, language in ipairs({ 'javascriptreact', 'typescriptreact' }) do
   dap.configurations[language] = {
     {
-      type = 'pwa-node',
-      request = 'launch',
-      name = 'Launch with Node',
-      program = '${file}', -- Initializes on current file
-      runtimeArgs = { '--inspect', '--watch' },
-      cwd = '${workspaceFolder}',
-    },
-    {
-      type = 'pwa-node',
-      request = 'launch',
-      name = 'tsx',
-      program = '${file}',
-      runtimeExecutable = function()
-        return pick_executable({ vim.fn.getcwd() .. '/node_modules/.bin/tsx', 'tsx' })
-      end,
-      runtimeArgs = { '--inspect', '--watch' },
-      skipFiles = {
-        '<node_internals>/**',
-        '${workspaceFolder}/node_modules/**',
-      },
-    },
-    {
-      type = 'pwa-chrome',
-      request = 'launch',
       name = 'Launch Chrome',
-      url = pick_launch_url,
-      webRoot = '${workspaceFolder}',
-      sourceMaps = true,
-    },
-    {
-      type = 'pwa-node',
-      request = 'attach',
-      name = 'Attach to Node process',
-      processId = function()
-        return require('dap.utils').pick_process({ filter = 'node%s+%-%-inspect' })
-      end,
-      cwd = '${workspaceFolder}',
-      restart = true, -- Restart when saving while active instead of disconnecting
-    },
-    {
-      type = 'pwa-node',
       request = 'launch',
-      name = 'Launch Node with ts-node/register',
-      program = '${file}',
-      cwd = '${workspaceFolder}',
-      runtimeArgs = { '-r', 'ts-node/register' },
-    },
-    {
-      type = 'pwa-msedge',
-      request = 'launch',
-      name = 'Launch Edge',
+      type = 'pwa-chrome',
       url = pick_launch_url,
       webRoot = '${workspaceFolder}',
       sourceMaps = true,
