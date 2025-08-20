@@ -18,7 +18,6 @@ return {
       scroll_down = 'J',
       scroll_up = 'K',
       restore = 'R',
-      open_log = 'gl',
 
       choose_ours = '<leader>[',
       choose_theirs = '<leader>]',
@@ -63,8 +62,6 @@ return {
       keymaps = {
         disable_defaults = true,
         view = {
-          { 'n', map.open_log, actions.open_commit_log, { desc = 'Open the commit log panel' } },
-
           { 'n', map.goto_file_c, goto_file_and_close, { desc = 'Open the file in the previous tabpage and close' } },
           { 'n', map.goto_file, actions.goto_file_edit, { desc = 'Open the file in the previous tabpage' } },
 
@@ -83,9 +80,9 @@ return {
 
           { 'n', '<C-Space>', actions.toggle_files, { desc = 'Toggle the file panel' } },
           { 'n', '<C-h>', '<Nop>' },
-          { 'n', '<C-k>', actions.select_prev_entry, { desc = 'Open the diff for the previous file' } },
           { 'n', '<C-j>', actions.select_next_entry, { desc = 'Open the diff for the next file' } },
-          { 'n', '<C-l>', actions.toggle_files, { desc = 'Toggle the file panel' } },
+          { 'n', '<C-k>', actions.select_prev_entry, { desc = 'Open the diff for the previous file' } },
+          { 'n', '<C-l>', actions.open_commit_log, { desc = 'Open the commit log panel' } },
 
           {
             'n',
@@ -110,7 +107,6 @@ return {
         },
         file_panel = {
           { 'n', map.restore, actions.restore_entry, { desc = 'Restore entry to the state on the left side' } },
-          { 'n', map.open_log, actions.open_commit_log, { desc = 'Open the commit log panel' } },
 
           { 'n', map.scroll_down, actions.scroll_view(0.25), { desc = 'Scroll the view down' } },
           { 'n', map.scroll_up, actions.scroll_view(-0.25), { desc = 'Scroll the view up' } },
@@ -148,9 +144,9 @@ return {
 
           { 'n', '<C-Space>', actions.toggle_files, { desc = 'Toggle the file panel' } },
           { 'n', '<C-h>', '<Nop>' },
-          { 'n', '<C-k>', actions.select_prev_entry, { desc = 'Open the diff for the previous file' } },
           { 'n', '<C-j>', actions.select_next_entry, { desc = 'Open the diff for the next file' } },
-          { 'n', '<C-l>', actions.toggle_files, { desc = 'Toggle the file panel' } },
+          { 'n', '<C-k>', actions.select_prev_entry, { desc = 'Open the diff for the previous file' } },
+          { 'n', '<C-l>', actions.open_commit_log, { desc = 'Open the commit log panel' } },
 
           {
             'n',
@@ -166,7 +162,6 @@ return {
           { 'n', map.restore, actions.restore_entry, { desc = 'Restore file to the state from the selected entry' } },
 
           { 'n', 'gd', actions.open_in_diffview, { desc = 'Open the entry under the cursor in a diffview' } },
-          { 'n', map.open_log, actions.open_commit_log, { desc = 'Open the commit log panel' } },
           { 'n', 'gy', actions.copy_hash, { desc = 'Copy the commit hash of the entry under the cursor' } },
 
           { 'n', map.scroll_down, actions.scroll_view(0.25), { desc = 'Scroll the view down' } },
@@ -202,9 +197,9 @@ return {
             end,
             { desc = 'Open the option panel' },
           },
-          { 'n', '<C-k>', actions.select_prev_entry, { desc = 'Open the diff for the previous file' } },
           { 'n', '<C-j>', actions.select_next_entry, { desc = 'Open the diff for the next file' } },
-          { 'n', '<C-l>', actions.toggle_files, { desc = 'Open the option panel' } },
+          { 'n', '<C-k>', actions.select_prev_entry, { desc = 'Open the diff for the previous file' } },
+          { 'n', '<C-l>', actions.open_commit_log, { desc = 'Open the commit log panel' } },
 
           {
             'n',
@@ -218,13 +213,12 @@ return {
         option_panel = {
           { 'n', '<CR>', actions.select_entry, { desc = 'Change the current option' } },
           { 'n', map.help, actions.help('option_panel'), { desc = 'Open the help panel' } },
-          { 'n', map.open_log, actions.open_commit_log, { desc = 'Open the commit log panel' } },
 
           { 'n', '<C-Space>', '<Nop>' },
           { 'n', '<C-h>', '<Nop>' },
           { 'n', '<C-j>', actions.select_entry, { desc = 'Change the current option' } },
           { 'n', '<C-k>', '<Nop>' },
-          { 'n', '<C-l>', '<Nop>' },
+          { 'n', '<C-l>', actions.open_commit_log, { desc = 'Open the commit log panel' } },
 
           {
             'n',
