@@ -16,8 +16,8 @@ return {
     local codecompanion = require('codecompanion')
     local nav_heading = require('custom.codecompanion.nav_heading')
 
-    local chat_adapter = require('custom.codecompanion.chat_adapter')
-    local adapter = chat_adapter.get()
+    local storage = require('utils.storage')
+    local adapter = storage.get_field('adapter')
 
     require('utils.ft').clear_c_hjkl('codecompanion')
 
@@ -47,8 +47,8 @@ return {
       strategies = {
         chat = {
           adapter = {
-            name = adapter.name or 'copilot',
-            model = adapter.model or 'claude-sonnet-4-20250514',
+            name = (adapter and adapter.name) or 'copilot',
+            model = (adapter and adapter.model) or 'claude-sonnet-4-20250514',
           },
           roles = {
             llm = function()
@@ -222,7 +222,17 @@ return {
 
     vim.api.nvim_create_autocmd('User', {
       pattern = 'CodeCompanion*Finished',
-      callback = vim.schedule_wrap(chat_adapter.save),
+      callback = function(opts)
+        if opts.match == 'CodeCompanionRequestFinished' or opts.match == 'CodeCompanionAgentFinished' then
+          local chat_module = require('codecompanion.strategies.chat')
+          local chat = chat_module.buf_get_chat(opts.data.bufnr)
+
+          local name = chat.adapter and chat.adapter.name
+          local model = chat.settings and chat.settings.model
+
+          storage.set_field('adapter', { name = name, model = model })
+        end
+      end,
     })
 
     require('cmp').setup.filetype('codecompanion', {
