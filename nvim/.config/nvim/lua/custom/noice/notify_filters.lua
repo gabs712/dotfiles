@@ -38,15 +38,15 @@ return {
     },
     opts = { skip = true },
   },
-  -- DAP
-  { -- Warning when avancing steps outside of main buffer
+  -- Warning when avancing steps outside of main buffer on dap
+  {
     filter = {
       warning = true,
       find = 'Adapter reported a frame in .* but: Cursor position outside buffer%. Ensure executable is up2date and if using a source mapping ensure it is correct',
     },
     opts = { skip = true },
   },
-  -- NOTE: Telescope go to definition currently drops deprecated warnings
+  -- NOTE: A collection of telescope warnings for deprection
   {
     filter = {
       warning = true,
@@ -61,6 +61,28 @@ return {
     },
     opts = { skip = true },
   },
+  {
+    event = 'notify',
+    filter = {
+      find = 'symbols_to_items must be called with valid position encoding',
+    },
+    opts = { skip = true },
+  },
+  {
+    event = 'notify',
+    filter = {
+      find = 'Error handling LSP Incoming Calls: Unhandled method callHierarchy/incomingCalls',
+    },
+    opts = { skip = true },
+  },
+  {
+    event = 'notify',
+    filter = {
+      find = 'Error handling LSP Outgoing Calls: Unhandled method callHierarchy/outgoingCalls',
+    },
+    opts = { skip = true },
+  },
+  -----
   {
     event = 'notify',
     filter = {
