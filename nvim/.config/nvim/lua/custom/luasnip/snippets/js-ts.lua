@@ -14,7 +14,7 @@ local rep = require('luasnip.extras').rep -- Repeats
 --
 -- ls.add_snippets('javascript', jest)
 
-local default = {
+local common = {
   s('c', fmt('const {}', { i(1) })),
   s('l', fmt('let {}', { i(1) })),
   s('fs', fmt('({}) => {}', { i(1), i(2) })),
@@ -139,7 +139,7 @@ local default = {
   ),
 
   s(
-    'switch',
+    'tch',
     fmt(
       [[
         switch ({}) {{
@@ -179,7 +179,7 @@ local default = {
   ),
 }
 
-local default_react = {
+local react = {
   s(
     'us',
     fmt('const [{}, set{}] = useState({})', {
@@ -192,10 +192,10 @@ local default_react = {
   ),
 }
 
-ls.add_snippets('javascript', default)
-ls.add_snippets('javascriptreact', default)
-ls.add_snippets('javascriptreact', default_react)
+ls.add_snippets('javascript', common)
+ls.add_snippets('javascriptreact', common)
+ls.add_snippets('javascriptreact', react)
 
-ls.add_snippets('typescript', default)
-ls.add_snippets('typescriptreact', default)
-ls.add_snippets('typescriptreact', default_react)
+ls.add_snippets('typescript', common)
+ls.add_snippets('typescriptreact', common)
+ls.add_snippets('typescriptreact', react)
