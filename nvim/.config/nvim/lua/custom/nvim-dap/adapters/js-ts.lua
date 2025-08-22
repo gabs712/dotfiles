@@ -30,6 +30,7 @@ for _, adapterType in ipairs({ 'node', 'chrome', 'msedge' }) do
   end
 end
 
+local pick_dap_port = require('custom.nvim-dap.pick_dap_port')
 local pick_browser_url = require('custom.nvim-dap.pick_browser_url')
 local get_executable = require('custom.nvim-dap.get_executable')
 
@@ -38,7 +39,9 @@ dap.configurations['javascript'] = {
     name = 'Attach to process',
     request = 'attach',
     type = 'pwa-node',
-    port = 9229,
+    port = function()
+      return pick_dap_port('9229')
+    end,
     cwd = '${workspaceFolder}',
     restart = true, -- Restart when saving while active instead of disconnecting
   },
@@ -65,7 +68,9 @@ dap.configurations['typescript'] = {
     name = 'Attach to process',
     request = 'attach',
     type = 'pwa-node',
-    port = 9229,
+    port = function()
+      return pick_dap_port('9229')
+    end,
     cwd = '${workspaceFolder}',
     restart = true,
   },
