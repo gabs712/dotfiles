@@ -223,7 +223,7 @@ return {
     vim.api.nvim_create_autocmd('User', {
       pattern = 'CodeCompanion*Finished',
       callback = function(opts)
-        if opts.match == 'CodeCompanionRequestFinished' or opts.match == 'CodeCompanionAgentFinished' then
+        if opts.match == 'CodeCompanionRequestFinished' or opts.match == 'CodeCompanionToolsFinished' then
           local chat_module = require('codecompanion.strategies.chat')
           local chat = chat_module.buf_get_chat(opts.data.bufnr)
 
