@@ -28,19 +28,6 @@ vim.keymap.set('n', '<C-Space>', require('utils.switch_to_prev_buf'), { desc = '
 -- <C-j> works with plugins that remap <CR> (ie. autopairs)
 vim.keymap.set('i', '<C-j>', '<CR>', { remap = true })
 
--- Don't indent when using the registers with c-r
-vim.keymap.set('i', '<C-r>', '<C-r><C-o>', { remap = true })
-
-vim.keymap.set('n', '<leader>y', function()
-  vim.cmd('let @+=@0')
-  vim.notify('Register "0" copied into register "+"')
-end, { desc = 'Copy register "0" to "+" register' })
-
-vim.keymap.set('n', "<leader>'", function()
-  vim.cmd('let @+=@0')
-  vim.notify('Register "0" copied into register "+"')
-end, { desc = 'Copy register "0" to "+" register' })
-
 -- Lsp
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
 vim.keymap.set('n', '<leader>z', vim.lsp.buf.code_action, { desc = 'Code actions' })
@@ -104,8 +91,21 @@ end, { expr = true })
 vim.cmd("nnoremap <expr> j v:count ? (v:count > 0 ? \"m'\" . v:count : '') . 'j' : 'gj'")
 vim.cmd("nnoremap <expr> k v:count ? (v:count > 0 ? \"m'\" . v:count : '') . 'k' : 'gk'")
 
--- Clipboard to OS
+-- Registers
 vim.keymap.set({ 'n', 'x' }, '<C-y>', '"+y', { desc = 'Yank to OS' })
+
+vim.keymap.set('n', '<leader>y', function()
+  vim.cmd('let @+=@0')
+  vim.notify('Register "0" copied into register "+"')
+end, { desc = 'Copy register "0" to "+" register' })
+
+vim.keymap.set('n', "<leader>'", function()
+  vim.cmd('let @+=@0')
+  vim.notify('Register "0" copied into register "+"')
+end, { desc = 'Copy register "0" to "+" register' })
+
+-- Don't indent when using the registers with c-r
+vim.keymap.set('i', '<C-r>', '<C-r><C-o>', { remap = true })
 
 -- Use 'x' as alternative to black hole register
 -- vim.keymap.set({ 'n', 'x' }, 'x', '"_x')
