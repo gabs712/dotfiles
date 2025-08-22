@@ -45,6 +45,7 @@ end, { desc = 'Copy register "0" to "+" register' })
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol across project' })
 vim.keymap.set('n', '<leader>z', vim.lsp.buf.code_action, { desc = 'Code actions' })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Go to declaration' })
 
 -- Undo
 vim.keymap.set('n', require('utils.bindings').timeline_undo, 'g-', { desc = 'Timeline undo' })

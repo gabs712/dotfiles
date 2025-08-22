@@ -99,5 +99,10 @@ return {
 
     vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = 'Go to definition' })
     vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = 'Go to references' })
+    vim.keymap.set('n', 'gt', builtin.lsp_type_definitions, { desc = 'Go to type definition' })
+    vim.keymap.set('n', 'gI', builtin.lsp_implementations, { desc = 'Go to implementations' })
+
+    vim.keymap.set('n', 'g[', builtin.lsp_incoming_calls, { desc = 'Go to incoming calls' })
+    vim.keymap.set('n', 'g]', builtin.lsp_outgoing_calls, { desc = 'Go to outgoing calls' })
   end,
 }
