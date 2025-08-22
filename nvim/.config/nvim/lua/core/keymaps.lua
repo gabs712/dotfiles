@@ -47,6 +47,11 @@ vim.keymap.set('n', '<leader>z', vim.lsp.buf.code_action, { desc = 'Code actions
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Go to declaration' })
 
+vim.keymap.set('n', '<leader>R', function()
+  vim.notify('Restarting lsp...')
+  vim.cmd('LspRestart')
+end, { desc = 'Go to declaration' })
+
 -- Undo
 vim.keymap.set('n', require('utils.bindings').timeline_undo, 'g-', { desc = 'Timeline undo' })
 vim.keymap.set('n', require('utils.bindings').timeline_redo, 'g+', { desc = 'Timeline redo' })
