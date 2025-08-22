@@ -69,6 +69,7 @@ return {
     vim.keymap.set('n', '<leader>fa', builtin.live_grep, { desc = 'Find all strings (grep)' })
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Find diagnostics' })
     vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = 'Find quickfix' })
+    vim.keymap.set('n', '<leader>Q', builtin.quickfixhistory, { desc = 'Find quickfix history' })
     vim.keymap.set('n', '<leader>/', builtin.search_history, { desc = 'Find search history' })
     vim.keymap.set('n', '<leader>:', builtin.command_history, { desc = 'Find command history' })
     vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Find oldfiles' })
