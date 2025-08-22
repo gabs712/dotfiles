@@ -30,8 +30,8 @@ for _, adapterType in ipairs({ 'node', 'chrome', 'msedge' }) do
   end
 end
 
-local pick_launch_url = require('custom.nvim-dap.pick_launch_url')
-local pick_executable = require('custom.nvim-dap.pick_executable')
+local pick_browser_url = require('custom.nvim-dap.pick_browser_url')
+local get_executable = require('custom.nvim-dap.get_executable')
 
 dap.configurations['javascript'] = {
   {
@@ -54,7 +54,7 @@ dap.configurations['javascript'] = {
     name = 'Launch Chrome',
     request = 'launch',
     type = 'pwa-chrome',
-    url = pick_launch_url,
+    url = pick_browser_url,
     webRoot = '${workspaceFolder}',
     sourceMaps = true,
   },
@@ -75,7 +75,7 @@ dap.configurations['typescript'] = {
     type = 'pwa-node',
     program = '${file}',
     runtimeExecutable = function()
-      return pick_executable({ vim.fn.getcwd() .. '/node_modules/.bin/tsx', 'tsx' })
+      return get_executable({ vim.fn.getcwd() .. '/node_modules/.bin/tsx', 'tsx' })
     end,
     runtimeArgs = { '--inspect', '--watch' },
     skipFiles = {
@@ -87,7 +87,7 @@ dap.configurations['typescript'] = {
     name = 'Launch Chrome',
     request = 'launch',
     type = 'pwa-chrome',
-    url = pick_launch_url,
+    url = pick_browser_url,
     webRoot = '${workspaceFolder}',
     sourceMaps = true,
   },
@@ -99,7 +99,7 @@ for _, language in ipairs({ 'javascriptreact', 'typescriptreact' }) do
       name = 'Launch Chrome',
       request = 'launch',
       type = 'pwa-chrome',
-      url = pick_launch_url,
+      url = pick_browser_url,
       webRoot = '${workspaceFolder}',
       sourceMaps = true,
     },
