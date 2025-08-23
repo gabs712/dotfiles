@@ -19,6 +19,11 @@ return {
     local storage = require('utils.storage')
     local adapter = storage.get_field('adapter')
 
+    local adapter_config = {
+      name = (adapter and adapter.name) or 'copilot',
+      model = (adapter and adapter.model) or 'claude-sonnet-4-20250514',
+    }
+
     require('utils.ft').clear_c_hjkl('codecompanion')
 
     codecompanion.setup({
@@ -46,10 +51,7 @@ return {
       },
       strategies = {
         chat = {
-          adapter = {
-            name = (adapter and adapter.name) or 'copilot',
-            model = (adapter and adapter.model) or 'claude-sonnet-4-20250514',
-          },
+          adapter = adapter_config,
           roles = {
             llm = function()
               return '  Assistant'
@@ -166,6 +168,7 @@ return {
           },
         },
         inline = {
+          adapter = adapter_config,
           keymaps = {
             reject_change = {
               modes = {
@@ -178,6 +181,9 @@ return {
               },
             },
           },
+        },
+        cmd = {
+          adapter = adapter_config,
         },
       },
       opts = {
