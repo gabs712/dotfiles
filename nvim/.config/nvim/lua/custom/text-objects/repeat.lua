@@ -92,4 +92,16 @@ M.paragraph = function(forward)
   end, forward)
 end
 
+M.todo = function(forward)
+  repeat_move(function(opts)
+    vim.cmd("normal! m'")
+
+    if opts.forward then
+      require('todo-comments').jump_next()
+    else
+      require('todo-comments').jump_prev()
+    end
+  end, forward)
+end
+
 return M
