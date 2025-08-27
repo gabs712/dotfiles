@@ -161,7 +161,6 @@ return {
           mode = { 'n', 'x', 'o' },
           expr = true,
         },
-
         {
           ']d',
           function()
@@ -178,7 +177,6 @@ return {
           desc = 'Previous diagnostic',
           mode = { 'n', 'x', 'o' },
         },
-
         {
           ']q',
           function()
@@ -193,6 +191,22 @@ return {
             require('custom.text-objects.repeat').quickfix(false)
           end,
           desc = 'Previous Quickfix',
+          mode = { 'n', 'x', 'o' },
+        },
+        {
+          '}',
+          function()
+            require('custom.text-objects.repeat').paragraph(true)
+          end,
+          desc = 'Next paragraph',
+          mode = { 'n', 'x', 'o' },
+        },
+        {
+          '{',
+          function()
+            require('custom.text-objects.repeat').paragraph(false)
+          end,
+          desc = 'Previous paragraph',
           mode = { 'n', 'x', 'o' },
         },
       }

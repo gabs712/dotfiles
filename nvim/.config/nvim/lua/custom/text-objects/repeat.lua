@@ -80,4 +80,16 @@ M.indent = function(forward)
   end, forward)
 end
 
+M.paragraph = function(forward)
+  repeat_move(function(opts)
+    local count = vim.v.count > 0 and vim.v.count or 1
+
+    if opts.forward then
+      vim.cmd('norm! ' .. count .. '}')
+    else
+      vim.cmd('norm! ' .. count .. '{')
+    end
+  end, forward)
+end
+
 return M
