@@ -70,4 +70,14 @@ M.quickfix = function(forward)
   end, forward)
 end
 
+M.indent = function(forward)
+  repeat_move(function(opts)
+    if opts.forward then
+      require('mini.indentscope').operator('bottom', true)
+    else
+      require('mini.indentscope').operator('top', true)
+    end
+  end, forward)
+end
+
 return M

@@ -252,7 +252,7 @@ return {
       {
         '[i',
         function()
-          require('mini.indentscope').operator('top', true)
+          require('custom.text-objects.repeat').indent(false)
         end,
         desc = 'Previous indentation',
         mode = { 'n', 'x', 'o' },
@@ -260,7 +260,7 @@ return {
       {
         ']i',
         function()
-          require('mini.indentscope').operator('bottom', true)
+          require('custom.text-objects.repeat').indent(true)
         end,
         desc = 'Next indentation',
         mode = { 'n', 'x', 'o' },
