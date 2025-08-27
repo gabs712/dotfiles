@@ -230,6 +230,60 @@ return {
     end,
   },
   {
+    'echasnovski/mini.indentscope', -- indent textobjs
+    version = '*',
+    keys = {
+      {
+        'ii',
+        function()
+          require('mini.indentscope').textobject(false)
+        end,
+        mode = { 'x', 'o' },
+        desc = 'Select inside indentation',
+      },
+      {
+        'ai',
+        function()
+          require('mini.indentscope').textobject(true)
+        end,
+        desc = 'Select around indentation',
+        mode = { 'x', 'o' },
+      },
+      {
+        '[i',
+        function()
+          require('mini.indentscope').operator('top', true)
+        end,
+        desc = 'Previous indentation',
+        mode = { 'n', 'x', 'o' },
+      },
+      {
+        ']i',
+        function()
+          require('mini.indentscope').operator('bottom', true)
+        end,
+        desc = 'Next indentation',
+        mode = { 'n', 'x', 'o' },
+      },
+    },
+    config = function()
+      vim.g.miniindentscope_disable = true -- Disable indent highlight
+
+      require('mini.indentscope').setup({
+        options = {
+          try_as_border = true, -- When in indent border selects it's children instead of parent
+          indent_at_cursor = false, -- Selects based on cursor column
+        },
+        mappings = {
+          object_scope = '',
+          object_scope_with_border = '',
+          goto_top = '',
+          goto_bottom = '',
+        },
+      })
+    end,
+  },
+  {
     'chrisgrieser/nvim-various-textobjs', -- Extra text-objects
     keys = {
       {
