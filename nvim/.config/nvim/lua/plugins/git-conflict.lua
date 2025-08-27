@@ -9,6 +9,7 @@ return {
         require('custom.text-objects.repeat').git_conflict(true)
       end,
       desc = 'Next git conflict',
+      mode = { 'n', 'x', 'o' },
     },
     {
       '[g',
@@ -16,6 +17,7 @@ return {
         require('custom.text-objects.repeat').git_conflict(false)
       end,
       desc = 'Previous git conflict',
+      mode = { 'n', 'x', 'o' },
     },
     { '<leader>[', '<cmd>GitConflictChooseOurs<CR>', desc = 'Choose current git conflict' },
     { '<leader>]', '<cmd>GitConflictChooseTheirs<CR>', desc = 'Choose merged git conflict' },
