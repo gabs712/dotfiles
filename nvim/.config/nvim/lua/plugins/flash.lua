@@ -1,6 +1,31 @@
 return {
   'folke/flash.nvim',
-  event = 'VeryLazy',
+  keys = {
+    {
+      's',
+      function()
+        require('flash').jump()
+      end,
+      desc = 'Flash jump',
+      mode = { 'n', 'x', 'o' },
+    },
+    {
+      'S',
+      function()
+        require('flash').treesitter_search()
+      end,
+      desc = 'Flash jump to range',
+      mode = { 'n', 'x', 'o' },
+    },
+    {
+      'r',
+      function()
+        require('flash').remote()
+      end,
+      desc = 'Flash remote',
+      mode = 'o',
+    },
+  },
   config = function()
     local flash = require('flash')
 
@@ -58,9 +83,5 @@ return {
     --   pattern = '*',
     --   callback = set_highlights,
     -- })
-
-    vim.keymap.set({ 'n', 'x', 'o' }, 's', flash.jump, { desc = 'Flash jump' })
-    vim.keymap.set({ 'n', 'x', 'o' }, 'S', flash.treesitter_search, { desc = 'Flash jump to range' })
-    vim.keymap.set('o', 'r', flash.remote, { desc = 'Flash remote' })
   end,
 }

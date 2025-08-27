@@ -3,7 +3,10 @@ return {
   dependencies = {
     'williamboman/mason.nvim', -- Provides mason-lspconfig to use handlers
     'hrsh7th/cmp-nvim-lsp', -- Provides capabilities for completion with lsp's
+    'nvimtools/none-ls.nvim', -- Setup none-ls server when loading
+    { 'luckasRanarison/tailwind-tools.nvim', name = 'tailwind-tools' }, -- Additional functionality for tailwind lsp
   },
+  event = { 'BufReadPre', 'BufNewFile' },
   config = function()
     local lspconfig = require('lspconfig')
     local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()

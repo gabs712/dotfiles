@@ -9,6 +9,26 @@ return {
     'marilari88/neotest-vitest',
     'nvim-neotest/neotest-jest',
   },
+  keys = {
+    {
+      '<leader>x',
+      function()
+        require('neotest').summary.toggle()
+        local win = vim.fn.bufwinid('Neotest Summary')
+        if win > -1 then
+          vim.api.nvim_set_current_win(win) -- Autofocus window
+        end
+      end,
+      desc = 'Toggle neotest summary',
+    },
+    {
+      '<leader>X',
+      function()
+        require('neotest').output.open({ enter = true, last_run = true })
+      end,
+      desc = 'Toggle neotest output',
+    },
+  },
   config = function()
     local neotest = require('neotest')
     neotest.setup({
@@ -71,24 +91,5 @@ return {
         end, { buffer = true })
       end,
     })
-
-    vim.keymap.set('n', '<leader>x', function()
-      neotest.summary.toggle()
-      local win = vim.fn.bufwinid('Neotest Summary')
-      if win > -1 then
-        vim.api.nvim_set_current_win(win) -- Autofocus window (doesn't focus current test properly when first opening)
-      end
-    end, { desc = 'Toggle neotest symmary' })
-
-    vim.keymap.set('n', '<leader>X', function()
-      neotest.output.open({ enter = true, last_run = true })
-    end, { desc = 'Toggle neotest output' })
-
-    -- vim.keymap.set('n', '', function()
-    --   neotest.watch.toggle(vim.fn.expand('%'))
-    -- end, { desc = 'Run and watch tests from neotest' })
-    -- vim.keymap.set('n', '', function()
-    --   neotest.run.run(vim.fn.expand('%'))
-    -- end, { desc = 'Run tests from neotest' })
   end,
 }

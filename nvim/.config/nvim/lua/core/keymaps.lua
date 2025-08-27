@@ -34,6 +34,15 @@ vim.keymap.set('n', '<leader>z', vim.lsp.buf.code_action, { desc = 'Code actions
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Diagnostics popup' })
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Go to declaration' })
 
+vim.keymap.set({ 'n', 'x' }, '<leader>p', function()
+  local format = require('utils.format')
+  local result = format()
+
+  if result and result.found_tailwind then
+    pcall(vim.cmd, 'TailwindSort')
+  end
+end, { desc = 'Format' })
+
 vim.keymap.set('n', '<leader>R', function()
   vim.notify('Restarting lsp...')
   vim.cmd('LspRestart')

@@ -4,14 +4,21 @@ return {
     'nvim-treesitter/nvim-treesitter',
     { 'echasnovski/mini.splitjoin', version = '*' },
   },
+  keys = {
+    {
+      'gs',
+      function()
+        require('treesj').toggle()
+      end,
+      desc = 'Split/join',
+    },
+  },
   config = function()
     local treesj = require('treesj')
     local mini_splitjoin = require('mini.splitjoin')
 
     mini_splitjoin.setup({
-      mappings = {
-        toggle = 'gs', -- Sets it for n and v mode, overwritten on n later
-      },
+      mappings = { toggle = '' },
     })
 
     treesj.setup({
@@ -25,7 +32,5 @@ return {
         mini_splitjoin.toggle()
       end,
     })
-
-    vim.keymap.set('n', 'gs', treesj.toggle, { desc = 'Split/join' })
   end,
 }

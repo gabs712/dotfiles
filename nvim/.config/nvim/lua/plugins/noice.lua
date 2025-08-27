@@ -1,10 +1,12 @@
 return {
   'folke/noice.nvim',
-  event = 'VeryLazy',
   dependencies = {
     'MunifTanjim/nui.nvim',
-    'nvim-telescope/telescope.nvim',
     'rcarriga/nvim-notify',
+  },
+  event = 'VeryLazy',
+  keys = {
+    { '<leader>n', '<cmd>Noice telescope<CR>', desc = 'Notifications' },
   },
   config = function()
     require('utils.ft').clear_c_hjkl('noice')
@@ -38,8 +40,5 @@ return {
         view_search = false,
       },
     })
-
-    require('telescope').load_extension('noice')
-    vim.keymap.set('n', '<leader>n', '<cmd>Noice telescope<CR>', { desc = 'Notifications' })
   end,
 }

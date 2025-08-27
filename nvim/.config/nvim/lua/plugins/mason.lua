@@ -4,9 +4,10 @@ return {
     'williamboman/mason-lspconfig.nvim', -- Allow lspconfig server names
     'WhoIsSethDaniel/mason-tool-installer.nvim', -- API to ensure that mason installs packages
   },
+  lazy = false,
   config = function()
     require('mason').setup()
-    require('mason-lspconfig').setup() -- Must be setup after mason
+    require('mason-lspconfig').setup()
 
     require('utils.ft').clear_c_hjkl('mason', { bind_c_j = true })
 

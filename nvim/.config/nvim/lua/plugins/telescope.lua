@@ -4,10 +4,132 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
+  keys = {
+    { '<C-f>', '<cmd>Telescope find_files<CR>', desc = 'Find files' },
+    {
+      '<C-f>',
+      function()
+        require('oil.actions').close.callback()
+        vim.cmd('Telescope find_files')
+      end,
+      desc = 'Find files',
+      ft = 'oil',
+    },
+
+    {
+      '<leader>ff',
+      function()
+        require('telescope.builtin').find_files({ hidden = true, prompt_title = 'Find Files (Hidden)' })
+      end,
+      desc = 'Find files including hidden',
+    },
+    {
+      '<leader>ff',
+      function()
+        require('oil.actions').close.callback()
+        require('telescope.builtin').find_files({ hidden = true, prompt_title = 'Find Files (Hidden)' })
+      end,
+      desc = 'Find files including hidden',
+      ft = 'oil',
+    },
+
+    {
+      '<leader>fe',
+      function()
+        require('telescope.builtin').find_files({ hidden = true, no_ignore = true, prompt_title = 'Find Every File' })
+      end,
+      desc = 'Find every file',
+    },
+    {
+      '<leader>fe',
+      function()
+        require('oil.actions').close.callback()
+        require('telescope.builtin').find_files({ hidden = true, no_ignore = true, prompt_title = 'Find Every File' })
+      end,
+      desc = 'Find every file',
+      ft = 'oil',
+    },
+
+    {
+      '<leader>fl',
+      function()
+        local icons = require('utils.icons')
+        require('telescope.builtin').git_status({
+          git_icons = {
+            added = icons.git.added,
+            deleted = icons.git.deleted,
+            changed = icons.git.modified,
+            renamed = icons.git.renamed,
+            untracked = icons.git.untracked,
+            copied = '>',
+            unmerged = '‡',
+          },
+        })
+      end,
+      desc = 'Find git status files',
+    },
+    {
+      '<leader>fk',
+      function()
+        require('telescope.builtin').keymaps({ show_plug = false })
+      end,
+      desc = 'Find keymaps',
+    },
+    {
+      '<leader>fn',
+      function()
+        require('telescope.builtin').find_files({
+          hidden = true,
+          cwd = '~/dotfiles/',
+          prompt_title = 'Dotfiles',
+        })
+      end,
+      desc = 'Find dotfiles (neovim and alike)',
+    },
+
+    { '<leader>fa', '<cmd>Telescope live_grep<CR>', desc = 'Find all strings (grep)' },
+    {
+      '<leader>fa',
+      function()
+        vim.cmd('Alpha')
+        vim.cmd('Telescope live_grep')
+      end,
+      desc = 'Find all strings (grep)',
+      ft = 'alpha',
+    },
+
+    { '<leader>fd', '<cmd>Telescope diagnostics<CR>', desc = 'Find diagnostics' },
+
+    { '<leader>fq', '<cmd>Telescope quickfix<CR>', desc = 'Find quickfix' },
+    { '<leader>Q', '<cmd>Telescope quickfixhistory<CR>', desc = 'Find quickfix history' },
+
+    { '<leader>/', '<cmd>Telescope search_history<CR>', desc = 'Find search history' },
+    { '<leader>:', '<cmd>Telescope command_history<CR>', desc = 'Find command history' },
+
+    { '<leader>fo', '<cmd>Telescope oldfiles<CR>', desc = 'Find oldfiles' },
+    { '<leader>fb', '<cmd>Telescope buffers<CR>', desc = 'Find buffers' },
+    { '<leader>fc', '<cmd>Telescope colorscheme<CR>', desc = 'Find colorschemes' },
+
+    { '<leader>fs', '<cmd>Telescope lsp_document_symbols<CR>', desc = 'Find symbols' },
+    { '<leader>fS', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', desc = 'Find symbols across project' }, -- WARN: Currently deprecated API
+
+    { '<leader>f/', '<cmd>Telescope current_buffer_fuzzy_find<CR>', desc = 'Find in buffer' },
+    { '<leader>fy', '<cmd>Telescope registers<CR>', desc = 'Find registers' },
+    { '<leader>fm', '<cmd>Telescope marks<CR>', desc = 'Find marks' },
+
+    { 'gd', '<cmd>Telescope lsp_definitions<CR>', desc = 'Go to definition' },
+    { 'gr', '<cmd>Telescope lsp_references<CR>', desc = 'Go to references' },
+    { 'gt', '<cmd>Telescope lsp_type_definitions<CR>', desc = 'Go to type definition' },
+    { 'gI', '<cmd>Telescope lsp_implementations<CR>', desc = 'Go to implementations' },
+
+    { 'g[', '<cmd>Telescope lsp_incoming_calls<CR>', desc = 'Go to incoming calls' },
+    { 'g]', '<cmd>Telescope lsp_outgoing_calls<CR>', desc = 'Go to outgoing calls' },
+
+    { '<leader>f.', '<cmd>Telescope resume<CR>', desc = 'Telescope resume' },
+    { '<leader>?', '<cmd>Telescope help_tags<CR>', desc = 'Find help' },
+  },
   config = function()
     local actions = require('telescope.actions')
-    local builtin = require('telescope.builtin')
-    local icons = require('utils.icons')
 
     require('utils.ft').bind_shell_movements('TelescopePrompt')
 
@@ -41,68 +163,5 @@ return {
         },
       },
     })
-
-    vim.keymap.set('n', '<C-f>', builtin.find_files, { desc = 'Find files' })
-
-    vim.keymap.set('n', '<leader>ff', function()
-      builtin.find_files({ hidden = true, prompt_title = 'Find Files (Hidden)' })
-    end, { desc = 'Find files including hidden' })
-
-    vim.keymap.set('n', '<leader>fe', function()
-      builtin.find_files({ hidden = true, no_ignore = true, prompt_title = 'Find Every File' })
-    end, { desc = 'Find every file' })
-
-    vim.keymap.set('n', '<leader>fl', function()
-      builtin.git_status({
-        git_icons = {
-          added = icons.git.added,
-          deleted = icons.git.deleted,
-          changed = icons.git.modified,
-          renamed = icons.git.renamed,
-          untracked = icons.git.untracked,
-          copied = '>',
-          unmerged = '‡',
-        },
-      })
-    end, { desc = 'Find git status files' })
-
-    vim.keymap.set('n', '<leader>fa', builtin.live_grep, { desc = 'Find all strings (grep)' })
-    vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Find diagnostics' })
-    vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = 'Find quickfix' })
-    vim.keymap.set('n', '<leader>Q', builtin.quickfixhistory, { desc = 'Find quickfix history' })
-    vim.keymap.set('n', '<leader>/', builtin.search_history, { desc = 'Find search history' })
-    vim.keymap.set('n', '<leader>:', builtin.command_history, { desc = 'Find command history' })
-    vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Find oldfiles' })
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find buffers' })
-    vim.keymap.set('n', '<leader>fc', builtin.colorscheme, { desc = 'Find colorschemes' })
-
-    vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = 'Find symbols' })
-    vim.keymap.set('n', '<leader>fS', builtin.lsp_dynamic_workspace_symbols, { desc = 'Find symbols across project' }) -- WARN: Currently deprecated API
-
-    vim.keymap.set('n', '<leader>fk', function()
-      builtin.keymaps({ show_plug = false })
-    end, { desc = 'Find keymaps' })
-
-    vim.keymap.set('n', '<leader>?', builtin.help_tags, { desc = 'Find help' })
-
-    vim.keymap.set('n', '<leader>fn', function()
-      builtin.find_files({
-        hidden = true,
-        cwd = '~/dotfiles/',
-        prompt_title = 'Dotfiles',
-      })
-    end, { desc = 'Find dotfiles (neovim and alike)' })
-
-    vim.keymap.set('n', '<leader>f/', builtin.current_buffer_fuzzy_find, { desc = 'Search in buffer' })
-    vim.keymap.set('n', '<leader>fy', builtin.registers, { desc = 'Show registers' })
-    vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = 'Show marks' })
-
-    vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = 'Go to definition' })
-    vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = 'Go to references' })
-    vim.keymap.set('n', 'gt', builtin.lsp_type_definitions, { desc = 'Go to type definition' })
-    vim.keymap.set('n', 'gI', builtin.lsp_implementations, { desc = 'Go to implementations' })
-
-    vim.keymap.set('n', 'g[', builtin.lsp_incoming_calls, { desc = 'Go to incoming calls' })
-    vim.keymap.set('n', 'g]', builtin.lsp_outgoing_calls, { desc = 'Go to outgoing calls' })
   end,
 }

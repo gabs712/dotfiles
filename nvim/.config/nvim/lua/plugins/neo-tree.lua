@@ -9,6 +9,9 @@ return {
     'nvim-tree/nvim-web-devicons',
     'MunifTanjim/nui.nvim',
   },
+  keys = {
+    { '<leader>e', '<cmd>Neotree toggle focus left<CR>', desc = 'Explore tree (neo-tree)' },
+  },
   config = function()
     local icons = require('utils.icons')
 
@@ -101,11 +104,11 @@ return {
     })
     require('lsp-file-operations').setup()
 
-    local preview = require('neo-tree.sources.common.preview')
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'neo-tree',
       callback = function()
         vim.keymap.set('n', '<Esc>', function()
+          local preview = require('neo-tree.sources.common.preview')
           if preview.is_active() then
             preview.hide()
           else
@@ -116,6 +119,5 @@ return {
     })
 
     -- Toggle window, highlight current file, move cursor
-    vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle focus left<CR>', { desc = 'Explore tree (neo-tree)' })
   end,
 }

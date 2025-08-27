@@ -1,5 +1,8 @@
 return {
   'folke/trouble.nvim',
+  keys = {
+    { '<leader>D', '<cmd>Trouble diagnostics toggle<CR>', desc = 'Diagnostics on workspace' },
+  },
   config = function()
     require('utils.ft').clear_c_hjkl('trouble', { bind_c_j = true })
     require('utils.ft').bind_close_win('trouble', 'close')
@@ -44,7 +47,5 @@ return {
         end, 0)
       end,
     })
-
-    vim.keymap.set('n', '<leader>D', '<cmd>Trouble diagnostics toggle<CR>', { desc = 'Diagnostics on workspace' })
   end,
 }

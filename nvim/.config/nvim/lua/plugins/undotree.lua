@@ -1,5 +1,8 @@
 return {
   'mbbill/undotree',
+  keys = {
+    { '<leader>u', '<cmd>UndotreeToggle<CR>', desc = 'Undotree' },
+  },
   config = function()
     require('utils.ft').clear_c_hjkl('undotree', { bind_c_j = true })
 

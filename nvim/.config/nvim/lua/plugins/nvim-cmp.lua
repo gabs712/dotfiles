@@ -6,7 +6,6 @@ return {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-    'rcarriga/cmp-dap',
     'jcha0713/cmp-tw2css', -- Tailwind on css
 
     'L3MON4D3/LuaSnip', -- Engine responsable for snippets
@@ -15,6 +14,7 @@ return {
     'onsails/lspkind.nvim', -- Icons
     { 'luckasRanarison/tailwind-tools.nvim', name = 'tailwind-tools' }, -- Color icons
   },
+  event = { 'InsertEnter', 'CmdlineEnter' },
   config = function()
     local cmp = require('cmp')
 
@@ -29,8 +29,7 @@ return {
     -- Global config
     cmp.setup({
       enabled = function()
-        return (vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt' or require('cmp_dap').is_dap_buffer()) -- Recommended by cmp-dap
-          and vim.fn.reg_recording() == '' -- Disable when recording macros
+        return vim.fn.reg_recording() == '' -- Disable when recording macros
       end,
 
       -- Sources from higher to lower priority

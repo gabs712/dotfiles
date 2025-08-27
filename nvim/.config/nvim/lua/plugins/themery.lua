@@ -1,7 +1,11 @@
 return {
   'zaldih/themery.nvim',
   dependencies = {
-    'folke/tokyonight.nvim',
+    'EdenEast/nightfox.nvim',
+  },
+  lazy = false,
+  keys = {
+    { '<leader>t', '<cmd>Themery<cr>', desc = 'Themery' },
   },
   config = function()
     vim.cmd('colorscheme duskfox') -- Default colorscheme
@@ -10,6 +14,7 @@ return {
     require('themery').setup({
       themes = {
         'duskfox',
+        'nordfox',
         'nightfox',
 
         'catppuccin-mocha',
@@ -20,12 +25,11 @@ return {
         'tokyonight-night',
         'tokyonight-storm',
 
-        'github_dark_default',
         'github_dark_dimmed',
+        'carbonfox',
+        'github_dark_default',
       },
       livePreview = true,
     })
-
-    vim.keymap.set('n', '<leader>t', '<cmd>Themery<cr>', { desc = 'Themery' })
   end,
 }

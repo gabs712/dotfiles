@@ -1,14 +1,35 @@
+local toggle_binding = '<leader>w'
+
 return {
   'stevearc/oil.nvim',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
-    'nvim-telescope/telescope.nvim',
   },
+  keys = {
+    {
+      toggle_binding,
+      function()
+        require('oil').open_float()
+      end,
+      { desc = 'Open oil (workspace)' },
+    },
+  },
+  cmd = 'Oil',
+  init = function()
+    -- Loads oil if nvim was opened on a directory
+    vim.api.nvim_create_autocmd('VimEnter', {
+      callback = function(data)
+        local stat = vim.uv.fs_stat(data.file)
+        if stat and stat.type == 'directory' then
+          require('lazy').load({ plugins = { 'oil.nvim' } })
+        end
+      end,
+    })
+  end,
   config = function()
     local oil = require('oil')
 
     local show_hidden = true
-    local toggle_binding = '<leader>w'
 
     -- Notify when toggling hidden files
     local hidden_enabled = show_hidden
@@ -18,9 +39,9 @@ return {
         hidden_enabled = not hidden_enabled
 
         if hidden_enabled then
-          vim.notify('Oil: hidden files enabled')
+          vim.notify('Hidden files enabled')
         else
-          vim.notify('Oil: hidden files disabled')
+          vim.notify('Hidden files disabled')
         end
       end,
       mode = 'n',
@@ -91,7 +112,6 @@ return {
       end,
     })
 
-    local builtin = require('telescope.builtin')
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'oil',
       callback = function()
@@ -103,25 +123,7 @@ return {
 
         -- Allow saving while in insert mode
         vim.keymap.set({ 'n', 'i', 'x', 's' }, '<C-s>', '<Esc><cmd>w<CR>', { buffer = true })
-
-        -- Close oil before using telescope commands that would make sense to run while referencing oil
-        vim.keymap.set('n', '<C-f>', function()
-          actions.close.callback()
-          builtin.find_files()
-        end, { buffer = true, desc = 'Find files' })
-
-        vim.keymap.set('n', '<leader>ff', function()
-          actions.close.callback()
-          builtin.find_files({ hidden = true, prompt_title = 'Find Files (Hidden)' })
-        end, { buffer = true, desc = 'Find files including hidden' })
-
-        vim.keymap.set('n', '<leader>fe', function()
-          actions.close.callback()
-          builtin.find_files({ hidden = true, no_ignore = true, prompt_title = 'Find Every File' })
-        end, { buffer = true, desc = 'Find every file' })
       end,
     })
-
-    vim.keymap.set('n', toggle_binding, oil.open_float, { desc = 'Open oil (workspace)' })
   end,
 }

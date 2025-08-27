@@ -91,3 +91,20 @@ vim.api.nvim_create_autocmd('InsertLeave', {
     end
   end,
 })
+
+local format_on_save = true
+
+-- Format on save toggle command
+vim.api.nvim_create_user_command('ToggleFormat', function()
+  format_on_save = not format_on_save
+  vim.notify('FormatOnSave ' .. (format_on_save and 'enabled' or 'disabled'))
+end, {})
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+  callback = function()
+    if format_on_save then
+      local format = require('utils.format')
+      format()
+    end
+  end,
+})

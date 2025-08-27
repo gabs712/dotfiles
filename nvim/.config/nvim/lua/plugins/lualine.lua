@@ -2,11 +2,10 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
-    'folke/noice.nvim',
-    'stevearc/oil.nvim',
     'ThePrimeagen/harpoon',
     'letieu/harpoon-lualine',
   },
+  lazy = false,
   config = function()
     local icons = require('utils.icons')
 
@@ -57,8 +56,13 @@ return {
         },
         -- Show macros
         {
-          require('noice').api.statusline.mode.get,
-          cond = require('noice').api.statusline.mode.has,
+          function()
+            local reg = vim.fn.reg_recording()
+            if reg == '' then
+              return ''
+            end
+            return ' recording @' .. reg
+          end,
           color = { fg = '#ff9e64' },
           padding = { left = 2, right = 1 },
         },

@@ -1,5 +1,12 @@
 return {
   'sindrets/diffview.nvim',
+  keys = {
+    { '<leader>L', '<cmd>DiffviewOpen<CR>', desc = 'Open git diffview for file changes' },
+    { '<leader>v', '<cmd>DiffviewFileHistory<CR>', desc = 'Open git diffview history' },
+    { '<leader>v', ':DiffviewFileHistory<CR>', desc = 'Open git diffview history (range)', mode = 'x' },
+    { '<leader>V', '<cmd>DiffviewFileHistory %<CR>', desc = 'Open git diffview history (file)' },
+  },
+  cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
   config = function()
     local actions = require('diffview.actions')
     local close_win = require('utils.close_win')
@@ -261,12 +268,5 @@ return {
         end, 0)
       end,
     })
-
-    vim.keymap.set('n', '<leader>L', '<cmd>DiffviewOpen<CR>', { desc = 'Open git diffview for file changes' })
-
-    vim.keymap.set('n', '<leader>v', '<cmd>DiffviewFileHistory<CR>', { desc = 'Open git diffview history' })
-    vim.keymap.set('x', '<leader>v', ':DiffviewFileHistory<CR>', { desc = 'Open git diffview history (range)' })
-
-    vim.keymap.set('n', '<leader>V', '<cmd>DiffviewFileHistory %<CR>', { desc = 'Open git diffview history (file)' })
   end,
 }

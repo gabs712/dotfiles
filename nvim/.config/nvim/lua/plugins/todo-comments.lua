@@ -2,8 +2,10 @@ return {
   'folke/todo-comments.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope.nvim',
-    'nvim-treesitter/nvim-treesitter-textobjects',
+  },
+  event = { 'BufReadPre', 'BufNewFile' },
+  keys = {
+    { '<leader>ft', '<cmd>TodoTelescope<CR>', desc = 'Find todos' },
   },
   config = function()
     local todo_comments = require('todo-comments')
@@ -16,7 +18,5 @@ return {
         multiline = false,
       },
     })
-
-    vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<CR>', { desc = 'Find todos' })
   end,
 }

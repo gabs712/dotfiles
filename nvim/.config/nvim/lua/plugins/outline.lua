@@ -1,5 +1,8 @@
 return {
   'hedyhli/outline.nvim',
+  keys = {
+    { '<leader>s', '<cmd>Outline<CR>', desc = 'Toggle outline (symbols)' },
+  },
   config = function()
     require('utils.ft').clear_c_hjkl('Outline', { bind_c_j = true })
     require('utils.ft').bind_close_win('Outline', 'OutlineClose')
@@ -7,7 +10,7 @@ return {
 
     require('outline').setup({
       outline_window = {
-        position = 'right', -- left / right
+        position = 'right',
         auto_close = true, -- Closes window if item is selected with enter
         focus_on_open = true,
       },
@@ -52,7 +55,5 @@ return {
         end, 0)
       end,
     })
-
-    vim.keymap.set('n', '<leader>s', '<cmd>Outline<CR>', { desc = 'Toggle outline (symbols)' })
   end,
 }

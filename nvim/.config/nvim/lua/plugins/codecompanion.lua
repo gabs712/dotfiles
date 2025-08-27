@@ -6,12 +6,19 @@ return {
       ft = { 'codecompanion' },
       config = require('custom.codecompanion.render-markdown'),
     },
-    'hrsh7th/nvim-cmp',
-    'nvim-treesitter/nvim-treesitter',
     'nvim-lua/plenary.nvim',
+    'nvim-treesitter/nvim-treesitter',
     'ravitemer/codecompanion-history.nvim',
     'echasnovski/mini.diff',
   },
+  keys = {
+    { '<leader>c', '<cmd>CodeCompanionChat Toggle<CR>', desc = 'Open AI chat' },
+    { '<leader>c', ':CodeCompanionChat Add<CR>', desc = 'Add selection to AI chat', mode = 'x' },
+
+    { '<leader>C', '<cmd>CodeCompanion<CR>', desc = 'Open AI chat (inline)' },
+    { '<leader>C', ':CodeCompanion<CR>', desc = 'Add selection to AI chat (inline)', mode = 'x' },
+  },
+  cmd = { 'CodeCompanionActions', 'CodeCompanionCmd', 'CodeCompanionHistory', 'AI' },
   config = function()
     local codecompanion = require('codecompanion')
     local nav_heading = require('custom.codecompanion.nav_heading')
@@ -241,18 +248,8 @@ return {
       end,
     })
 
-    require('cmp').setup.filetype('codecompanion', {
-      sources = {},
-    })
-
-    vim.keymap.set('n', '<leader>c', '<cmd>CodeCompanionChat Toggle<CR>', { desc = 'Open AI chat' })
-    vim.keymap.set('x', '<leader>c', ':CodeCompanionChat Add<CR>', { desc = 'Add selection to AI chat' })
-
-    -- vim.keymap.set('n', '<leader>C', '<cmd>CodeCompanion<CR>', { desc = 'Open AI chat (inline)' })
-    -- vim.keymap.set('x', '<leader>C', ':CodeCompanion<CR>', { desc = 'Add selection to AI chat (inline)' })
-
-    -- vim.api.nvim_create_user_command('AI', function(opts)
-    --   vim.cmd('CodeCompanionCmd ' .. table.concat(opts.fargs, ' '))
-    -- end, { nargs = '*' })
+    vim.api.nvim_create_user_command('AI', function(opts)
+      vim.cmd('CodeCompanionCmd ' .. table.concat(opts.fargs, ' '))
+    end, { nargs = '*' })
   end,
 }
