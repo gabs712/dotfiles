@@ -174,7 +174,7 @@ return {
       },
     })
 
-    require('custom.nvim-cmp.command_bindings')
+    require('custom.nvim-cmp.cmd_bindings')
 
     -- Custom completions
     require('custom.nvim-cmp.completion_init')
