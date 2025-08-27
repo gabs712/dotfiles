@@ -2,7 +2,7 @@ return {
   'iamcco/markdown-preview.nvim',
   ft = 'markdown',
   build = function()
-    vim.fn['mkdp#util#install']()
+    vim.fn['mkdp#util#install']() -- Installs with node
   end,
   config = function()
     vim.g.mkdp_auto_close = 0 -- Closes tab afer exiting buffer

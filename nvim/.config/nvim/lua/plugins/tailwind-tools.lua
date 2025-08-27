@@ -28,6 +28,7 @@ return {
   config = function()
     local mask_module = require('utils.mask_module')
 
+    -- Prevents it from loading telescope, messing up lazy loading
     mask_module('telescope', function()
       require('tailwind-tools').setup({
         server = {
