@@ -36,6 +36,7 @@ return {
           require('mini.indentscope').operator('top', true)
         end,
         desc = 'Go to indent scope top',
+        mode = { 'n', 'x', 'o' },
       },
       {
         ']i',
@@ -43,29 +44,14 @@ return {
           require('mini.indentscope').operator('bottom', true)
         end,
         desc = 'Go to indent scope bottom',
-      },
-      {
-        '[i',
-        function()
-          require('mini.indentscope').operator('top')
-        end,
-        mode = 'x',
-        desc = 'Go to indent scope top',
-      },
-      {
-        ']i',
-        function()
-          require('mini.indentscope').operator('bottom')
-        end,
-        mode = 'x',
-        desc = 'Go to indent scope bottom',
+        mode = { 'n', 'x', 'o' },
       },
       {
         'ii',
         function()
           require('mini.indentscope').textobject(false)
         end,
-        mode = 'x',
+        mode = { 'x', 'o' },
         desc = 'Object scope',
       },
       {
@@ -73,40 +59,8 @@ return {
         function()
           require('mini.indentscope').textobject(true)
         end,
-        mode = 'x',
         desc = 'Object scope with border',
-      },
-      {
-        '[i',
-        function()
-          require('mini.indentscope').operator('top')
-        end,
-        mode = 'o',
-        desc = 'Go to indent scope top',
-      },
-      {
-        ']i',
-        function()
-          require('mini.indentscope').operator('bottom')
-        end,
-        mode = 'o',
-        desc = 'Go to indent scope bottom',
-      },
-      {
-        'ii',
-        function()
-          require('mini.indentscope').textobject(false)
-        end,
-        mode = 'o',
-        desc = 'Object scope',
-      },
-      {
-        'ai',
-        function()
-          require('mini.indentscope').textobject(true)
-        end,
-        mode = 'o',
-        desc = 'Object scope with border',
+        mode = { 'x', 'o' },
       },
     },
     config = function()
