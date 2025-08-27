@@ -27,6 +27,7 @@ return {
         'toml',
         'query',
         'json',
+        'jsonc',
         'gitcommit',
         'gitignore',
         'git_config',
