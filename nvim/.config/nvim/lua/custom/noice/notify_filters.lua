@@ -46,7 +46,7 @@ return {
     },
     opts = { skip = true },
   },
-  -- NOTE: A collection of telescope warnings for deprection
+  -- NOTE: telescope deprection warnings
   {
     filter = {
       warning = true,
@@ -87,6 +87,14 @@ return {
     event = 'notify',
     filter = {
       find = '%[LSP%] Format request failed, no matching language servers%.',
+    },
+    opts = { skip = true },
+  },
+  -- NOTE: neotree deprection warnings
+  {
+    event = 'notify',
+    filter = {
+      find = 'vim%.lsp%.get_active_clients%(%) is deprecated%. Run ":checkhealth vim%.deprecated" for more',
     },
     opts = { skip = true },
   },
