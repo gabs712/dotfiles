@@ -5,7 +5,14 @@ return {
   },
   event = { 'BufReadPre', 'BufNewFile' },
   keys = {
-    { '<leader>ft', '<cmd>TodoTelescope<CR>', desc = 'Find todos' },
+    {
+      '<leader>ft',
+      function()
+        require('lazy').load({ plugins = { 'telescope.nvim' } })
+        vim.cmd('TodoTelescope')
+      end,
+      desc = 'Find todos',
+    },
     {
       ']t',
       function()
