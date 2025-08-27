@@ -11,7 +11,7 @@ return {
       function()
         require('oil').open_float()
       end,
-      { desc = 'Open oil (workspace)' },
+      desc = 'Open oil (workspace)',
     },
   },
   cmd = 'Oil',
