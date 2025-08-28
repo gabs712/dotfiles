@@ -102,6 +102,7 @@ vim.cmd("nnoremap <expr> k v:count ? (v:count > 0 ? \"m'\" . v:count : '') . 'k'
 
 -- Registers
 vim.keymap.set({ 'n', 'x' }, '<C-y>', '"+y', { desc = 'Yank to OS' })
+vim.keymap.set({ 'n', 'x' }, '<M-y>', '"+y$', { desc = 'Yank rest of line to OS' })
 
 vim.keymap.set('n', '<leader>y', function()
   vim.cmd('let @+=@0')
