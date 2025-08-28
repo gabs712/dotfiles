@@ -20,6 +20,7 @@ return {
         'html',
         'css',
         'typescript',
+        'jsdoc',
         'bash',
         'markdown',
         'markdown_inline',
