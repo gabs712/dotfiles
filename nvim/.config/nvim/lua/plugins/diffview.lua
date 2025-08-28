@@ -3,8 +3,9 @@ return {
   keys = {
     { '<leader>L', '<cmd>DiffviewOpen<CR>', desc = 'Open git diffview for file changes' },
     { '<leader>v', '<cmd>DiffviewFileHistory<CR>', desc = 'Open git diffview history' },
-    { '<leader>v', ':DiffviewFileHistory<CR>', desc = 'Open git diffview history (range)', mode = 'x' },
     { '<leader>V', '<cmd>DiffviewFileHistory %<CR>', desc = 'Open git diffview history (file)' },
+    { '<leader>v', ':DiffviewFileHistory<CR>', desc = 'Open git diffview history (range)', mode = 'x' },
+    { '<leader>V', ':DiffviewFileHistory<CR>', desc = 'Open git diffview history (range)', mode = 'x' },
   },
   cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
   config = function()
