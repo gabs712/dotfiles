@@ -15,6 +15,7 @@ vim.keymap.set({ 'n', 'x' }, '<leader><Esc>', '<Nop>')
 vim.keymap.set('n', 'gt', '<Nop>')
 vim.keymap.set('n', 'gT', '<Nop>')
 vim.keymap.set('n', 'gO', '<Nop>')
+vim.keymap.set('n', 'ga', '<Nop>')
 
 vim.keymap.del('n', 'grr')
 vim.keymap.del('n', 'gra')
