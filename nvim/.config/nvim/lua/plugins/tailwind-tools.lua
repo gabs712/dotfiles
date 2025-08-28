@@ -7,7 +7,6 @@ return {
   dependencies = {
     'nvim-treesitter/nvim-treesitter',
   },
-  lazy = true,
   cmd = { 'TailwindSort', 'TailwindConcealToggle' },
   keys = {
     {
