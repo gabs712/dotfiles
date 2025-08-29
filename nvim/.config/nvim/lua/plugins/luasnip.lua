@@ -1,24 +1,31 @@
 return {
   'L3MON4D3/LuaSnip',
-  lazy = true,
+  keys = {
+    {
+      '<c-l>',
+      function()
+        if require('luasnip').jumpable(1) then
+          require('luasnip').jump(1)
+        end
+      end,
+      desc = 'Jump to next snippet',
+      mode = { 'i', 's' },
+    },
+    {
+      '<c-k>',
+      function()
+        if require('luasnip').jumpable(-1) then
+          require('luasnip').jump(-1)
+        end
+      end,
+      desc = 'Jump to previous snippet',
+      mode = { 'i', 's' },
+    },
+  },
   config = function()
-    local ls = require('luasnip')
-
-    ls.config.set_config({
+    require('luasnip').config.set_config({
       history = true, -- Jumps through snippet even after finishing it
     })
-
-    vim.keymap.set({ 'i', 's' }, '<C-l>', function()
-      if ls.jumpable(1) then
-        ls.jump(1)
-      end
-    end, { desc = 'Jump to next snippet' })
-
-    vim.keymap.set({ 'i', 's' }, '<C-k>', function()
-      if ls.jumpable(-1) then
-        ls.jump(-1)
-      end
-    end, { desc = 'Jump to previous snippet' })
 
     -- Custom snippets
     require('custom.luasnip.snippet_init')
