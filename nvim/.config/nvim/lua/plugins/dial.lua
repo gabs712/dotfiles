@@ -36,7 +36,7 @@ return {
         vim.cmd('norm! gv')
       end,
       desc = 'Dial increment (visual)',
-      mode = 'v',
+      mode = 'x',
     },
     {
       '<C-x>',
@@ -45,7 +45,7 @@ return {
         vim.cmd('norm! gv')
       end,
       desc = 'Dial decrement (visual)',
-      mode = 'v',
+      mode = 'x',
     },
     {
       'g<C-a>',
@@ -54,7 +54,7 @@ return {
         vim.cmd('norm! gv')
       end,
       desc = 'Dial increment sequentially (visual)',
-      mode = 'v',
+      mode = 'x',
     },
     {
       'g<C-x>',
@@ -63,7 +63,7 @@ return {
         vim.cmd('norm! gv')
       end,
       desc = 'Dial decrement sequentially (visual)',
-      mode = 'v',
+      mode = 'x',
     },
   },
   config = function()
