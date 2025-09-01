@@ -30,6 +30,28 @@ return {
     },
     opts = { skip = true },
   },
+  -- Change list
+  {
+    filter = {
+      event = 'msg_show',
+      find = 'E662: At start of changelist',
+    },
+    opts = { skip = true },
+  },
+  {
+    filter = {
+      event = 'msg_show',
+      find = 'E663: At end of changelist',
+    },
+    opts = { skip = true },
+  },
+  {
+    filter = {
+      event = 'msg_show',
+      find = 'E19: Mark has invalid line number',
+    },
+    opts = { skip = true },
+  },
   -- Using "*" or "#" on visual mode
   {
     filter = {
