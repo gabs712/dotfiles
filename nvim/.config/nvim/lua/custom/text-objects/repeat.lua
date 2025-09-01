@@ -96,6 +96,20 @@ M.indent = function(forward)
   end, forward)
 end
 
+M.mark = function(forward)
+  repeat_move(function(opts)
+    if opts.forward then
+      pcall(function()
+        vim.cmd('norm! ' .. "]'")
+      end)
+    else
+      pcall(function()
+        vim.cmd('norm! ' .. "['")
+      end)
+    end
+  end, forward)
+end
+
 M.paragraph = function(forward)
   repeat_move(function(opts)
     local count = vim.v.count > 0 and vim.v.count or 1

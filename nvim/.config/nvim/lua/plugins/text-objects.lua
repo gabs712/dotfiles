@@ -210,6 +210,22 @@ return {
           mode = { 'n', 'x', 'o' },
         },
         {
+          "]'",
+          function()
+            require('custom.text-objects.repeat').mark(true)
+          end,
+          desc = 'Next mark',
+          mode = { 'n', 'x', 'o' },
+        },
+        {
+          "['",
+          function()
+            require('custom.text-objects.repeat').mark(false)
+          end,
+          desc = 'Previous mark',
+          mode = { 'n', 'x', 'o' },
+        },
+        {
           '}',
           function()
             require('custom.text-objects.repeat').paragraph(true)
