@@ -64,9 +64,17 @@ vim.keymap.set('x', '>', '>gv')
 vim.keymap.set('x', '<', '<gv')
 
 -- Facilitate change list navigation
-vim.keymap.set('n', '<M-,>', 'g,')
-vim.keymap.set('n', '<M-;>', 'g;')
-vim.keymap.set('n', '<M-.>', '9999g,')
+vim.keymap.set('n', '<M-,>', function()
+  local count = vim.v.count > 0 and vim.v.count or 1
+  vim.cmd("norm! m'" .. count .. 'g,')
+end, { desc = 'Previous change' })
+
+vim.keymap.set('n', '<M-;>', function()
+  local count = vim.v.count > 0 and vim.v.count or 1
+  vim.cmd("norm! m'" .. count .. 'g;')
+end, { desc = 'Next change' })
+
+vim.keymap.set('n', '<M-.>', "m'9999g,", { desc = 'Recent change' })
 
 -- Alternatives to ge
 vim.keymap.set({ 'n', 'x', 'o' }, '<C-b>', 'ge', { remap = true })
