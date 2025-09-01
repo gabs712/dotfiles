@@ -63,6 +63,11 @@ vim.keymap.set('c', '<C-e>', '<End>')
 vim.keymap.set('x', '>', '>gv')
 vim.keymap.set('x', '<', '<gv')
 
+-- Facilitate change list navigation
+vim.keymap.set('n', '<M-,>', 'g,')
+vim.keymap.set('n', '<M-;>', 'g;')
+vim.keymap.set('n', '<M-.>', '9999g,')
+
 -- Alternatives to ge
 vim.keymap.set({ 'n', 'x', 'o' }, '<C-b>', 'ge', { remap = true })
 vim.keymap.set({ 'n', 'x', 'o' }, '<M-b>', 'gE', { remap = true })
