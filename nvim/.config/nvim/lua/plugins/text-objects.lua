@@ -194,6 +194,22 @@ return {
           mode = { 'n', 'x', 'o' },
         },
         {
+          ']Q',
+          function()
+            require('custom.text-objects.repeat').quickfix_file(true)
+          end,
+          desc = 'Next quickfix file',
+          mode = { 'n', 'x', 'o' },
+        },
+        {
+          '[Q',
+          function()
+            require('custom.text-objects.repeat').quickfix_file(false)
+          end,
+          desc = 'Previous quickfix file',
+          mode = { 'n', 'x', 'o' },
+        },
+        {
           '}',
           function()
             require('custom.text-objects.repeat').paragraph(true)

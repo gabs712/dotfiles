@@ -70,6 +70,22 @@ M.quickfix = function(forward)
   end, forward)
 end
 
+M.quickfix_file = function(forward)
+  repeat_move(function(opts)
+    local count = vim.v.count > 0 and vim.v.count or 1
+
+    if opts.forward then
+      pcall(function()
+        vim.cmd('cnfile ' .. count)
+      end)
+    else
+      pcall(function()
+        vim.cmd('cpfile ' .. count)
+      end)
+    end
+  end, forward)
+end
+
 M.indent = function(forward)
   repeat_move(function(opts)
     if opts.forward then
