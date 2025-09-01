@@ -24,7 +24,7 @@ vim.keymap.del('n', 'grn')
 vim.keymap.del('n', 'gri')
 
 vim.keymap.set('n', '<Esc>', require('utils.clear_hl_and_popup'), { desc = 'Clear highlights and popups' })
-vim.keymap.set('n', '<C-Space>', require('utils.switch_to_prev_buf'), { desc = 'Switch to the previous buffer' })
+vim.keymap.set('n', '<C-Space>', '<C-^>', { desc = 'Switch to the previous buffer' })
 
 -- <C-j> works with plugins that remap <CR> (ie. autopairs)
 vim.keymap.set('i', '<C-j>', '<CR>', { remap = true })

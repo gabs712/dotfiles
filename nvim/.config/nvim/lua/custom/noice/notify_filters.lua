@@ -22,6 +22,14 @@ return {
     },
     opts = { skip = true },
   },
+  -- No previous buffer
+  {
+    filter = {
+      event = 'msg_show',
+      find = 'E23: No alternate file',
+    },
+    opts = { skip = true },
+  },
   -- Using "*" or "#" on visual mode
   {
     filter = {
