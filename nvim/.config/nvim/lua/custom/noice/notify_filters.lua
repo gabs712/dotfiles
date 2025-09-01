@@ -14,7 +14,7 @@ return {
     },
     opts = { skip = true },
   },
-  -- Popups for undos
+  -- Undos
   {
     filter = {
       event = 'msg_show',
@@ -22,7 +22,7 @@ return {
     },
     opts = { skip = true },
   },
-  -- Popups when using "*" or "#" on visual mode
+  -- Using "*" or "#" on visual mode
   {
     filter = {
       event = 'msg_show',
