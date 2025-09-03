@@ -192,10 +192,27 @@ local react = {
   ),
 }
 
+local typescript = {
+  s('t', fmt('type {}', { i(1) })),
+  s(
+    'i',
+    fmt(
+      [[
+        interface {} {{
+          {}
+        }}
+      ]],
+      { i(1, 'name'), i(2) }
+    )
+  ),
+}
+
 ls.add_snippets('javascript', common)
 ls.add_snippets('javascriptreact', common)
 ls.add_snippets('javascriptreact', react)
 
 ls.add_snippets('typescript', common)
+ls.add_snippets('typescript', typescript)
 ls.add_snippets('typescriptreact', common)
+ls.add_snippets('typescriptreact', typescript)
 ls.add_snippets('typescriptreact', react)
