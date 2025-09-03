@@ -252,7 +252,7 @@ local typescript = {
     )
   ),
 
-  s('t', fmt('type {}', { i(1) })),
+  s('t', fmt('type {} = {}', { i(1, 'Name'), i(2, '{}') })),
   s(
     'i',
     fmt(
@@ -261,7 +261,7 @@ local typescript = {
           {}
         }}
       ]],
-      { i(1, 'name'), i(2) }
+      { i(1, 'Name'), i(2) }
     )
   ),
 }
