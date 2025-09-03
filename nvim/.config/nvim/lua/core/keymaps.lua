@@ -119,6 +119,11 @@ vim.keymap.set({ 'n', 'x' }, '<C-y>', '"+y', { desc = 'Yank to OS' })
 vim.keymap.set('x', '<M-y>', '"+y', { desc = 'Yank to OS' })
 vim.keymap.set('n', '<M-y>', '"+y$', { desc = 'Yank rest of line to OS' })
 
+vim.keymap.set({ 'n', 'x' }, '<M-p>', '"+p', { desc = 'Paste from OS' })
+vim.keymap.set({ 'n', 'x' }, 'g<M-p>', '"+gp', { desc = 'Paste from OS and go to end' })
+vim.keymap.set({ 'n', 'x' }, '<M-P>', '"+P', { desc = 'Paste from OS before cursor' })
+vim.keymap.set({ 'n', 'x' }, 'g<M-P>', '"+gP', { desc = 'Paste from OS before cursor and go to end' })
+
 vim.keymap.set('n', '<leader>y', function()
   vim.cmd('let @+=@0')
   vim.notify('Register "0" copied into register "+"')
