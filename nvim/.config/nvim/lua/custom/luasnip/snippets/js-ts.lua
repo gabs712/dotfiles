@@ -17,76 +17,9 @@ local rep = require('luasnip.extras').rep -- Repeats
 local common = {
   s('c', fmt('const {}', { i(1) })),
   s('l', fmt('let {}', { i(1) })),
-  s('fs', fmt('({}) => {}', { i(1), i(2) })),
 
   s('imp', fmt("import {} from '{}'", { i(2, 'name'), i(1, 'module') })),
   s('re', fmt("require('{}')", { i(1) })),
-
-  s(
-    'f',
-    fmt(
-      [[
-        ({}) => {{
-          {}
-        }}
-      ]],
-      { i(1), i(2) }
-    )
-  ),
-
-  s(
-    'cf',
-    fmt(
-      [[
-        const {} = ({}) => {{
-          {}
-        }}
-      ]],
-      { i(1, 'name'), i(2), i(3) }
-    )
-  ),
-
-  s(
-    'lf',
-    fmt(
-      [[
-        let {} = ({}) => {{
-          {}
-        }}
-      ]],
-      { i(1, 'name'), i(2), i(3) }
-    )
-  ),
-
-  s(
-    'fun',
-    fmt(
-      [[
-        function {}({}) {{
-          {}
-        }}
-      ]],
-      { i(1, 'name'), i(2), i(3) }
-    )
-  ),
-
-  s(
-    'ef',
-    fmt(
-      [[
-        export default function {}({}) {{
-          {}
-        }}
-      ]],
-      {
-        f(function(_, snip)
-          return vim.fn.fnamemodify(snip.env.TM_FILENAME, ':r')
-        end),
-        i(1),
-        i(2),
-      }
-    )
-  ),
 
   s(
     'for',
@@ -179,20 +112,146 @@ local common = {
   ),
 }
 
-local react = {
+local javascript = {
+  s('fs', fmt('({}) => {}', { i(1), i(2) })),
+
   s(
-    'us',
-    fmt('const [{}, set{}] = useState({})', {
-      i(1, 'name'),
-      f(function(args)
-        return args[1][1]:gsub('^%l', string.upper)
-      end, { 1 }),
-      i(2),
-    })
+    'f',
+    fmt(
+      [[
+        ({}) => {{
+          {}
+        }}
+      ]],
+      { i(1), i(2) }
+    )
+  ),
+
+  s(
+    'cf',
+    fmt(
+      [[
+        const {} = ({}) => {{
+          {}
+        }}
+      ]],
+      { i(1, 'name'), i(2), i(3) }
+    )
+  ),
+
+  s(
+    'lf',
+    fmt(
+      [[
+        let {} = ({}) => {{
+          {}
+        }}
+      ]],
+      { i(1, 'name'), i(2), i(3) }
+    )
+  ),
+
+  s(
+    'fun',
+    fmt(
+      [[
+        function {}({}) {{
+          {}
+        }}
+      ]],
+      { i(1, 'name'), i(2), i(3) }
+    )
+  ),
+
+  s(
+    'ef',
+    fmt(
+      [[
+        export default function {}({}) {{
+          {}
+        }}
+      ]],
+      {
+        f(function(_, snip)
+          return vim.fn.fnamemodify(snip.env.TM_FILENAME, ':r')
+        end),
+        i(1),
+        i(2),
+      }
+    )
   ),
 }
 
 local typescript = {
+  s('fs', fmt('({}){} => {}', { i(1), i(2), i(3) })),
+
+  s(
+    'f',
+    fmt(
+      [[
+        ({}){} => {{
+          {}
+        }}
+      ]],
+      { i(1), i(2), i(3) }
+    )
+  ),
+
+  s(
+    'cf',
+    fmt(
+      [[
+        const {} = ({}){} => {{
+          {}
+        }}
+      ]],
+      { i(1, 'name'), i(2), i(3), i(4) }
+    )
+  ),
+
+  s(
+    'lf',
+    fmt(
+      [[
+        let {} = ({}){} => {{
+          {}
+        }}
+      ]],
+      { i(1, 'name'), i(2), i(3), i(4) }
+    )
+  ),
+
+  s(
+    'fun',
+    fmt(
+      [[
+        function {}({}){} {{
+          {}
+        }}
+      ]],
+      { i(1, 'name'), i(2), i(3), i(4) }
+    )
+  ),
+
+  s(
+    'ef',
+    fmt(
+      [[
+        export default function {}({}){} {{
+          {}
+        }}
+      ]],
+      {
+        f(function(_, snip)
+          return vim.fn.fnamemodify(snip.env.TM_FILENAME, ':r')
+        end),
+        i(1),
+        i(2),
+        i(3),
+      }
+    )
+  ),
+
   s('t', fmt('type {}', { i(1) })),
   s(
     'i',
@@ -207,8 +266,23 @@ local typescript = {
   ),
 }
 
+local react = {
+  s(
+    'us',
+    fmt('const [{}, set{}] = useState({})', {
+      i(1, 'name'),
+      f(function(args)
+        return args[1][1]:gsub('^%l', string.upper)
+      end, { 1 }),
+      i(2),
+    })
+  ),
+}
+
 ls.add_snippets('javascript', common)
+ls.add_snippets('javascript', javascript)
 ls.add_snippets('javascriptreact', common)
+ls.add_snippets('javascriptreact', javascript)
 ls.add_snippets('javascriptreact', react)
 
 ls.add_snippets('typescript', common)
