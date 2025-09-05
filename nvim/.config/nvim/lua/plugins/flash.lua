@@ -14,7 +14,7 @@ return {
       function()
         require('flash').treesitter_search()
       end,
-      desc = 'Flash jump to range',
+      desc = 'Flash jump to treesitter range',
       mode = { 'n', 'x', 'o' },
     },
     {
@@ -23,6 +23,19 @@ return {
         require('flash').remote()
       end,
       desc = 'Flash remote',
+      mode = 'o',
+    },
+    {
+      'R',
+      function()
+        local register = vim.v.register
+        require('flash').treesitter_search({
+          action = function(match, state)
+            require('flash.jump').remote_op(match, state, register)
+          end,
+        })
+      end,
+      desc = 'Flash remote on treesitter range',
       mode = 'o',
     },
   },
