@@ -76,6 +76,13 @@ return {
     },
     opts = { skip = true },
   },
+  -- Closing dap config selection
+  {
+    filter = {
+      find = 'No configuration selected',
+    },
+    opts = { skip = true },
+  },
   -- NOTE: telescope deprection warnings
   {
     filter = {
