@@ -9,7 +9,6 @@ local repeat_move = function(cb, forward)
   move({ forward = forward })
 end
 
---- @param forward boolean
 M.git_conflict = function(forward)
   repeat_move(function(opts)
     if require('git-conflict').conflict_count() > 0 then
@@ -24,7 +23,6 @@ M.git_conflict = function(forward)
   end, forward)
 end
 
---- @param forward boolean
 M.diffview_conflict = function(forward)
   repeat_move(function(opts)
     local actions = require('diffview.actions')
@@ -39,7 +37,6 @@ M.diffview_conflict = function(forward)
   end, forward)
 end
 
---- @param forward boolean
 M.git_hunk = function(forward)
   repeat_move(function(opts)
     local gitsigns = require('gitsigns')
@@ -52,7 +49,6 @@ M.git_hunk = function(forward)
   end, forward)
 end
 
---- @param forward boolean
 M.diagnostic = function(forward)
   repeat_move(function(opts)
     local count = vim.v.count > 0 and vim.v.count or 1
@@ -69,7 +65,6 @@ M.diagnostic = function(forward)
   end, forward)
 end
 
---- @param forward boolean
 M.quickfix = function(forward)
   repeat_move(function(opts)
     local count = vim.v.count > 0 and vim.v.count or 1
@@ -86,7 +81,6 @@ M.quickfix = function(forward)
   end, forward)
 end
 
---- @param forward boolean
 M.quickfix_file = function(forward)
   repeat_move(function(opts)
     local count = vim.v.count > 0 and vim.v.count or 1
@@ -103,7 +97,6 @@ M.quickfix_file = function(forward)
   end, forward)
 end
 
---- @param forward boolean
 M.indent = function(forward)
   repeat_move(function(opts)
     if opts.forward then
@@ -114,7 +107,6 @@ M.indent = function(forward)
   end, forward)
 end
 
---- @param forward boolean
 M.mark = function(forward)
   repeat_move(function(opts)
     if opts.forward then
@@ -129,7 +121,6 @@ M.mark = function(forward)
   end, forward)
 end
 
---- @param forward boolean
 M.diff_change = function(forward)
   repeat_move(function(opts)
     local count = vim.v.count > 0 and vim.v.count or 1
@@ -145,7 +136,6 @@ M.diff_change = function(forward)
   end, forward)
 end
 
---- @param forward boolean
 M.paragraph = function(forward)
   repeat_move(function(opts)
     local count = vim.v.count > 0 and vim.v.count or 1
@@ -158,7 +148,6 @@ M.paragraph = function(forward)
   end, forward)
 end
 
---- @param forward boolean
 M.todo = function(forward)
   repeat_move(function(opts)
     vim.cmd("normal! m'")
