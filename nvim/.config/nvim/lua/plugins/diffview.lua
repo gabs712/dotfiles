@@ -17,14 +17,16 @@ return {
       vim.cmd('tabclose #')
     end
 
+    local scroll = 0.30
+
     local map = {
       close = '<Esc>',
       help = 'g?',
       cycle_layout = '-',
       goto_file = 'gF',
       goto_file_c = 'gf',
-      scroll_down = 'J',
-      scroll_up = 'K',
+      scroll_down = '<C-d>',
+      scroll_up = '<C-u>',
       restore = 'R',
 
       choose_ours = '<leader>[',
@@ -72,9 +74,6 @@ return {
         view = {
           { 'n', map.goto_file_c, goto_file_and_close, { desc = 'Open the file in the previous tabpage and close' } },
           { 'n', map.goto_file, actions.goto_file_edit, { desc = 'Open the file in the previous tabpage' } },
-
-          { 'n', map.scroll_down, actions.scroll_view(0.25), { desc = 'Scroll the view down' } },
-          { 'n', map.scroll_up, actions.scroll_view(-0.25), { desc = 'Scroll the view up' } },
 
           { 'n', map.cycle_layout, actions.cycle_layout, { desc = 'Cycle through available layouts.' } },
 
@@ -130,8 +129,8 @@ return {
         file_panel = {
           { 'n', map.restore, actions.restore_entry, { desc = 'Restore entry to the state on the left side' } },
 
-          { 'n', map.scroll_down, actions.scroll_view(0.25), { desc = 'Scroll the view down' } },
-          { 'n', map.scroll_up, actions.scroll_view(-0.25), { desc = 'Scroll the view up' } },
+          { 'n', map.scroll_down, actions.scroll_view(scroll), { desc = 'Scroll the view down' } },
+          { 'n', map.scroll_up, actions.scroll_view(-scroll), { desc = 'Scroll the view up' } },
 
           { 'n', 'j', actions.next_entry, { desc = 'Bring the cursor to the next file entry' } },
           { 'n', 'k', actions.prev_entry, { desc = 'Bring the cursor to the previous file entry' } },
@@ -186,8 +185,8 @@ return {
           { 'n', 'gd', actions.open_in_diffview, { desc = 'Open the entry under the cursor in a diffview' } },
           { 'n', 'gy', actions.copy_hash, { desc = 'Copy the commit hash of the entry under the cursor' } },
 
-          { 'n', map.scroll_down, actions.scroll_view(0.25), { desc = 'Scroll the view down' } },
-          { 'n', map.scroll_up, actions.scroll_view(-0.25), { desc = 'Scroll the view up' } },
+          { 'n', map.scroll_down, actions.scroll_view(scroll), { desc = 'Scroll the view down' } },
+          { 'n', map.scroll_up, actions.scroll_view(-scroll), { desc = 'Scroll the view up' } },
 
           { 'n', 'j', actions.next_entry, { desc = 'Bring the cursor to the next file entry' } },
           { 'n', 'k', actions.prev_entry, { desc = 'Bring the cursor to the previous file entry' } },
