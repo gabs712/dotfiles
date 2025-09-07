@@ -34,6 +34,9 @@ return {
       choose_both = '<leader>=',
       choose_none = '<leader>-',
 
+      select_next_entry = 'J',
+      select_prev_entry = 'K',
+
       prev_conflict = '[g',
       next_conflict = ']g',
     }
@@ -99,10 +102,13 @@ return {
           { 'n', map.choose_both, actions.conflict_choose_all('all'), { desc = 'Choose both git conflicts' } },
           { 'n', map.choose_none, actions.conflict_choose_all('none'), { desc = 'Choose neither of git conflicts' } },
 
+          { 'n', map.select_next_entry, actions.select_next_entry, { desc = 'Open the diff for the next file' } },
+          { 'n', map.select_prev_entry, actions.select_prev_entry, { desc = 'Open the diff for the previous file' } },
+
           { 'n', '<C-Space>', actions.toggle_files, { desc = 'Toggle the file panel' } },
           { 'n', '<C-h>', '<Nop>' },
-          { 'n', '<C-j>', actions.select_next_entry, { desc = 'Open the diff for the next file' } },
-          { 'n', '<C-k>', actions.select_prev_entry, { desc = 'Open the diff for the previous file' } },
+          { 'n', '<C-j>', '<Nop>' },
+          { 'n', '<C-k>', '<Nop>' },
           { 'n', '<C-l>', actions.open_commit_log, { desc = 'Open the commit log panel' } },
 
           {
@@ -161,12 +167,15 @@ return {
           { 'n', 'zr', actions.open_all_folds, { desc = 'Expand all folds' } },
           { 'n', 'zm', actions.close_all_folds, { desc = 'Collapse all folds' } },
 
+          { 'n', map.select_next_entry, actions.select_next_entry, { desc = 'Open the diff for the next file' } },
+          { 'n', map.select_prev_entry, actions.select_prev_entry, { desc = 'Open the diff for the previous file' } },
+
           { 'n', map.help, actions.help('file_panel'), { desc = 'Open the help panel' } },
 
           { 'n', '<C-Space>', actions.toggle_files, { desc = 'Toggle the file panel' } },
           { 'n', '<C-h>', '<Nop>' },
-          { 'n', '<C-j>', actions.select_next_entry, { desc = 'Open the diff for the next file' } },
-          { 'n', '<C-k>', actions.select_prev_entry, { desc = 'Open the diff for the previous file' } },
+          { 'n', '<C-j>', actions.select_entry, { desc = 'Open the diff for the selected entry' } },
+          { 'n', '<C-k>', actions.close_fold, { desc = 'Collapse fold' } },
           { 'n', '<C-l>', actions.open_commit_log, { desc = 'Open the commit log panel' } },
 
           {
@@ -205,6 +214,9 @@ return {
           { 'n', 'zr', actions.open_all_folds, { desc = 'Expand all folds' } },
           { 'n', 'zm', actions.close_all_folds, { desc = 'Collapse all folds' } },
 
+          { 'n', map.select_next_entry, actions.select_next_entry, { desc = 'Open the diff for the next file' } },
+          { 'n', map.select_prev_entry, actions.select_prev_entry, { desc = 'Open the diff for the previous file' } },
+
           { 'n', map.cycle_layout, actions.cycle_layout, { desc = 'Cycle available layouts' } },
           { 'n', map.help, actions.help('file_history_panel'), { desc = 'Open the help panel' } },
 
@@ -218,8 +230,8 @@ return {
             end,
             { desc = 'Open the option panel' },
           },
-          { 'n', '<C-j>', actions.select_next_entry, { desc = 'Open the diff for the next file' } },
-          { 'n', '<C-k>', actions.select_prev_entry, { desc = 'Open the diff for the previous file' } },
+          { 'n', '<C-j>', actions.select_entry, { desc = 'Open the diff for the selected entry' } },
+          { 'n', '<C-k>', actions.close_fold, { desc = 'Collapse fold' } },
           { 'n', '<C-l>', actions.open_commit_log, { desc = 'Open the commit log panel' } },
 
           {
