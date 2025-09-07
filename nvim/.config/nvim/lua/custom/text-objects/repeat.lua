@@ -130,6 +130,22 @@ M.mark = function(forward)
 end
 
 --- @param forward boolean
+M.diff_change = function(forward)
+  repeat_move(function(opts)
+    local count = vim.v.count > 0 and vim.v.count or 1
+    if opts.forward then
+      pcall(function()
+        vim.cmd('norm! ' .. count .. ']c')
+      end)
+    else
+      pcall(function()
+        vim.cmd('norm! ' .. count .. '[c')
+      end)
+    end
+  end, forward)
+end
+
+--- @param forward boolean
 M.paragraph = function(forward)
   repeat_move(function(opts)
     local count = vim.v.count > 0 and vim.v.count or 1

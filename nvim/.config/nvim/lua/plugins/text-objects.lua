@@ -202,11 +202,19 @@ return {
           mode = { 'n', 'x', 'o' },
         },
         {
-          '[Q',
+          '[w',
           function()
-            require('custom.text-objects.repeat').quickfix_file(false)
+            require('custom.text-objects.repeat').diff_change(false)
           end,
-          desc = 'Previous quickfix file',
+          desc = 'Previous diff change',
+          mode = { 'n', 'x', 'o' },
+        },
+        {
+          ']w',
+          function()
+            require('custom.text-objects.repeat').diff_change(true)
+          end,
+          desc = 'Next diff change',
           mode = { 'n', 'x', 'o' },
         },
         {
