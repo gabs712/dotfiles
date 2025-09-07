@@ -78,8 +78,22 @@ return {
 
           { 'n', map.cycle_layout, actions.cycle_layout, { desc = 'Cycle through available layouts.' } },
 
-          { 'n', map.prev_conflict, actions.prev_conflict, { desc = 'Go to the previous conflict' } },
-          { 'n', map.next_conflict, actions.next_conflict, { desc = 'Go to the next conflict' } },
+          {
+            'n',
+            map.next_conflict,
+            function()
+              require('custom.text-objects.repeat').diffview_conflict(true)
+            end,
+            { desc = 'Go to the next conflict' },
+          },
+          {
+            'n',
+            map.prev_conflict,
+            function()
+              require('custom.text-objects.repeat').diffview_conflict(false)
+            end,
+            { desc = 'Go to the previous conflict' },
+          },
 
           { 'n', map.choose_ours, actions.conflict_choose_all('ours'), { desc = 'Choose current git conflict' } },
           { 'n', map.choose_theirs, actions.conflict_choose_all('theirs'), { desc = 'Choose merged git conflict' } },

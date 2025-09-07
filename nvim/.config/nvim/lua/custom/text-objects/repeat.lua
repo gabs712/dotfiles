@@ -24,6 +24,20 @@ M.git_conflict = function(forward)
   end, forward)
 end
 
+M.diffview_conflict = function(forward)
+  repeat_move(function(opts)
+    local actions = require('diffview.actions')
+
+    vim.cmd("normal! m'")
+
+    if opts.forward then
+      actions.next_conflict()
+    else
+      actions.prev_conflict()
+    end
+  end, forward)
+end
+
 --- @param forward boolean
 M.git_hunk = function(forward)
   repeat_move(function(opts)
