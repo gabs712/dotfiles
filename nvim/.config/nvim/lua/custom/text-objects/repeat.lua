@@ -24,6 +24,7 @@ M.git_conflict = function(forward)
   end, forward)
 end
 
+--- @param forward boolean
 M.diffview_conflict = function(forward)
   repeat_move(function(opts)
     local actions = require('diffview.actions')
@@ -68,6 +69,7 @@ M.diagnostic = function(forward)
   end, forward)
 end
 
+--- @param forward boolean
 M.quickfix = function(forward)
   repeat_move(function(opts)
     local count = vim.v.count > 0 and vim.v.count or 1
@@ -84,6 +86,7 @@ M.quickfix = function(forward)
   end, forward)
 end
 
+--- @param forward boolean
 M.quickfix_file = function(forward)
   repeat_move(function(opts)
     local count = vim.v.count > 0 and vim.v.count or 1
@@ -100,6 +103,7 @@ M.quickfix_file = function(forward)
   end, forward)
 end
 
+--- @param forward boolean
 M.indent = function(forward)
   repeat_move(function(opts)
     if opts.forward then
@@ -110,6 +114,7 @@ M.indent = function(forward)
   end, forward)
 end
 
+--- @param forward boolean
 M.mark = function(forward)
   repeat_move(function(opts)
     if opts.forward then
@@ -124,6 +129,7 @@ M.mark = function(forward)
   end, forward)
 end
 
+--- @param forward boolean
 M.paragraph = function(forward)
   repeat_move(function(opts)
     local count = vim.v.count > 0 and vim.v.count or 1
@@ -136,6 +142,7 @@ M.paragraph = function(forward)
   end, forward)
 end
 
+--- @param forward boolean
 M.todo = function(forward)
   repeat_move(function(opts)
     vim.cmd("normal! m'")
