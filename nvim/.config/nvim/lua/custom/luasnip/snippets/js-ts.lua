@@ -18,7 +18,7 @@ local common = {
   s('c', fmt('const {}', { i(1) })),
   s('l', fmt('let {}', { i(1) })),
 
-  s('imp', fmt("import {} from '{}'", { i(2, 'name'), i(1, 'module') })),
+  s('imp', fmt("import {{ {} }} from '{}'", { i(2), i(1) })),
   s('re', fmt("require('{}')", { i(1) })),
 
   s(
